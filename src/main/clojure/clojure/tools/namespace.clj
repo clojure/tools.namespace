@@ -55,7 +55,7 @@
   in the file, except for (comment ...)  forms."
   [^PushbackReader rdr]
   (try
-   (loop [] (let [form (read rdr)]
+   (loop [] (let [form (doto (read rdr) str)]
               (cond
                (ns-decl? form) form
                (comment? form) (recur)
