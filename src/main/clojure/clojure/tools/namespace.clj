@@ -35,7 +35,7 @@
   Returns a sequence of File objects, in breadth-first sort order."
   [^File dir]
   ;; Use sort by absolute path to get breadth-first search.
-  (sort-by #(.getAbsolutePath %)
+  (sort-by #(.getAbsolutePath ^File %)
            (filter clojure-source-file? (file-seq dir))))
 
 (defn comment?
@@ -88,7 +88,7 @@
 (defn clojure-sources-in-jar
   "Returns a sequence of filenames ending in .clj found in the JAR file."
   [^JarFile jar-file]
-  (filter #(.endsWith % ".clj") (classpath/filenames-in-jar jar-file)))
+  (filter #(.endsWith ^String % ".clj") (classpath/filenames-in-jar jar-file)))
 
 (defn read-ns-decl-from-jarfile-entry
   "Attempts to read a (ns ...) declaration from the named entry in the
