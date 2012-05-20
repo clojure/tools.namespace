@@ -16,7 +16,8 @@
   ^{:author "Stuart Sierra",
      :doc "Search for ns declarations in dirs, JARs, or CLASSPATH"} 
   clojure.tools.namespace
-  (:require [clojure.java.classpath :as classpath])
+  (:require [clojure.java.classpath :as classpath]
+            [clojure.set :as set])
   (import (java.io File FileReader BufferedReader PushbackReader
                    InputStreamReader)
           (java.util.jar JarFile)))
@@ -139,7 +140,7 @@
 ;;; Parsing dependencies
 
 (defn- deps-from-libspec [prefix form]
-  (cond (list? form) (apply union (map (fn [f] (deps-from-libspec
+  (cond (list? form) (apply set/union (map (fn [f] (deps-from-libspec
 						(symbol (str (when prefix (str prefix "."))
 							     (first form)))
 						f))
@@ -153,11 +154,11 @@
 (defn- deps-from-ns-form [form]
   (when (and (list? form)
 	     (contains? #{:use :require} (first form)))
-    (apply union (map #(deps-from-libspec nil %) (rest form)))))
+    (apply set/union (map #(deps-from-libspec nil %) (rest form)))))
 
 (defn deps-from-ns-decl
   "Given a (quoted) ns declaration, returns a set of symbols naming
   the dependencies of that namespace.  Handles :use and :require
   clauses but not :load."
   [decl]
-  (apply union (map deps-from-ns-form decl)))
+  (apply set/union (map deps-from-ns-form decl)))
