@@ -16,14 +16,6 @@
     </developer>
   </developers>
 
-  <dependencies>
-    <dependency>
-      <groupId>org.clojure</groupId>
-      <artifactId>java.classpath</artifactId>
-      <version>0.1.1</version>
-    </dependency>
-  </dependencies>
-
   <scm>
     <connection>scm:git:git@github.com:clojure/tools.namespace.git</connection>
     <developerConnection>scm:git:git@github.com:clojure/tools.namespace.git</developerConnection>
