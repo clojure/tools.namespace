@@ -88,7 +88,12 @@ Shortcuts:<br />
 </div><div id="index-body">
   <h2 id="D"><span id="section-head">D</span></h2>
   <pre>
-<span id="section-content"> <a href="index.html#clojure.tools.namespace/deps-from-ns-decl">deps-from-ns-decl</a><span id="line-content">            function      clojure.tools.namespace Given an (ns...) declaration form (unevaluate...
+<span id="section-content"> <a href="index.html#clojure.tools.namespace.dependency/depend">depend</a><span id="line-content">                       function      clojure.tools.namespace.dependency Returns a new graph with a depende...
+</span></span><span id="section-content"> <a href="index.html#clojure.tools.namespace.dependency/DependencyGraph">DependencyGraph</a><span id="line-content">              protocol      clojure.tools.namespace.dependency 
+</span></span><span id="section-content"> <a href="index.html#clojure.tools.namespace.dependency/DependencyGraphUpdate">DependencyGraphUpdate</a><span id="line-content">        protocol      clojure.tools.namespace.dependency 
+</span></span><span id="section-content"> <a href="index.html#clojure.tools.namespace.dependency/dependent?">dependent?</a><span id="line-content">                   function      clojure.tools.namespace.dependency True if y is a dependent of x..
+</span></span><span id="section-content"> <a href="index.html#clojure.tools.namespace.dependency/depends?">depends?</a><span id="line-content">                     function      clojure.tools.namespace.dependency True if x is directly or transitiv...
+</span></span><span id="section-content"> <a href="index.html#clojure.tools.namespace/deps-from-ns-decl">deps-from-ns-decl</a><span id="line-content">            function      clojure.tools.namespace Given an (ns...) declaration form (unevaluate...
 </span></span>
   </pre>
 </div><div id="index-body">
@@ -111,7 +116,8 @@ Shortcuts:<br />
 </div><div id="index-body">
   <h2 id="G"><span id="section-head">G</span></h2>
   <pre>
-
+<span id="section-content"> <a href="index.html#clojure.tools.namespace.dependency/graph">graph</a><span id="line-content">                        function      clojure.tools.namespace.dependency Returns a new, empty, dependency g...
+</span></span>
   </pre>
 </div><div id="index-body">
   <h2 id="H"><span id="section-head">H</span></h2>
@@ -121,7 +127,9 @@ Shortcuts:<br />
 </div><div id="index-body">
   <h2 id="I"><span id="section-head">I</span></h2>
   <pre>
-
+<span id="section-content"> <a href="index.html#clojure.tools.namespace.dependency/immediate-dependencies">immediate-dependencies</a><span id="line-content">       function      clojure.tools.namespace.dependency Returns the set of immediate depen...
+</span></span><span id="section-content"> <a href="index.html#clojure.tools.namespace.dependency/immediate-dependents">immediate-dependents</a><span id="line-content">         function      clojure.tools.namespace.dependency Returns the set of immediate depen...
+</span></span>
   </pre>
 </div><div id="index-body">
   <h2 id="J"><span id="section-head">J</span></h2>
@@ -141,7 +149,8 @@ Shortcuts:<br />
 </div><div id="index-body">
   <h2 id="M"><span id="section-head">M</span></h2>
   <pre>
-
+<span id="section-content"> <a href="index.html#clojure.tools.namespace.dependency/MapDependencyGraph">MapDependencyGraph</a><span id="line-content">           type          clojure.tools.namespace.dependency 
+</span></span>
   </pre>
 </div><div id="index-body">
   <h2 id="N"><span id="section-head">N</span></h2>
@@ -170,6 +179,8 @@ Shortcuts:<br />
 <span id="section-content"> <a href="index.html#clojure.tools.namespace/read-file-ns-decl">read-file-ns-decl</a><span id="line-content">            function      clojure.tools.namespace Attempts to read a (ns ...) declaration from ...
 </span></span><span id="section-content"> <a href="index.html#clojure.tools.namespace/read-ns-decl">read-ns-decl</a><span id="line-content">                 function      clojure.tools.namespace Attempts to read a (ns ...) declaration from ...
 </span></span><span id="section-content"> <a href="index.html#clojure.tools.namespace/read-ns-decl-from-jarfile-entry">read-ns-decl-from-jarfile-entry</a><span id="line-content"> function   clojure.tools.namespace Attempts to read a (ns ...) declaration from ...
+</span></span><span id="section-content"> <a href="index.html#clojure.tools.namespace.dependency/remove-all">remove-all</a><span id="line-content">                   function      clojure.tools.namespace.dependency Returns a new dependency graph wit...
+</span></span><span id="section-content"> <a href="index.html#clojure.tools.namespace.dependency/remove-key">remove-key</a><span id="line-content">                   function      clojure.tools.namespace.dependency Removes the key from the dependenc...
 </span></span>
   </pre>
 </div><div id="index-body">
@@ -180,7 +191,12 @@ Shortcuts:<br />
 </div><div id="index-body">
   <h2 id="T"><span id="section-head">T</span></h2>
   <pre>
-
+<span id="section-content"> <a href="index.html#clojure.tools.namespace.dependency/topo-comparator">topo-comparator</a><span id="line-content">              function      clojure.tools.namespace.dependency Returns a comparator which produce...
+</span></span><span id="section-content"> <a href="index.html#clojure.tools.namespace.dependency/topo-sort">topo-sort</a><span id="line-content">                    function      clojure.tools.namespace.dependency Returns a topographically-sorted s...
+</span></span><span id="section-content"> <a href="index.html#clojure.tools.namespace.dependency/topo-sort-by">topo-sort-by</a><span id="line-content">                 function      clojure.tools.namespace.dependency Returns a topographically-sorted s...
+</span></span><span id="section-content"> <a href="index.html#clojure.tools.namespace.dependency/transitive-dependencies">transitive-dependencies</a><span id="line-content">      function      clojure.tools.namespace.dependency Returns the set of all things whic...
+</span></span><span id="section-content"> <a href="index.html#clojure.tools.namespace.dependency/transitive-dependents">transitive-dependents</a><span id="line-content">        function      clojure.tools.namespace.dependency Returns the set of all things whic...
+</span></span>
   </pre>
 </div><div id="index-body">
   <h2 id="U"><span id="section-head">U</span></h2>

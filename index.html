@@ -99,6 +99,50 @@ namespace.
       <a class="toc-entry-anchor" href="#clojure.tools.namespace/read-ns-decl-from-jarfile-entry">read-ns-decl-from-jarfile-entry</a>
       
     </div>
+  </div><div style="margin-left: 1em;" class="toc-section">
+    <a href="#clojure.tools.namespace.dependency" style="margin-top: 3px;">clojure.tools.namespace.dependency</a>
+    <div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dependency/DependencyGraph">DependencyGraph</a>
+      <div style="margin-left: 1em;" class="toc-subentry">
+        <a class="toc-subentry-anchor" href="#clojure.tools.namespace.dependency/immediate-dependencies">immediate-dependencies</a>
+      </div><div style="margin-left: 1em;" class="toc-subentry">
+        <a class="toc-subentry-anchor" href="#clojure.tools.namespace.dependency/immediate-dependents">immediate-dependents</a>
+      </div><div style="margin-left: 1em;" class="toc-subentry">
+        <a class="toc-subentry-anchor" href="#clojure.tools.namespace.dependency/transitive-dependencies">transitive-dependencies</a>
+      </div><div style="margin-left: 1em;" class="toc-subentry">
+        <a class="toc-subentry-anchor" href="#clojure.tools.namespace.dependency/transitive-dependents">transitive-dependents</a>
+      </div>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dependency/DependencyGraphUpdate">DependencyGraphUpdate</a>
+      <div style="margin-left: 1em;" class="toc-subentry">
+        <a class="toc-subentry-anchor" href="#clojure.tools.namespace.dependency/depend">depend</a>
+      </div><div style="margin-left: 1em;" class="toc-subentry">
+        <a class="toc-subentry-anchor" href="#clojure.tools.namespace.dependency/remove-all">remove-all</a>
+      </div><div style="margin-left: 1em;" class="toc-subentry">
+        <a class="toc-subentry-anchor" href="#clojure.tools.namespace.dependency/remove-key">remove-key</a>
+      </div>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dependency/MapDependencyGraph">MapDependencyGraph</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dependency/dependent?">dependent?</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dependency/depends?">depends?</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dependency/graph">graph</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dependency/topo-comparator">topo-comparator</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dependency/topo-sort">topo-sort</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dependency/topo-sort-by">topo-sort-by</a>
+      
+    </div>
   </div>
 </div>
 </div>
@@ -307,6 +351,201 @@ fails, or if the first form is not a ns declaration.</pre>
     
     
     <a href="https://github.com/clojure/tools.namespace/blob/764958365870c15c67ff73871055431ae3e99fe5/src/main/clojure/clojure/tools/namespace.clj#L125" id="var-source">Source</a>
+  </div>
+</div>
+<br />
+<h2 id="clojure.tools.namespace.dependency">clojure.tools.namespace.dependency</h2>
+<pre id="namespace-docstr">Bidirectional graphs of dependencies and dependent objects.</pre>
+
+
+<br />
+<div id="proto-section">
+  <p></p>
+  <h2>Protocols</h2>
+  <div id="proto-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.dependency/DependencyGraph">DependencyGraph</h2>
+    <span id="proto-type">Protocol</span><br />
+    <pre id="proto-docstr"></pre>
+    Known implementations: <span id="proto-impls"><a href="#clojure.tools.namespace.dependency/MapDependencyGraph">MapDependencyGraph</a></span>
+    <div id="proto-var-entry">
+      <br />
+      <h3 id="clojure.tools.namespace.dependency/immediate-dependencies">immediate-dependencies</h3>
+      <span id="var-type">function</span><br />
+      <pre id="var-usage">Usage: (immediate-dependencies graph key)
+</pre>
+      <pre id="var-docstr">Returns the set of immediate dependencies of key.</pre>
+      
+      
+      
+    </div><div id="proto-var-entry">
+      <br />
+      <h3 id="clojure.tools.namespace.dependency/immediate-dependents">immediate-dependents</h3>
+      <span id="var-type">function</span><br />
+      <pre id="var-usage">Usage: (immediate-dependents graph key)
+</pre>
+      <pre id="var-docstr">Returns the set of immediate dependents of key.</pre>
+      
+      
+      
+    </div><div id="proto-var-entry">
+      <br />
+      <h3 id="clojure.tools.namespace.dependency/transitive-dependencies">transitive-dependencies</h3>
+      <span id="var-type">function</span><br />
+      <pre id="var-usage">Usage: (transitive-dependencies graph key)
+</pre>
+      <pre id="var-docstr">Returns the set of all things which key depends on, directly or
+transitively.</pre>
+      
+      
+      
+    </div><div id="proto-var-entry">
+      <br />
+      <h3 id="clojure.tools.namespace.dependency/transitive-dependents">transitive-dependents</h3>
+      <span id="var-type">function</span><br />
+      <pre id="var-usage">Usage: (transitive-dependents graph key)
+</pre>
+      <pre id="var-docstr">Returns the set of all things which depend upon key, directly or
+transitively.</pre>
+      
+      
+      
+    </div>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/33ef950d8cf1ca38c64fe55aca50afdc9fd838cc/src/main/clojure/clojure/tools/namespace/dependency.clj#L5" id="proto-source">Source</a>
+  </div><div id="proto-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.dependency/DependencyGraphUpdate">DependencyGraphUpdate</h2>
+    <span id="proto-type">Protocol</span><br />
+    <pre id="proto-docstr"></pre>
+    Known implementations: <span id="proto-impls"><a href="#clojure.tools.namespace.dependency/MapDependencyGraph">MapDependencyGraph</a></span>
+    <div id="proto-var-entry">
+      <br />
+      <h3 id="clojure.tools.namespace.dependency/depend">depend</h3>
+      <span id="var-type">function</span><br />
+      <pre id="var-usage">Usage: (depend graph key dep)
+</pre>
+      <pre id="var-docstr">Returns a new graph with a dependency from key to dep ("key depends
+on dep"). Forbids circular dependencies.</pre>
+      
+      
+      
+    </div><div id="proto-var-entry">
+      <br />
+      <h3 id="clojure.tools.namespace.dependency/remove-all">remove-all</h3>
+      <span id="var-type">function</span><br />
+      <pre id="var-usage">Usage: (remove-all graph key)
+</pre>
+      <pre id="var-docstr">Returns a new dependency graph with all references to key removed.</pre>
+      
+      
+      
+    </div><div id="proto-var-entry">
+      <br />
+      <h3 id="clojure.tools.namespace.dependency/remove-key">remove-key</h3>
+      <span id="var-type">function</span><br />
+      <pre id="var-usage">Usage: (remove-key graph key)
+</pre>
+      <pre id="var-docstr">Removes the key from the dependency graph without removing it as a
+dependency of other keys.</pre>
+      
+      
+      
+    </div>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/33ef950d8cf1ca38c64fe55aca50afdc9fd838cc/src/main/clojure/clojure/tools/namespace/dependency.clj#L17" id="proto-source">Source</a>
+  </div>
+</div>
+<div id="type-section">
+  <p></p>
+  <h2>Types</h2>
+  <div id="type-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.dependency/MapDependencyGraph">MapDependencyGraph</h2>
+    <span id="type-type">type</span><br />
+    <pre id="type-docstr"></pre>
+    Fields: <span id="type-fields">[dependencies dependents]</span><br />
+    Protocols: <span id="type-protocols"><a href="#clojure.tools.namespace.dependency/DependencyGraph">DependencyGraph</a>, <a href="#clojure.tools.namespace.dependency/DependencyGraphUpdate">DependencyGraphUpdate</a></span><br />
+    Interfaces: <span id="type-interfaces"></span><br />
+  </div>
+</div>
+<div id="var-section">
+  <p></p>
+  <h2>Public Variables and Functions</h2>
+  <div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.dependency/dependent?">dependent?</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (dependent? graph x y)
+</pre>
+    <pre id="var-docstr">True if y is a dependent of x.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/33ef950d8cf1ca38c64fe55aca50afdc9fd838cc/src/main/clojure/clojure/tools/namespace/dependency.clj#L78" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.dependency/depends?">depends?</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (depends? graph x y)
+</pre>
+    <pre id="var-docstr">True if x is directly or transitively dependent on y.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/33ef950d8cf1ca38c64fe55aca50afdc9fd838cc/src/main/clojure/clojure/tools/namespace/dependency.clj#L73" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.dependency/graph">graph</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (graph)
+</pre>
+    <pre id="var-docstr">Returns a new, empty, dependency graph.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/33ef950d8cf1ca38c64fe55aca50afdc9fd838cc/src/main/clojure/clojure/tools/namespace/dependency.clj#L70" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.dependency/topo-comparator">topo-comparator</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (topo-comparator graph)
+</pre>
+    <pre id="var-docstr">Returns a comparator which produces a topographical sort based on
+the dependencies in graph.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/33ef950d8cf1ca38c64fe55aca50afdc9fd838cc/src/main/clojure/clojure/tools/namespace/dependency.clj#L83" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.dependency/topo-sort">topo-sort</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (topo-sort graph coll)
+</pre>
+    <pre id="var-docstr">Returns a topographically-sorted sequence of the items in coll
+using dependencies in graph.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/33ef950d8cf1ca38c64fe55aca50afdc9fd838cc/src/main/clojure/clojure/tools/namespace/dependency.clj#L89" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.dependency/topo-sort-by">topo-sort-by</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (topo-sort-by graph keyfn coll)
+</pre>
+    <pre id="var-docstr">Returns a topographically-sorted sequence of the items in coll by
+comparing (keyfn item) using dependencies in graph.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/33ef950d8cf1ca38c64fe55aca50afdc9fd838cc/src/main/clojure/clojure/tools/namespace/dependency.clj#L95" id="var-source">Source</a>
   </div>
 </div>
 
