@@ -119,6 +119,8 @@ namespace.
       </div><div style="margin-left: 1em;" class="toc-subentry">
         <a class="toc-subentry-anchor" href="#clojure.tools.namespace.dependency/remove-all">remove-all</a>
       </div><div style="margin-left: 1em;" class="toc-subentry">
+        <a class="toc-subentry-anchor" href="#clojure.tools.namespace.dependency/remove-edge">remove-edge</a>
+      </div><div style="margin-left: 1em;" class="toc-subentry">
         <a class="toc-subentry-anchor" href="#clojure.tools.namespace.dependency/remove-key">remove-key</a>
       </div>
     </div><div style="margin-left: 1em;" class="toc-entry">
@@ -132,15 +134,6 @@ namespace.
       
     </div><div style="margin-left: 1em;" class="toc-entry">
       <a class="toc-entry-anchor" href="#clojure.tools.namespace.dependency/graph">graph</a>
-      
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dependency/topo-comparator">topo-comparator</a>
-      
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dependency/topo-sort">topo-sort</a>
-      
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dependency/topo-sort-by">topo-sort-by</a>
       
     </div>
   </div>
@@ -414,7 +407,7 @@ transitively.</pre>
     </div>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/33ef950d8cf1ca38c64fe55aca50afdc9fd838cc/src/main/clojure/clojure/tools/namespace/dependency.clj#L5" id="proto-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/6b8d70a41b5b790331beefae54117c668384400e/src/main/clojure/clojure/tools/namespace/dependency.clj#L5" id="proto-source">Source</a>
   </div><div id="proto-entry">
     <br />
     <hr />
@@ -445,19 +438,30 @@ on dep"). Forbids circular dependencies.</pre>
       
     </div><div id="proto-var-entry">
       <br />
+      <h3 id="clojure.tools.namespace.dependency/remove-edge">remove-edge</h3>
+      <span id="var-type">function</span><br />
+      <pre id="var-usage">Usage: (remove-edge graph key dep)
+</pre>
+      <pre id="var-docstr">Returns a new graph with the dependency from key to dep removed.</pre>
+      
+      
+      
+    </div><div id="proto-var-entry">
+      <br />
       <h3 id="clojure.tools.namespace.dependency/remove-key">remove-key</h3>
       <span id="var-type">function</span><br />
       <pre id="var-usage">Usage: (remove-key graph key)
 </pre>
       <pre id="var-docstr">Removes the key from the dependency graph without removing it as a
-dependency of other keys.</pre>
+dependency of other keys. That is, removes all outgoing edges from
+key.</pre>
       
       
       
     </div>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/33ef950d8cf1ca38c64fe55aca50afdc9fd838cc/src/main/clojure/clojure/tools/namespace/dependency.clj#L17" id="proto-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/6b8d70a41b5b790331beefae54117c668384400e/src/main/clojure/clojure/tools/namespace/dependency.clj#L17" id="proto-source">Source</a>
   </div>
 </div>
 <div id="type-section">
@@ -487,7 +491,7 @@ dependency of other keys.</pre>
     <pre id="var-docstr">True if y is a dependent of x.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/33ef950d8cf1ca38c64fe55aca50afdc9fd838cc/src/main/clojure/clojure/tools/namespace/dependency.clj#L78" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/6b8d70a41b5b790331beefae54117c668384400e/src/main/clojure/clojure/tools/namespace/dependency.clj#L88" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -498,7 +502,7 @@ dependency of other keys.</pre>
     <pre id="var-docstr">True if x is directly or transitively dependent on y.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/33ef950d8cf1ca38c64fe55aca50afdc9fd838cc/src/main/clojure/clojure/tools/namespace/dependency.clj#L73" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/6b8d70a41b5b790331beefae54117c668384400e/src/main/clojure/clojure/tools/namespace/dependency.clj#L83" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -509,43 +513,7 @@ dependency of other keys.</pre>
     <pre id="var-docstr">Returns a new, empty, dependency graph.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/33ef950d8cf1ca38c64fe55aca50afdc9fd838cc/src/main/clojure/clojure/tools/namespace/dependency.clj#L70" id="var-source">Source</a>
-  </div><div id="var-entry">
-    <br />
-    <hr />
-    <h2 id="clojure.tools.namespace.dependency/topo-comparator">topo-comparator</h2>
-    <span id="var-type">function</span><br />
-    <pre id="var-usage">Usage: (topo-comparator graph)
-</pre>
-    <pre id="var-docstr">Returns a comparator which produces a topographical sort based on
-the dependencies in graph.</pre>
-    
-    
-    <a href="https://github.com/clojure/tools.namespace/blob/33ef950d8cf1ca38c64fe55aca50afdc9fd838cc/src/main/clojure/clojure/tools/namespace/dependency.clj#L83" id="var-source">Source</a>
-  </div><div id="var-entry">
-    <br />
-    <hr />
-    <h2 id="clojure.tools.namespace.dependency/topo-sort">topo-sort</h2>
-    <span id="var-type">function</span><br />
-    <pre id="var-usage">Usage: (topo-sort graph coll)
-</pre>
-    <pre id="var-docstr">Returns a topographically-sorted sequence of the items in coll
-using dependencies in graph.</pre>
-    
-    
-    <a href="https://github.com/clojure/tools.namespace/blob/33ef950d8cf1ca38c64fe55aca50afdc9fd838cc/src/main/clojure/clojure/tools/namespace/dependency.clj#L89" id="var-source">Source</a>
-  </div><div id="var-entry">
-    <br />
-    <hr />
-    <h2 id="clojure.tools.namespace.dependency/topo-sort-by">topo-sort-by</h2>
-    <span id="var-type">function</span><br />
-    <pre id="var-usage">Usage: (topo-sort-by graph keyfn coll)
-</pre>
-    <pre id="var-docstr">Returns a topographically-sorted sequence of the items in coll by
-comparing (keyfn item) using dependencies in graph.</pre>
-    
-    
-    <a href="https://github.com/clojure/tools.namespace/blob/33ef950d8cf1ca38c64fe55aca50afdc9fd838cc/src/main/clojure/clojure/tools/namespace/dependency.clj#L95" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/6b8d70a41b5b790331beefae54117c668384400e/src/main/clojure/clojure/tools/namespace/dependency.clj#L80" id="var-source">Source</a>
   </div>
 </div>
 
