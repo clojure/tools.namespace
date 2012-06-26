@@ -18,11 +18,14 @@
   (depend [graph key dep]
     "Returns a new graph with a dependency from key to dep (\"key depends
     on dep\"). Forbids circular dependencies.")
+  (remove-edge [graph key dep]
+    "Returns a new graph with the dependency from key to dep removed.")
   (remove-all [graph key]
     "Returns a new dependency graph with all references to key removed.")
   (remove-key [graph key]
     "Removes the key from the dependency graph without removing it as a
-    dependency of other keys."))
+    dependency of other keys. That is, removes all outgoing edges from
+    key."))
 
 (defn- remove-from-map [amap x]
   (reduce (fn [m [k vs]]
@@ -39,6 +42,8 @@
 
 (declare depends?)
 
+(def set-conj (fnil conj #{}))
+
 (deftype MapDependencyGraph [dependencies dependents]
   DependencyGraph
   (immediate-dependencies [graph key]
@@ -53,11 +58,16 @@
   (depend [graph key dep]
     (when (depends? graph dep key)
       (throw (Exception.
-              (str "Circular dependency between "
-                   (pr-str key) " and " (pr-str dep)))))
+              (binding [*print-length* 10]
+               (str "Circular dependency between "
+                    (pr-str key) " and " (pr-str dep))))))
     (MapDependencyGraph.
-     (update-in dependencies [key] set/union #{dep})
-     (update-in dependents [dep] set/union #{key})))
+     (update-in dependencies [key] set-conj dep)
+     (update-in dependents [dep] set-conj key)))
+  (remove-edge [graph key dep]
+    (MapDependencyGraph.
+     (update-in dependencies [key] disj dep)
+     (update-in dependents [dep] disj key)))
   (remove-all [graph key]
     (MapDependencyGraph.
      (remove-from-map dependencies key)
@@ -80,23 +90,26 @@
   [graph x y]
   (contains? (transitive-dependents graph x) y))
 
-(defn topo-comparator
-  "Returns a comparator which produces a topographical sort based on
+(comment
+  ;; These don't work. You can't implement topological sort using a
+  ;; comparison sort.
+  (defn topo-comparator
+    "Returns a comparator which produces a topographical sort based on
   the dependencies in graph."
-  [graph]
-  (comparator (partial dependent? graph)))
+    [graph]
+    (comparator (partial dependent? graph)))
 
-(defn topo-sort
-  "Returns a topographically-sorted sequence of the items in coll
+  (defn topo-sort
+    "Returns a topographically-sorted sequence of the items in coll
   using dependencies in graph."  
-  [graph coll]
-  (sort (topo-comparator graph) coll))
+    [graph coll]
+    (sort (topo-comparator graph) coll))
 
-(defn topo-sort-by
-  "Returns a topographically-sorted sequence of the items in coll by
+  (defn topo-sort-by
+    "Returns a topographically-sorted sequence of the items in coll by
   comparing (keyfn item) using dependencies in graph."
-  [graph keyfn coll]
-  (sort-by keyfn (topo-comparator graph) coll))
+    [graph keyfn coll]
+    (sort-by keyfn (topo-comparator graph) coll)))
 
 (comment
   ;; example usage: building a graph like:
