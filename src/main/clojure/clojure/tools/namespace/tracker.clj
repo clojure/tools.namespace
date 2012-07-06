@@ -3,20 +3,19 @@
             [clojure.tools.namespace :as tns]
             [clojure.tools.namespace.dependency :as dep]))
 
-(defn- remove-deps [deps decls]
-  (reduce dep/remove-key deps (map second decls)))
+(defn- remove-deps [deps names]
+  (reduce dep/remove-key deps names))
 
-(defn- add-deps [deps decls]
-  (reduce (fn [ds decl]
-            (let [nn (second decl)]
-              (reduce (fn [g dep] (dep/depend g nn dep))
-                      ds (tns/deps-from-ns-decl decl))))
-          deps decls))
+(defn- add-deps [deps depmap]
+  (reduce (fn [ds [name dependencies]]
+            (reduce (fn [g dep] (dep/depend g name dep))
+                    ds dependencies))
+          deps depmap))
 
-(defn- update-deps [deps decls]
+(defn- update-deps [deps depmap]
   (-> deps
-      (remove-deps decls)
-      (add-deps decls)))
+      (remove-deps (keys depmap))
+      (add-deps depmap)))
 
 (defn- affected-namespaces [deps names]
   (apply set/union
@@ -28,24 +27,16 @@
   []
   {:deps (dep/graph)
    :unload ()
-   :load ()
-   :namespaces {}})
+   :load ()})
 
-(defn add-files
-  "Reads ns declarations from files; returns an updated dependency
-  tracker indicating which namespaces need to be reloaded after files
-  were added."
-  [state files]
-  (let [{:keys [load unload deps namespaces]} state
-        new-pairs (keep (fn [file]
-                          (when-let [decl (tns/read-file-ns-decl file)]
-                            [file decl]))
-                        files)
-        new-decls (map second new-pairs)
-        new-deps (update-deps deps new-decls)
-        changed (affected-namespaces deps (map second new-decls))]
+(defn add
+  "Depmap is a map from a namespace name to the set of names of
+  namespaces it depends on."
+  [state depmap]
+  (let [{:keys [load unload deps nsmap]} state
+        new-deps (update-deps deps depmap)
+        changed (affected-namespaces new-deps (keys depmap))]
     (assoc state
-      :namespaces (into namespaces new-pairs)
       :deps new-deps
       :unload (distinct
                (concat (reverse (sort (dep/topo-comparator deps) changed))
@@ -54,17 +45,33 @@
              (concat (sort (dep/topo-comparator new-deps) changed)
                      load)))))
 
-(defn remove-files
-  "Returns an updated dependency tracker indicating which namespaces
-  need to be reloaded after files were removed."
+(defn add-files
+  "Reads ns declarations from files; returns an updated dependency
+  tracker indicating which namespaces need to be reloaded after files
+  were added."
   [state files]
-  (let [{:keys [load unload deps namespaces]} state
-        removed-decls (keep namespaces files)
-        removed-names (map second removed-decls)
-        new-deps (remove-deps deps removed-decls)
+  (let [{:keys [depmap filemap]}
+        (reduce (fn [m file]
+                  (if-let [decl (tns/read-file-ns-decl file)]
+                    (let [deps (tns/deps-from-ns-decl decl)
+                          name (second decl)]
+                      (-> m
+                          (assoc-in [:depmap name] deps)
+                          (assoc-in [:filemap file] name)))
+                    m))
+                {} files)]
+    (-> state
+        (add depmap)
+        (update-in [:filemap] (fnil merge {}) filemap))))
+
+(defn remove-names
+  [state names]
+  (let [{:keys [load unload deps]} state
+        known (set (dep/keys deps))
+        removed-names (filter known names)
+        new-deps (remove-deps deps removed-names)
         changed (affected-namespaces deps removed-names)]
     (assoc state
-      :namespaces (apply dissoc namespaces files)
       :deps new-deps
       :unload (distinct
                (concat (reverse (sort (dep/topo-comparator deps) changed))
@@ -73,6 +80,20 @@
              (filter (complement (set removed-names))
                      (concat (sort (dep/topo-comparator new-deps) changed)
                              load))))))
+
+(defn remove-files
+  "Returns an updated dependency tracker indicating which namespaces
+  need to be reloaded after files were removed."
+  [state files]
+  (-> state
+      (remove-names (keep (:filemap state {}) files))
+      (update-in [:filemap] #(apply dissoc % files))))
+
+(defn remove-lib
+  "Remove lib's namespace and remove lib from the set of loaded libs."
+  [lib]
+  (remove-ns lib)
+  (dosync (alter @#'clojure.core/*loaded-libs* disj lib)))
 
 (defn reload-one
   "Executes one unload/reload operation; returns updated dependency
@@ -83,11 +104,13 @@
     (cond
       (seq unload)
         (let [n (first unload)]
-          (remove-ns n)
+          (prn :unloading n)
+          (remove-lib n)
           (update-in state [:unload] rest))
       (seq load)
         (let [n (first load)]
-          (try (require n :reload)
+          (try (prn :loading n)
+               (require n :reload)
                (update-in state [:load] rest)
                (catch Throwable t
                  (assoc state :error t :unload [n]))))
