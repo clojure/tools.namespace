@@ -3,25 +3,25 @@
             [clojure.tools.namespace :as tns]
             [clojure.tools.namespace.dependency :as dep]))
 
-(defn- remove-deps [deps new-decls]
-  (reduce dep/remove-key deps (map second new-decls)))
+(defn- remove-deps [deps decls]
+  (reduce dep/remove-key deps (map second decls)))
 
-(defn- add-deps [deps new-decls]
+(defn- add-deps [deps decls]
   (reduce (fn [ds decl]
             (let [nn (second decl)]
-              (reduce #(dep/depend %1 nn %2)
+              (reduce (fn [g dep] (dep/depend g nn dep))
                       ds (tns/deps-from-ns-decl decl))))
-          deps new-decls))
+          deps decls))
 
-(defn- update-deps [deps new-decls]
+(defn- update-deps [deps decls]
   (-> deps
-      (remove-deps new-decls)
-      (add-deps new-decls)))
+      (remove-deps decls)
+      (add-deps decls)))
 
-(defn- affected-namespaces [deps new-names]
+(defn- affected-namespaces [deps names]
   (apply set/union
-         (set new-names)
-         (map #(dep/transitive-dependents deps %) new-names)))
+         (set names)
+         (map #(dep/transitive-dependents deps %) names)))
 
 (defn tracker
   "Returns a new namespace dependency tracker."
@@ -59,9 +59,10 @@
   need to be reloaded after files were removed."
   [state files]
   (let [{:keys [load unload deps namespaces]} state
-        removed (keep (comp second namespaces) files)
-        new-deps (reduce dep/remove-key deps removed)
-        changed (affected-namespaces deps removed)]
+        removed-decls (keep namespaces files)
+        removed-names (map second removed-decls)
+        new-deps (remove-deps deps removed-decls)
+        changed (affected-namespaces deps removed-names)]
     (assoc state
       :namespaces (apply dissoc namespaces files)
       :deps new-deps
@@ -69,7 +70,7 @@
                (concat (reverse (sort (dep/topo-comparator deps) changed))
                        unload))
       :load (distinct
-             (filter (complement (set removed))
+             (filter (complement (set removed-names))
                      (concat (sort (dep/topo-comparator new-deps) changed)
                              load))))))
 
