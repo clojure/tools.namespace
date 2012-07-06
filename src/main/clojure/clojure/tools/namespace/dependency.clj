@@ -47,7 +47,7 @@
 
 (def set-conj (fnil conj #{}))
 
-(deftype MapDependencyGraph [dependencies dependents]
+(defrecord MapDependencyGraph [dependencies dependents]
   DependencyGraph
   (immediate-dependencies [graph key]
     (get dependencies key #{}))
