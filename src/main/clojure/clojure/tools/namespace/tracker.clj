@@ -30,34 +30,39 @@
    :load []})
 
 (defn update [state files]
-  (if (:error state)
-    state
-    (let [deps (:deps state)
-          new-decls (keep tns/read-file-ns-decl files)
-          new-deps (update-deps deps new-decls)
-          changed (affected-namespaces deps new-decls)]
-      (assoc state
-        :deps new-deps
-        :unload (reverse (dep/topo-sort deps changed))
-        :load (dep/topo-sort new-deps changed)))))
+  (let [{:keys [load unload deps]} state
+        new-decls (keep tns/read-file-ns-decl files)
+        new-deps (update-deps deps new-decls)
+        changed (affected-namespaces deps new-decls)]
+    (assoc state
+      :deps new-deps
+      :unload (distinct
+               (concat (reverse (sort (dep/topo-comparator deps) changed))
+                       unload))
+      :load (distinct
+             (concat (sort (dep/topo-comparator new-deps) changed)
+                     load)))))
 
-(defn reload [state]
-  (let [state (dissoc state :error)
-        {:keys [unload load]} state]
+(defn reload-one [state]
+  (let [{:keys [unload load]} state]
     (cond
       (seq unload)
         (let [n (first unload)]
-          (prn (list 'remove-ns n))
           (remove-ns n)
-          (recur (update-in state [:unload] rest)))
+          (update-in state [:unload] rest))
       (seq load)
         (let [n (first load)]
-          (prn (list 'require n :reload))
-          (let [r (try (require n :reload)
-                       true
-                       (catch Throwable t t))]
-            (if (true? r)
-              (recur (update-in state [:load] rest))
-              (assoc state :error r :unload [n]))))
+          (try (require n :reload)
+               (update-in state [:load] rest)
+               (catch Throwable t
+                 (assoc state :error t :unload [n]))))
       :else
         state)))
+
+(defn reload-all [state]
+  (loop [state (dissoc state :error)]
+    (let [{:keys [unload load error]} state]
+      (if (and (or (seq load) (seq unload))
+               (not error))
+        (recur (reload-one state))
+        state))))
