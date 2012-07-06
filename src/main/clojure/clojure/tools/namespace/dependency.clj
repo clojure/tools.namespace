@@ -1,5 +1,6 @@
 (ns clojure.tools.namespace.dependency
   "Bidirectional graphs of dependencies and dependent objects."
+  (:refer-clojure :exclude (keys))
   (:require [clojure.set :as set]))
 
 (defprotocol DependencyGraph
@@ -12,7 +13,9 @@
     transitively.")
   (transitive-dependents [graph key]
     "Returns the set of all things which depend upon key, directly or
-    transitively."))
+    transitively.")
+  (keys [graph]
+    "Returns the set of all keys in graph."))
 
 (defprotocol DependencyGraphUpdate
   (depend [graph key dep]
@@ -54,6 +57,9 @@
     (transitive dependencies key))
   (transitive-dependents [graph key]
     (transitive dependents key))
+  (keys [graph]
+    (clojure.set/union (set (clojure.core/keys dependencies))
+                       (set (clojure.core/keys dependents))))
   DependencyGraphUpdate
   (depend [graph key dep]
     (when (depends? graph dep key)
@@ -90,26 +96,40 @@
   [graph x y]
   (contains? (transitive-dependents graph x) y))
 
-(comment
-  ;; These don't work. You can't implement topological sort using a
-  ;; comparison sort.
-  (defn topo-comparator
-    "Returns a comparator which produces a topographical sort based on
-  the dependencies in graph."
-    [graph]
-    (comparator (partial dependent? graph)))
+(defn topo-sort
+  "Returns a topologically-sorted list of keys in graph."
+  [graph]
+  (loop [sorted ()
+         g graph
+         todo (set (filter #(empty? (immediate-dependents graph %))
+                           (keys graph)))]
+    (if (empty? todo)
+      sorted
+      (let [[key & more] (seq todo)
+            deps (immediate-dependencies g key)
+            [add g'] (loop [deps deps
+                            g g
+                            add #{}]
+                       (if (seq deps)
+                         (let [d (first deps)
+                               g' (remove-edge g key d)]
+                           (if (empty? (immediate-dependents g' d))
+                             (recur (rest deps) g' (conj add d))
+                             (recur (rest deps) g' add)))
+                         [add g]))]
+        (recur (cons key sorted)
+               (remove-key g' key)
+               (clojure.set/union (set more) (set add)))))))
 
-  (defn topo-sort
-    "Returns a topographically-sorted sequence of the items in coll
-  using dependencies in graph."  
-    [graph coll]
-    (sort (topo-comparator graph) coll))
-
-  (defn topo-sort-by
-    "Returns a topographically-sorted sequence of the items in coll by
-  comparing (keyfn item) using dependencies in graph."
-    [graph keyfn coll]
-    (sort-by keyfn (topo-comparator graph) coll)))
+(defn topo-comparator
+  "Returns a comparator fn which produces a topological sort based on
+  the dependencies in graph. Keys not present in the graph will sort
+  after keys in the graph."
+  [graph]
+  (let [pos (zipmap (topo-sort graph) (range))]
+    (fn [a b]
+      (compare (get pos a Long/MAX_VALUE)
+               (get pos b Long/MAX_VALUE)))))
 
 (comment
   ;; example usage: building a graph like:
@@ -131,6 +151,44 @@
   (transitive-dependencies g :d)
   ;;=> #{:a :c :b}
 
-  (topo-sort g [:d :a :c :b])
-  ;;=> (:a :b :c :d)
-  )
+  (sort (topo-comparator g) [:d :a :b :foo])
+  ;;=> (:a :b :d :foo)
+
+  ;;      'one    'five
+  ;;        |       |
+  ;;      'two      |
+  ;;       / \      |
+  ;;      /   \     |
+  ;;     /     \   /
+  ;; 'three   'four
+  ;;    |      /
+  ;;  'six    /
+  ;;    |    /
+  ;;    |   /
+  ;;    |  /
+  ;;  'seven
+  ;;
+  (def g2 (-> (graph)
+              (depend 'two 'one)
+              (depend 'three 'two)
+              (depend 'four 'two)
+              (depend 'four 'five)
+              (depend 'six 'three)
+              (depend 'seven 'six)
+              (depend 'seven 'four)))
+
+  (transitive-dependencies g2 'seven)
+  ;;=> #{two four six one five three}
+  
+  (transitive-dependents g2 'five)
+  ;;=> #{four seven}
+
+  (transitive-dependents g2 'two)
+  ;;=> #{four seven six three}
+
+  (topo-sort g2)
+  ;;=> (one two three five six four seven)
+
+  (sort (topo-comparator g2) '[three seven nine eight five])
+  ;;=> (three five seven nine eight)
+)
