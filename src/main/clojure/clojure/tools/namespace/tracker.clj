@@ -30,8 +30,32 @@
    :load ()})
 
 (defn add
-  "Depmap is a map from a namespace name to the set of names of
-  namespaces it depends on."
+  "Returns an updated dependency tracker with new/updated namespaces.
+
+  Depmap is a map describing the new or modified namespaces. Keys in
+  the map are namespace names (symbols). Values in the map are sets of
+  symbols naming the birect dependencies of each namespace. For
+  example, assuming these ns declarations:
+
+      (ns alpha (:require beta))
+      (ns beta (:require gamma delta))
+
+  the depmap would look like this:
+
+      {alpha #{beta}
+       beta  #{gamma delta}}
+
+  After adding new/updated namespaces, the dependency tracker will
+  have two lists:
+
+      :unload is the list of namespaces that need to be removed
+
+      :load is the list of namespaces that need to be reloaded
+
+  To reload namespaces in the correct order, first remove/unload all
+  namespaces in the :unload list, then (re)load all namespaces in
+  the :load list.
+"
   [state depmap]
   (let [{:keys [load unload deps nsmap]} state
         new-deps (update-deps deps depmap)
@@ -46,9 +70,8 @@
                      load)))))
 
 (defn add-files
-  "Reads ns declarations from files; returns an updated dependency
-  tracker indicating which namespaces need to be reloaded after files
-  were added."
+  "Reads ns declarations from files and adds them to the dependency
+  tracker."
   [state files]
   (let [{:keys [depmap filemap]}
         (reduce (fn [m file]
@@ -65,6 +88,10 @@
         (update-in [:filemap] (fnil merge {}) filemap))))
 
 (defn remove-names
+  "Returns an updated dependency tracker from which the namespaces
+  (symbols) have been removed. The :unload and :load lists indicate
+  the order in which namespaces should be un/reloaded to reflect this
+  change, as with add."
   [state names]
   (let [{:keys [load unload deps]} state
         known (set (dep/keys deps))
@@ -82,8 +109,9 @@
                              load))))))
 
 (defn remove-files
-  "Returns an updated dependency tracker indicating which namespaces
-  need to be reloaded after files were removed."
+  "Returns an updated dependency tracker after removing files. The
+  files must have been previously added to the dependency tracker
+  using add-files."
   [state files]
   (-> state
       (remove-names (keep (:filemap state {}) files))
@@ -96,9 +124,9 @@
   (dosync (alter @#'clojure.core/*loaded-libs* disj lib)))
 
 (defn reload-one
-  "Executes one unload/reload operation; returns updated dependency
-  tracker indicating errors and which namespaces remain to be
-  removed/reloaded."
+  "Executes the next pending unload/reload operation in the dependency
+  tracker. Returns the updated dependency tracker. If reloading caused
+  an error, it is captured as :error."
   [state]
   (let [{:keys [unload load]} state]
     (cond
@@ -118,8 +146,8 @@
         state)))
 
 (defn reload
-  "Executes remove/reload operations on a dependency tracker until
-  either an error is encountered or there are no more pending
+  "Executes all pending unload/reload operations on dependency tracker
+  until either an error is encountered or there are no more pending
   operations."
   [state]
   (loop [state (dissoc state :error)]
