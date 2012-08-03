@@ -48,7 +48,7 @@
                 (Pattern/compile (Pattern/quote File/pathSeparator))))))
 
 (defn scan
-  "Scan directories for files which have changed since the last time
+  "Scans directories for files which have changed since the last time
   'scan' was run; update the dependency tracker with
   new/changed/deleted files.
 
@@ -61,3 +61,13 @@
     (if (or deleted modified)
       (update-files tracker deleted modified)
       tracker)))
+
+(defn scan-all
+  "Scans directories for all Clojure source files and updates the
+  dependency tracker to reload files. If no dirs given, defaults to
+  all directories on the classpath."
+  [tracker & dirs]
+  (let [ds (or (seq dirs) (dirs-on-classpath))
+        files (find-files ds)
+        deleted (seq (deleted-files tracker files))]
+    (update-files tracker deleted files)))
