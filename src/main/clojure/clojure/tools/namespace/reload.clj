@@ -21,22 +21,22 @@
 (defn track-reload-one
   "Executes the next pending unload/reload operation in the dependency
   tracker. Returns the updated dependency tracker. If reloading caused
-  an error, it is captured as ::error."
+  an error, it is captured as ::error and the namespace which caused
+  the error is ::error-ns."
   [tracker]
   (let [{unload ::track/unload, load ::track/load} tracker]
     (cond
       (seq unload)
         (let [n (first unload)]
-          (prn :unloading n)
           (remove-lib n)
           (update-in tracker [::track/unload] rest))
       (seq load)
         (let [n (first load)]
-          (try (prn :loading n)
-               (require n :reload)
+          (try (require n :reload)
                (update-in tracker [::track/load] rest)
                (catch Throwable t
-                 (assoc tracker ::error t ::track/unload load))))
+                 (assoc tracker
+                   ::error t ::error-ns n ::track/unload load))))
       :else
         tracker)))
 
@@ -45,7 +45,7 @@
   until either an error is encountered or there are no more pending
   operations."
   [tracker]
-  (loop [tracker (dissoc tracker ::error)]
+  (loop [tracker (dissoc tracker ::error ::error-ns)]
     (let [{error ::error, unload ::track/unload, load ::track/load} tracker]
       (if (and (not error)
                (or (seq load) (seq unload)))
