@@ -18,7 +18,7 @@
             [clojure.tools.namespace.dependency :as dep]))
 
 (defn- remove-deps [deps names]
-  (reduce dep/remove-key deps names))
+  (reduce dep/remove-node deps names))
 
 (defn- add-deps [deps depmap]
   (reduce (fn [ds [name dependencies]]
@@ -90,7 +90,7 @@
          unload ::unload
          deps ::deps
          :or {load (), unload (), deps (dep/graph)}} tracker
-        known (set (dep/keys deps))
+        known (set (dep/nodes deps))
         removed-names (filter known names)
         new-deps (remove-deps deps removed-names)
         changed (affected-namespaces deps removed-names)]

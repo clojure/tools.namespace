@@ -9,35 +9,34 @@
 (ns ^{:author "Stuart Sierra"
       :doc "Bidirectional graphs of dependencies and dependent objects."}
   clojure.tools.namespace.dependency
-  (:refer-clojure :exclude (keys))
   (:require [clojure.set :as set]))
 
 (defprotocol DependencyGraph
-  (immediate-dependencies [graph key]
-    "Returns the set of immediate dependencies of key.")
-  (immediate-dependents [graph key]
-    "Returns the set of immediate dependents of key.")
-  (transitive-dependencies [graph key]
-    "Returns the set of all things which key depends on, directly or
+  (immediate-dependencies [graph node]
+    "Returns the set of immediate dependencies of node.")
+  (immediate-dependents [graph node]
+    "Returns the set of immediate dependents of node.")
+  (transitive-dependencies [graph node]
+    "Returns the set of all things which node depends on, directly or
     transitively.")
-  (transitive-dependents [graph key]
-    "Returns the set of all things which depend upon key, directly or
+  (transitive-dependents [graph node]
+    "Returns the set of all things which depend upon node, directly or
     transitively.")
-  (keys [graph]
-    "Returns the set of all keys in graph."))
+  (nodes [graph]
+    "Returns the set of all nodes in graph."))
 
 (defprotocol DependencyGraphUpdate
-  (depend [graph key dep]
-    "Returns a new graph with a dependency from key to dep (\"key depends
+  (depend [graph node dep]
+    "Returns a new graph with a dependency from node to dep (\"node depends
     on dep\"). Forbids circular dependencies.")
-  (remove-edge [graph key dep]
-    "Returns a new graph with the dependency from key to dep removed.")
-  (remove-all [graph key]
-    "Returns a new dependency graph with all references to key removed.")
-  (remove-key [graph key]
-    "Removes the key from the dependency graph without removing it as a
-    dependency of other keys. That is, removes all outgoing edges from
-    key."))
+  (remove-edge [graph node dep]
+    "Returns a new graph with the dependency from node to dep removed.")
+  (remove-all [graph node]
+    "Returns a new dependency graph with all references to node removed.")
+  (remove-node [graph node]
+    "Removes the node from the dependency graph without removing it as a
+    dependency of other nodes. That is, removes all outgoing edges from
+    node."))
 
 (defn- remove-from-map [amap x]
   (reduce (fn [m [k vs]]
@@ -58,38 +57,38 @@
 
 (defrecord MapDependencyGraph [dependencies dependents]
   DependencyGraph
-  (immediate-dependencies [graph key]
-    (get dependencies key #{}))
-  (immediate-dependents [graph key]
-    (get dependents key #{}))
-  (transitive-dependencies [graph key]
-    (transitive dependencies key))
-  (transitive-dependents [graph key]
-    (transitive dependents key))
-  (keys [graph]
-    (clojure.set/union (set (clojure.core/keys dependencies))
-                       (set (clojure.core/keys dependents))))
+  (immediate-dependencies [graph node]
+    (get dependencies node #{}))
+  (immediate-dependents [graph node]
+    (get dependents node #{}))
+  (transitive-dependencies [graph node]
+    (transitive dependencies node))
+  (transitive-dependents [graph node]
+    (transitive dependents node))
+  (nodes [graph]
+    (clojure.set/union (set (keys dependencies))
+                       (set (keys dependents))))
   DependencyGraphUpdate
-  (depend [graph key dep]
-    (when (depends? graph dep key)
+  (depend [graph node dep]
+    (when (depends? graph dep node)
       (throw (Exception.
               (binding [*print-length* 10]
                (str "Circular dependency between "
-                    (pr-str key) " and " (pr-str dep))))))
+                    (pr-str node) " and " (pr-str dep))))))
     (MapDependencyGraph.
-     (update-in dependencies [key] set-conj dep)
-     (update-in dependents [dep] set-conj key)))
-  (remove-edge [graph key dep]
+     (update-in dependencies [node] set-conj dep)
+     (update-in dependents [dep] set-conj node)))
+  (remove-edge [graph node dep]
     (MapDependencyGraph.
-     (update-in dependencies [key] disj dep)
-     (update-in dependents [dep] disj key)))
-  (remove-all [graph key]
+     (update-in dependencies [node] disj dep)
+     (update-in dependents [dep] disj node)))
+  (remove-all [graph node]
     (MapDependencyGraph.
-     (remove-from-map dependencies key)
-     (remove-from-map dependents key)))
-  (remove-key [graph key]
+     (remove-from-map dependencies node)
+     (remove-from-map dependents node)))
+  (remove-node [graph node]
     (MapDependencyGraph.
-     (dissoc dependencies key)
+     (dissoc dependencies node)
      dependents)))
 
 (defn graph "Returns a new, empty, dependency graph." []
@@ -106,34 +105,34 @@
   (contains? (transitive-dependents graph x) y))
 
 (defn topo-sort
-  "Returns a topologically-sorted list of keys in graph."
+  "Returns a topologically-sorted list of nodes in graph."
   [graph]
   (loop [sorted ()
          g graph
          todo (set (filter #(empty? (immediate-dependents graph %))
-                           (keys graph)))]
+                           (nodes graph)))]
     (if (empty? todo)
       sorted
-      (let [[key & more] (seq todo)
-            deps (immediate-dependencies g key)
+      (let [[node & more] (seq todo)
+            deps (immediate-dependencies g node)
             [add g'] (loop [deps deps
                             g g
                             add #{}]
                        (if (seq deps)
                          (let [d (first deps)
-                               g' (remove-edge g key d)]
+                               g' (remove-edge g node d)]
                            (if (empty? (immediate-dependents g' d))
                              (recur (rest deps) g' (conj add d))
                              (recur (rest deps) g' add)))
                          [add g]))]
-        (recur (cons key sorted)
-               (remove-key g' key)
+        (recur (cons node sorted)
+               (remove-node g' node)
                (clojure.set/union (set more) (set add)))))))
 
 (defn topo-comparator
   "Returns a comparator fn which produces a topological sort based on
-  the dependencies in graph. Keys not present in the graph will sort
-  after keys in the graph."
+  the dependencies in graph. Nodes not present in the graph will sort
+  after nodes in the graph."
   [graph]
   (let [pos (zipmap (topo-sort graph) (range))]
     (fn [a b]
