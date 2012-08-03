@@ -25,6 +25,12 @@
         e)
     :ok))
 
+(defn- do-refresh [f]
+  (let [current-ns (ns-name *ns*)]
+    (alter-var-root #'refresh-tracker f)
+    (print-and-return refresh-tracker)
+    (in-ns current-ns)))
+
 (defn refresh
   "Scans source code directories for files which have changed (since
   the last time this function was run) and reloads them in dependency
@@ -34,9 +40,7 @@
   The directories to be scanned are controlled by 'set-refresh-dirs';
   defaults to all directories on the Java classpath."
   []
-  (alter-var-root #'refresh-tracker
-                  #(-> % dir/scan reload/track-reload))
-  (print-and-return refresh-tracker))
+  (do-refresh #(-> % dir/scan reload/track-reload)))
 
 (defn refresh-all
   "Scans source code directories for all Clojure source files and
@@ -45,9 +49,7 @@
   The directories to be scanned are controlled by 'set-refresh-dirs';
   defaults to all directories on the Java classpath."
   []
-  (alter-var-root #'refresh-tracker
-                  #(-> % dir/scan-all reload/track-reload))
-  (print-and-return refresh-tracker))
+  (do-refresh #(-> % dir/scan-all reload/track-reload)))
 
 (defn set-refresh-dirs
   "Sets the directories which are scanned by 'refresh'. Supports the
