@@ -210,20 +210,20 @@ start processes.
 It might take a few tries to get it right, but once you have a working
 start/stop you can have a workflow like this:
 
-1. Start up a REPL.
+Step 1. Start up a REPL.
 
-2. Load the app:
+Step 2. Load the app:
 
     user=> (use '[clojure.tools.namespace.repl :only (refresh)])
     user=> (refresh)
     user=> (def my-app (create-application))
     user=> (start my-app)
 
-3. Test it out.
+Step 3. Test it out.
 
-4. Modify some source files.
+Step 4. Modify some source files.
 
-5. Restart:
+Step 5. Restart:
 
     user=> (stop my-app)
     user=> (refresh)
