@@ -25,11 +25,43 @@
         e)
     :ok))
 
-(defn- do-refresh [f]
-  (let [current-ns (ns-name *ns*)]
-    (alter-var-root #'refresh-tracker f)
-    (print-and-return refresh-tracker)
-    (in-ns current-ns)))
+(defn- print-pending-reloads [tracker]
+  (prn :reloading (::track/load tracker)))
+
+(defn- load-disabled? [sym]
+  (false? (::load (meta (find-ns sym)))))
+
+(defn- unload-disabled? [sym]
+  (or (false? (::unload (meta (find-ns sym))))
+      (load-disabled? sym)))
+
+(defn- remove-disabled [tracker]
+  (-> tracker
+      (update-in [::track/unload] #(remove unload-disabled? %))
+      (update-in [::track/load] #(remove load-disabled? %))))
+
+(defn- do-refresh [scan-fn]
+  (locking #'refresh-tracker
+    (let [current-ns (ns-name *ns*)]
+      (alter-var-root #'refresh-tracker scan-fn)
+      (alter-var-root #'refresh-tracker remove-disabled)
+      (print-pending-reloads refresh-tracker)
+      (alter-var-root #'refresh-tracker reload/track-reload)
+      (print-and-return refresh-tracker)
+      (in-ns current-ns))))
+
+(defn disable-unload!
+  "Adds metadata to namespace (or *ns* if unspecified) telling
+  'refresh' not to unload it. The namespace may still be reloaded, it
+  just won't be removed first."
+  ([] (disable-unload! *ns*))
+  ([namespace] (alter-meta! namespace assoc ::unload false)))
+
+(defn disable-reload!
+  "Adds metadata to namespace (or *ns* if unspecified) telling
+  'refresh' not to load it. Implies disable-unload! also."
+  ([] (disable-reload! *ns*))
+  ([namespace] (alter-meta! namespace assoc ::load false)))
 
 (defn refresh
   "Scans source code directories for files which have changed (since
@@ -40,7 +72,7 @@
   The directories to be scanned are controlled by 'set-refresh-dirs';
   defaults to all directories on the Java classpath."
   []
-  (do-refresh #(-> % dir/scan reload/track-reload)))
+  (do-refresh dir/scan))
 
 (defn refresh-all
   "Scans source code directories for all Clojure source files and
@@ -49,7 +81,7 @@
   The directories to be scanned are controlled by 'set-refresh-dirs';
   defaults to all directories on the Java classpath."
   []
-  (do-refresh #(-> % dir/scan-all reload/track-reload)))
+  (do-refresh dir/scan-all))
 
 (defn set-refresh-dirs
   "Sets the directories which are scanned by 'refresh'. Supports the
