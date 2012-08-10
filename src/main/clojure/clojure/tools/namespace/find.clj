@@ -8,7 +8,7 @@
 
 (ns 
   ^{:author "Stuart Sierra",
-     :doc "Search for ns declarations in dirs, JARs, or CLASSPATH"} 
+     :doc "Search for namespace declarations in directories and JAR files."} 
   clojure.tools.namespace.find
   (:require [clojure.java.io :as io]
             [clojure.set :as set]
