@@ -122,7 +122,7 @@ I wrote tools.namespace to help speed up this development cycle.
 Reloading Code: Usage
 -----------------------
 
-Using c.t.n.repl is easy:
+There's only one important function, `refresh`:
 
     user=> (use '[clojure.tools.namespace.repl :only (refresh)])
     user=> (refresh)
@@ -143,7 +143,7 @@ changed, in dependency order. But first, it will *unload* the
 namespaces that changed to clear out any old definitions. 
 
 This is subtle, and quite unlike `(require ... :reload)`. Calling
-`refresh` will /blow away your old code/. Sometimes this is helpful:
+`refresh` will *blow away your old code*. Sometimes this is helpful:
 it can catch trivial mistakes like deleting a function that another
 piece of code depends on. But sometimes it hurts when you have
 built-up application state stored in a Var that got deleted by
@@ -175,7 +175,7 @@ considered a bad idea in *every* programming paradigm. (Using
 You can't avoid mutable state: that's one of the principles behind
 Clojure's mutable reference types. But you *can* avoid making it
 global. Instead of storing your state in global Vars, store it
-/locally/ in an object that represents the running state of your
+*locally* in an object that represents the running state of your
 application. Then provide a constructor function to initialize that
 state:
 
@@ -185,6 +185,10 @@ state:
 
 You can choose what representation works best for your application:
 map, vector, record, or even just a single Ref by itself.
+
+Typically you'll still need one global `def` somewhere, perhaps in the
+REPL itself, to hold the current application instance. See "Managing
+Reloads" below.
 
 ### Managed Lifecycle
 
@@ -233,11 +237,34 @@ Step 5. Restart:
 After that, you've got a squeaky-clean new instance of your app
 running, in a fraction of the time it takes to restart the JVM.
 
+### Managing Reloads
+
+Some projects have a "project REPL" or a "scratch" namespace where you
+want keep state during development. You can use the functions
+`disable-unload!` and `disable-reload!` in
+`clojure.tools.namespace.repl` to prevent `refresh` from automatically
+un/reloading those namespaces.
+
+Use this feature sparingly: it exists as a development-time
+convenience, not a work-around for code that is not reload-safe.
+
 
 Warnings
 --------------------
 
-Beware code which has references to old definitions.
+Be careful when reloading the namespace in which you run your REPL.
+Because namespaces are removed when reloading, all your past
+definitions are lost. It will be easier to keep your REPL in a
+namespace which has no file associated with it, such as `user`.
+
+Be careful when using fully-qualified symbol names without namespace
+aliases (`require` with no `:as`). If the namespace happens already to
+be loaded, it will not necessarily cause an error if you forget to
+`require` it, but the dependency graph of namespaces will be
+incorrect.
+
+Beware of code which has references to old definitions, especially
+references to things you created in the REPL.
 
 If you create your own instance of the dependency tracker, do not
 store it in a namespace which gets reloaded.
@@ -261,9 +288,7 @@ For example, if you have a namespace like this:
 And you do something like the following at the REPL:
 
     user=> (def my-foo (->FooRecord))
-
     user=> (clojure.tools.namespace.repl/refresh)
-
     user=> (foo my-foo)
 
 You will get a confusing error message like this:
@@ -283,7 +308,8 @@ To avoid this problem, always create new instances of records after a
 refresh.
 
 
-## Copyright and License
+Copyright and License
+========================================
 
 Copyright © 2012 Stuart Sierra
 
