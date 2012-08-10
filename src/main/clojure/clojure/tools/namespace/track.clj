@@ -10,8 +10,9 @@
       :doc "Dependency tracker which can compute which namespaces need to be
   reloaded after files have changed. This is the low-level
   implementation that requires you to find the namespace dependencies
-  yourself: most users will interact with the wrappers in
-  clojure.tools.namespace.file and clojure.tools.namespace.dir."}
+  yourself: most uses will interact with the wrappers in
+  clojure.tools.namespace.file and clojure.tools.namespace.dir or the
+  public API in clojure.tools.namespace.repl."}
   clojure.tools.namespace.track
   (:refer-clojure :exclude (remove))
   (:require [clojure.set :as set]
@@ -62,8 +63,9 @@
           is the list of namespaces that need to be reloaded
 
   To reload namespaces in the correct order, first remove/unload all
-  namespaces in the 'unload' list, then (re)load all namespaces in
-  the 'load' list."
+  namespaces in the 'unload' list, then (re)load all namespaces in the
+  'load' list. The clojure.tools.namespace.reload namespace has
+  functions to do this."
   [tracker depmap]
   (let [{load ::load
          unload ::unload
@@ -82,9 +84,8 @@
 
 (defn remove
   "Returns an updated dependency tracker from which the namespaces
-  (symbols) have been removed. The :unload and :load lists indicate
-  the order in which namespaces should be un/reloaded to reflect this
-  change, as with add."
+  (symbols) have been removed. The ::unload and ::load lists are
+  populated as with 'add'."
   [tracker names]
   (let [{load ::load
          unload ::unload
