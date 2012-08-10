@@ -6,17 +6,21 @@ source files, extract their dependencies, build a graph of namespace
 dependencies within a project, update that graph as files change, and
 reload files in the correct order.
 
+This is only about namespace dependencies *within* a single project.
+It has nothing to do with Leiningen, Maven, JAR files, or
+repositories.
+
 
 Releases and Dependency Information
 ========================================
 
-*Current master branch is unstable*
+* Git master branch is **0.2.0-SNAPSHOT**
 
 * [Latest stable release is 0.1.3](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.1.3)
 
 * [All Released Versions](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.clojure%22%20AND%20a%3A%22tools.namespace%22)
 
-* [Development Snapshot Versions](https://oss.sonatype.org/index.html#nexus-search;gav~org.clojure~tools.namespace~~~)
+* [Development Snapshot Versions](https://oss.sonatype.org/content/groups/public/org/clojure/tools.namespace/0.2.0-SNAPSHOT/)
 
 [Leiningen](https://github.com/technomancy/leiningen) configuration for development snapshots:
 
@@ -251,6 +255,10 @@ convenience, not a work-around for code that is not reload-safe.
 
 Warnings
 --------------------
+
+Try to avoid loading any code before running `refresh` for the first
+time. (For example, by specifing an `:init-ns` for Leiningen.) This
+can cause errors when you do run `refresh` for the first time.
 
 Be careful when reloading the namespace in which you run your REPL.
 Because namespaces are removed when reloading, all your past
