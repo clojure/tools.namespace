@@ -41,14 +41,13 @@
       (update-in [::track/load] #(remove load-disabled? %))))
 
 (defn- do-refresh [scan-fn]
-  (locking #'refresh-tracker
-    (let [current-ns (ns-name *ns*)]
-      (alter-var-root #'refresh-tracker scan-fn)
-      (alter-var-root #'refresh-tracker remove-disabled)
-      (print-pending-reloads refresh-tracker)
-      (alter-var-root #'refresh-tracker reload/track-reload)
-      (print-and-return refresh-tracker)
-      (in-ns current-ns))))
+  (let [current-ns (ns-name *ns*)]
+    (alter-var-root #'refresh-tracker scan-fn)
+    (alter-var-root #'refresh-tracker remove-disabled)
+    (print-pending-reloads refresh-tracker)
+    (alter-var-root #'refresh-tracker reload/track-reload)
+    (in-ns current-ns)
+    (print-and-return refresh-tracker)))
 
 (defn disable-unload!
   "Adds metadata to namespace (or *ns* if unspecified) telling
