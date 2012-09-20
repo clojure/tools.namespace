@@ -277,6 +277,33 @@ references to things you created in the REPL.
 If you create your own instance of the dependency tracker, do not
 store it in a namespace which gets reloaded.
 
+### Warnings for Aliases
+
+Namespace aliases created at the REPL will still refer to the *old* namespace  after `refresh`. For example:
+
+    user=> (require '[com.example.foo :as foo])
+    
+    user=> foo/bar
+
+    user=> (refresh)
+    :reloading (com.example.foo)
+    :ok
+
+    user=> foo/bar   ; this is the *old* foo/bar
+
+If you try to recreate the alias with the new namespace, you will get an error:
+
+    user=> (require '[com.example.foo :as foo])
+    IllegalStateException Alias foo already exists in
+    namespace user, aliasing com.example.foo
+    clojure.lang.Namespace.addAlias (Namespace.java:224)
+
+The only way out is to remove the alias before recreating it:
+
+    user=> (ns-unalias *ns* 'foo)
+    nil
+    user=> (alias 'foo 'com.example.foo)
+
 ### Warnings for Protocols
 
 When reloading namespaces which contain protocols, be careful that you
