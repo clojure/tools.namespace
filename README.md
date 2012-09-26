@@ -72,8 +72,8 @@ contains most of the functions in clojure.tools.namespace version
 0.1.x.
 
 **clojure.tools.namespace.repl:** Utilities to load and reload code
-  based on the namespace dependency graph. This takes some explaining,
-  see below. c.t.n.repl is built out of smaller parts:
+based on the namespace dependency graph. This takes some explaining,
+see below. c.t.n.repl is built out of smaller parts:
 
 * c.t.n.dependency - generic dependency graph data structure
 * c.t.n.track - namespace dependency tracker
@@ -82,7 +82,7 @@ contains most of the functions in clojure.tools.namespace version
 * c.t.n.reload - namespace-reloading extension to tracker
 
 You can recombine these parts in other ways, but c.t.n.repl is the
-main public entry-point to their functionality.
+primary public entry-point to their functionality.
 
 
 Reloading Code: Motivation
@@ -106,21 +106,22 @@ that does the same thing. This has several problems:
 * If the reloaded namespace contains `defmulti`, you must also reload
   all of the associated `defmethod` expressions.
 
-* If the reloaded namespace contains macros, you must also reload any
-  namespaces which use those macros.
-
 * If the reloaded namespace contains `defprotocol`, you must also
   reload any records or types implementing that protocol and create
   new instances.
 
+* If the reloaded namespace contains macros, you must also reload any
+  namespaces which use those macros.
+
 * If the running program contains functions which close over values in
   the reloaded namespace, those closed-over values are not updated.
-  (This is common in web applications which construct the web "stack"
-  as a composition of functions.)
+  (This is common in web applications which construct the "handler
+  stack" as a composition of functions.)
 
-In short, the only safe way to reload Clojure code is to restart the
-JVM. A large application can take 20 seconds or more just to compile.
-I wrote tools.namespace to help speed up this development cycle.
+Often the only surefire way to reload Clojure code is to restart the
+JVM. A large Clojure application can take 20 seconds or more just to
+compile. I wrote tools.namespace to help speed up this development
+cycle.
 
 
 Reloading Code: Usage
@@ -129,7 +130,11 @@ Reloading Code: Usage
 There's only one important function, `refresh`:
 
     user=> (use '[clojure.tools.namespace.repl :only (refresh)])
+    nil
+
     user=> (refresh)
+    :reloading (com.example.util com.example.app com.example.app-test)
+    :ok
 
 The `refresh` function will scan all the directories on the classpath
 for Clojure source files, read their `ns` declarations, build a graph
@@ -140,18 +145,19 @@ Later on, after you have changed and saved a few files in your editor,
 run it again:
 
     user=> (refresh)
+    :reloading (com.example.app com.example.app-test)
+    :ok
 
 Based on file modification timestamps and the graph of dependencies,
 the `refresh` function will reload *only* the namespaces that have
 changed, in dependency order. But first, it will *unload* the
 namespaces that changed to clear out any old definitions. 
 
-This is subtle, and quite unlike `(require ... :reload)`. Calling
-`refresh` will *blow away your old code*. Sometimes this is helpful:
-it can catch trivial mistakes like deleting a function that another
-piece of code depends on. But sometimes it hurts when you have
-built-up application state stored in a Var that got deleted by
-`refresh`.
+This is quite unlike `(require ... :reload)`. Calling `refresh` will
+*blow away your old code*. Sometimes this is helpful: it can catch
+trivial mistakes like deleting a function that another piece of code
+depends on. But sometimes it hurts when you have built-up application
+state stored in a Var that got deleted by `refresh`.
 
 This brings us to the next section:
 
@@ -166,26 +172,21 @@ your application requires some discipline and careful design. It won't
 ### No Global State
 
 The first rule for making your application reload-safe is **no global
-state**. That means you should never do this:
+state**. That means you should avoid things like this:
 
     (def state-of-world (ref {}))
-    (def window-handle (atom nil))
+    (def object-handle (atom nil))
 
-When you store a mutable reference in a global Var, you have
-effectively created a mutable global variable. This is generally
-considered a bad idea in *every* programming paradigm. (Using
-`alter-var-root` signals the same problem.)
+c.t.n.repl/refresh will destroy those Vars when it reloads the
+namespace (even if you used `defonce`).
 
-You can't avoid mutable state: that's one of the principles behind
-Clojure's mutable reference types. But you *can* avoid making it
-global. Instead of storing your state in global Vars, store it
-*locally* in an object that represents the running state of your
-application. Then provide a constructor function to initialize that
-state:
+Instead of storing your state in global Vars, store it *locally* in an
+object that represents the running state of your application. Then
+provide a constructor function to initialize that state:
 
     (defn create-application []
       {:state-of-world (ref {})
-       :window-handle (atom nil)})
+       :object-handle (atom nil)})
 
 You can choose what representation works best for your application:
 map, vector, record, or even just a single Ref by itself.
@@ -205,7 +206,7 @@ system:
       (start [component])
       (stop [component]))
 
-But smaller applications can probably get away with a simple pair of
+Smaller applications can probably get along fine with just a pair of
 functions.
 
 The point is that you need a convenient way to destroy all the
@@ -238,8 +239,45 @@ Step 5. Restart:
     user=> (def my-app (create-application))
     user=> (start my-app)
 
+(You could also combine all those steps in a single utility function.)
+
 After that, you've got a squeaky-clean new instance of your app
 running, in a fraction of the time it takes to restart the JVM.
+
+### Handling Errors
+
+If an exception is thrown while loading a namespace, `refresh` stops,
+prints the namespace that caused the exception, and returns the
+exception. You can print the rest of the stacktrace with
+`clojure.repl/pst`; the exception itself is bound to `*e`.
+
+    user=> (refresh)
+    :reloading (com.example.app com.example.app-test)
+    :error-while-loading com.example.app
+    #<IllegalArgumentException java.lang.IllegalArgumentException:
+      Parameter declaration cond should be a vector>
+
+    user=> (clojure.repl/pst)
+    IllegalArgumentException Parameter declaration cond should be a vector
+            clojure.core/assert-valid-fdecl (core.clj:6567)
+            clojure.core/sigs (core.clj:220)
+            clojure.core/defn (core.clj:294)
+            clojure.lang.Var.invoke (Var.java:427)
+            ...
+
+Remember that any namespaces which depend on the namespace that caused
+the exception *do not exist* at this point: they have been removed but
+not yet reloaded. 
+
+After you fix the problem, call `refresh` again and it will resume
+reloading where it left off. If your current REPL namespace is one of
+those that has not yet been reloaded, then you will need to call
+`refresh` by its fully-qualified name
+`clojure.tools.namespace.repl/refresh`.
+
+    user=> (refresh)
+    :reloading (com.example.app com.example.app-test)
+    :ok
 
 ### Managing Reloads
 
@@ -250,25 +288,25 @@ want keep state during development. You can use the functions
 un/reloading those namespaces.
 
 Use this feature sparingly: it exists as a development-time
-convenience, not a work-around for code that is not reload-safe.
+convenience, not a work-around for code that is not reload-safe. Also,
+see the warnings about aliases, below. Aliases to reloaded namespaces
+will break if the namespace *containing* the alias is not reloaded
+also.
 
 
 Warnings
 --------------------
 
-Try to avoid loading any code before running `refresh` for the first
-time. (For example, by specifing an `:init-ns` for Leiningen.) This
-can cause errors when you do run `refresh` for the first time.
-
 Be careful when reloading the namespace in which you run your REPL.
 Because namespaces are removed when reloading, all your past
-definitions are lost. It will be easier to keep your REPL in a
-namespace which has no file associated with it, such as `user`.
+definitions are lost. Either keep your REPL in a namespace which has
+no file associated with it, such as `user`, or put all your REPL
+definitions in a "scratch" namespace that can be reloaded.
 
 Be careful when using fully-qualified symbol names without namespace
-aliases (`require` with no `:as`). If the namespace happens already to
-be loaded, it will not necessarily cause an error if you forget to
-`require` it, but the dependency graph of namespaces will be
+aliases (`require` with no `:as`). If the namespace happens to be
+loaded already, it will not necessarily cause an error if you forget
+to `require` it, but the dependency graph of namespaces will be
 incorrect.
 
 Beware of code which has references to old definitions, especially
