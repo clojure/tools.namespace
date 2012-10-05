@@ -71,7 +71,7 @@
   The directories to be scanned are controlled by 'set-refresh-dirs';
   defaults to all directories on the Java classpath."
   []
-  (do-refresh dir/scan))
+  (do-refresh #(apply dir/scan (concat [%] refresh-dirs))))
 
 (defn refresh-all
   "Scans source code directories for all Clojure source files and
@@ -80,7 +80,7 @@
   The directories to be scanned are controlled by 'set-refresh-dirs';
   defaults to all directories on the Java classpath."
   []
-  (do-refresh dir/scan-all))
+  (do-refresh #(apply dir/scan-all (concat [%] refresh-dirs))))
 
 (defn set-refresh-dirs
   "Sets the directories which are scanned by 'refresh'. Supports the
