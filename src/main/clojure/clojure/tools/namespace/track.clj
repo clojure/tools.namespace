@@ -108,4 +108,4 @@
 (defn tracker
   "Returns a new, empty dependency tracker"
   []
-  (hash-map))
+  {})
