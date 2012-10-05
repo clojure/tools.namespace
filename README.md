@@ -223,7 +223,7 @@ Step 1. Start up a REPL.
 
 Step 2. Load the app:
 
-    user=> (use '[clojure.tools.namespace.repl :only (refresh)])
+    user=> (use 'clojure.tools.namespace.repl)
     user=> (refresh)
     user=> (def my-app (create-application))
     user=> (start my-app)
@@ -270,14 +270,15 @@ the exception *do not exist* at this point: they have been removed but
 not yet reloaded. 
 
 After you fix the problem, call `refresh` again and it will resume
-reloading where it left off. If your current REPL namespace is one of
-those that has not yet been reloaded, then you will need to call
-`refresh` by its fully-qualified name
-`clojure.tools.namespace.repl/refresh`.
+reloading where it left off. 
 
     user=> (refresh)
     :reloading (com.example.app com.example.app-test)
     :ok
+
+If your current REPL namespace is one of those that has not yet been
+reloaded, then you will need to call `refresh` by its fully-qualified
+name `clojure.tools.namespace.repl/refresh`.
 
 ### Managing Reloads
 
