@@ -14,40 +14,31 @@ repositories.
 Releases and Dependency Information
 ========================================
 
-* Git master branch is **0.2.0-SNAPSHOT**
-
-* [Latest stable release is 0.1.3](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.1.3)
+* [Latest stable release is 0.2.0](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.2.0)
 
 * [All Released Versions](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.clojure%22%20AND%20a%3A%22tools.namespace%22)
 
-* [Development Snapshot Versions](https://oss.sonatype.org/content/groups/public/org/clojure/tools.namespace/0.2.0-SNAPSHOT/)
+[Leiningen](https://github.com/technomancy/leiningen) dependency information:
 
-[Leiningen](https://github.com/technomancy/leiningen) configuration for development snapshots:
+    [org.clojure/tools.namespace "0.2.0"]
 
-    :dependencies [ ;; ...
-                   [org.clojure/tools.namespace "0.2.0-SNAPSHOT"]]
-    :repositories {"sonatype-oss-public"
-                   "https://oss.sonatype.org/content/groups/public/"}
+[Maven](http://maven.apache.org/) dependency information:
 
-[Maven](http://maven.apache.org/) configuration for development snapshots:
+    <dependency>
+      <groupId>org.clojure</groupId>
+      <artifactId>tools.namespace</artifactId>
+      <version>0.2.0-SNAPSHOT</version>
+    </dependency>
 
-    <dependencies>
-      <!-- ... -->
-      <dependency>
-        <groupId>org.clojure</groupId>
-        <artifactId>tools.namespace</artifactId>
-        <version>0.2.0-SNAPSHOT</version>
-      </dependency>
-    </dependencies>
-    <repositories>
-      <repository>
-        <id>sonatype-oss-public</id>
-        <url>https://oss.sonatype.org/content/groups/public/</url>
-        <snapshots>
-          <enabled>true</enabled>
-        </snapshots>
-      </repository>
-    </repositories>
+
+Development Snapshots
+---------------------
+
+* Git master branch is **0.2.1-SNAPSHOT**
+
+* [Development Snapshot Versions](https://oss.sonatype.org/content/groups/public/org/clojure/tools.namespace/)
+
+* [Instructions for Development Snapshot Repositories](http://dev.clojure.org/display/doc/Maven+Settings+and+Repositories)
 
 
 Usage
