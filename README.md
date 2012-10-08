@@ -230,7 +230,8 @@ Step 5. Restart:
     user=> (def my-app (create-application))
     user=> (start my-app)
 
-(You could also combine all those steps in a single utility function.)
+(You could also combine all those steps in a single utility function,
+but see warnings below.)
 
 After that, you've got a squeaky-clean new instance of your app
 running, in a fraction of the time it takes to restart the JVM.
@@ -306,6 +307,23 @@ references to things you created in the REPL.
 
 If you create your own instance of the dependency tracker, do not
 store it in a namespace which gets reloaded.
+
+### Warnings for Helper Functions
+
+Be careful defining a helper function in a namespace which calls
+`refresh` if that namespace also could get reloaded. For example, you
+might try to combine the stop-refresh-start code from the "Managed
+Lifecycle" section into a single function:
+
+    (defn restart []
+      (stop my-app)
+      (refresh)
+      (def my-app (create-application))
+      (start my-app))
+
+This won't work if the namespace containing `restart` could get
+reloaded. After `refresh`, the namespace containing `restart` has been
+dropped, but the function continues to run in the *old* namespace.
 
 ### Warnings for Aliases
 
