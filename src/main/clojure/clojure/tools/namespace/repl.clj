@@ -42,7 +42,8 @@
 
 (defn- do-refresh [scan-fn]
   (let [current-ns (ns-name *ns*)]
-    (alter-var-root #'refresh-tracker scan-fn)
+    (alter-var-root #'refresh-tracker
+                    #(apply scan-fn % refresh-dirs))
     (alter-var-root #'refresh-tracker remove-disabled)
     (print-pending-reloads refresh-tracker)
     (alter-var-root #'refresh-tracker reload/track-reload)
