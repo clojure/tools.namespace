@@ -391,6 +391,19 @@ To avoid this problem, always create new instances of records after a
 refresh.
 
 
+Change Log
+========================================
+
+* Version 0.2.0 on 05-Oct-2012
+  * **Breaking API changes** from previous versions
+  * New dependency tracking & reloading features
+* Version 0.1.3 on 24-Apr-2012
+* Version 0.1.2 on 10-Feb-2012
+* Version 0.1.1 on 18-May-2011
+* Version 0.1.0 on 24-Apr-2011
+  * Source-compatible with clojure.contrib.find-namespaces in old clojure-contrib 1.2.0
+
+
 Copyright and License
 ========================================
 
