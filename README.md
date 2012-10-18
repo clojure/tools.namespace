@@ -290,6 +290,8 @@ also.
 Warnings
 --------------------
 
+Other libraries which also do code-reloading may conflict with tools.namespace. One known example is [ring-devel](https://github.com/ring-clojure/ring/tree/master/ring-devel) (as of version 1.1.6) which uses [ns-tracker](https://github.com/weavejester/ns-tracker), which uses an older version of tools.namespace.
+
 Be careful when reloading the namespace in which you run your REPL.
 Because namespaces are removed when reloading, all your past
 definitions are lost. Either keep your REPL in a namespace which has
