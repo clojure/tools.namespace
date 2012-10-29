@@ -109,7 +109,7 @@
        loader-classpath
        (take-while
         identity
-        (iterate #(.getParent %) classloader)))))
+        (iterate #(.getParent ^ClassLoader %) classloader)))))
   ([] (classpath (clojure.lang.RT/baseLoader))))
 
 (defn- classpath-directories []

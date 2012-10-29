@@ -25,7 +25,7 @@
 (defn clojure-file?
   "Returns true if the java.io.File represents a normal Clojure source
   file."
-  [file]
+  [^java.io.File file]
   (and (.isFile file)
        (.endsWith (.getName file) ".clj")))
 

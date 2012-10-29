@@ -20,13 +20,13 @@
 (defn- find-files [dirs]
   (->> dirs
        (map io/file)
-       (filter #(.exists %))
+       (filter #(.exists ^File %))
        (mapcat file-seq)
        (filter file/clojure-file?)
-       (map #(.getCanonicalFile %))))
+       (map #(.getCanonicalFile ^File %))))
 
 (defn- modified-files [tracker files]
-  (filter #(< (::time tracker 0) (.lastModified %)) files))
+  (filter #(< (::time tracker 0) (.lastModified ^File %)) files))
 
 (defn- deleted-files [tracker files]
   (set/difference (::files tracker #{}) (set files)))
@@ -41,8 +41,8 @@
         (assoc ::time now))))
 
 (defn- dirs-on-classpath []
-  (filter #(.isDirectory %)
-          (map #(File. %)
+  (filter #(.isDirectory ^File %)
+          (map #(File. ^String %)
                (string/split
                 (System/getProperty "java.class.path")
                 (Pattern/compile (Pattern/quote File/pathSeparator))))))

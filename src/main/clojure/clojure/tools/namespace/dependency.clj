@@ -71,10 +71,10 @@
   DependencyGraphUpdate
   (depend [graph node dep]
     (when (depends? graph dep node)
-      (throw (Exception.
-              (binding [*print-length* 10]
-               (str "Circular dependency between "
-                    (pr-str node) " and " (pr-str dep))))))
+      (let [^String msg (binding [*print-length* 10]
+                          (str "Circular dependency between "
+                               (pr-str node) " and " (pr-str dep)))]
+        (throw (Exception. msg))))
     (MapDependencyGraph.
      (update-in dependencies [node] set-conj dep)
      (update-in dependents [dep] set-conj node)))
