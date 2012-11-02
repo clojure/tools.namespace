@@ -11,38 +11,45 @@ It has nothing to do with Leiningen, Maven, JAR files, or
 repositories.
 
 
-Releases and Dependency Information
-========================================
 
-* [Latest stable release is 0.2.0](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.2.0)
+Releases and Dependency Information
+----------------------------------------
+
+* [Latest stable release is 0.2.1](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.2.1)
 
 * [All Released Versions](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.clojure%22%20AND%20a%3A%22tools.namespace%22)
 
 [Leiningen](https://github.com/technomancy/leiningen) dependency information:
 
-    [org.clojure/tools.namespace "0.2.0"]
+    [org.clojure/tools.namespace "0.2.1"]
 
 [Maven](http://maven.apache.org/) dependency information:
 
     <dependency>
       <groupId>org.clojure</groupId>
       <artifactId>tools.namespace</artifactId>
-      <version>0.2.0-SNAPSHOT</version>
+      <version>0.2.1</version>
     </dependency>
 
 
-Development Snapshots
----------------------
+### Development Snapshots ###
 
-* Git master branch is **0.2.1-SNAPSHOT**
+* Git master branch is at **0.2.2-SNAPSHOT**
 
 * [Development Snapshot Versions](https://oss.sonatype.org/content/groups/public/org/clojure/tools.namespace/)
 
-* [Instructions for Development Snapshot Repositories](http://dev.clojure.org/display/doc/Maven+Settings+and+Repositories)
+Leiningen information for development snapshots:
+
+    :dependencies [[org.clojure/tools.namespace "0.2.2-SNAPSHOT"]]
+    :repositories {"sonatype-oss-public"
+                   "https://oss.sonatype.org/content/groups/public/"}
+
+See also [Maven Settings and Repositories](http://dev.clojure.org/display/doc/Maven+Settings+and+Repositories) on dev.clojure.org.
 
 
-Usage
-========================================
+
+Overview
+----------------------------------------
 
 [API Documentation](http://clojure.github.com/tools.namespace/)
 
@@ -74,6 +81,10 @@ see below. c.t.n.repl is built out of smaller parts:
 
 You can recombine these parts in other ways, but c.t.n.repl is the
 primary public entry-point to their functionality.
+
+**New in 0.2.2-SNAPSHOT:** The namespace **clojure.tools.namespace.move**
+contains utilities to aid in moving and renaming Clojure namespaces.
+This code is ALPHA and subject to change.
 
 
 Reloading Code: Motivation
@@ -115,6 +126,7 @@ compile. I wrote tools.namespace to help speed up this development
 cycle.
 
 
+
 Reloading Code: Usage
 -----------------------
 
@@ -153,12 +165,14 @@ state stored in a Var that got deleted by `refresh`.
 This brings us to the next section:
 
 
+
 Reloading Code: Preparing Your Application
 --------------------------------------------
 
 Being able to safely destroy and reload namespaces without breaking
 your application requires some discipline and careful design. It won't
 "just work" on any Clojure project.
+
 
 ### No Global State
 
@@ -186,19 +200,14 @@ Typically you'll still need one global `def` somewhere, perhaps in the
 REPL itself, to hold the current application instance. See "Managing
 Reloads" below.
 
+
 ### Managed Lifecycle
 
 The second rule for making your application reload-safe is having a
 consistent way to **start and stop the entire system**. I like to do
 this with a protocol implemented by each major component in the
-system:
-
-    (defprotocol Lifecycle
-      (start [component])
-      (stop [component]))
-
-Smaller applications can probably get along fine with just a pair of
-functions.
+system, but smaller applications can probably get along fine with just
+a pair of functions.
 
 The point is that you need a convenient way to destroy all the
 built-up state of your application and then *recreate it from
@@ -236,6 +245,7 @@ but see warnings below.)
 After that, you've got a squeaky-clean new instance of your app
 running, in a fraction of the time it takes to restart the JVM.
 
+
 ### Handling Errors
 
 If an exception is thrown while loading a namespace, `refresh` stops,
@@ -272,6 +282,7 @@ If your current REPL namespace is one of those that has not yet been
 reloaded, then you will need to call `refresh` by its fully-qualified
 name `clojure.tools.namespace.repl/refresh`.
 
+
 ### Managing Reloads
 
 Some projects have a "project REPL" or a "scratch" namespace where you
@@ -285,6 +296,7 @@ convenience, not a work-around for code that is not reload-safe. Also,
 see the warnings about aliases, below. Aliases to reloaded namespaces
 will break if the namespace *containing* the alias is not reloaded
 also.
+
 
 
 Warnings
@@ -327,6 +339,7 @@ This won't work if the namespace containing `restart` could get
 reloaded. After `refresh`, the namespace containing `restart` has been
 dropped, but the function continues to run in the *old* namespace.
 
+
 ### Warnings for Aliases
 
 Namespace aliases created at the REPL will still refer to the *old* namespace  after `refresh`. For example:
@@ -353,6 +366,7 @@ The only way out is to remove the alias before recreating it:
     user=> (ns-unalias *ns* 'foo)
     nil
     user=> (alias 'foo 'com.example.foo)
+
 
 ### Warnings for Protocols
 
@@ -393,23 +407,43 @@ To avoid this problem, always create new instances of records after a
 refresh.
 
 
-Change Log
-========================================
 
+Change Log
+----------------------------------------
+
+* Version 0.2.2-SNAPSHOT (in development)
+  * Add `clojure.tools.namespace.move`
+  * Fix [TNS-4], reflection warnings
+* Version 0.2.1 on 26-Oct-2012
+  * Restore deprecated 0.1.x APIs in `clojure.tools.namespace`
+  * Fix [TNS-3], actually use `refresh-dirs`
 * Version 0.2.0 on 05-Oct-2012
   * **Breaking API changes** from previous versions
   * New dependency tracking & reloading features
+  * Eliminate dependency on [java.classpath]
 * Version 0.1.3 on 24-Apr-2012
+  * Workaround for Clojure 1.2 reader bug
 * Version 0.1.2 on 10-Feb-2012
+  * Eliminate reflection warnings
 * Version 0.1.1 on 18-May-2011
 * Version 0.1.0 on 24-Apr-2011
   * Source-compatible with clojure.contrib.find-namespaces in old clojure-contrib 1.2.0
 
+[TNS-3]: http://dev.clojure.org/jira/browse/TNS-3
+[TNS-4]: http://dev.clojure.org/jira/browse/TNS-4
+[java.classpath]: https://github.com/clojure/java.classpath
+
+
 
 Copyright and License
-========================================
+----------------------------------------
 
-Copyright © 2012 Stuart Sierra
+Copyright © 2012 Stuart Sierra All rights reserved. The use and
+distribution terms for this software are covered by the
+[Eclipse Public License 1.0] which can be found in the file
+epl-v10.html at the root of this distribution. By using this software
+in any fashion, you are agreeing to be bound by the terms of this
+license. You must not remove this notice, or any other, from this
+software.
 
-Licensed under the [Eclipse Public License Version 1.0](https://github.com/clojure/tools.namespace/blob/master/epl.html).
-
+[Eclipse Public License 1.0]: http://opensource.org/licenses/eclipse-1.0.php
