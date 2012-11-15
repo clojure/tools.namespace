@@ -1,7 +1,7 @@
 <html>
   <head>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-    <title>Overview - Extract namespace declarations 0.2.0 API documentation</title>
+    <title>clojure.tools.namespace - Extract namespace declarations 0.2.2 API documentation</title>
     <link href="static/favicon.png" rel="icon" />
     <link href="static/favicon.png" rel="shortcut icon" />
     <link media="all" type="text/css" href="static/clojure.css" rel="stylesheet" />
@@ -25,17 +25,12 @@ namespace.
       <div id="leftcolumn"><div style="text-align: center;"></div>
 <div class="menu">
   <div class="WikiCustomNav WikiElement wiki">
-    <span class="toc-header"><span id="project-name">Extract namespace declarations</span> <span id="version">0.2.0</span> API</span><br />
+    <span class="toc-header"><span id="project-name">Extract namespace declarations</span> <span id="version">0.2.2</span> API</span><br />
     <ul>
       <li><a class="wiki_link" href="index.html">Overview</a></li>
       <li><a class="wiki_link" href="api-index.html">API Index</a></li>
     </ul>
-    <div class="NamespaceTOC">
-      <span class="toc-header">Namespaces</span>
-      <ul id="left-sidebar-list">
-        <li><a href="clojure.tools.namespace.dependency-api.html" class="wiki_link">clojure.tools.namespace.dependency</a></li><li><a href="clojure.tools.namespace.dir-api.html" class="wiki_link">clojure.tools.namespace.dir</a></li><li><a href="clojure.tools.namespace.file-api.html" class="wiki_link">clojure.tools.namespace.file</a></li><li><a href="clojure.tools.namespace.find-api.html" class="wiki_link">clojure.tools.namespace.find</a></li><li><a href="clojure.tools.namespace.parse-api.html" class="wiki_link">clojure.tools.namespace.parse</a></li><li><a href="clojure.tools.namespace.reload-api.html" class="wiki_link">clojure.tools.namespace.reload</a></li><li><a href="clojure.tools.namespace.repl-api.html" class="wiki_link">clojure.tools.namespace.repl</a></li><li><a href="clojure.tools.namespace.track-api.html" class="wiki_link">clojure.tools.namespace.track</a></li>
-      </ul>
-    </div>
+    
     
     <a href="http://clojure.org" class="wiki_link">Clojure Home</a>
   </div>
@@ -48,149 +43,1224 @@ namespace.
                 <div id="right-sidebar"><div id="toc">
   <h1 class="nopad">Table of Contents</h1>
   <div style="margin-left: 1em;" class="toc-section">
-    <a href="#clojure.tools.namespace.dependency" style="margin-top: 3px;">clojure.tools.namespace.dependency</a>
+    <a href="#toc0" style="margin-top: 3px;">Overview</a>
     
+  </div><div style="margin-left: 1em;" class="toc-section">
+    <a href="#" style="margin-top: 3px;"></a>
+    
+  </div><div style="margin-left: 1em;" class="toc-section">
+    <a href="#" style="margin-top: 3px;"></a>
+    
+  </div><div style="margin-left: 1em;" class="toc-section">
+    <a href="#var-section" style="margin-top: 3px;">Vars and Functions</a>
+    <div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace/clojure-source-file?">clojure-source-file?</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace/clojure-sources-in-jar">clojure-sources-in-jar</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace/comment?">comment?</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace/find-clojure-sources-in-dir">find-clojure-sources-in-dir</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace/find-namespaces-in-dir">find-namespaces-in-dir</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace/find-namespaces-in-jarfile">find-namespaces-in-jarfile</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace/find-namespaces-on-classpath">find-namespaces-on-classpath</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace/find-ns-decls-in-dir">find-ns-decls-in-dir</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace/find-ns-decls-in-jarfile">find-ns-decls-in-jarfile</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace/find-ns-decls-on-classpath">find-ns-decls-on-classpath</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace/ns-decl?">ns-decl?</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace/read-file-ns-decl">read-file-ns-decl</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace/read-ns-decl">read-ns-decl</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace/read-ns-decl-from-jarfile-entry">read-ns-decl-from-jarfile-entry</a>
+      
+    </div>
+  </div><div style="margin-left: 1em;" class="toc-section">
+    <a href="#clojure.tools.namespace.dependency" style="margin-top: 3px;">clojure.tools.namespace.dependency</a>
+    <div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dependency/DependencyGraph">DependencyGraph</a>
+      <div style="margin-left: 1em;" class="toc-subentry">
+        <a class="toc-subentry-anchor" href="#clojure.tools.namespace.dependency/immediate-dependencies">immediate-dependencies</a>
+      </div><div style="margin-left: 1em;" class="toc-subentry">
+        <a class="toc-subentry-anchor" href="#clojure.tools.namespace.dependency/immediate-dependents">immediate-dependents</a>
+      </div><div style="margin-left: 1em;" class="toc-subentry">
+        <a class="toc-subentry-anchor" href="#clojure.tools.namespace.dependency/nodes">nodes</a>
+      </div><div style="margin-left: 1em;" class="toc-subentry">
+        <a class="toc-subentry-anchor" href="#clojure.tools.namespace.dependency/transitive-dependencies">transitive-dependencies</a>
+      </div><div style="margin-left: 1em;" class="toc-subentry">
+        <a class="toc-subentry-anchor" href="#clojure.tools.namespace.dependency/transitive-dependents">transitive-dependents</a>
+      </div>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dependency/DependencyGraphUpdate">DependencyGraphUpdate</a>
+      <div style="margin-left: 1em;" class="toc-subentry">
+        <a class="toc-subentry-anchor" href="#clojure.tools.namespace.dependency/depend">depend</a>
+      </div><div style="margin-left: 1em;" class="toc-subentry">
+        <a class="toc-subentry-anchor" href="#clojure.tools.namespace.dependency/remove-all">remove-all</a>
+      </div><div style="margin-left: 1em;" class="toc-subentry">
+        <a class="toc-subentry-anchor" href="#clojure.tools.namespace.dependency/remove-edge">remove-edge</a>
+      </div><div style="margin-left: 1em;" class="toc-subentry">
+        <a class="toc-subentry-anchor" href="#clojure.tools.namespace.dependency/remove-node">remove-node</a>
+      </div>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dependency/MapDependencyGraph">MapDependencyGraph</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dependency/dependent?">dependent?</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dependency/depends?">depends?</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dependency/graph">graph</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dependency/topo-comparator">topo-comparator</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dependency/topo-sort">topo-sort</a>
+      
+    </div>
   </div><div style="margin-left: 1em;" class="toc-section">
     <a href="#clojure.tools.namespace.dir" style="margin-top: 3px;">clojure.tools.namespace.dir</a>
-    
+    <div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dir/scan">scan</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dir/scan-all">scan-all</a>
+      
+    </div>
   </div><div style="margin-left: 1em;" class="toc-section">
     <a href="#clojure.tools.namespace.file" style="margin-top: 3px;">clojure.tools.namespace.file</a>
-    
+    <div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.file/add-files">add-files</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.file/clojure-file?">clojure-file?</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.file/read-file-ns-decl">read-file-ns-decl</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.file/remove-files">remove-files</a>
+      
+    </div>
   </div><div style="margin-left: 1em;" class="toc-section">
     <a href="#clojure.tools.namespace.find" style="margin-top: 3px;">clojure.tools.namespace.find</a>
-    
+    <div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.find/clojure-sources-in-jar">clojure-sources-in-jar</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.find/find-clojure-sources-in-dir">find-clojure-sources-in-dir</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.find/find-namespaces">find-namespaces</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.find/find-namespaces-in-dir">find-namespaces-in-dir</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.find/find-namespaces-in-jarfile">find-namespaces-in-jarfile</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.find/find-ns-decls">find-ns-decls</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.find/find-ns-decls-in-dir">find-ns-decls-in-dir</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.find/find-ns-decls-in-jarfile">find-ns-decls-in-jarfile</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.find/read-ns-decl-from-jarfile-entry">read-ns-decl-from-jarfile-entry</a>
+      
+    </div>
+  </div><div style="margin-left: 1em;" class="toc-section">
+    <a href="#clojure.tools.namespace.move" style="margin-top: 3px;">clojure.tools.namespace.move</a>
+    <div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.move/move-ns">move-ns</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.move/move-ns-file">move-ns-file</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.move/replace-ns-symbol">replace-ns-symbol</a>
+      
+    </div>
   </div><div style="margin-left: 1em;" class="toc-section">
     <a href="#clojure.tools.namespace.parse" style="margin-top: 3px;">clojure.tools.namespace.parse</a>
-    
+    <div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.parse/comment?">comment?</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.parse/deps-from-ns-decl">deps-from-ns-decl</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.parse/ns-decl?">ns-decl?</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.parse/read-ns-decl">read-ns-decl</a>
+      
+    </div>
   </div><div style="margin-left: 1em;" class="toc-section">
     <a href="#clojure.tools.namespace.reload" style="margin-top: 3px;">clojure.tools.namespace.reload</a>
-    
+    <div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.reload/remove-lib">remove-lib</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.reload/track-reload">track-reload</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.reload/track-reload-one">track-reload-one</a>
+      
+    </div>
   </div><div style="margin-left: 1em;" class="toc-section">
     <a href="#clojure.tools.namespace.repl" style="margin-top: 3px;">clojure.tools.namespace.repl</a>
-    
+    <div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.repl/disable-reload!">disable-reload!</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.repl/disable-unload!">disable-unload!</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.repl/refresh">refresh</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.repl/refresh-all">refresh-all</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.repl/set-refresh-dirs">set-refresh-dirs</a>
+      
+    </div>
   </div><div style="margin-left: 1em;" class="toc-section">
     <a href="#clojure.tools.namespace.track" style="margin-top: 3px;">clojure.tools.namespace.track</a>
-    
+    <div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.track/add">add</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.track/remove">remove</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.track/tracker">tracker</a>
+      
+    </div>
   </div>
 </div>
 </div>
-                <div id="content-tag"><h1 id="toc0">API Overview - <span id="header-project">Extract namespace declarations</span> <span id="header-version">0.2.0</span><span id="header-status-block"> (<span id="header-status">in development</span>)</span></h1>
-<br />
-<div id="project-description"></div>
+                <div id="content-tag"><h1 id="overview">API for <span id="clojure.tools.namespace">clojure.tools.namespace</span>
+  - <span id="header-project">Extract namespace declarations</span> <span id="header-version">0.2.2</span><span id="header-status-block"> (<span id="header-status">in development</span>)</span>
+  </h1>
+<span id="author-line">by <span id="author-name">Stuart Sierra</span><br /></span>
+<br />Full namespace name: <span id="long-name">clojure.tools.namespace</span>
+<p></p>
+<h2>Overview</h2>
 <div id="home-page">Project home page is <a href="http://github.com/clojure/tools.namespace/">http://github.com/clojure/tools.namespace/</a></div>
+<pre id="namespace-docstr">This namespace is DEPRECATED; most functions have been moved to
+other namespaces</pre>
+
+
 <br />
-<div id="namespace-entry">
-  <br />
-  <hr />
-  <h2 id="clojure.tools.namespace.dependency">clojure.tools.namespace.dependency</h2>
-  <span id="author-line">by <span id="author-name">Stuart Sierra</span><br /></span>
-  <a href="clojure.tools.namespace.dependency-api.html" id="api-link">Detailed API documentation</a><br />
-  <pre id="namespace-docstr">Bidirectional graphs of dependencies and dependent objects.</pre>
-  
-  
-  
-  Contents:
-  <span id="var-link"><a href="clojure.tools.namespace.dependency-api.html#clojure.tools.namespace.dependency/depend" id="var-tag">depend</a> </span><span id="var-link"><a href="clojure.tools.namespace.dependency-api.html#clojure.tools.namespace.dependency/DependencyGraph" id="var-tag">DependencyGraph</a> </span><span id="var-link"><a href="clojure.tools.namespace.dependency-api.html#clojure.tools.namespace.dependency/DependencyGraphUpdate" id="var-tag">DependencyGraphUpdate</a> </span><span id="var-link"><a href="clojure.tools.namespace.dependency-api.html#clojure.tools.namespace.dependency/dependent?" id="var-tag">dependent?</a> </span><span id="var-link"><a href="clojure.tools.namespace.dependency-api.html#clojure.tools.namespace.dependency/depends?" id="var-tag">depends?</a> </span><span id="var-link"><a href="clojure.tools.namespace.dependency-api.html#clojure.tools.namespace.dependency/graph" id="var-tag">graph</a> </span><span id="var-link"><a href="clojure.tools.namespace.dependency-api.html#clojure.tools.namespace.dependency/immediate-dependencies" id="var-tag">immediate-dependencies</a> </span><span id="var-link"><a href="clojure.tools.namespace.dependency-api.html#clojure.tools.namespace.dependency/immediate-dependents" id="var-tag">immediate-dependents</a> </span><span id="var-link"><a href="clojure.tools.namespace.dependency-api.html#clojure.tools.namespace.dependency/MapDependencyGraph" id="var-tag">MapDependencyGraph</a> </span><span id="var-link"><a href="clojure.tools.namespace.dependency-api.html#clojure.tools.namespace.dependency/nodes" id="var-tag">nodes</a> </span><span id="var-link"><a href="clojure.tools.namespace.dependency-api.html#clojure.tools.namespace.dependency/remove-all" id="var-tag">remove-all</a> </span><span id="var-link"><a href="clojure.tools.namespace.dependency-api.html#clojure.tools.namespace.dependency/remove-edge" id="var-tag">remove-edge</a> </span><span id="var-link"><a href="clojure.tools.namespace.dependency-api.html#clojure.tools.namespace.dependency/remove-node" id="var-tag">remove-node</a> </span><span id="var-link"><a href="clojure.tools.namespace.dependency-api.html#clojure.tools.namespace.dependency/topo-comparator" id="var-tag">topo-comparator</a> </span><span id="var-link"><a href="clojure.tools.namespace.dependency-api.html#clojure.tools.namespace.dependency/topo-sort" id="var-tag">topo-sort</a> </span><span id="var-link"><a href="clojure.tools.namespace.dependency-api.html#clojure.tools.namespace.dependency/transitive-dependencies" id="var-tag">transitive-dependencies</a> </span><span id="var-link"><a href="clojure.tools.namespace.dependency-api.html#clojure.tools.namespace.dependency/transitive-dependents" id="var-tag">transitive-dependents</a> </span><br />
-  
-</div><div id="namespace-entry">
-  <br />
-  <hr />
-  <h2 id="clojure.tools.namespace.dir">clojure.tools.namespace.dir</h2>
-  <span id="author-line">by <span id="author-name">Stuart Sierra</span><br /></span>
-  <a href="clojure.tools.namespace.dir-api.html" id="api-link">Detailed API documentation</a><br />
-  <pre id="namespace-docstr">Track namespace dependencies and changes by monitoring
+
+
+
+<div id="var-section">
+  <p></p>
+  <h2>Public Variables and Functions</h2>
+  <div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace/clojure-source-file?">clojure-source-file?</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (clojure-source-file? file)
+</pre>
+    <pre id="var-docstr">DEPRECATED; trivial to implement locally
+
+Returns true if file is a normal file with a .clj extension.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace.clj#L22" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace/clojure-sources-in-jar">clojure-sources-in-jar</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (clojure-sources-in-jar jar-file)
+</pre>
+    <pre id="var-docstr">DEPRECATED; moved to clojure.tools.namespace.find
+
+Returns a sequence of filenames ending in .clj found in the JAR file.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace.clj#L134" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace/comment?">comment?</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (comment? form)
+</pre>
+    <pre id="var-docstr">DEPRECATED; moved to clojure.tools.namespace.parse
+
+Returns true if form is a (comment ...)</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace.clj#L40" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace/find-clojure-sources-in-dir">find-clojure-sources-in-dir</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (find-clojure-sources-in-dir dir)
+</pre>
+    <pre id="var-docstr">DEPRECATED; moved to clojure.tools.namespace.find
+
+Searches recursively under dir for Clojure source files (.clj).
+Returns a sequence of File objects, in breadth-first sort order.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace.clj#L30" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace/find-namespaces-in-dir">find-namespaces-in-dir</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (find-namespaces-in-dir dir)
+</pre>
+    <pre id="var-docstr">DEPRECATED; moved to clojure.tools.namespace.find
+
+Searches dir recursively for (ns ...) declarations in Clojure
+source files; returns the symbol names of the declared namespaces.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace.clj#L88" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace/find-namespaces-in-jarfile">find-namespaces-in-jarfile</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (find-namespaces-in-jarfile jarfile)
+</pre>
+    <pre id="var-docstr">DEPRECATED; moved to clojure.tools.namespace.find
+
+Searches the JAR file for Clojure source files containing (ns ...)
+declarations.  Returns a sequence of the symbol names of the
+declared namespaces.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace.clj#L164" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace/find-namespaces-on-classpath">find-namespaces-on-classpath</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (find-namespaces-on-classpath)
+</pre>
+    <pre id="var-docstr">DEPRECATED; use clojure.tools.namespace.find/find-namespaces
+and clojure.java.classpath/classpath from
+<a href="http://github.com/clojure/java.classpath">http://github.com/clojure/java.classpath</a>
+
+Searches CLASSPATH (both directories and JAR files) for Clojure
+source files containing (ns ...) declarations.  Returns a sequence
+of the symbol names of the declared namespaces.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace.clj#L187" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace/find-ns-decls-in-dir">find-ns-decls-in-dir</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (find-ns-decls-in-dir dir)
+</pre>
+    <pre id="var-docstr">DEPRECATED; moved to clojure.tools.namespace.find
+
+Searches dir recursively for (ns ...) declarations in Clojure
+source files; returns the unevaluated ns declarations.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace.clj#L80" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace/find-ns-decls-in-jarfile">find-ns-decls-in-jarfile</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (find-ns-decls-in-jarfile jarfile)
+</pre>
+    <pre id="var-docstr">DEPRECATED; moved to clojure.tools.namespace.find
+
+Searches the JAR file for Clojure source files containing (ns ...)
+declarations; returns the unevaluated ns declarations.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace.clj#L154" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace/find-ns-decls-on-classpath">find-ns-decls-on-classpath</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (find-ns-decls-on-classpath)
+</pre>
+    <pre id="var-docstr">DEPRECATED; use clojure.tools.namespace.find/find-ns-decls
+and clojure.java.classpath/classpath from
+<a href="http://github.com/clojure/java.classpath">http://github.com/clojure/java.classpath</a>
+
+Searches CLASSPATH (both directories and JAR files) for Clojure
+source files containing (ns ...) declarations. Returns a sequence of
+the unevaluated ns declaration forms.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace.clj#L175" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace/ns-decl?">ns-decl?</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (ns-decl? form)
+</pre>
+    <pre id="var-docstr">DEPRECATED; moved to clojure.tools.namespace.parse
+
+Returns true if form is a (ns ...) declaration.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace.clj#L47" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace/read-file-ns-decl">read-file-ns-decl</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (read-file-ns-decl file)
+</pre>
+    <pre id="var-docstr">DEPRECATED; moved to clojure.tools.namespace.file
+
+Attempts to read a (ns ...) declaration from file, and returns the
+unevaluated form.  Returns nil if read fails, or if the first form
+is not a ns declaration.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace.clj#L70" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace/read-ns-decl">read-ns-decl</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (read-ns-decl rdr)
+</pre>
+    <pre id="var-docstr">DEPRECATED; moved to clojure.tools.namespace.parse
+
+Attempts to read a (ns ...) declaration from rdr, and returns the
+unevaluated form.  Returns nil if read fails or if a ns declaration
+cannot be found.  The ns declaration must be the first Clojure form
+in the file, except for (comment ...)  forms.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace.clj#L54" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace/read-ns-decl-from-jarfile-entry">read-ns-decl-from-jarfile-entry</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (read-ns-decl-from-jarfile-entry jarfile entry-name)
+</pre>
+    <pre id="var-docstr">DEPRECATED; moved to clojure.tools.namespace.find
+
+Attempts to read a (ns ...) declaration from the named entry in the
+JAR file, and returns the unevaluated form.  Returns nil if the read
+fails, or if the first form is not a ns declaration.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace.clj#L141" id="var-source">Source</a>
+  </div>
+</div>
+<br />
+<h2 id="clojure.tools.namespace.dependency">clojure.tools.namespace.dependency</h2>
+<pre id="namespace-docstr">Bidirectional graphs of dependencies and dependent objects.</pre>
+
+
+<br />
+<div id="proto-section">
+  <p></p>
+  <h2>Protocols</h2>
+  <div id="proto-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.dependency/DependencyGraph">DependencyGraph</h2>
+    <span id="proto-type">Protocol</span><br />
+    <pre id="proto-docstr"></pre>
+    Known implementations: <span id="proto-impls"><a href="#clojure.tools.namespace.dependency/MapDependencyGraph">MapDependencyGraph</a></span>
+    <div id="proto-var-entry">
+      <br />
+      <h3 id="clojure.tools.namespace.dependency/immediate-dependencies">immediate-dependencies</h3>
+      <span id="var-type">function</span><br />
+      <pre id="var-usage">Usage: (immediate-dependencies graph node)
+</pre>
+      <pre id="var-docstr">Returns the set of immediate dependencies of node.</pre>
+      
+      
+      
+    </div><div id="proto-var-entry">
+      <br />
+      <h3 id="clojure.tools.namespace.dependency/immediate-dependents">immediate-dependents</h3>
+      <span id="var-type">function</span><br />
+      <pre id="var-usage">Usage: (immediate-dependents graph node)
+</pre>
+      <pre id="var-docstr">Returns the set of immediate dependents of node.</pre>
+      
+      
+      
+    </div><div id="proto-var-entry">
+      <br />
+      <h3 id="clojure.tools.namespace.dependency/nodes">nodes</h3>
+      <span id="var-type">function</span><br />
+      <pre id="var-usage">Usage: (nodes graph)
+</pre>
+      <pre id="var-docstr">Returns the set of all nodes in graph.</pre>
+      
+      
+      
+    </div><div id="proto-var-entry">
+      <br />
+      <h3 id="clojure.tools.namespace.dependency/transitive-dependencies">transitive-dependencies</h3>
+      <span id="var-type">function</span><br />
+      <pre id="var-usage">Usage: (transitive-dependencies graph node)
+</pre>
+      <pre id="var-docstr">Returns the set of all things which node depends on, directly or
+transitively.</pre>
+      
+      
+      
+    </div><div id="proto-var-entry">
+      <br />
+      <h3 id="clojure.tools.namespace.dependency/transitive-dependents">transitive-dependents</h3>
+      <span id="var-type">function</span><br />
+      <pre id="var-usage">Usage: (transitive-dependents graph node)
+</pre>
+      <pre id="var-docstr">Returns the set of all things which depend upon node, directly or
+transitively.</pre>
+      
+      
+      
+    </div>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace/dependency.clj#L14" id="proto-source">Source</a>
+  </div><div id="proto-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.dependency/DependencyGraphUpdate">DependencyGraphUpdate</h2>
+    <span id="proto-type">Protocol</span><br />
+    <pre id="proto-docstr"></pre>
+    Known implementations: <span id="proto-impls"><a href="#clojure.tools.namespace.dependency/MapDependencyGraph">MapDependencyGraph</a></span>
+    <div id="proto-var-entry">
+      <br />
+      <h3 id="clojure.tools.namespace.dependency/depend">depend</h3>
+      <span id="var-type">function</span><br />
+      <pre id="var-usage">Usage: (depend graph node dep)
+</pre>
+      <pre id="var-docstr">Returns a new graph with a dependency from node to dep ("node depends
+on dep"). Forbids circular dependencies.</pre>
+      
+      
+      
+    </div><div id="proto-var-entry">
+      <br />
+      <h3 id="clojure.tools.namespace.dependency/remove-all">remove-all</h3>
+      <span id="var-type">function</span><br />
+      <pre id="var-usage">Usage: (remove-all graph node)
+</pre>
+      <pre id="var-docstr">Returns a new dependency graph with all references to node removed.</pre>
+      
+      
+      
+    </div><div id="proto-var-entry">
+      <br />
+      <h3 id="clojure.tools.namespace.dependency/remove-edge">remove-edge</h3>
+      <span id="var-type">function</span><br />
+      <pre id="var-usage">Usage: (remove-edge graph node dep)
+</pre>
+      <pre id="var-docstr">Returns a new graph with the dependency from node to dep removed.</pre>
+      
+      
+      
+    </div><div id="proto-var-entry">
+      <br />
+      <h3 id="clojure.tools.namespace.dependency/remove-node">remove-node</h3>
+      <span id="var-type">function</span><br />
+      <pre id="var-usage">Usage: (remove-node graph node)
+</pre>
+      <pre id="var-docstr">Removes the node from the dependency graph without removing it as a
+dependency of other nodes. That is, removes all outgoing edges from
+node.</pre>
+      
+      
+      
+    </div>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace/dependency.clj#L28" id="proto-source">Source</a>
+  </div>
+</div>
+<div id="type-section">
+  <p></p>
+  <h2>Types</h2>
+  <div id="type-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.dependency/MapDependencyGraph">MapDependencyGraph</h2>
+    <span id="type-type">record</span><br />
+    <pre id="type-docstr"></pre>
+    Fields: <span id="type-fields">[dependencies dependents]</span><br />
+    Protocols: <span id="type-protocols"><a href="#clojure.tools.namespace.dependency/DependencyGraph">DependencyGraph</a>, <a href="#clojure.tools.namespace.dependency/DependencyGraphUpdate">DependencyGraphUpdate</a></span><br />
+    Interfaces: <span id="type-interfaces">clojure.lang.IKeywordLookup, clojure.lang.ILookup, clojure.lang.IObj, clojure.lang.IPersistentMap, java.io.Serializable, java.util.Map</span><br />
+  </div>
+</div>
+<div id="var-section">
+  <p></p>
+  <h2>Public Variables and Functions</h2>
+  <div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.dependency/dependent?">dependent?</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (dependent? graph x y)
+</pre>
+    <pre id="var-docstr">True if y is a dependent of x.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace/dependency.clj#L102" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.dependency/depends?">depends?</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (depends? graph x y)
+</pre>
+    <pre id="var-docstr">True if x is directly or transitively dependent on y.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace/dependency.clj#L97" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.dependency/graph">graph</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (graph)
+</pre>
+    <pre id="var-docstr">Returns a new, empty, dependency graph.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace/dependency.clj#L94" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.dependency/topo-comparator">topo-comparator</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (topo-comparator graph)
+</pre>
+    <pre id="var-docstr">Returns a comparator fn which produces a topological sort based on
+the dependencies in graph. Nodes not present in the graph will sort
+after nodes in the graph.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace/dependency.clj#L132" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.dependency/topo-sort">topo-sort</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (topo-sort graph)
+</pre>
+    <pre id="var-docstr">Returns a topologically-sorted list of nodes in graph.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace/dependency.clj#L107" id="var-source">Source</a>
+  </div>
+</div>
+<br />
+<h2 id="clojure.tools.namespace.dir">clojure.tools.namespace.dir</h2>
+<pre id="namespace-docstr">Track namespace dependencies and changes by monitoring
 file-modification timestamps</pre>
-  
-  
-  
-  Contents:
-  <span id="var-link"><a href="clojure.tools.namespace.dir-api.html#clojure.tools.namespace.dir/scan" id="var-tag">scan</a> </span><span id="var-link"><a href="clojure.tools.namespace.dir-api.html#clojure.tools.namespace.dir/scan-all" id="var-tag">scan-all</a> </span><br />
-  
-</div><div id="namespace-entry">
-  <br />
-  <hr />
-  <h2 id="clojure.tools.namespace.file">clojure.tools.namespace.file</h2>
-  <span id="author-line">by <span id="author-name">Stuart Sierra</span><br /></span>
-  <a href="clojure.tools.namespace.file-api.html" id="api-link">Detailed API documentation</a><br />
-  <pre id="namespace-docstr">Read and track namespace information from files</pre>
-  
-  
-  
-  Contents:
-  <span id="var-link"><a href="clojure.tools.namespace.file-api.html#clojure.tools.namespace.file/add-files" id="var-tag">add-files</a> </span><span id="var-link"><a href="clojure.tools.namespace.file-api.html#clojure.tools.namespace.file/clojure-file?" id="var-tag">clojure-file?</a> </span><span id="var-link"><a href="clojure.tools.namespace.file-api.html#clojure.tools.namespace.file/read-file-ns-decl" id="var-tag">read-file-ns-decl</a> </span><span id="var-link"><a href="clojure.tools.namespace.file-api.html#clojure.tools.namespace.file/remove-files" id="var-tag">remove-files</a> </span><br />
-  
-</div><div id="namespace-entry">
-  <br />
-  <hr />
-  <h2 id="clojure.tools.namespace.find">clojure.tools.namespace.find</h2>
-  <span id="author-line">by <span id="author-name">Stuart Sierra</span><br /></span>
-  <a href="clojure.tools.namespace.find-api.html" id="api-link">Detailed API documentation</a><br />
-  <pre id="namespace-docstr">Search for ns declarations in dirs, JARs, or CLASSPATH</pre>
-  
-  
-  
-  Contents:
-  <span id="var-link"><a href="clojure.tools.namespace.find-api.html#clojure.tools.namespace.find/clojure-sources-in-jar" id="var-tag">clojure-sources-in-jar</a> </span><span id="var-link"><a href="clojure.tools.namespace.find-api.html#clojure.tools.namespace.find/find-clojure-sources-in-dir" id="var-tag">find-clojure-sources-in-dir</a> </span><span id="var-link"><a href="clojure.tools.namespace.find-api.html#clojure.tools.namespace.find/find-namespaces" id="var-tag">find-namespaces</a> </span><span id="var-link"><a href="clojure.tools.namespace.find-api.html#clojure.tools.namespace.find/find-namespaces-in-dir" id="var-tag">find-namespaces-in-dir</a> </span><span id="var-link"><a href="clojure.tools.namespace.find-api.html#clojure.tools.namespace.find/find-namespaces-in-jarfile" id="var-tag">find-namespaces-in-jarfile</a> </span><span id="var-link"><a href="clojure.tools.namespace.find-api.html#clojure.tools.namespace.find/find-ns-decls" id="var-tag">find-ns-decls</a> </span><span id="var-link"><a href="clojure.tools.namespace.find-api.html#clojure.tools.namespace.find/find-ns-decls-in-dir" id="var-tag">find-ns-decls-in-dir</a> </span><span id="var-link"><a href="clojure.tools.namespace.find-api.html#clojure.tools.namespace.find/find-ns-decls-in-jarfile" id="var-tag">find-ns-decls-in-jarfile</a> </span><span id="var-link"><a href="clojure.tools.namespace.find-api.html#clojure.tools.namespace.find/read-ns-decl-from-jarfile-entry" id="var-tag">read-ns-decl-from-jarfile-entry</a> </span><br />
-  
-</div><div id="namespace-entry">
-  <br />
-  <hr />
-  <h2 id="clojure.tools.namespace.parse">clojure.tools.namespace.parse</h2>
-  <span id="author-line">by <span id="author-name">Stuart Sierra</span><br /></span>
-  <a href="clojure.tools.namespace.parse-api.html" id="api-link">Detailed API documentation</a><br />
-  <pre id="namespace-docstr">Parse Clojure namespace (ns) declarations and extract
+
+
+<br />
+
+
+<div id="var-section">
+  <p></p>
+  <h2>Public Variables and Functions</h2>
+  <div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.dir/scan">scan</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (scan tracker &amp; dirs)
+</pre>
+    <pre id="var-docstr">Scans directories for files which have changed since the last time
+'scan' was run; update the dependency tracker with
+new/changed/deleted files.
+
+If no dirs given, defaults to all directories on the classpath.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace/dir.clj#L50" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.dir/scan-all">scan-all</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (scan-all tracker &amp; dirs)
+</pre>
+    <pre id="var-docstr">Scans directories for all Clojure source files and updates the
+dependency tracker to reload files. If no dirs given, defaults to
+all directories on the classpath.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace/dir.clj#L65" id="var-source">Source</a>
+  </div>
+</div>
+<br />
+<h2 id="clojure.tools.namespace.file">clojure.tools.namespace.file</h2>
+<pre id="namespace-docstr">Read and track namespace information from files</pre>
+
+
+<br />
+
+
+<div id="var-section">
+  <p></p>
+  <h2>Public Variables and Functions</h2>
+  <div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.file/add-files">add-files</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (add-files tracker files)
+</pre>
+    <pre id="var-docstr">Reads ns declarations from files; returns an updated dependency
+tracker with those files added.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace/file.clj#L45" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.file/clojure-file?">clojure-file?</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (clojure-file? file)
+</pre>
+    <pre id="var-docstr">Returns true if the java.io.File represents a normal Clojure source
+file.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace/file.clj#L25" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.file/read-file-ns-decl">read-file-ns-decl</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (read-file-ns-decl file)
+</pre>
+    <pre id="var-docstr">Attempts to read a (ns ...) declaration from file, and returns the
+unevaluated form.  Returns nil if read fails, or if the first form
+is not a ns declaration.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace/file.clj#L17" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.file/remove-files">remove-files</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (remove-files tracker files)
+</pre>
+    <pre id="var-docstr">Returns an updated dependency tracker with files removed. The files
+must have been previously added with add-files.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace/file.clj#L54" id="var-source">Source</a>
+  </div>
+</div>
+<br />
+<h2 id="clojure.tools.namespace.find">clojure.tools.namespace.find</h2>
+<pre id="namespace-docstr">Search for namespace declarations in directories and JAR files.</pre>
+
+
+<br />
+
+
+<div id="var-section">
+  <p></p>
+  <h2>Public Variables and Functions</h2>
+  <div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.find/clojure-sources-in-jar">clojure-sources-in-jar</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (clojure-sources-in-jar jar-file)
+</pre>
+    <pre id="var-docstr">Returns a sequence of filenames ending in .clj found in the JAR file.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/d31e2c85aac06aa659857f5f8b7c30622489fa83/src/main/clojure/clojure/tools/namespace/find.clj#L77" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.find/find-clojure-sources-in-dir">find-clojure-sources-in-dir</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (find-clojure-sources-in-dir dir)
+</pre>
+    <pre id="var-docstr">Searches recursively under dir for Clojure source files (.clj).
+Returns a sequence of File objects, in breadth-first sort order.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/d31e2c85aac06aa659857f5f8b7c30622489fa83/src/main/clojure/clojure/tools/namespace/find.clj#L55" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.find/find-namespaces">find-namespaces</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (find-namespaces files)
+</pre>
+    <pre id="var-docstr">Searches a sequence of java.io.File objects (both directories and
+JAR files) for .clj source files containing (ns...) declarations.
+Returns a sequence of the symbol names of the declared
+namespaces. Use with clojure.java.classpath to search Clojure's
+classpath.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/d31e2c85aac06aa659857f5f8b7c30622489fa83/src/main/clojure/clojure/tools/namespace/find.clj#L120" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.find/find-namespaces-in-dir">find-namespaces-in-dir</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (find-namespaces-in-dir dir)
+</pre>
+    <pre id="var-docstr">Searches dir recursively for (ns ...) declarations in Clojure
+source files; returns the symbol names of the declared namespaces.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/d31e2c85aac06aa659857f5f8b7c30622489fa83/src/main/clojure/clojure/tools/namespace/find.clj#L69" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.find/find-namespaces-in-jarfile">find-namespaces-in-jarfile</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (find-namespaces-in-jarfile jarfile)
+</pre>
+    <pre id="var-docstr">Searches the JAR file for Clojure source files containing (ns ...)
+declarations.  Returns a sequence of the symbol names of the
+declared namespaces.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/d31e2c85aac06aa659857f5f8b7c30622489fa83/src/main/clojure/clojure/tools/namespace/find.clj#L100" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.find/find-ns-decls">find-ns-decls</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (find-ns-decls files)
+</pre>
+    <pre id="var-docstr">Searches a sequence of java.io.File objects (both directories and
+JAR files) for .clj source files containing (ns...) declarations.
+Returns a sequence of the unevaluated ns declaration forms. Use with
+clojure.java.classpath to search Clojure's classpath.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/d31e2c85aac06aa659857f5f8b7c30622489fa83/src/main/clojure/clojure/tools/namespace/find.clj#L110" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.find/find-ns-decls-in-dir">find-ns-decls-in-dir</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (find-ns-decls-in-dir dir)
+</pre>
+    <pre id="var-docstr">Searches dir recursively for (ns ...) declarations in Clojure
+source files; returns the unevaluated ns declarations.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/d31e2c85aac06aa659857f5f8b7c30622489fa83/src/main/clojure/clojure/tools/namespace/find.clj#L63" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.find/find-ns-decls-in-jarfile">find-ns-decls-in-jarfile</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (find-ns-decls-in-jarfile jarfile)
+</pre>
+    <pre id="var-docstr">Searches the JAR file for Clojure source files containing (ns ...)
+declarations; returns the unevaluated ns declarations.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/d31e2c85aac06aa659857f5f8b7c30622489fa83/src/main/clojure/clojure/tools/namespace/find.clj#L92" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.find/read-ns-decl-from-jarfile-entry">read-ns-decl-from-jarfile-entry</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (read-ns-decl-from-jarfile-entry jarfile entry-name)
+</pre>
+    <pre id="var-docstr">Attempts to read a (ns ...) declaration from the named entry in the
+JAR file, and returns the unevaluated form.  Returns nil if the read
+fails, or if the first form is not a ns declaration.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/d31e2c85aac06aa659857f5f8b7c30622489fa83/src/main/clojure/clojure/tools/namespace/find.clj#L82" id="var-source">Source</a>
+  </div>
+</div>
+<br />
+<h2 id="clojure.tools.namespace.move">clojure.tools.namespace.move</h2>
+<pre id="namespace-docstr"></pre>
+
+
+<br />
+
+
+<div id="var-section">
+  <p></p>
+  <h2>Public Variables and Functions</h2>
+  <div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.move/move-ns">move-ns</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (move-ns old-sym new-sym source-path dirs)
+</pre>
+    <pre id="var-docstr">ALPHA: subject to change. Moves the .clj source file (found relative
+to source-path) for the namespace named old-sym to new-sym
+and replace all occurances of the old name with the new
+name in all Clojure source files found in dirs.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/4470daf4d156fc643952e505f4bcc918d633b836/src/main/clojure/clojure/tools/namespace/move.clj#L69" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.move/move-ns-file">move-ns-file</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (move-ns-file old-sym new-sym source-path)
+</pre>
+    <pre id="var-docstr">ALPHA: subject to change. Moves the .clj source file (found relative
+to source-path) for the namespace named old-sym to a file for a
+namespace named new-sym.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/4470daf4d156fc643952e505f4bcc918d633b836/src/main/clojure/clojure/tools/namespace/move.clj#L54" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.move/replace-ns-symbol">replace-ns-symbol</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (replace-ns-symbol source old-sym new-sym)
+</pre>
+    <pre id="var-docstr">ALPHA: subject to change. Given Clojure source as a string, replaces
+all occurances of the namespace name old-sym with new-sym and
+returns modified source as a string.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/4470daf4d156fc643952e505f4bcc918d633b836/src/main/clojure/clojure/tools/namespace/move.clj#L40" id="var-source">Source</a>
+  </div>
+</div>
+<br />
+<h2 id="clojure.tools.namespace.parse">clojure.tools.namespace.parse</h2>
+<pre id="namespace-docstr">Parse Clojure namespace (ns) declarations and extract
 dependencies.</pre>
-  
-  
-  
-  Contents:
-  <span id="var-link"><a href="clojure.tools.namespace.parse-api.html#clojure.tools.namespace.parse/comment?" id="var-tag">comment?</a> </span><span id="var-link"><a href="clojure.tools.namespace.parse-api.html#clojure.tools.namespace.parse/deps-from-ns-decl" id="var-tag">deps-from-ns-decl</a> </span><span id="var-link"><a href="clojure.tools.namespace.parse-api.html#clojure.tools.namespace.parse/ns-decl?" id="var-tag">ns-decl?</a> </span><span id="var-link"><a href="clojure.tools.namespace.parse-api.html#clojure.tools.namespace.parse/read-ns-decl" id="var-tag">read-ns-decl</a> </span><br />
-  
-</div><div id="namespace-entry">
-  <br />
-  <hr />
-  <h2 id="clojure.tools.namespace.reload">clojure.tools.namespace.reload</h2>
-  <span id="author-line">by <span id="author-name">Stuart Sierra</span><br /></span>
-  <a href="clojure.tools.namespace.reload-api.html" id="api-link">Detailed API documentation</a><br />
-  <pre id="namespace-docstr">Force reloading namespaces on demand or through a
+
+
+<br />
+
+
+<div id="var-section">
+  <p></p>
+  <h2>Public Variables and Functions</h2>
+  <div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.parse/comment?">comment?</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (comment? form)
+</pre>
+    <pre id="var-docstr">Returns true if form is a (comment ...)</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/4850d4aa3b5b4c990be0958065dcf6b94bb55004/src/main/clojure/clojure/tools/namespace/parse.clj#L15" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.parse/deps-from-ns-decl">deps-from-ns-decl</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (deps-from-ns-decl decl)
+</pre>
+    <pre id="var-docstr">Given an (ns...) declaration form (unevaluated), returns a set of
+symbols naming the dependencies of that namespace.  Handles :use and
+:require clauses but not :load.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/4850d4aa3b5b4c990be0958065dcf6b94bb55004/src/main/clojure/clojure/tools/namespace/parse.clj#L65" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.parse/ns-decl?">ns-decl?</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (ns-decl? form)
+</pre>
+    <pre id="var-docstr">Returns true if form is a (ns ...) declaration.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/4850d4aa3b5b4c990be0958065dcf6b94bb55004/src/main/clojure/clojure/tools/namespace/parse.clj#L20" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.parse/read-ns-decl">read-ns-decl</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (read-ns-decl rdr)
+</pre>
+    <pre id="var-docstr">Attempts to read a (ns ...) declaration from a
+java.io.PushbackReader, and returns the unevaluated form. Returns
+nil if read fails or if a ns declaration cannot be found. The ns
+declaration must be the first Clojure form in the file, except for
+(comment ...) forms.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/4850d4aa3b5b4c990be0958065dcf6b94bb55004/src/main/clojure/clojure/tools/namespace/parse.clj#L25" id="var-source">Source</a>
+  </div>
+</div>
+<br />
+<h2 id="clojure.tools.namespace.reload">clojure.tools.namespace.reload</h2>
+<pre id="namespace-docstr">Force reloading namespaces on demand or through a
 dependency tracker</pre>
-  
-  
-  
-  Contents:
-  <span id="var-link"><a href="clojure.tools.namespace.reload-api.html#clojure.tools.namespace.reload/remove-lib" id="var-tag">remove-lib</a> </span><span id="var-link"><a href="clojure.tools.namespace.reload-api.html#clojure.tools.namespace.reload/track-reload" id="var-tag">track-reload</a> </span><span id="var-link"><a href="clojure.tools.namespace.reload-api.html#clojure.tools.namespace.reload/track-reload-one" id="var-tag">track-reload-one</a> </span><br />
-  
-</div><div id="namespace-entry">
-  <br />
-  <hr />
-  <h2 id="clojure.tools.namespace.repl">clojure.tools.namespace.repl</h2>
-  <span id="author-line">by <span id="author-name">Stuart Sierra</span><br /></span>
-  <a href="clojure.tools.namespace.repl-api.html" id="api-link">Detailed API documentation</a><br />
-  <pre id="namespace-docstr">REPL utilities for working with namespaces</pre>
-  
-  
-  
-  Contents:
-  <span id="var-link"><a href="clojure.tools.namespace.repl-api.html#clojure.tools.namespace.repl/refresh" id="var-tag">refresh</a> </span><span id="var-link"><a href="clojure.tools.namespace.repl-api.html#clojure.tools.namespace.repl/refresh-all" id="var-tag">refresh-all</a> </span><span id="var-link"><a href="clojure.tools.namespace.repl-api.html#clojure.tools.namespace.repl/set-refresh-dirs" id="var-tag">set-refresh-dirs</a> </span><br />
-  
-</div><div id="namespace-entry">
-  <br />
-  <hr />
-  <h2 id="clojure.tools.namespace.track">clojure.tools.namespace.track</h2>
-  <span id="author-line">by <span id="author-name">Stuart Sierra</span><br /></span>
-  <a href="clojure.tools.namespace.track-api.html" id="api-link">Detailed API documentation</a><br />
-  <pre id="namespace-docstr">Dependency tracker which can compute which namespaces need to be
+
+
+<br />
+
+
+<div id="var-section">
+  <p></p>
+  <h2>Public Variables and Functions</h2>
+  <div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.reload/remove-lib">remove-lib</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (remove-lib lib)
+</pre>
+    <pre id="var-docstr">Remove lib's namespace and remove lib from the set of loaded libs.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/f192aadc659c0685522ae508a3038e704d7ae10d/src/main/clojure/clojure/tools/namespace/reload.clj#L15" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.reload/track-reload">track-reload</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (track-reload tracker)
+</pre>
+    <pre id="var-docstr">Executes all pending unload/reload operations on dependency tracker
+until either an error is encountered or there are no more pending
+operations.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/f192aadc659c0685522ae508a3038e704d7ae10d/src/main/clojure/clojure/tools/namespace/reload.clj#L43" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.reload/track-reload-one">track-reload-one</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (track-reload-one tracker)
+</pre>
+    <pre id="var-docstr">Executes the next pending unload/reload operation in the dependency
+tracker. Returns the updated dependency tracker. If reloading caused
+an error, it is captured as ::error and the namespace which caused
+the error is ::error-ns.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/f192aadc659c0685522ae508a3038e704d7ae10d/src/main/clojure/clojure/tools/namespace/reload.clj#L21" id="var-source">Source</a>
+  </div>
+</div>
+<br />
+<h2 id="clojure.tools.namespace.repl">clojure.tools.namespace.repl</h2>
+<pre id="namespace-docstr">REPL utilities for working with namespaces</pre>
+
+
+<br />
+
+
+<div id="var-section">
+  <p></p>
+  <h2>Public Variables and Functions</h2>
+  <div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.repl/disable-reload!">disable-reload!</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (disable-reload!)
+       (disable-reload! namespace)
+</pre>
+    <pre id="var-docstr">Adds metadata to namespace (or *ns* if unspecified) telling
+'refresh' not to load it. Implies disable-unload! also.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/bc9d5c1a6f191070a425b04feda9e2d3c2eb6928/src/main/clojure/clojure/tools/namespace/repl.clj#L60" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.repl/disable-unload!">disable-unload!</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (disable-unload!)
+       (disable-unload! namespace)
+</pre>
+    <pre id="var-docstr">Adds metadata to namespace (or *ns* if unspecified) telling
+'refresh' not to unload it. The namespace may still be reloaded, it
+just won't be removed first.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/bc9d5c1a6f191070a425b04feda9e2d3c2eb6928/src/main/clojure/clojure/tools/namespace/repl.clj#L53" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.repl/refresh">refresh</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (refresh)
+</pre>
+    <pre id="var-docstr">Scans source code directories for files which have changed (since
+the last time this function was run) and reloads them in dependency
+order. Returns :ok or an error; sets the latest exception to
+clojure.core/*e (if *e is thread-bound).
+
+The directories to be scanned are controlled by 'set-refresh-dirs';
+defaults to all directories on the Java classpath.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/bc9d5c1a6f191070a425b04feda9e2d3c2eb6928/src/main/clojure/clojure/tools/namespace/repl.clj#L66" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.repl/refresh-all">refresh-all</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (refresh-all)
+</pre>
+    <pre id="var-docstr">Scans source code directories for all Clojure source files and
+reloads them in dependency order.
+
+The directories to be scanned are controlled by 'set-refresh-dirs';
+defaults to all directories on the Java classpath.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/bc9d5c1a6f191070a425b04feda9e2d3c2eb6928/src/main/clojure/clojure/tools/namespace/repl.clj#L77" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.repl/set-refresh-dirs">set-refresh-dirs</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (set-refresh-dirs &amp; dirs)
+</pre>
+    <pre id="var-docstr">Sets the directories which are scanned by 'refresh'. Supports the
+same types as clojure.java.io/file.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/bc9d5c1a6f191070a425b04feda9e2d3c2eb6928/src/main/clojure/clojure/tools/namespace/repl.clj#L86" id="var-source">Source</a>
+  </div>
+</div>
+<br />
+<h2 id="clojure.tools.namespace.track">clojure.tools.namespace.track</h2>
+<pre id="namespace-docstr">Dependency tracker which can compute which namespaces need to be
 reloaded after files have changed. This is the low-level
 implementation that requires you to find the namespace dependencies
-yourself: most users will interact with the wrappers in
-clojure.tools.namespace.file and clojure.tools.namespace.dir.</pre>
-  
-  
-  
-  Contents:
-  <span id="var-link"><a href="clojure.tools.namespace.track-api.html#clojure.tools.namespace.track/add" id="var-tag">add</a> </span><span id="var-link"><a href="clojure.tools.namespace.track-api.html#clojure.tools.namespace.track/remove" id="var-tag">remove</a> </span><span id="var-link"><a href="clojure.tools.namespace.track-api.html#clojure.tools.namespace.track/tracker" id="var-tag">tracker</a> </span><br />
-  
+yourself: most uses will interact with the wrappers in
+clojure.tools.namespace.file and clojure.tools.namespace.dir or the
+public API in clojure.tools.namespace.repl.</pre>
+
+
+<br />
+
+
+<div id="var-section">
+  <p></p>
+  <h2>Public Variables and Functions</h2>
+  <div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.track/add">add</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (add tracker depmap)
+</pre>
+    <pre id="var-docstr">Returns an updated dependency tracker with new/updated namespaces.
+
+Depmap is a map describing the new or modified namespaces. Keys in
+the map are namespace names (symbols). Values in the map are sets of
+symbols naming the birect dependencies of each namespace. For
+example, assuming these ns declarations:
+
+    (ns alpha (:require beta))
+    (ns beta (:require gamma delta))
+
+the depmap would look like this:
+
+    {alpha #{beta}
+     beta  #{gamma delta}}
+
+After adding new/updated namespaces, the dependency tracker will
+have two lists associated with the following keys:
+
+    :clojure.tools.namespace.track/unload
+        is the list of namespaces that need to be removed
+
+    :clojure.tools.namespace.track/load
+        is the list of namespaces that need to be reloaded
+
+To reload namespaces in the correct order, first remove/unload all
+namespaces in the 'unload' list, then (re)load all namespaces in the
+'load' list. The clojure.tools.namespace.reload namespace has
+functions to do this.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/14a2522106979225793e790323a35921410afc07/src/main/clojure/clojure/tools/namespace/track.clj#L40" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.track/remove">remove</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (remove tracker names)
+</pre>
+    <pre id="var-docstr">Returns an updated dependency tracker from which the namespaces
+(symbols) have been removed. The ::unload and ::load lists are
+populated as with 'add'.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/14a2522106979225793e790323a35921410afc07/src/main/clojure/clojure/tools/namespace/track.clj#L85" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.track/tracker">tracker</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (tracker)
+</pre>
+    <pre id="var-docstr">Returns a new, empty dependency tracker</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/14a2522106979225793e790323a35921410afc07/src/main/clojure/clojure/tools/namespace/track.clj#L108" id="var-source">Source</a>
+  </div>
 </div>
+
+
 </div>
               </div>
             </div>
