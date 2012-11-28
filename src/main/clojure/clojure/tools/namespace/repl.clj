@@ -40,7 +40,7 @@
       (update-in [::track/unload] #(remove unload-disabled? %))
       (update-in [::track/load] #(remove load-disabled? %))))
 
-(defn- do-refresh [scan-fn]
+(defn- do-refresh [scan-fn after-sym]
   (let [current-ns (ns-name *ns*)]
     (alter-var-root #'refresh-tracker
                     #(apply scan-fn % refresh-dirs))
@@ -48,7 +48,10 @@
     (print-pending-reloads refresh-tracker)
     (alter-var-root #'refresh-tracker reload/track-reload)
     (in-ns current-ns)
-    (print-and-return refresh-tracker)))
+    (let [result (print-and-return refresh-tracker)]
+      (if (and (= :ok result) after-sym)
+        ((ns-resolve *ns* after-sym))
+        result))))
 
 (defn disable-unload!
   "Adds metadata to namespace (or *ns* if unspecified) telling
@@ -70,9 +73,21 @@
   clojure.core/*e (if *e is thread-bound).
 
   The directories to be scanned are controlled by 'set-refresh-dirs';
-  defaults to all directories on the Java classpath."
-  []
-  (do-refresh dir/scan))
+  defaults to all directories on the Java classpath.
+
+  Options are key-value pairs. Valid options are:
+
+      :after   Namespace-qualified symbol naming a zero-argument
+               function to be invoked after a successful refresh. This
+               symbol will be resolved *after* all namespaces have
+               been reloaded."
+  [& options]
+  (let [{:keys [after]} options]
+    (when after
+      (assert (symbol? after) ":after value must be a symbol")
+      (assert (namespace after)
+              ":after value must be a namespace-qualified symbol"))
+    (do-refresh dir/scan after)))
 
 (defn refresh-all
   "Scans source code directories for all Clojure source files and

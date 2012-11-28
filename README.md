@@ -15,7 +15,7 @@ repositories.
 Releases and Dependency Information
 ----------------------------------------
 
-* [Latest stable release is 0.2.1](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.2.1)
+* Latest stable release is [0.2.1](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.2.1)
 
 * [All Released Versions](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.clojure%22%20AND%20a%3A%22tools.namespace%22)
 
@@ -36,7 +36,7 @@ Releases and Dependency Information
 
 * Git master branch is at **0.2.2-SNAPSHOT**
 
-* [Development Snapshot Versions](https://oss.sonatype.org/content/groups/public/org/clojure/tools.namespace/)
+* [All Snapshot Versions](https://oss.sonatype.org/content/groups/public/org/clojure/tools.namespace/)
 
 Leiningen information for development snapshots:
 
@@ -322,6 +322,7 @@ references to things you created in the REPL.
 If you create your own instance of the dependency tracker, do not
 store it in a namespace which gets reloaded.
 
+
 ### Warnings for Helper Functions
 
 Be careful defining a helper function in a namespace which calls
@@ -332,12 +333,28 @@ Lifecycle" section into a single function:
     (defn restart []
       (stop my-app)
       (refresh)
-      (def my-app (create-application))
+      (alter-var-root #'my-app (constantly (create-application)))
       (start my-app))
 
 This won't work if the namespace containing `restart` could get
 reloaded. After `refresh`, the namespace containing `restart` has been
-dropped, but the function continues to run in the *old* namespace.
+dropped, but the function continues to run in the *old* namespace and
+refer to old Vars.
+
+**New in 0.2.2-SNAPSHOT:** `refresh` now accepts an optional argument
+naming a function you want to run *after* a successful reload. (This
+code is ALPHA and subject to change.) The value of this option must be
+a symbol, and it must be fully namespace-qualified. The previous
+example could be correctly written (assuming these functions are
+defined in the `user` namespace):
+
+    (defn start-my-app []
+      (alter-var-root #'my-app (constantly (create-application)))
+      (start my-app))
+
+    (defn restart []
+      (stop my-app)
+      (refresh :after 'user/start-my-app))
 
 
 ### Warnings for Aliases
