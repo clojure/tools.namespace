@@ -1118,7 +1118,7 @@ the error is ::error-ns.</pre>
 'refresh' not to load it. Implies disable-unload! also.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/bc9d5c1a6f191070a425b04feda9e2d3c2eb6928/src/main/clojure/clojure/tools/namespace/repl.clj#L60" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/a544efc08bd9b14dd9c96d2a20b1d043f30d5677/src/main/clojure/clojure/tools/namespace/repl.clj#L63" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1132,13 +1132,13 @@ the error is ::error-ns.</pre>
 just won't be removed first.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/bc9d5c1a6f191070a425b04feda9e2d3c2eb6928/src/main/clojure/clojure/tools/namespace/repl.clj#L53" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/a544efc08bd9b14dd9c96d2a20b1d043f30d5677/src/main/clojure/clojure/tools/namespace/repl.clj#L56" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
     <h2 id="clojure.tools.namespace.repl/refresh">refresh</h2>
     <span id="var-type">function</span><br />
-    <pre id="var-usage">Usage: (refresh)
+    <pre id="var-usage">Usage: (refresh &amp; options)
 </pre>
     <pre id="var-docstr">Scans source code directories for files which have changed (since
 the last time this function was run) and reloads them in dependency
@@ -1146,10 +1146,17 @@ order. Returns :ok or an error; sets the latest exception to
 clojure.core/*e (if *e is thread-bound).
 
 The directories to be scanned are controlled by 'set-refresh-dirs';
-defaults to all directories on the Java classpath.</pre>
+defaults to all directories on the Java classpath.
+
+Options are key-value pairs. Valid options are:
+
+    :after   Namespace-qualified symbol naming a zero-argument
+             function to be invoked after a successful refresh. This
+             symbol will be resolved *after* all namespaces have
+             been reloaded.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/bc9d5c1a6f191070a425b04feda9e2d3c2eb6928/src/main/clojure/clojure/tools/namespace/repl.clj#L66" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/a544efc08bd9b14dd9c96d2a20b1d043f30d5677/src/main/clojure/clojure/tools/namespace/repl.clj#L69" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1164,7 +1171,7 @@ The directories to be scanned are controlled by 'set-refresh-dirs';
 defaults to all directories on the Java classpath.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/bc9d5c1a6f191070a425b04feda9e2d3c2eb6928/src/main/clojure/clojure/tools/namespace/repl.clj#L77" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/a544efc08bd9b14dd9c96d2a20b1d043f30d5677/src/main/clojure/clojure/tools/namespace/repl.clj#L92" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1176,7 +1183,7 @@ defaults to all directories on the Java classpath.</pre>
 same types as clojure.java.io/file.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/bc9d5c1a6f191070a425b04feda9e2d3c2eb6928/src/main/clojure/clojure/tools/namespace/repl.clj#L86" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/a544efc08bd9b14dd9c96d2a20b1d043f30d5677/src/main/clojure/clojure/tools/namespace/repl.clj#L101" id="var-source">Source</a>
   </div>
 </div>
 <br />
