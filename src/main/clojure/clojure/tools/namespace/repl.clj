@@ -41,6 +41,10 @@
       (update-in [::track/load] #(remove load-disabled? %))))
 
 (defn- do-refresh [scan-fn after-sym]
+  (when after-sym
+    (assert (symbol? after-sym) ":after value must be a symbol")
+    (assert (namespace after-sym)
+            ":after value must be a namespace-qualified symbol"))
   (let [current-ns (ns-name *ns*)]
     (alter-var-root #'refresh-tracker
                     #(apply scan-fn % refresh-dirs))
@@ -83,10 +87,6 @@
                been reloaded."
   [& options]
   (let [{:keys [after]} options]
-    (when after
-      (assert (symbol? after) ":after value must be a symbol")
-      (assert (namespace after)
-              ":after value must be a namespace-qualified symbol"))
     (do-refresh dir/scan after)))
 
 (defn refresh-all
@@ -94,9 +94,17 @@
   reloads them in dependency order.
 
   The directories to be scanned are controlled by 'set-refresh-dirs';
-  defaults to all directories on the Java classpath."
-  []
-  (do-refresh dir/scan-all))
+  defaults to all directories on the Java classpath.
+
+  Options are key-value pairs. Valid options are:
+
+      :after   Namespace-qualified symbol naming a zero-argument
+               function to be invoked after a successful refresh. This
+               symbol will be resolved *after* all namespaces have
+               been reloaded."
+  [& options]
+  (let [{:keys [after]} options]
+    (do-refresh dir/scan-all after)))
 
 (defn set-refresh-dirs
   "Sets the directories which are scanned by 'refresh'. Supports the
