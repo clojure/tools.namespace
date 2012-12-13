@@ -34,10 +34,12 @@
 (defn- clojure-source-files [dirs]
   (->> dirs
        (map io/file)
-       (filter #(.exists %))
+       (filter #(.exists ^File %))
        (mapcat file-seq)
-       (filter #(and (.isFile %) (.endsWith (.getName %) ".clj")))
-       (map #(.getCanonicalFile %))))
+       (filter (fn [^File file]
+                 (and (.isFile file)
+                      (.endsWith (.getName file) ".clj"))))
+       (map #(.getCanonicalFile ^File %))))
 
 (def ^:private symbol-regex
   ;; LispReader.java uses #"[:]?([\D&&[^/]].*/)?([\D&&[^/]][^/]*)" but
