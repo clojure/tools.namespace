@@ -7,6 +7,13 @@
 ;; remove this notice, or any other, from this software.
 
 (ns clojure.tools.namespace.move
+  "Refactoring tool to move a Clojure namespace from one name/file to
+  another, and update all references to that namespace in your other
+  Clojure source files.
+
+  WARNING: This code is ALPHA and subject to change. It also modifies
+  and deletes your source files! Make sure you have a backup or
+  version control."
   (:require [clojure.string :as str]
             [clojure.java.io :as io])
   (:import (java.io File)))
@@ -54,7 +61,10 @@
 (defn move-ns-file
   "ALPHA: subject to change. Moves the .clj source file (found relative
   to source-path) for the namespace named old-sym to a file for a
-  namespace named new-sym."
+  namespace named new-sym.
+
+  WARNING: This function moves and deletes your source files! Make
+  sure you have a backup or version control."
   [old-sym new-sym source-path]
   (let [old-file (io/file source-path (ns-file-name old-sym))
         new-file (io/file source-path (ns-file-name new-sym))]
@@ -70,7 +80,10 @@
   "ALPHA: subject to change. Moves the .clj source file (found relative
   to source-path) for the namespace named old-sym to new-sym and
   replace all occurances of the old name with the new name in all
-  Clojure source files found in dirs."
+  Clojure source files found in dirs.
+
+  WARNING: This function modifies and deletes your source files! Make
+  sure you have a backup or version control."
   [old-sym new-sym source-path dirs]
   (move-ns-file old-sym new-sym source-path)
   (doseq [file (clojure-source-files dirs)]
