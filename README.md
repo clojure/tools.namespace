@@ -15,32 +15,32 @@ repositories.
 Releases and Dependency Information
 ----------------------------------------
 
-* [Latest stable release is 0.2.1](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.2.1)
+* [Latest stable release is 0.2.2](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.2.2)
 
 * [All Released Versions](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.clojure%22%20AND%20a%3A%22tools.namespace%22)
 
 [Leiningen](https://github.com/technomancy/leiningen) dependency information:
 
-    [org.clojure/tools.namespace "0.2.1"]
+    [org.clojure/tools.namespace "0.2.2"]
 
 [Maven](http://maven.apache.org/) dependency information:
 
     <dependency>
       <groupId>org.clojure</groupId>
       <artifactId>tools.namespace</artifactId>
-      <version>0.2.1</version>
+      <version>0.2.2</version>
     </dependency>
 
 
 ### Development Snapshots ###
 
-* Git master branch is at **0.2.2-SNAPSHOT**
+* Git master branch is at **0.2.3-SNAPSHOT**
 
 * [All Snapshot Versions](https://oss.sonatype.org/content/groups/public/org/clojure/tools.namespace/)
 
 Leiningen information for development snapshots:
 
-    :dependencies [[org.clojure/tools.namespace "0.2.2-SNAPSHOT"]]
+    :dependencies [[org.clojure/tools.namespace "0.2.3-SNAPSHOT"]]
     :repositories {"sonatype-oss-public"
                    "https://oss.sonatype.org/content/groups/public/"}
 
@@ -82,7 +82,7 @@ see below. c.t.n.repl is built out of smaller parts:
 You can recombine these parts in other ways, but c.t.n.repl is the
 primary public entry-point to their functionality.
 
-**New in 0.2.2-SNAPSHOT:** The namespace **clojure.tools.namespace.move**
+**New in 0.2.2:** The namespace **clojure.tools.namespace.move**
 contains utilities to aid in moving and renaming Clojure namespaces.
 This code is ALPHA and subject to change.
 
@@ -341,7 +341,7 @@ reloaded. After `refresh`, the namespace containing `restart` has been
 dropped, but the function continues to run in the *old* namespace and
 refer to old Vars.
 
-**New in 0.2.2-SNAPSHOT:** `refresh` now accepts an optional argument
+**New in 0.2.2:** `refresh` now accepts an optional argument
 naming a function you want to run *after* a successful reload. (This
 code is ALPHA and subject to change.) The value of this option must be
 a symbol, and it must be fully namespace-qualified. The previous
@@ -428,7 +428,8 @@ refresh.
 Change Log
 ----------------------------------------
 
-* Version 0.2.2-SNAPSHOT (in development)
+* Version 0.2.3-SNAPSHOT (in development)
+* Version 0.2.2 on 14-Dec-2012
   * Add `:after` option to `refresh`
   * Add `clojure.tools.namespace.move`
   * Fix [TNS-4], reflection warnings
