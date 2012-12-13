@@ -12,8 +12,8 @@
   (:import (java.io File)))
 
 (defn- update-file
-  "Read file as a string, call f on file plus any args, then write out
-  return value of f as the new contents of file."
+  "Reads file as a string, calls f on the string plus any args, then
+  writes out return value of f as the new contents of file."
   [file f & args]
   (spit file (str (apply f (slurp file) args))))
 
@@ -68,9 +68,9 @@
 
 (defn move-ns
   "ALPHA: subject to change. Moves the .clj source file (found relative
-  to source-path) for the namespace named old-sym to new-sym
-  and replace all occurances of the old name with the new
-  name in all Clojure source files found in dirs."
+  to source-path) for the namespace named old-sym to new-sym and
+  replace all occurances of the old name with the new name in all
+  Clojure source files found in dirs."
   [old-sym new-sym source-path dirs]
   (move-ns-file old-sym new-sym source-path)
   (doseq [file (clojure-source-files dirs)]
