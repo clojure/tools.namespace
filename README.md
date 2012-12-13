@@ -15,7 +15,7 @@ repositories.
 Releases and Dependency Information
 ----------------------------------------
 
-* Latest stable release is [0.2.1](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.2.1)
+* [Latest stable release is 0.2.1](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.2.1)
 
 * [All Released Versions](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.clojure%22%20AND%20a%3A%22tools.namespace%22)
 
@@ -429,6 +429,7 @@ Change Log
 ----------------------------------------
 
 * Version 0.2.2-SNAPSHOT (in development)
+  * Add `:after` option to `refresh`
   * Add `clojure.tools.namespace.move`
   * Fix [TNS-4], reflection warnings
 * Version 0.2.1 on 26-Oct-2012
