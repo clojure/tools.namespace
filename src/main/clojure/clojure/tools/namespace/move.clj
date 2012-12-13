@@ -6,14 +6,15 @@
 ;; agreeing to be bound by the terms of this license. You must not
 ;; remove this notice, or any other, from this software.
 
-(ns clojure.tools.namespace.move
-  "Refactoring tool to move a Clojure namespace from one name/file to
+(ns ^{:author "Stuart Sierra"
+      :doc "Refactoring tool to move a Clojure namespace from one name/file to
   another, and update all references to that namespace in your other
   Clojure source files.
 
   WARNING: This code is ALPHA and subject to change. It also modifies
   and deletes your source files! Make sure you have a backup or
-  version control."
+  version control."}
+  clojure.tools.namespace.move
   (:require [clojure.string :as str]
             [clojure.java.io :as io])
   (:import (java.io File)))
