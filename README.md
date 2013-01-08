@@ -302,7 +302,15 @@ also.
 Warnings
 --------------------
 
-Other libraries which also do code-reloading may conflict with tools.namespace. One known example is [ring-devel](https://github.com/ring-clojure/ring/tree/master/ring-devel) (as of version 1.1.6) which uses [ns-tracker](https://github.com/weavejester/ns-tracker), which uses an older version of tools.namespace.
+Reloading code does not work in the presence of [AOT-compiled]
+namespaces. If you are using AOT-compilation in your project, make
+sure it is disabled and you have run `lein clean` before starting a
+REPL development session.
+
+Other libraries which also do code-reloading may conflict with
+tools.namespace. One known example is [ring-devel] (as of version
+1.1.6) which uses [ns-tracker], which uses an older version of
+tools.namespace.
 
 Be careful when reloading the namespace in which you run your REPL.
 Because namespaces are removed when reloading, all your past
@@ -321,6 +329,10 @@ references to things you created in the REPL.
 
 If you create your own instance of the dependency tracker, do not
 store it in a namespace which gets reloaded.
+
+[AOT-compiled]: http://clojure.org/compilation
+[ring-devel]: http://clojure.org/compilation
+[ns-tracker]: https://github.com/weavejester/ns-tracker
 
 
 ### Warnings for Helper Functions
