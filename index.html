@@ -1,7 +1,7 @@
 <html>
   <head>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-    <title>clojure.tools.namespace - Extract namespace declarations 0.2.2 API documentation</title>
+    <title>clojure.tools.namespace - Extract namespace declarations 0.2.3 API documentation</title>
     <link href="static/favicon.png" rel="icon" />
     <link href="static/favicon.png" rel="shortcut icon" />
     <link media="all" type="text/css" href="static/clojure.css" rel="stylesheet" />
@@ -25,7 +25,7 @@ namespace.
       <div id="leftcolumn"><div style="text-align: center;"></div>
 <div class="menu">
   <div class="WikiCustomNav WikiElement wiki">
-    <span class="toc-header"><span id="project-name">Extract namespace declarations</span> <span id="version">0.2.2</span> API</span><br />
+    <span class="toc-header"><span id="project-name">Extract namespace declarations</span> <span id="version">0.2.3</span> API</span><br />
     <ul>
       <li><a class="wiki_link" href="index.html">Overview</a></li>
       <li><a class="wiki_link" href="api-index.html">API Index</a></li>
@@ -268,7 +268,7 @@ namespace.
 </div>
 </div>
                 <div id="content-tag"><h1 id="overview">API for <span id="clojure.tools.namespace">clojure.tools.namespace</span>
-  - <span id="header-project">Extract namespace declarations</span> <span id="header-version">0.2.2</span><span id="header-status-block"> (<span id="header-status">in development</span>)</span>
+  - <span id="header-project">Extract namespace declarations</span> <span id="header-version">0.2.3</span><span id="header-status-block"> (<span id="header-status">in development</span>)</span>
   </h1>
 <span id="author-line">by <span id="author-name">Stuart Sierra</span><br /></span>
 <br />Full namespace name: <span id="long-name">clojure.tools.namespace</span>
@@ -928,7 +928,13 @@ fails, or if the first form is not a ns declaration.</pre>
 </div>
 <br />
 <h2 id="clojure.tools.namespace.move">clojure.tools.namespace.move</h2>
-<pre id="namespace-docstr"></pre>
+<pre id="namespace-docstr">Refactoring tool to move a Clojure namespace from one name/file to
+another, and update all references to that namespace in your other
+Clojure source files.
+
+WARNING: This code is ALPHA and subject to change. It also modifies
+and deletes your source files! Make sure you have a backup or
+version control.</pre>
 
 
 <br />
@@ -945,12 +951,15 @@ fails, or if the first form is not a ns declaration.</pre>
     <pre id="var-usage">Usage: (move-ns old-sym new-sym source-path dirs)
 </pre>
     <pre id="var-docstr">ALPHA: subject to change. Moves the .clj source file (found relative
-to source-path) for the namespace named old-sym to new-sym
-and replace all occurances of the old name with the new
-name in all Clojure source files found in dirs.</pre>
+to source-path) for the namespace named old-sym to new-sym and
+replace all occurances of the old name with the new name in all
+Clojure source files found in dirs.
+
+WARNING: This function modifies and deletes your source files! Make
+sure you have a backup or version control.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/4470daf4d156fc643952e505f4bcc918d633b836/src/main/clojure/clojure/tools/namespace/move.clj#L69" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/ca860fc9a8d760970e249ecd105b6b16e127b5c1/src/main/clojure/clojure/tools/namespace/move.clj#L82" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -960,10 +969,13 @@ name in all Clojure source files found in dirs.</pre>
 </pre>
     <pre id="var-docstr">ALPHA: subject to change. Moves the .clj source file (found relative
 to source-path) for the namespace named old-sym to a file for a
-namespace named new-sym.</pre>
+namespace named new-sym.
+
+WARNING: This function moves and deletes your source files! Make
+sure you have a backup or version control.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/4470daf4d156fc643952e505f4bcc918d633b836/src/main/clojure/clojure/tools/namespace/move.clj#L54" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/ca860fc9a8d760970e249ecd105b6b16e127b5c1/src/main/clojure/clojure/tools/namespace/move.clj#L64" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -976,7 +988,7 @@ all occurances of the namespace name old-sym with new-sym and
 returns modified source as a string.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/4470daf4d156fc643952e505f4bcc918d633b836/src/main/clojure/clojure/tools/namespace/move.clj#L40" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/ca860fc9a8d760970e249ecd105b6b16e127b5c1/src/main/clojure/clojure/tools/namespace/move.clj#L50" id="var-source">Source</a>
   </div>
 </div>
 <br />
@@ -1118,7 +1130,7 @@ the error is ::error-ns.</pre>
 'refresh' not to load it. Implies disable-unload! also.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/a544efc08bd9b14dd9c96d2a20b1d043f30d5677/src/main/clojure/clojure/tools/namespace/repl.clj#L63" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/6831271b77f0ab4036f3c24c26668dfc10a3f689/src/main/clojure/clojure/tools/namespace/repl.clj#L67" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1132,7 +1144,7 @@ the error is ::error-ns.</pre>
 just won't be removed first.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/a544efc08bd9b14dd9c96d2a20b1d043f30d5677/src/main/clojure/clojure/tools/namespace/repl.clj#L56" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/6831271b77f0ab4036f3c24c26668dfc10a3f689/src/main/clojure/clojure/tools/namespace/repl.clj#L60" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1156,22 +1168,29 @@ Options are key-value pairs. Valid options are:
              been reloaded.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/a544efc08bd9b14dd9c96d2a20b1d043f30d5677/src/main/clojure/clojure/tools/namespace/repl.clj#L69" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/6831271b77f0ab4036f3c24c26668dfc10a3f689/src/main/clojure/clojure/tools/namespace/repl.clj#L73" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
     <h2 id="clojure.tools.namespace.repl/refresh-all">refresh-all</h2>
     <span id="var-type">function</span><br />
-    <pre id="var-usage">Usage: (refresh-all)
+    <pre id="var-usage">Usage: (refresh-all &amp; options)
 </pre>
     <pre id="var-docstr">Scans source code directories for all Clojure source files and
 reloads them in dependency order.
 
 The directories to be scanned are controlled by 'set-refresh-dirs';
-defaults to all directories on the Java classpath.</pre>
+defaults to all directories on the Java classpath.
+
+Options are key-value pairs. Valid options are:
+
+    :after   Namespace-qualified symbol naming a zero-argument
+             function to be invoked after a successful refresh. This
+             symbol will be resolved *after* all namespaces have
+             been reloaded.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/a544efc08bd9b14dd9c96d2a20b1d043f30d5677/src/main/clojure/clojure/tools/namespace/repl.clj#L92" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/6831271b77f0ab4036f3c24c26668dfc10a3f689/src/main/clojure/clojure/tools/namespace/repl.clj#L92" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1183,7 +1202,7 @@ defaults to all directories on the Java classpath.</pre>
 same types as clojure.java.io/file.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/a544efc08bd9b14dd9c96d2a20b1d043f30d5677/src/main/clojure/clojure/tools/namespace/repl.clj#L101" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/6831271b77f0ab4036f3c24c26668dfc10a3f689/src/main/clojure/clojure/tools/namespace/repl.clj#L109" id="var-source">Source</a>
   </div>
 </div>
 <br />

@@ -38,11 +38,13 @@
    :doc
    "Search for namespace declarations in directories and JAR files."}
   {:source-url
-   "https://github.com/clojure/tools.namespace/blob/4470daf4d156fc643952e505f4bcc918d633b836/src/main/clojure/clojure/tools/namespace/move.clj",
+   "https://github.com/clojure/tools.namespace/blob/ca860fc9a8d760970e249ecd105b6b16e127b5c1/src/main/clojure/clojure/tools/namespace/move.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace/clojure.tools.namespace.move-api.html",
    :name "clojure.tools.namespace.move",
-   :doc nil}
+   :author "Stuart Sierra",
+   :doc
+   "Refactoring tool to move a Clojure namespace from one name/file to\nanother, and update all references to that namespace in your other\nClojure source files.\n\nWARNING: This code is ALPHA and subject to change. It also modifies\nand deletes your source files! Make sure you have a backup or\nversion control."}
   {:source-url
    "https://github.com/clojure/tools.namespace/blob/4850d4aa3b5b4c990be0958065dcf6b94bb55004/src/main/clojure/clojure/tools/namespace/parse.clj",
    :wiki-url
@@ -60,7 +62,7 @@
    :doc
    "Force reloading namespaces on demand or through a\ndependency tracker"}
   {:source-url
-   "https://github.com/clojure/tools.namespace/blob/a544efc08bd9b14dd9c96d2a20b1d043f30d5677/src/main/clojure/clojure/tools/namespace/repl.clj",
+   "https://github.com/clojure/tools.namespace/blob/6831271b77f0ab4036f3c24c26668dfc10a3f689/src/main/clojure/clojure/tools/namespace/repl.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace/clojure.tools.namespace.repl-api.html",
    :name "clojure.tools.namespace.repl",
@@ -679,43 +681,43 @@
    :name "move-ns",
    :namespace "clojure.tools.namespace.move",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/4470daf4d156fc643952e505f4bcc918d633b836/src/main/clojure/clojure/tools/namespace/move.clj#L69",
+   "https://github.com/clojure/tools.namespace/blob/ca860fc9a8d760970e249ecd105b6b16e127b5c1/src/main/clojure/clojure/tools/namespace/move.clj#L82",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/4470daf4d156fc643952e505f4bcc918d633b836/src/main/clojure/clojure/tools/namespace/move.clj",
+   "https://github.com/clojure/tools.namespace/raw/ca860fc9a8d760970e249ecd105b6b16e127b5c1/src/main/clojure/clojure/tools/namespace/move.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.move/move-ns",
    :doc
-   "ALPHA: subject to change. Moves the .clj source file (found relative\nto source-path) for the namespace named old-sym to new-sym\nand replace all occurances of the old name with the new\nname in all Clojure source files found in dirs.",
+   "ALPHA: subject to change. Moves the .clj source file (found relative\nto source-path) for the namespace named old-sym to new-sym and\nreplace all occurances of the old name with the new name in all\nClojure source files found in dirs.\n\nWARNING: This function modifies and deletes your source files! Make\nsure you have a backup or version control.",
    :var-type "function",
-   :line 69,
+   :line 82,
    :file "src/main/clojure/clojure/tools/namespace/move.clj"}
   {:arglists ([old-sym new-sym source-path]),
    :name "move-ns-file",
    :namespace "clojure.tools.namespace.move",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/4470daf4d156fc643952e505f4bcc918d633b836/src/main/clojure/clojure/tools/namespace/move.clj#L54",
+   "https://github.com/clojure/tools.namespace/blob/ca860fc9a8d760970e249ecd105b6b16e127b5c1/src/main/clojure/clojure/tools/namespace/move.clj#L64",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/4470daf4d156fc643952e505f4bcc918d633b836/src/main/clojure/clojure/tools/namespace/move.clj",
+   "https://github.com/clojure/tools.namespace/raw/ca860fc9a8d760970e249ecd105b6b16e127b5c1/src/main/clojure/clojure/tools/namespace/move.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.move/move-ns-file",
    :doc
-   "ALPHA: subject to change. Moves the .clj source file (found relative\nto source-path) for the namespace named old-sym to a file for a\nnamespace named new-sym.",
+   "ALPHA: subject to change. Moves the .clj source file (found relative\nto source-path) for the namespace named old-sym to a file for a\nnamespace named new-sym.\n\nWARNING: This function moves and deletes your source files! Make\nsure you have a backup or version control.",
    :var-type "function",
-   :line 54,
+   :line 64,
    :file "src/main/clojure/clojure/tools/namespace/move.clj"}
   {:arglists ([source old-sym new-sym]),
    :name "replace-ns-symbol",
    :namespace "clojure.tools.namespace.move",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/4470daf4d156fc643952e505f4bcc918d633b836/src/main/clojure/clojure/tools/namespace/move.clj#L40",
+   "https://github.com/clojure/tools.namespace/blob/ca860fc9a8d760970e249ecd105b6b16e127b5c1/src/main/clojure/clojure/tools/namespace/move.clj#L50",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/4470daf4d156fc643952e505f4bcc918d633b836/src/main/clojure/clojure/tools/namespace/move.clj",
+   "https://github.com/clojure/tools.namespace/raw/ca860fc9a8d760970e249ecd105b6b16e127b5c1/src/main/clojure/clojure/tools/namespace/move.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.move/replace-ns-symbol",
    :doc
    "ALPHA: subject to change. Given Clojure source as a string, replaces\nall occurances of the namespace name old-sym with new-sym and\nreturns modified source as a string.",
    :var-type "function",
-   :line 40,
+   :line 50,
    :file "src/main/clojure/clojure/tools/namespace/move.clj"}
   {:arglists ([form]),
    :name "comment?",
@@ -817,55 +819,55 @@
    :name "disable-reload!",
    :namespace "clojure.tools.namespace.repl",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/a544efc08bd9b14dd9c96d2a20b1d043f30d5677/src/main/clojure/clojure/tools/namespace/repl.clj#L63",
+   "https://github.com/clojure/tools.namespace/blob/6831271b77f0ab4036f3c24c26668dfc10a3f689/src/main/clojure/clojure/tools/namespace/repl.clj#L67",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/a544efc08bd9b14dd9c96d2a20b1d043f30d5677/src/main/clojure/clojure/tools/namespace/repl.clj",
+   "https://github.com/clojure/tools.namespace/raw/6831271b77f0ab4036f3c24c26668dfc10a3f689/src/main/clojure/clojure/tools/namespace/repl.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.repl/disable-reload!",
    :doc
    "Adds metadata to namespace (or *ns* if unspecified) telling\n'refresh' not to load it. Implies disable-unload! also.",
    :var-type "function",
-   :line 63,
+   :line 67,
    :file "src/main/clojure/clojure/tools/namespace/repl.clj"}
   {:arglists ([] [namespace]),
    :name "disable-unload!",
    :namespace "clojure.tools.namespace.repl",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/a544efc08bd9b14dd9c96d2a20b1d043f30d5677/src/main/clojure/clojure/tools/namespace/repl.clj#L56",
+   "https://github.com/clojure/tools.namespace/blob/6831271b77f0ab4036f3c24c26668dfc10a3f689/src/main/clojure/clojure/tools/namespace/repl.clj#L60",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/a544efc08bd9b14dd9c96d2a20b1d043f30d5677/src/main/clojure/clojure/tools/namespace/repl.clj",
+   "https://github.com/clojure/tools.namespace/raw/6831271b77f0ab4036f3c24c26668dfc10a3f689/src/main/clojure/clojure/tools/namespace/repl.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.repl/disable-unload!",
    :doc
    "Adds metadata to namespace (or *ns* if unspecified) telling\n'refresh' not to unload it. The namespace may still be reloaded, it\njust won't be removed first.",
    :var-type "function",
-   :line 56,
+   :line 60,
    :file "src/main/clojure/clojure/tools/namespace/repl.clj"}
   {:arglists ([& options]),
    :name "refresh",
    :namespace "clojure.tools.namespace.repl",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/a544efc08bd9b14dd9c96d2a20b1d043f30d5677/src/main/clojure/clojure/tools/namespace/repl.clj#L69",
+   "https://github.com/clojure/tools.namespace/blob/6831271b77f0ab4036f3c24c26668dfc10a3f689/src/main/clojure/clojure/tools/namespace/repl.clj#L73",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/a544efc08bd9b14dd9c96d2a20b1d043f30d5677/src/main/clojure/clojure/tools/namespace/repl.clj",
+   "https://github.com/clojure/tools.namespace/raw/6831271b77f0ab4036f3c24c26668dfc10a3f689/src/main/clojure/clojure/tools/namespace/repl.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.repl/refresh",
    :doc
    "Scans source code directories for files which have changed (since\nthe last time this function was run) and reloads them in dependency\norder. Returns :ok or an error; sets the latest exception to\nclojure.core/*e (if *e is thread-bound).\n\nThe directories to be scanned are controlled by 'set-refresh-dirs';\ndefaults to all directories on the Java classpath.\n\nOptions are key-value pairs. Valid options are:\n\n    :after   Namespace-qualified symbol naming a zero-argument\n             function to be invoked after a successful refresh. This\n             symbol will be resolved *after* all namespaces have\n             been reloaded.",
    :var-type "function",
-   :line 69,
+   :line 73,
    :file "src/main/clojure/clojure/tools/namespace/repl.clj"}
-  {:arglists ([]),
+  {:arglists ([& options]),
    :name "refresh-all",
    :namespace "clojure.tools.namespace.repl",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/a544efc08bd9b14dd9c96d2a20b1d043f30d5677/src/main/clojure/clojure/tools/namespace/repl.clj#L92",
+   "https://github.com/clojure/tools.namespace/blob/6831271b77f0ab4036f3c24c26668dfc10a3f689/src/main/clojure/clojure/tools/namespace/repl.clj#L92",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/a544efc08bd9b14dd9c96d2a20b1d043f30d5677/src/main/clojure/clojure/tools/namespace/repl.clj",
+   "https://github.com/clojure/tools.namespace/raw/6831271b77f0ab4036f3c24c26668dfc10a3f689/src/main/clojure/clojure/tools/namespace/repl.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.repl/refresh-all",
    :doc
-   "Scans source code directories for all Clojure source files and\nreloads them in dependency order.\n\nThe directories to be scanned are controlled by 'set-refresh-dirs';\ndefaults to all directories on the Java classpath.",
+   "Scans source code directories for all Clojure source files and\nreloads them in dependency order.\n\nThe directories to be scanned are controlled by 'set-refresh-dirs';\ndefaults to all directories on the Java classpath.\n\nOptions are key-value pairs. Valid options are:\n\n    :after   Namespace-qualified symbol naming a zero-argument\n             function to be invoked after a successful refresh. This\n             symbol will be resolved *after* all namespaces have\n             been reloaded.",
    :var-type "function",
    :line 92,
    :file "src/main/clojure/clojure/tools/namespace/repl.clj"}
@@ -873,15 +875,15 @@
    :name "set-refresh-dirs",
    :namespace "clojure.tools.namespace.repl",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/a544efc08bd9b14dd9c96d2a20b1d043f30d5677/src/main/clojure/clojure/tools/namespace/repl.clj#L101",
+   "https://github.com/clojure/tools.namespace/blob/6831271b77f0ab4036f3c24c26668dfc10a3f689/src/main/clojure/clojure/tools/namespace/repl.clj#L109",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/a544efc08bd9b14dd9c96d2a20b1d043f30d5677/src/main/clojure/clojure/tools/namespace/repl.clj",
+   "https://github.com/clojure/tools.namespace/raw/6831271b77f0ab4036f3c24c26668dfc10a3f689/src/main/clojure/clojure/tools/namespace/repl.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.repl/set-refresh-dirs",
    :doc
    "Sets the directories which are scanned by 'refresh'. Supports the\nsame types as clojure.java.io/file.",
    :var-type "function",
-   :line 101,
+   :line 109,
    :file "src/main/clojure/clojure/tools/namespace/repl.clj"}
   {:arglists ([tracker depmap]),
    :name "add",
