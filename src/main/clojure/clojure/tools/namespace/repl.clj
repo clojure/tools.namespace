@@ -40,22 +40,68 @@
       (update-in [::track/unload] #(remove unload-disabled? %))
       (update-in [::track/load] #(remove load-disabled? %))))
 
+(defn- referred
+  "Given a Namespace object, returns a map of symbols describing the
+  Vars it refers from other namespaces, in the following form:
+
+     {other-namespace-name {symbol-in-other-ns symbol-in-this-ns}}"
+  [ns]
+  (reduce (fn [m [sym var]]
+            (let [ns-name (ns-name (:ns (meta var)))
+                  var-name (:name (meta var))]
+              (assoc-in m [ns-name var-name] sym)))
+          {}
+          (ns-refers ns)))
+
+(defn- aliased
+  "Given a namespace object, returns a map of symbols describing its
+  aliases, in the following form:
+
+      {alias-symbol namespace-name}"
+  [ns]
+  (reduce (fn [m [alias n]] (assoc m alias (ns-name n)))
+          {} (ns-aliases ns)))
+
+(defn- recover-ns
+  "Given the maps returned by 'referred' and 'aliased', attempts to
+  restore as many bindings as possible into the current namespace. Any
+  bindings to namespaces or Vars which do not currently exist will be
+  ignored."
+  [refers aliases]
+  (doseq [[ns-name symbol-map] refers]
+    (when-let [ns (find-ns ns-name)]
+      (doseq [[source-name target-name] symbol-map]
+        (when (ns-resolve ns source-name)
+          (if (= source-name target-name)
+            (refer ns-name :only (list source-name))
+            (refer ns-name :only () :rename {source-name target-name}))))))
+  (doseq [[alias ns-name] aliases]
+    (when (find-ns ns-name)
+      (alias alias ns-name))))
+
 (defn- do-refresh [scan-fn after-sym]
   (when after-sym
     (assert (symbol? after-sym) ":after value must be a symbol")
     (assert (namespace after-sym)
             ":after value must be a namespace-qualified symbol"))
-  (let [current-ns (ns-name *ns*)]
+  (let [current-ns-name (ns-name *ns*)
+        current-ns-refers (referred *ns*)
+        current-ns-aliases (aliased *ns*)]
     (alter-var-root #'refresh-tracker
                     #(apply scan-fn % refresh-dirs))
     (alter-var-root #'refresh-tracker remove-disabled)
     (print-pending-reloads refresh-tracker)
     (alter-var-root #'refresh-tracker reload/track-reload)
-    (in-ns current-ns)
+    (in-ns current-ns-name)
     (let [result (print-and-return refresh-tracker)]
-      (if (and (= :ok result) after-sym)
-        ((ns-resolve *ns* after-sym))
-        result))))
+      (if (= :ok result)
+        (if after-sym
+          ((ns-resolve *ns* after-sym))
+          result)
+        ;; There was an error, recover as much as we can:
+        (do (recover-ns current-ns-refers current-ns-aliases)
+            ;; Return the Exception to the REPL:
+            result)))))
 
 (defn disable-unload!
   "Adds metadata to namespace (or *ns* if unspecified) telling

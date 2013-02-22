@@ -274,13 +274,23 @@ not yet reloaded.
 After you fix the problem, call `refresh` again and it will resume
 reloading where it left off. 
 
-    user=> (refresh)
+**NOTE:** If your current REPL namespace is one of those that has not
+yet been reloaded, then you will need to call `refresh` by its
+fully-qualified name `clojure.tools.namespace.repl/refresh`:
+
+    user=> (clojure.tools.namespace.repl/refresh)
     :reloading (com.example.app com.example.app-test)
     :ok
 
-If your current REPL namespace is one of those that has not yet been
-reloaded, then you will need to call `refresh` by its fully-qualified
-name `clojure.tools.namespace.repl/refresh`.
+**New in 0.2.3-SNAPSHOT:** In the event of an error, the `refresh`
+function will *attempt* to recover bindings and aliases from your
+current REPL namespace. This isn't magic: Any namespaces which were
+due to be loaded *after* the namespace which caused the error will
+still not exist. Functions which you defined in your REPL namespace
+will also not be available. But libraries which are not part of your
+application -- such as `clojure.tools.namespace.repl` or
+`clojure.repl` -- should still be available under their
+aliased/referred names.
 
 
 ### Managing Reloads
