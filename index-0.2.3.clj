@@ -273,6 +273,20 @@
    :var-type "function",
    :line 141,
    :file "src/main/clojure/clojure/tools/namespace.clj"}
+  {:arglists ([dependencies dependents]),
+   :name "->MapDependencyGraph",
+   :namespace "clojure.tools.namespace.dependency",
+   :source-url
+   "https://github.com/clojure/tools.namespace/blob/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace/dependency.clj#L58",
+   :raw-source-url
+   "https://github.com/clojure/tools.namespace/raw/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace/dependency.clj",
+   :wiki-url
+   "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.dependency/->MapDependencyGraph",
+   :doc
+   "Positional factory function for class clojure.tools.namespace.dependency.MapDependencyGraph.",
+   :var-type "function",
+   :line 58,
+   :file "src/main/clojure/clojure/tools/namespace/dependency.clj"}
   {:arglists ([graph x y]),
    :name "dependent?",
    :namespace "clojure.tools.namespace.dependency",
@@ -311,6 +325,20 @@
    :doc "Returns a new, empty, dependency graph.",
    :var-type "function",
    :line 94,
+   :file "src/main/clojure/clojure/tools/namespace/dependency.clj"}
+  {:arglists ([m__5828__auto__]),
+   :name "map->MapDependencyGraph",
+   :namespace "clojure.tools.namespace.dependency",
+   :source-url
+   "https://github.com/clojure/tools.namespace/blob/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace/dependency.clj#L58",
+   :raw-source-url
+   "https://github.com/clojure/tools.namespace/raw/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace/dependency.clj",
+   :wiki-url
+   "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.dependency/map->MapDependencyGraph",
+   :doc
+   "Factory function for class clojure.tools.namespace.dependency.MapDependencyGraph, taking a map of keywords to field values.",
+   :var-type "function",
+   :line 58,
    :file "src/main/clojure/clojure/tools/namespace/dependency.clj"}
   {:arglists ([graph]),
    :name "topo-comparator",
