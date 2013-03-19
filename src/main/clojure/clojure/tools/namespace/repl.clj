@@ -108,13 +108,17 @@
 (defn disable-unload!
   "Adds metadata to namespace (or *ns* if unspecified) telling
   'refresh' not to unload it. The namespace may still be reloaded, it
-  just won't be removed first."
+  just won't be removed first.
+
+  Warning: Aliases to reloaded namespaces will break."
   ([] (disable-unload! *ns*))
   ([namespace] (alter-meta! namespace assoc ::unload false)))
 
 (defn disable-reload!
   "Adds metadata to namespace (or *ns* if unspecified) telling
-  'refresh' not to load it. Implies disable-unload! also."
+  'refresh' not to load it. Implies disable-unload! also.
+
+  Warning: Aliases to reloaded namespaces will break."
   ([] (disable-reload! *ns*))
   ([namespace] (alter-meta! namespace assoc ::load false)))
 
