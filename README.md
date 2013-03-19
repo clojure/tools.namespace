@@ -342,7 +342,7 @@ dependency tracker, do not store it in a namespace which gets
 reloaded.
 
 [AOT-compiled]: http://clojure.org/compilation
-[ring-devel]: http://clojure.org/compilation
+[Ring]: https://github.com/ring-clojure/ring
 [ns-tracker]: https://github.com/weavejester/ns-tracker
 
 
