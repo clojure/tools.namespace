@@ -283,11 +283,11 @@ fully-qualified name `clojure.tools.namespace.repl/refresh`:
     :ok
 
 **New in 0.2.3-SNAPSHOT:** In the event of an error, the `refresh`
-function will *attempt* to recover bindings and aliases from your
-current REPL namespace. This isn't magic: Any namespaces which were
-due to be loaded *after* the namespace which caused the error will
-still not exist. Functions which you defined in your REPL namespace
-will also not be available. But libraries which are not part of your
+function will *attempt* to recover symbol mappings and aliases from
+your current REPL namespace. This isn't magic: Any namespaces which
+were due to be loaded *after* the namespace which caused the error
+will still not exist. Functions defined in your REPL namespace will
+also not be available. But libraries which are not part of your
 application -- such as `clojure.tools.namespace.repl` or
 `clojure.repl` -- should still be available under their
 aliased/referred names.
@@ -306,6 +306,10 @@ convenience, not a work-around for code that is not reload-safe. Also,
 see the warnings about aliases, below. Aliases to reloaded namespaces
 will break if the namespace *containing* the alias is not reloaded
 also.
+
+After an error, `refresh` will **not** attempt to recover symbol
+mappings and aliases for namespaces with `disable-unload!` or
+`disable-reload!` set.
 
 
 
