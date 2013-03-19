@@ -312,33 +312,34 @@ also.
 Warnings
 --------------------
 
-Reloading code does not work in the presence of [AOT-compiled]
-namespaces. If you are using AOT-compilation in your project, make
-sure it is disabled and you have run `lein clean` before starting a
-REPL development session.
+**AOT-compilation:** Reloading code does not work in the presence of
+[AOT-compiled] namespaces. If you are using AOT-compilation in your
+project, make sure it is disabled and you have run `lein clean` before
+starting a REPL development session.
 
-Other libraries which also do code-reloading may conflict with
-tools.namespace. One known example is [ring-devel] (as of version
-1.1.6) which uses [ns-tracker], which uses an older version of
-tools.namespace.
+**Conflicts:** Other libraries which also do code-reloading may
+conflict with tools.namespace. One known example is ring-devel (as of
+[Ring] version 1.1.6) which uses [ns-tracker], which uses an older
+version of tools.namespace.
 
-Be careful when reloading the namespace in which you run your REPL.
-Because namespaces are removed when reloading, all your past
-definitions are lost. Either keep your REPL in a namespace which has
-no file associated with it, such as `user`, or put all your REPL
-definitions in a "scratch" namespace that can be reloaded.
+**REPL namespace:** Be careful when reloading the namespace in which
+you run your REPL. Because namespaces are removed when reloading, all
+your past definitions are lost. Either keep your REPL in a namespace
+which has no file associated with it, such as `user`, or put all your
+REPL definitions in a "scratch" namespace that can be reloaded.
 
-Be careful when using fully-qualified symbol names without namespace
-aliases (`require` with no `:as`). If the namespace happens to be
-loaded already, it will not necessarily cause an error if you forget
-to `require` it, but the dependency graph of namespaces will be
-incorrect.
+**Fully-qualified names:** Be careful when using fully-qualified
+symbol names without namespace aliases (`require` with no `:as`). If
+the namespace happens to be loaded already, it will not necessarily
+cause an error if you forget to `require` it, but the dependency graph
+of namespaces will be incorrect.
 
-Beware of code which has references to old definitions, especially
-references to things you created in the REPL.
+**Old definitions:** Beware of code which has references to old
+definitions, especially references to things you created in the REPL.
 
-If you create your own instance of the dependency tracker, do not
-store it in a namespace which gets reloaded.
+**Rolling your own:** If you create your own instance of the
+dependency tracker, do not store it in a namespace which gets
+reloaded.
 
 [AOT-compiled]: http://clojure.org/compilation
 [ring-devel]: http://clojure.org/compilation
