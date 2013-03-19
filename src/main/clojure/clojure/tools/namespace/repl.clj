@@ -99,7 +99,9 @@
           ((ns-resolve *ns* after-sym))
           result)
         ;; There was an error, recover as much as we can:
-        (do (recover-ns current-ns-refers current-ns-aliases)
+        (do (when-not (or (false? (::unload (meta *ns*)))
+                          (false? (::load (meta *ns*))))
+              (recover-ns current-ns-refers current-ns-aliases))
             ;; Return the Exception to the REPL:
             result)))))
 
