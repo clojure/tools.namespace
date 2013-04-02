@@ -15,26 +15,26 @@ repositories.
 Releases and Dependency Information
 ----------------------------------------
 
-* [Latest stable release is 0.2.2](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.2.2)
+* [Latest stable release is 0.2.3](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.2.3)
 
 * [All Released Versions](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.clojure%22%20AND%20a%3A%22tools.namespace%22)
 
 [Leiningen](https://github.com/technomancy/leiningen) dependency information:
 
-    [org.clojure/tools.namespace "0.2.2"]
+    [org.clojure/tools.namespace "0.2.3"]
 
 [Maven](http://maven.apache.org/) dependency information:
 
     <dependency>
       <groupId>org.clojure</groupId>
       <artifactId>tools.namespace</artifactId>
-      <version>0.2.2</version>
+      <version>0.2.3</version>
     </dependency>
 
 
 ### Development Snapshots ###
 
-* Git master branch is at **0.2.3-SNAPSHOT**
+* Git master branch is at **0.2.4-SNAPSHOT**
 
 * [All Snapshot Versions](https://oss.sonatype.org/content/groups/public/org/clojure/tools.namespace/)
 
@@ -282,15 +282,14 @@ fully-qualified name `clojure.tools.namespace.repl/refresh`:
     :reloading (com.example.app com.example.app-test)
     :ok
 
-**New in 0.2.3-SNAPSHOT:** In the event of an error, the `refresh`
-function will *attempt* to recover symbol mappings and aliases from
-your current REPL namespace. This isn't magic: Any namespaces which
-were due to be loaded *after* the namespace which caused the error
-will still not exist. Functions defined in your REPL namespace will
-also not be available. But libraries which are not part of your
-application -- such as `clojure.tools.namespace.repl` or
-`clojure.repl` -- should still be available under their
-aliased/referred names.
+**New in 0.2.3:** In the event of an error, the `refresh` function
+will *attempt* to recover symbol mappings and aliases from your
+current REPL namespace. This isn't magic: Any namespaces which were
+due to be loaded *after* the namespace which caused the error will
+still not exist. Functions defined in your REPL namespace will also
+not be available. But libraries which are not part of your application
+-- such as `clojure.tools.namespace.repl` or `clojure.repl` -- should
+still be available under their aliased/referred names.
 
 
 ### Managing Reloads
@@ -455,7 +454,9 @@ refresh.
 Change Log
 ----------------------------------------
 
-* Version 0.2.3-SNAPSHOT (in development)
+* Version 0.2.4-SNAPSHOT (in development)
+* Version 0.2.3 on 01-Apr-2013
+  * Attempt recovery of aliases/refers in REPL after error
 * Version 0.2.2 on 14-Dec-2012
   * Add `:after` option to `refresh`
   * Add `clojure.tools.namespace.move`
