@@ -14,9 +14,9 @@
             [clojure.set :as set]
             [clojure.tools.namespace.file :as file]
             [clojure.tools.namespace.parse :as parse])
-  (import (java.io File FileReader BufferedReader PushbackReader
-                   InputStreamReader)
-          (java.util.jar JarFile JarEntry)))
+  (:import (java.io File FileReader BufferedReader PushbackReader
+                    InputStreamReader)
+           (java.util.jar JarFile JarEntry)))
 
 ;;; JAR-file utilities, adapted from clojure.java.classpath
 
