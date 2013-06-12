@@ -21,9 +21,13 @@
 
 (defn- update-file
   "Reads file as a string, calls f on the string plus any args, then
-  writes out return value of f as the new contents of file."
+  writes out return value of f as the new contents of file. Does not
+  write to file if the contents would not be changed."
   [file f & args]
-  (spit file (str (apply f (slurp file) args))))
+  (let [old (slurp file)
+        new (str (apply f old args))]
+    (when (not= old new)
+      (spit file new))))
 
 (defn- ns-file-name [sym]
   (str (-> (name sym)
