@@ -11,7 +11,8 @@
                                 six))
      (:use (com.example seven
                         [eight :as eight]
-                        [nine :only (c d)]))))
+                        [nine :only (c d)]
+                        [ten]))))
 
 ;; Some people like to write prefix lists as vectors, not lists. The
 ;; use/require functions accept this form.
@@ -27,7 +28,8 @@
      (:use [com.example
             seven
             [eight :as eight]
-            [nine :only (c d)]])))
+            [nine :only (c d)]
+            [ten]])))
 
 (def deps-from-prefix-list
   '#{com.example.two
@@ -37,7 +39,8 @@
      com.example.sub.six
      com.example.seven
      com.example.eight
-     com.example.nine})
+     com.example.nine
+     com.example.ten})
 
 (deftest t-prefix-list
   (is (= deps-from-prefix-list

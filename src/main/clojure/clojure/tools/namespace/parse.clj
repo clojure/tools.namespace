@@ -45,15 +45,18 @@
   [form]
   (and (sequential? form)  ; should be a list, but often is not
        (symbol? (first form))
-       (not-any? keyword? form)))
+       (not-any? keyword? form)
+       (< 1 (count form))))  ; not a bare vector like [foo]
 
 (defn- option-spec?
-  "Returns true if form represents a libspec vector containing keyword
-  arguments like [namespace :as alias] or [namespace :refer (x y)]"
+  "Returns true if form represents a libspec vector containing optional
+  keyword arguments like [namespace :as alias] or
+  [namespace :refer (x y)] or just [namespace]"
   [form]
   (and (sequential? form)  ; should be a vector, but often is not
        (symbol? (first form))
-       (keyword? (second form))))
+       (or (keyword? (second form))  ; vector like [foo :as f]
+           (= 1 (count form)))))  ; bare vector like [foo]
 
 (defn- deps-from-libspec [prefix form]
   (cond (prefix-spec? form)
