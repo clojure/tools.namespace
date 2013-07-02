@@ -39,19 +39,35 @@
 
 ;;; Parsing dependencies
 
+(defn- prefix-spec?
+  "Returns true if form represents a libspec prefix list like
+  (prefix name1 name1) or [com.example.prefix [name1 :as name1]]"
+  [form]
+  (and (sequential? form)  ; should be a list, but often is not
+       (symbol? (first form))
+       (not-any? keyword? form)))
+
+(defn- option-spec?
+  "Returns true if form represents a libspec vector containing keyword
+  arguments like [namespace :as alias] or [namespace :refer (x y)]"
+  [form]
+  (and (sequential? form)  ; should be a vector, but often is not
+       (symbol? (first form))
+       (keyword? (second form))))
+
 (defn- deps-from-libspec [prefix form]
-  (cond (list? form)
+  (cond (prefix-spec? form)
           (apply set/union
                  (map (fn [f] (deps-from-libspec
                                (symbol (str (when prefix (str prefix "."))
                                             (first form)))
                                f))
                       (rest form)))
-	(vector? form)
+	(option-spec? form)
           (deps-from-libspec prefix (first form))
 	(symbol? form)
           #{(symbol (str (when prefix (str prefix ".")) form))}
-	(keyword? form)
+	(keyword? form)  ; Some people write (:require ... :reload-all)
           #{}
 	:else
           (throw (IllegalArgumentException.
