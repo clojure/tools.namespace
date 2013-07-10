@@ -21,4 +21,13 @@
     <developerConnection>scm:git:git@github.com:clojure/tools.namespace.git</developerConnection>
     <url>git@github.com:clojure/tools.namespace.git</url>
   </scm>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.tcrawley</groupId>
+      <artifactId>dynapath</artifactId>
+      <version>0.2.3</version>
+    </dependency>
+  </dependencies>
+
 </project>
