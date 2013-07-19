@@ -15,32 +15,32 @@ repositories.
 Releases and Dependency Information
 ----------------------------------------
 
-* [Latest stable release is 0.2.3](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.2.3)
+* [Latest stable release is 0.2.4](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.2.4)
 
 * [All Released Versions](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.clojure%22%20AND%20a%3A%22tools.namespace%22)
 
 [Leiningen](https://github.com/technomancy/leiningen) dependency information:
 
-    [org.clojure/tools.namespace "0.2.3"]
+    [org.clojure/tools.namespace "0.2.4"]
 
 [Maven](http://maven.apache.org/) dependency information:
 
     <dependency>
       <groupId>org.clojure</groupId>
       <artifactId>tools.namespace</artifactId>
-      <version>0.2.3</version>
+      <version>0.2.4</version>
     </dependency>
 
 
 ### Development Snapshots ###
 
-* Git master branch is at **0.2.4-SNAPSHOT**
+* Git master branch is at **0.2.5-SNAPSHOT**
 
 * [All Snapshot Versions](https://oss.sonatype.org/content/groups/public/org/clojure/tools.namespace/)
 
 Leiningen information for development snapshots:
 
-    :dependencies [[org.clojure/tools.namespace "0.2.3-SNAPSHOT"]]
+    :dependencies [[org.clojure/tools.namespace "0.2.5-SNAPSHOT"]]
     :repositories {"sonatype-oss-public"
                    "https://oss.sonatype.org/content/groups/public/"}
 
@@ -84,7 +84,8 @@ primary public entry-point to their functionality.
 
 **New in 0.2.2:** The namespace **clojure.tools.namespace.move**
 contains utilities to aid in moving and renaming Clojure namespaces.
-This code is ALPHA and subject to change.
+This code is still ALPHA, and it modifies your source files, so be
+careful.
 
 
 Reloading Code: Motivation
@@ -367,12 +368,11 @@ reloaded. After `refresh`, the namespace containing `restart` has been
 dropped, but the function continues to run in the *old* namespace and
 refer to old Vars.
 
-**New in 0.2.2:** `refresh` now accepts an optional argument
-naming a function you want to run *after* a successful reload. (This
-code is ALPHA and subject to change.) The value of this option must be
-a symbol, and it must be fully namespace-qualified. The previous
-example could be correctly written (assuming these functions are
-defined in the `user` namespace):
+If you want to run some code after `refresh`, you can pass an option
+naming a function you want to run *after* a successful reload. The
+value of this option must be a symbol, and it must be fully
+namespace-qualified. The previous example could be correctly written
+(assuming these functions are defined in the `user` namespace):
 
     (defn start-my-app []
       (alter-var-root #'my-app (constantly (create-application)))
@@ -454,7 +454,11 @@ refresh.
 Change Log
 ----------------------------------------
 
-* Version 0.2.4-SNAPSHOT (in development)
+* Version 0.2.5-SNAPSHOT (in development)
+* Version 0.2.4 on 19-Jul-2013
+  * Fix [TNS-10]: Forbid circular dependency when a namespace depends on itself
+  * Fix [TNS-9] and [TNS-11]: support other prefix-list forms
+  * Fix [TNS-8]: Do not modify files whose contents does not change in =move-ns=
 * Version 0.2.3 on 01-Apr-2013
   * Attempt recovery of aliases/refers in REPL after error
 * Version 0.2.2 on 14-Dec-2012
