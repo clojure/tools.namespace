@@ -38,7 +38,7 @@ Releases and Dependency Information
 
 * [All Snapshot Versions](https://oss.sonatype.org/content/groups/public/org/clojure/tools.namespace/)
 
-Leiningen information for development snapshots:
+Leiningen dependency information for development snapshots:
 
     :dependencies [[org.clojure/tools.namespace "0.2.5-SNAPSHOT"]]
     :repositories {"sonatype-oss-public"
@@ -82,10 +82,10 @@ see below. c.t.n.repl is built out of smaller parts:
 You can recombine these parts in other ways, but c.t.n.repl is the
 primary public entry-point to their functionality.
 
-**New in 0.2.2:** The namespace **clojure.tools.namespace.move**
-contains utilities to aid in moving and renaming Clojure namespaces.
-This code is still ALPHA, and it modifies your source files, so be
-careful.
+**clojure.tools.namespace.move:** Utilities to aid in moving and
+renaming Clojure namespaces. This code is still ALPHA, and it modifies
+your source files, so be careful.
+
 
 
 Reloading Code: Motivation
