@@ -485,6 +485,10 @@ Change Log
 
 [TNS-3]: http://dev.clojure.org/jira/browse/TNS-3
 [TNS-4]: http://dev.clojure.org/jira/browse/TNS-4
+[TNS-8]: http://dev.clojure.org/jira/browse/TNS-8
+[TNS-9]: http://dev.clojure.org/jira/browse/TNS-9
+[TNS-10]: http://dev.clojure.org/jira/browse/TNS-10
+[TNS-11]: http://dev.clojure.org/jira/browse/TNS-11
 [java.classpath]: https://github.com/clojure/java.classpath
 
 
