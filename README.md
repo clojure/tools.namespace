@@ -19,7 +19,7 @@ Releases and Dependency Information
 
 * [All Released Versions](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.clojure%22%20AND%20a%3A%22tools.namespace%22)
 
-[Leiningen](https://github.com/technomancy/leiningen) dependency information:
+[Leiningen](http://leiningen.org/) dependency information:
 
     [org.clojure/tools.namespace "0.2.4"]
 
