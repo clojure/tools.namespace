@@ -38,7 +38,7 @@
    :doc
    "Search for namespace declarations in directories and JAR files."}
   {:source-url
-   "https://github.com/clojure/tools.namespace/blob/ca860fc9a8d760970e249ecd105b6b16e127b5c1/src/main/clojure/clojure/tools/namespace/move.clj",
+   "https://github.com/clojure/tools.namespace/blob/9b43f4a07e4d7264368d64a0dbbd3a2bc3b04097/src/main/clojure/clojure/tools/namespace/move.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace/clojure.tools.namespace.move-api.html",
    :name "clojure.tools.namespace.move",
@@ -709,43 +709,43 @@
    :name "move-ns",
    :namespace "clojure.tools.namespace.move",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/ca860fc9a8d760970e249ecd105b6b16e127b5c1/src/main/clojure/clojure/tools/namespace/move.clj#L82",
+   "https://github.com/clojure/tools.namespace/blob/9b43f4a07e4d7264368d64a0dbbd3a2bc3b04097/src/main/clojure/clojure/tools/namespace/move.clj#L86",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/ca860fc9a8d760970e249ecd105b6b16e127b5c1/src/main/clojure/clojure/tools/namespace/move.clj",
+   "https://github.com/clojure/tools.namespace/raw/9b43f4a07e4d7264368d64a0dbbd3a2bc3b04097/src/main/clojure/clojure/tools/namespace/move.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.move/move-ns",
    :doc
-   "ALPHA: subject to change. Moves the .clj source file (found relative\nto source-path) for the namespace named old-sym to new-sym and\nreplace all occurances of the old name with the new name in all\nClojure source files found in dirs.\n\nWARNING: This function modifies and deletes your source files! Make\nsure you have a backup or version control.",
+   "ALPHA: subject to change. Moves the .clj source file (found relative\nto source-path) for the namespace named old-sym to new-sym and\nreplace all occurances of the old name with the new name in all\nClojure source files found in dirs.\n\nThis is a purely textual transformation. It does not work on\nnamespaces require'd or use'd from a prefix list.\n\nWARNING: This function modifies and deletes your source files! Make\nsure you have a backup or version control.",
    :var-type "function",
-   :line 82,
+   :line 86,
    :file "src/main/clojure/clojure/tools/namespace/move.clj"}
   {:arglists ([old-sym new-sym source-path]),
    :name "move-ns-file",
    :namespace "clojure.tools.namespace.move",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/ca860fc9a8d760970e249ecd105b6b16e127b5c1/src/main/clojure/clojure/tools/namespace/move.clj#L64",
+   "https://github.com/clojure/tools.namespace/blob/9b43f4a07e4d7264368d64a0dbbd3a2bc3b04097/src/main/clojure/clojure/tools/namespace/move.clj#L68",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/ca860fc9a8d760970e249ecd105b6b16e127b5c1/src/main/clojure/clojure/tools/namespace/move.clj",
+   "https://github.com/clojure/tools.namespace/raw/9b43f4a07e4d7264368d64a0dbbd3a2bc3b04097/src/main/clojure/clojure/tools/namespace/move.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.move/move-ns-file",
    :doc
    "ALPHA: subject to change. Moves the .clj source file (found relative\nto source-path) for the namespace named old-sym to a file for a\nnamespace named new-sym.\n\nWARNING: This function moves and deletes your source files! Make\nsure you have a backup or version control.",
    :var-type "function",
-   :line 64,
+   :line 68,
    :file "src/main/clojure/clojure/tools/namespace/move.clj"}
   {:arglists ([source old-sym new-sym]),
    :name "replace-ns-symbol",
    :namespace "clojure.tools.namespace.move",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/ca860fc9a8d760970e249ecd105b6b16e127b5c1/src/main/clojure/clojure/tools/namespace/move.clj#L50",
+   "https://github.com/clojure/tools.namespace/blob/9b43f4a07e4d7264368d64a0dbbd3a2bc3b04097/src/main/clojure/clojure/tools/namespace/move.clj#L54",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/ca860fc9a8d760970e249ecd105b6b16e127b5c1/src/main/clojure/clojure/tools/namespace/move.clj",
+   "https://github.com/clojure/tools.namespace/raw/9b43f4a07e4d7264368d64a0dbbd3a2bc3b04097/src/main/clojure/clojure/tools/namespace/move.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.move/replace-ns-symbol",
    :doc
    "ALPHA: subject to change. Given Clojure source as a string, replaces\nall occurances of the namespace name old-sym with new-sym and\nreturns modified source as a string.",
    :var-type "function",
-   :line 50,
+   :line 54,
    :file "src/main/clojure/clojure/tools/namespace/move.clj"}
   {:arglists ([form]),
    :name "comment?",

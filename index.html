@@ -983,11 +983,14 @@ to source-path) for the namespace named old-sym to new-sym and
 replace all occurances of the old name with the new name in all
 Clojure source files found in dirs.
 
+This is a purely textual transformation. It does not work on
+namespaces require'd or use'd from a prefix list.
+
 WARNING: This function modifies and deletes your source files! Make
 sure you have a backup or version control.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/ca860fc9a8d760970e249ecd105b6b16e127b5c1/src/main/clojure/clojure/tools/namespace/move.clj#L82" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/9b43f4a07e4d7264368d64a0dbbd3a2bc3b04097/src/main/clojure/clojure/tools/namespace/move.clj#L86" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1003,7 +1006,7 @@ WARNING: This function moves and deletes your source files! Make
 sure you have a backup or version control.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/ca860fc9a8d760970e249ecd105b6b16e127b5c1/src/main/clojure/clojure/tools/namespace/move.clj#L64" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/9b43f4a07e4d7264368d64a0dbbd3a2bc3b04097/src/main/clojure/clojure/tools/namespace/move.clj#L68" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1016,7 +1019,7 @@ all occurances of the namespace name old-sym with new-sym and
 returns modified source as a string.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/ca860fc9a8d760970e249ecd105b6b16e127b5c1/src/main/clojure/clojure/tools/namespace/move.clj#L50" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/9b43f4a07e4d7264368d64a0dbbd3a2bc3b04097/src/main/clojure/clojure/tools/namespace/move.clj#L54" id="var-source">Source</a>
   </div>
 </div>
 <br />
