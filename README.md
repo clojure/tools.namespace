@@ -126,6 +126,9 @@ JVM. A large Clojure application can take 20 seconds or more just to
 compile. I wrote tools.namespace to help speed up this development
 cycle.
 
+For more detail on how I use tools.namespace in my development
+workflow, see the article [My Clojure Workflow, Reloaded](http://thinkrelevance.com/blog/2013/06/04/clojure-workflow-reloaded).
+
 
 
 Reloading Code: Usage
