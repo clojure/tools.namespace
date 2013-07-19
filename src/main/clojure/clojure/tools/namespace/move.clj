@@ -21,9 +21,13 @@
 
 (defn- update-file
   "Reads file as a string, calls f on the string plus any args, then
-  writes out return value of f as the new contents of file."
+  writes out return value of f as the new contents of file. Does not
+  modify file if the content is unchanged."
   [file f & args]
-  (spit file (str (apply f (slurp file) args))))
+  (let [old (slurp file)
+        new (str (apply f old args))]
+    (when-not (= old new)
+      (spit file new))))
 
 (defn- ns-file-name [sym]
   (str (-> (name sym)
@@ -84,6 +88,9 @@
   to source-path) for the namespace named old-sym to new-sym and
   replace all occurances of the old name with the new name in all
   Clojure source files found in dirs.
+
+  This is a purely textual transformation. It does not work on
+  namespaces require'd or use'd from a prefix list.
 
   WARNING: This function modifies and deletes your source files! Make
   sure you have a backup or version control."
