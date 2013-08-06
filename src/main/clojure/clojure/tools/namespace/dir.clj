@@ -14,7 +14,8 @@
             [clojure.tools.namespace.track :as track]
             [clojure.java.io :as io]
             [clojure.set :as set]
-            [clojure.string :as string])
+            [clojure.string :as string]
+            [dynapath.util :as dp])
   (:import (java.io File) (java.util.regex Pattern)))
 
 (defn- find-files [dirs]
@@ -42,10 +43,8 @@
 
 (defn- dirs-on-classpath []
   (filter #(.isDirectory ^File %)
-          (map #(File. ^String %)
-               (string/split
-                (System/getProperty "java.class.path")
-                (Pattern/compile (Pattern/quote File/pathSeparator))))))
+          (map io/as-file
+               (dp/all-classpath-urls (clojure.lang.RT/baseLoader)))))
 
 (defn scan
   "Scans directories for files which have changed since the last time

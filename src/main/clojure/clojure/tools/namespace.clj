@@ -11,7 +11,8 @@
    :doc "This namespace is DEPRECATED; most functions have been moved to
   other namespaces"}
  clojure.tools.namespace
- (:require [clojure.java.io :as io])
+ (:require [clojure.java.io :as io]
+           [dynapath.util :as dp])
  (:import (java.io File FileReader BufferedReader PushbackReader
                    InputStreamReader)
           (java.util.jar JarFile JarEntry)))
@@ -97,19 +98,11 @@
 ;;; without an explicit dependency
 
 (defn- loader-classpath [loader]
-  (when (instance? java.net.URLClassLoader loader)
-    (map
-     #(java.io.File. (.getPath ^java.net.URL %))
-     (.getURLs ^java.net.URLClassLoader loader))))
+  (map io/as-file (dp/classpath-urls loader)))
 
 (defn- classpath
   ([classloader]
-     (distinct
-      (mapcat
-       loader-classpath
-       (take-while
-        identity
-        (iterate #(.getParent ^ClassLoader %) classloader)))))
+     (map io/as-file (dp/all-classpath-urls classloader)))
   ([] (classpath (clojure.lang.RT/baseLoader))))
 
 (defn- classpath-directories []
