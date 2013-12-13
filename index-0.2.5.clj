@@ -46,7 +46,7 @@
    :doc
    "Refactoring tool to move a Clojure namespace from one name/file to\nanother, and update all references to that namespace in your other\nClojure source files.\n\nWARNING: This code is ALPHA and subject to change. It also modifies\nand deletes your source files! Make sure you have a backup or\nversion control."}
   {:source-url
-   "https://github.com/clojure/tools.namespace/blob/930833dce8949a0154382038ac5fde85c5fb0abd/src/main/clojure/clojure/tools/namespace/parse.clj",
+   "https://github.com/clojure/tools.namespace/blob/10f03a7a6f1166de53b0ba0c329e1f7444f1ff77/src/main/clojure/clojure/tools/namespace/parse.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace/clojure.tools.namespace.parse-api.html",
    :name "clojure.tools.namespace.parse",
@@ -751,9 +751,9 @@
    :name "comment?",
    :namespace "clojure.tools.namespace.parse",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/930833dce8949a0154382038ac5fde85c5fb0abd/src/main/clojure/clojure/tools/namespace/parse.clj#L15",
+   "https://github.com/clojure/tools.namespace/blob/10f03a7a6f1166de53b0ba0c329e1f7444f1ff77/src/main/clojure/clojure/tools/namespace/parse.clj#L15",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/930833dce8949a0154382038ac5fde85c5fb0abd/src/main/clojure/clojure/tools/namespace/parse.clj",
+   "https://github.com/clojure/tools.namespace/raw/10f03a7a6f1166de53b0ba0c329e1f7444f1ff77/src/main/clojure/clojure/tools/namespace/parse.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.parse/comment?",
    :doc "Returns true if form is a (comment ...)",
@@ -764,9 +764,9 @@
    :name "deps-from-ns-decl",
    :namespace "clojure.tools.namespace.parse",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/930833dce8949a0154382038ac5fde85c5fb0abd/src/main/clojure/clojure/tools/namespace/parse.clj#L84",
+   "https://github.com/clojure/tools.namespace/blob/10f03a7a6f1166de53b0ba0c329e1f7444f1ff77/src/main/clojure/clojure/tools/namespace/parse.clj#L84",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/930833dce8949a0154382038ac5fde85c5fb0abd/src/main/clojure/clojure/tools/namespace/parse.clj",
+   "https://github.com/clojure/tools.namespace/raw/10f03a7a6f1166de53b0ba0c329e1f7444f1ff77/src/main/clojure/clojure/tools/namespace/parse.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.parse/deps-from-ns-decl",
    :doc
@@ -778,9 +778,9 @@
    :name "ns-decl?",
    :namespace "clojure.tools.namespace.parse",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/930833dce8949a0154382038ac5fde85c5fb0abd/src/main/clojure/clojure/tools/namespace/parse.clj#L20",
+   "https://github.com/clojure/tools.namespace/blob/10f03a7a6f1166de53b0ba0c329e1f7444f1ff77/src/main/clojure/clojure/tools/namespace/parse.clj#L20",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/930833dce8949a0154382038ac5fde85c5fb0abd/src/main/clojure/clojure/tools/namespace/parse.clj",
+   "https://github.com/clojure/tools.namespace/raw/10f03a7a6f1166de53b0ba0c329e1f7444f1ff77/src/main/clojure/clojure/tools/namespace/parse.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.parse/ns-decl?",
    :doc "Returns true if form is a (ns ...) declaration.",
@@ -791,9 +791,9 @@
    :name "read-ns-decl",
    :namespace "clojure.tools.namespace.parse",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/930833dce8949a0154382038ac5fde85c5fb0abd/src/main/clojure/clojure/tools/namespace/parse.clj#L25",
+   "https://github.com/clojure/tools.namespace/blob/10f03a7a6f1166de53b0ba0c329e1f7444f1ff77/src/main/clojure/clojure/tools/namespace/parse.clj#L25",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/930833dce8949a0154382038ac5fde85c5fb0abd/src/main/clojure/clojure/tools/namespace/parse.clj",
+   "https://github.com/clojure/tools.namespace/raw/10f03a7a6f1166de53b0ba0c329e1f7444f1ff77/src/main/clojure/clojure/tools/namespace/parse.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.parse/read-ns-decl",
    :doc
