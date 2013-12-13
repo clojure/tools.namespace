@@ -30,7 +30,7 @@
   (comment ...) forms."
   [rdr]
   (try
-   (loop [] (let [form (doto (read rdr) str)]
+   (loop [] (let [form (doto (read rdr) str)]  ; str forces errors, see TNS-1
               (cond
                (ns-decl? form) form
                (comment? form) (recur)
