@@ -459,6 +459,7 @@ Change Log
 
 * Version 0.2.5-SNAPSHOT (in development)
   * Fix [TNS-12]: Duplicate definition of `jar-file?`
+  * Fix [TNS-15]: Handle spaces in classpath directories (old clojure.tools.namespace)
 * Version 0.2.4 on 19-Jul-2013
   * Fix [TNS-10]: Forbid circular dependency when a namespace depends on itself
   * Fix [TNS-9] and [TNS-11]: support other prefix-list forms
@@ -477,13 +478,14 @@ Change Log
   * New dependency tracking & reloading features
   * Eliminate dependency on [java.classpath]
 * Version 0.1.3 on 24-Apr-2012
-  * Workaround for Clojure 1.2 reader bug
+  * [TNS-1] Workaround for Clojure 1.2 reader bug
 * Version 0.1.2 on 10-Feb-2012
   * Eliminate reflection warnings
 * Version 0.1.1 on 18-May-2011
 * Version 0.1.0 on 24-Apr-2011
   * Source-compatible with clojure.contrib.find-namespaces in old clojure-contrib 1.2.0
 
+[TNS-1]: http://dev.clojure.org/jira/browse/TNS-1
 [TNS-3]: http://dev.clojure.org/jira/browse/TNS-3
 [TNS-4]: http://dev.clojure.org/jira/browse/TNS-4
 [TNS-8]: http://dev.clojure.org/jira/browse/TNS-8
@@ -491,6 +493,7 @@ Change Log
 [TNS-10]: http://dev.clojure.org/jira/browse/TNS-10
 [TNS-11]: http://dev.clojure.org/jira/browse/TNS-11
 [TNS-12]: http://dev.clojure.org/jira/browse/TNS-12
+[TNS-15]: http://dev.clojure.org/jira/browse/TNS-15
 [java.classpath]: https://github.com/clojure/java.classpath
 
 
