@@ -46,10 +46,12 @@
 (defn- transitive
   "Recursively expands the set of dependency relationships starting
   at (get m x)"
-  [m x]
-  (reduce (fn [s k]
-	    (set/union s (transitive m k)))
-	  (get m x) (get m x)))
+  ([m x]
+     (transitive m x #{}))
+  ([depmap ns checked-deps]
+     (reduce (fn [checked-deps ns]
+               (set/union checked-deps #{ns} (transitive depmap ns checked-deps)))
+             checked-deps (set/difference (get depmap ns) checked-deps))))
 
 (declare depends?)
 
