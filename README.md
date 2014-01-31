@@ -460,6 +460,7 @@ Change Log
 * Version 0.2.5-SNAPSHOT (in development)
   * Fix [TNS-12]: Duplicate definition of `jar-file?`
   * Fix [TNS-15]: Handle spaces in classpath directories (old clojure.tools.namespace)
+  * Fix [TNS-16]: Don't depend on specific topo sort order in tests
 * Version 0.2.4 on 19-Jul-2013
   * Fix [TNS-10]: Forbid circular dependency when a namespace depends on itself
   * Fix [TNS-9] and [TNS-11]: support other prefix-list forms
@@ -494,6 +495,7 @@ Change Log
 [TNS-11]: http://dev.clojure.org/jira/browse/TNS-11
 [TNS-12]: http://dev.clojure.org/jira/browse/TNS-12
 [TNS-15]: http://dev.clojure.org/jira/browse/TNS-15
+[TNS-16]: http://dev.clojure.org/jira/browse/TNS-16
 [java.classpath]: https://github.com/clojure/java.classpath
 
 
