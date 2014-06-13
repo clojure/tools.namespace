@@ -60,18 +60,17 @@
 
 (defn- deps-from-libspec [prefix form]
   (cond (prefix-spec? form)
-          (apply set/union
-                 (map (fn [f] (deps-from-libspec
-                               (symbol (str (when prefix (str prefix "."))
-                                            (first form)))
-                               f))
-                      (rest form)))
+          (mapcat (fn [f] (deps-from-libspec
+                           (symbol (str (when prefix (str prefix "."))
+                                        (first form)))
+                           f))
+                  (rest form))
 	(option-spec? form)
           (deps-from-libspec prefix (first form))
 	(symbol? form)
-          #{(symbol (str (when prefix (str prefix ".")) form))}
+          (list (symbol (str (when prefix (str prefix ".")) form)))
 	(keyword? form)  ; Some people write (:require ... :reload-all)
-          #{}
+          nil
 	:else
           (throw (IllegalArgumentException.
                   (pr-str "Unparsable namespace form:" form)))))
@@ -79,11 +78,11 @@
 (defn- deps-from-ns-form [form]
   (when (and (list? form)
 	     (contains? #{:use :require} (first form)))
-    (apply set/union (map #(deps-from-libspec nil %) (rest form)))))
+    (mapcat #(deps-from-libspec nil %) (rest form))))
 
 (defn deps-from-ns-decl
   "Given an (ns...) declaration form (unevaluated), returns a set of
   symbols naming the dependencies of that namespace.  Handles :use and
   :require clauses but not :load."
   [decl]
-  (apply set/union (map deps-from-ns-form decl)))
+  (set (mapcat deps-from-ns-form decl)))

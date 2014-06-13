@@ -49,3 +49,6 @@
 (deftest t-prefix-list-as-vector
   (is (= deps-from-prefix-list
          (deps-from-ns-decl ns-decl-prefix-list-as-vector))))
+
+(deftest t-no-deps-returns-empty-set
+  (is (= #{} (deps-from-ns-decl '(ns com.example.one)))))
