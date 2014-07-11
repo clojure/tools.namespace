@@ -8,7 +8,7 @@
    :doc
    "This namespace is DEPRECATED; most functions have been moved to\nother namespaces"}
   {:source-url
-   "https://github.com/clojure/tools.namespace/blob/41cd3c37cc29a4916d89aeca21ceac627a5174be/src/main/clojure/clojure/tools/namespace/dependency.clj",
+   "https://github.com/clojure/tools.namespace/blob/3d784eb8f3ca60900f3cd7d12503ad817656a419/src/main/clojure/clojure/tools/namespace/dependency.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace/clojure.tools.namespace.dependency-api.html",
    :name "clojure.tools.namespace.dependency",
@@ -69,7 +69,7 @@
    :author "Stuart Sierra",
    :doc "REPL utilities for working with namespaces"}
   {:source-url
-   "https://github.com/clojure/tools.namespace/blob/14a2522106979225793e790323a35921410afc07/src/main/clojure/clojure/tools/namespace/track.clj",
+   "https://github.com/clojure/tools.namespace/blob/fc38e88fd483e1a4bd9fa0fe2c42c5d929d69e68/src/main/clojure/clojure/tools/namespace/track.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace/clojure.tools.namespace.track-api.html",
    :name "clojure.tools.namespace.track",
@@ -277,95 +277,95 @@
    :name "->MapDependencyGraph",
    :namespace "clojure.tools.namespace.dependency",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/41cd3c37cc29a4916d89aeca21ceac627a5174be/src/main/clojure/clojure/tools/namespace/dependency.clj#L58",
+   "https://github.com/clojure/tools.namespace/blob/3d784eb8f3ca60900f3cd7d12503ad817656a419/src/main/clojure/clojure/tools/namespace/dependency.clj#L69",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/41cd3c37cc29a4916d89aeca21ceac627a5174be/src/main/clojure/clojure/tools/namespace/dependency.clj",
+   "https://github.com/clojure/tools.namespace/raw/3d784eb8f3ca60900f3cd7d12503ad817656a419/src/main/clojure/clojure/tools/namespace/dependency.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.dependency/->MapDependencyGraph",
    :doc
    "Positional factory function for class clojure.tools.namespace.dependency.MapDependencyGraph.",
    :var-type "function",
-   :line 58,
+   :line 69,
    :file "src/main/clojure/clojure/tools/namespace/dependency.clj"}
   {:arglists ([graph x y]),
    :name "dependent?",
    :namespace "clojure.tools.namespace.dependency",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/41cd3c37cc29a4916d89aeca21ceac627a5174be/src/main/clojure/clojure/tools/namespace/dependency.clj#L100",
+   "https://github.com/clojure/tools.namespace/blob/3d784eb8f3ca60900f3cd7d12503ad817656a419/src/main/clojure/clojure/tools/namespace/dependency.clj#L115",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/41cd3c37cc29a4916d89aeca21ceac627a5174be/src/main/clojure/clojure/tools/namespace/dependency.clj",
+   "https://github.com/clojure/tools.namespace/raw/3d784eb8f3ca60900f3cd7d12503ad817656a419/src/main/clojure/clojure/tools/namespace/dependency.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.dependency/dependent?",
    :doc "True if y is a dependent of x.",
    :var-type "function",
-   :line 100,
+   :line 115,
    :file "src/main/clojure/clojure/tools/namespace/dependency.clj"}
   {:arglists ([graph x y]),
    :name "depends?",
    :namespace "clojure.tools.namespace.dependency",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/41cd3c37cc29a4916d89aeca21ceac627a5174be/src/main/clojure/clojure/tools/namespace/dependency.clj#L95",
+   "https://github.com/clojure/tools.namespace/blob/3d784eb8f3ca60900f3cd7d12503ad817656a419/src/main/clojure/clojure/tools/namespace/dependency.clj#L110",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/41cd3c37cc29a4916d89aeca21ceac627a5174be/src/main/clojure/clojure/tools/namespace/dependency.clj",
+   "https://github.com/clojure/tools.namespace/raw/3d784eb8f3ca60900f3cd7d12503ad817656a419/src/main/clojure/clojure/tools/namespace/dependency.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.dependency/depends?",
    :doc "True if x is directly or transitively dependent on y.",
    :var-type "function",
-   :line 95,
+   :line 110,
    :file "src/main/clojure/clojure/tools/namespace/dependency.clj"}
   {:arglists ([]),
    :name "graph",
    :namespace "clojure.tools.namespace.dependency",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/41cd3c37cc29a4916d89aeca21ceac627a5174be/src/main/clojure/clojure/tools/namespace/dependency.clj#L92",
+   "https://github.com/clojure/tools.namespace/blob/3d784eb8f3ca60900f3cd7d12503ad817656a419/src/main/clojure/clojure/tools/namespace/dependency.clj#L107",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/41cd3c37cc29a4916d89aeca21ceac627a5174be/src/main/clojure/clojure/tools/namespace/dependency.clj",
+   "https://github.com/clojure/tools.namespace/raw/3d784eb8f3ca60900f3cd7d12503ad817656a419/src/main/clojure/clojure/tools/namespace/dependency.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.dependency/graph",
    :doc "Returns a new, empty, dependency graph.",
    :var-type "function",
-   :line 92,
+   :line 107,
    :file "src/main/clojure/clojure/tools/namespace/dependency.clj"}
   {:arglists ([m__5818__auto__]),
    :name "map->MapDependencyGraph",
    :namespace "clojure.tools.namespace.dependency",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/41cd3c37cc29a4916d89aeca21ceac627a5174be/src/main/clojure/clojure/tools/namespace/dependency.clj#L58",
+   "https://github.com/clojure/tools.namespace/blob/3d784eb8f3ca60900f3cd7d12503ad817656a419/src/main/clojure/clojure/tools/namespace/dependency.clj#L69",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/41cd3c37cc29a4916d89aeca21ceac627a5174be/src/main/clojure/clojure/tools/namespace/dependency.clj",
+   "https://github.com/clojure/tools.namespace/raw/3d784eb8f3ca60900f3cd7d12503ad817656a419/src/main/clojure/clojure/tools/namespace/dependency.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.dependency/map->MapDependencyGraph",
    :doc
    "Factory function for class clojure.tools.namespace.dependency.MapDependencyGraph, taking a map of keywords to field values.",
    :var-type "function",
-   :line 58,
+   :line 69,
    :file "src/main/clojure/clojure/tools/namespace/dependency.clj"}
   {:arglists ([graph]),
    :name "topo-comparator",
    :namespace "clojure.tools.namespace.dependency",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/41cd3c37cc29a4916d89aeca21ceac627a5174be/src/main/clojure/clojure/tools/namespace/dependency.clj#L130",
+   "https://github.com/clojure/tools.namespace/blob/3d784eb8f3ca60900f3cd7d12503ad817656a419/src/main/clojure/clojure/tools/namespace/dependency.clj#L145",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/41cd3c37cc29a4916d89aeca21ceac627a5174be/src/main/clojure/clojure/tools/namespace/dependency.clj",
+   "https://github.com/clojure/tools.namespace/raw/3d784eb8f3ca60900f3cd7d12503ad817656a419/src/main/clojure/clojure/tools/namespace/dependency.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.dependency/topo-comparator",
    :doc
    "Returns a comparator fn which produces a topological sort based on\nthe dependencies in graph. Nodes not present in the graph will sort\nafter nodes in the graph.",
    :var-type "function",
-   :line 130,
+   :line 145,
    :file "src/main/clojure/clojure/tools/namespace/dependency.clj"}
   {:arglists ([graph]),
    :name "topo-sort",
    :namespace "clojure.tools.namespace.dependency",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/41cd3c37cc29a4916d89aeca21ceac627a5174be/src/main/clojure/clojure/tools/namespace/dependency.clj#L105",
+   "https://github.com/clojure/tools.namespace/blob/3d784eb8f3ca60900f3cd7d12503ad817656a419/src/main/clojure/clojure/tools/namespace/dependency.clj#L120",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/41cd3c37cc29a4916d89aeca21ceac627a5174be/src/main/clojure/clojure/tools/namespace/dependency.clj",
+   "https://github.com/clojure/tools.namespace/raw/3d784eb8f3ca60900f3cd7d12503ad817656a419/src/main/clojure/clojure/tools/namespace/dependency.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.dependency/topo-sort",
    :doc "Returns a topologically-sorted list of nodes in graph.",
    :var-type "function",
-   :line 105,
+   :line 120,
    :file "src/main/clojure/clojure/tools/namespace/dependency.clj"}
   {:file nil,
    :raw-source-url nil,
@@ -377,9 +377,9 @@
    :name "MapDependencyGraph"}
   {:file "src/main/clojure/clojure/tools/namespace/dependency.clj",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/41cd3c37cc29a4916d89aeca21ceac627a5174be/src/main/clojure/clojure/tools/namespace/dependency.clj",
+   "https://github.com/clojure/tools.namespace/raw/3d784eb8f3ca60900f3cd7d12503ad817656a419/src/main/clojure/clojure/tools/namespace/dependency.clj",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/41cd3c37cc29a4916d89aeca21ceac627a5174be/src/main/clojure/clojure/tools/namespace/dependency.clj#L14",
+   "https://github.com/clojure/tools.namespace/blob/3d784eb8f3ca60900f3cd7d12503ad817656a419/src/main/clojure/clojure/tools/namespace/dependency.clj#L14",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.dependency/DependencyGraph",
    :namespace "clojure.tools.namespace.dependency",
@@ -389,13 +389,13 @@
    :name "DependencyGraph"}
   {:file "src/main/clojure/clojure/tools/namespace/dependency.clj",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/41cd3c37cc29a4916d89aeca21ceac627a5174be/src/main/clojure/clojure/tools/namespace/dependency.clj",
+   "https://github.com/clojure/tools.namespace/raw/3d784eb8f3ca60900f3cd7d12503ad817656a419/src/main/clojure/clojure/tools/namespace/dependency.clj",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/41cd3c37cc29a4916d89aeca21ceac627a5174be/src/main/clojure/clojure/tools/namespace/dependency.clj#L28",
+   "https://github.com/clojure/tools.namespace/blob/3d784eb8f3ca60900f3cd7d12503ad817656a419/src/main/clojure/clojure/tools/namespace/dependency.clj#L34",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.dependency/DependencyGraphUpdate",
    :namespace "clojure.tools.namespace.dependency",
-   :line 28,
+   :line 34,
    :var-type "protocol",
    :doc nil,
    :name "DependencyGraphUpdate"}
@@ -444,6 +444,17 @@
    :raw-source-url nil,
    :source-url nil,
    :wiki-url
+   "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.dependency/transitive-dependencies-set",
+   :namespace "clojure.tools.namespace.dependency",
+   :var-type "function",
+   :arglists ([graph node-set]),
+   :doc
+   "Returns the set of all things which any node in node-set depends\non, directly or transitively.",
+   :name "transitive-dependencies-set"}
+  {:file nil,
+   :raw-source-url nil,
+   :source-url nil,
+   :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.dependency/transitive-dependents",
    :namespace "clojure.tools.namespace.dependency",
    :var-type "function",
@@ -451,6 +462,17 @@
    :doc
    "Returns the set of all things which depend upon node, directly or\ntransitively.",
    :name "transitive-dependents"}
+  {:file nil,
+   :raw-source-url nil,
+   :source-url nil,
+   :wiki-url
+   "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.dependency/transitive-dependents-set",
+   :namespace "clojure.tools.namespace.dependency",
+   :var-type "function",
+   :arglists ([graph node-set]),
+   :doc
+   "Returns the set of all things which depend upon any node in\nnode-set, directly or transitively.",
+   :name "transitive-dependents-set"}
   {:file nil,
    :raw-source-url nil,
    :source-url nil,
@@ -917,40 +939,40 @@
    :name "add",
    :namespace "clojure.tools.namespace.track",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/14a2522106979225793e790323a35921410afc07/src/main/clojure/clojure/tools/namespace/track.clj#L40",
+   "https://github.com/clojure/tools.namespace/blob/fc38e88fd483e1a4bd9fa0fe2c42c5d929d69e68/src/main/clojure/clojure/tools/namespace/track.clj#L39",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/14a2522106979225793e790323a35921410afc07/src/main/clojure/clojure/tools/namespace/track.clj",
+   "https://github.com/clojure/tools.namespace/raw/fc38e88fd483e1a4bd9fa0fe2c42c5d929d69e68/src/main/clojure/clojure/tools/namespace/track.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.track/add",
    :doc
    "Returns an updated dependency tracker with new/updated namespaces.\n\nDepmap is a map describing the new or modified namespaces. Keys in\nthe map are namespace names (symbols). Values in the map are sets of\nsymbols naming the birect dependencies of each namespace. For\nexample, assuming these ns declarations:\n\n    (ns alpha (:require beta))\n    (ns beta (:require gamma delta))\n\nthe depmap would look like this:\n\n    {alpha #{beta}\n     beta  #{gamma delta}}\n\nAfter adding new/updated namespaces, the dependency tracker will\nhave two lists associated with the following keys:\n\n    :clojure.tools.namespace.track/unload\n        is the list of namespaces that need to be removed\n\n    :clojure.tools.namespace.track/load\n        is the list of namespaces that need to be reloaded\n\nTo reload namespaces in the correct order, first remove/unload all\nnamespaces in the 'unload' list, then (re)load all namespaces in the\n'load' list. The clojure.tools.namespace.reload namespace has\nfunctions to do this.",
    :var-type "function",
-   :line 40,
+   :line 39,
    :file "src/main/clojure/clojure/tools/namespace/track.clj"}
   {:arglists ([tracker names]),
    :name "remove",
    :namespace "clojure.tools.namespace.track",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/14a2522106979225793e790323a35921410afc07/src/main/clojure/clojure/tools/namespace/track.clj#L85",
+   "https://github.com/clojure/tools.namespace/blob/fc38e88fd483e1a4bd9fa0fe2c42c5d929d69e68/src/main/clojure/clojure/tools/namespace/track.clj#L84",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/14a2522106979225793e790323a35921410afc07/src/main/clojure/clojure/tools/namespace/track.clj",
+   "https://github.com/clojure/tools.namespace/raw/fc38e88fd483e1a4bd9fa0fe2c42c5d929d69e68/src/main/clojure/clojure/tools/namespace/track.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.track/remove",
    :doc
    "Returns an updated dependency tracker from which the namespaces\n(symbols) have been removed. The ::unload and ::load lists are\npopulated as with 'add'.",
    :var-type "function",
-   :line 85,
+   :line 84,
    :file "src/main/clojure/clojure/tools/namespace/track.clj"}
   {:arglists ([]),
    :name "tracker",
    :namespace "clojure.tools.namespace.track",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/14a2522106979225793e790323a35921410afc07/src/main/clojure/clojure/tools/namespace/track.clj#L108",
+   "https://github.com/clojure/tools.namespace/blob/fc38e88fd483e1a4bd9fa0fe2c42c5d929d69e68/src/main/clojure/clojure/tools/namespace/track.clj#L107",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/14a2522106979225793e790323a35921410afc07/src/main/clojure/clojure/tools/namespace/track.clj",
+   "https://github.com/clojure/tools.namespace/raw/fc38e88fd483e1a4bd9fa0fe2c42c5d929d69e68/src/main/clojure/clojure/tools/namespace/track.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.track/tracker",
    :doc "Returns a new, empty dependency tracker",
    :var-type "function",
-   :line 108,
+   :line 107,
    :file "src/main/clojure/clojure/tools/namespace/track.clj"})}

@@ -109,7 +109,11 @@ namespace.
       </div><div style="margin-left: 1em;" class="toc-subentry">
         <a class="toc-subentry-anchor" href="#clojure.tools.namespace.dependency/transitive-dependencies">transitive-dependencies</a>
       </div><div style="margin-left: 1em;" class="toc-subentry">
+        <a class="toc-subentry-anchor" href="#clojure.tools.namespace.dependency/transitive-dependencies-set">transitive-dependencies-set</a>
+      </div><div style="margin-left: 1em;" class="toc-subentry">
         <a class="toc-subentry-anchor" href="#clojure.tools.namespace.dependency/transitive-dependents">transitive-dependents</a>
+      </div><div style="margin-left: 1em;" class="toc-subentry">
+        <a class="toc-subentry-anchor" href="#clojure.tools.namespace.dependency/transitive-dependents-set">transitive-dependents-set</a>
       </div>
     </div><div style="margin-left: 1em;" class="toc-entry">
       <a class="toc-entry-anchor" href="#clojure.tools.namespace.dependency/DependencyGraphUpdate">DependencyGraphUpdate</a>
@@ -556,6 +560,17 @@ transitively.</pre>
       
     </div><div id="proto-var-entry">
       <br />
+      <h3 id="clojure.tools.namespace.dependency/transitive-dependencies-set">transitive-dependencies-set</h3>
+      <span id="var-type">function</span><br />
+      <pre id="var-usage">Usage: (transitive-dependencies-set graph node-set)
+</pre>
+      <pre id="var-docstr">Returns the set of all things which any node in node-set depends
+on, directly or transitively.</pre>
+      
+      
+      
+    </div><div id="proto-var-entry">
+      <br />
       <h3 id="clojure.tools.namespace.dependency/transitive-dependents">transitive-dependents</h3>
       <span id="var-type">function</span><br />
       <pre id="var-usage">Usage: (transitive-dependents graph node)
@@ -565,10 +580,21 @@ transitively.</pre>
       
       
       
+    </div><div id="proto-var-entry">
+      <br />
+      <h3 id="clojure.tools.namespace.dependency/transitive-dependents-set">transitive-dependents-set</h3>
+      <span id="var-type">function</span><br />
+      <pre id="var-usage">Usage: (transitive-dependents-set graph node-set)
+</pre>
+      <pre id="var-docstr">Returns the set of all things which depend upon any node in
+node-set, directly or transitively.</pre>
+      
+      
+      
     </div>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/41cd3c37cc29a4916d89aeca21ceac627a5174be/src/main/clojure/clojure/tools/namespace/dependency.clj#L14" id="proto-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/3d784eb8f3ca60900f3cd7d12503ad817656a419/src/main/clojure/clojure/tools/namespace/dependency.clj#L14" id="proto-source">Source</a>
   </div><div id="proto-entry">
     <br />
     <hr />
@@ -622,7 +648,7 @@ node.</pre>
     </div>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/41cd3c37cc29a4916d89aeca21ceac627a5174be/src/main/clojure/clojure/tools/namespace/dependency.clj#L28" id="proto-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/3d784eb8f3ca60900f3cd7d12503ad817656a419/src/main/clojure/clojure/tools/namespace/dependency.clj#L34" id="proto-source">Source</a>
   </div>
 </div>
 <div id="type-section">
@@ -652,7 +678,7 @@ node.</pre>
     <pre id="var-docstr">Positional factory function for class clojure.tools.namespace.dependency.MapDependencyGraph.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/41cd3c37cc29a4916d89aeca21ceac627a5174be/src/main/clojure/clojure/tools/namespace/dependency.clj#L58" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/3d784eb8f3ca60900f3cd7d12503ad817656a419/src/main/clojure/clojure/tools/namespace/dependency.clj#L69" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -663,7 +689,7 @@ node.</pre>
     <pre id="var-docstr">True if y is a dependent of x.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/41cd3c37cc29a4916d89aeca21ceac627a5174be/src/main/clojure/clojure/tools/namespace/dependency.clj#L100" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/3d784eb8f3ca60900f3cd7d12503ad817656a419/src/main/clojure/clojure/tools/namespace/dependency.clj#L115" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -674,7 +700,7 @@ node.</pre>
     <pre id="var-docstr">True if x is directly or transitively dependent on y.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/41cd3c37cc29a4916d89aeca21ceac627a5174be/src/main/clojure/clojure/tools/namespace/dependency.clj#L95" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/3d784eb8f3ca60900f3cd7d12503ad817656a419/src/main/clojure/clojure/tools/namespace/dependency.clj#L110" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -685,7 +711,7 @@ node.</pre>
     <pre id="var-docstr">Returns a new, empty, dependency graph.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/41cd3c37cc29a4916d89aeca21ceac627a5174be/src/main/clojure/clojure/tools/namespace/dependency.clj#L92" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/3d784eb8f3ca60900f3cd7d12503ad817656a419/src/main/clojure/clojure/tools/namespace/dependency.clj#L107" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -696,7 +722,7 @@ node.</pre>
     <pre id="var-docstr">Factory function for class clojure.tools.namespace.dependency.MapDependencyGraph, taking a map of keywords to field values.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/41cd3c37cc29a4916d89aeca21ceac627a5174be/src/main/clojure/clojure/tools/namespace/dependency.clj#L58" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/3d784eb8f3ca60900f3cd7d12503ad817656a419/src/main/clojure/clojure/tools/namespace/dependency.clj#L69" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -709,7 +735,7 @@ the dependencies in graph. Nodes not present in the graph will sort
 after nodes in the graph.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/41cd3c37cc29a4916d89aeca21ceac627a5174be/src/main/clojure/clojure/tools/namespace/dependency.clj#L130" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/3d784eb8f3ca60900f3cd7d12503ad817656a419/src/main/clojure/clojure/tools/namespace/dependency.clj#L145" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -720,7 +746,7 @@ after nodes in the graph.</pre>
     <pre id="var-docstr">Returns a topologically-sorted list of nodes in graph.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/41cd3c37cc29a4916d89aeca21ceac627a5174be/src/main/clojure/clojure/tools/namespace/dependency.clj#L105" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/3d784eb8f3ca60900f3cd7d12503ad817656a419/src/main/clojure/clojure/tools/namespace/dependency.clj#L120" id="var-source">Source</a>
   </div>
 </div>
 <br />
@@ -1293,7 +1319,7 @@ namespaces in the 'unload' list, then (re)load all namespaces in the
 functions to do this.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/14a2522106979225793e790323a35921410afc07/src/main/clojure/clojure/tools/namespace/track.clj#L40" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/fc38e88fd483e1a4bd9fa0fe2c42c5d929d69e68/src/main/clojure/clojure/tools/namespace/track.clj#L39" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1306,7 +1332,7 @@ functions to do this.</pre>
 populated as with 'add'.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/14a2522106979225793e790323a35921410afc07/src/main/clojure/clojure/tools/namespace/track.clj#L85" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/fc38e88fd483e1a4bd9fa0fe2c42c5d929d69e68/src/main/clojure/clojure/tools/namespace/track.clj#L84" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1317,7 +1343,7 @@ populated as with 'add'.</pre>
     <pre id="var-docstr">Returns a new, empty dependency tracker</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/14a2522106979225793e790323a35921410afc07/src/main/clojure/clojure/tools/namespace/track.clj#L108" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/fc38e88fd483e1a4bd9fa0fe2c42c5d929d69e68/src/main/clojure/clojure/tools/namespace/track.clj#L107" id="var-source">Source</a>
   </div>
 </div>
 
