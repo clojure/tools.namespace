@@ -458,36 +458,77 @@ Change Log
 ----------------------------------------
 
 * Version 0.2.5-SNAPSHOT (in development)
-  * Fix [TNS-19]: `deps-from-ns-decl` should always return a set
-  * Fix [TNS-18]: compute transitive dependencies in linear time
-  * FIX [TNS-17]: ns form doesn't need to be first in file
-  * Fix [TNS-16]: Don't depend on specific topo sort order in tests
-  * Fix [TNS-15]: Handle spaces in classpath directories (old clojure.tools.namespace)
+
+  * Enhancement [TNS-19]: `deps-from-ns-decl` should return an empty
+    set instead of nil. This may be a breaking change for some but
+    is consistent with the original docstring.
+
+  * Enhancement [TNS-18]: Compute transitive dependencies in linear time.
+
+  * Enhancement [TNS-17]: The `ns` form doesn't need to be the first
+    top-level form in a file.
+
+  * Fix [TNS-16]: Don't depend on specific hash ordering in tests.
+    Exposed by new hash functions in Clojure 1.6.0.
+
+  * Fix [TNS-15]: Handle spaces in classpath directories (old
+    `clojure.tools.namespace`)
+
   * Fix [TNS-12]: Duplicate definition of `jar-file?`
+
 * Version 0.2.4 on 19-Jul-2013
-  * Fix [TNS-10]: Forbid circular dependency when a namespace depends on itself
+
+  * Fix [TNS-10]: Forbid circular dependency when a namespace depends
+    on itself
+
   * Fix [TNS-9] and [TNS-11]: support other prefix-list forms
-  * Fix [TNS-8]: Do not modify files whose contents does not change in =move-ns=
+
+  * Fix [TNS-8]: In `move-ns`, do not modify files whose contents does
+    not change
+
 * Version 0.2.3 on 01-Apr-2013
-  * Attempt recovery of aliases/refers in REPL after error
+
+  * New: Attempt recovery of aliases/refers in REPL after error
+
 * Version 0.2.2 on 14-Dec-2012
-  * Add `:after` option to `refresh`
-  * Add `clojure.tools.namespace.move`
+
+  * New: Add `:after` option to `refresh`
+
+  * New: Add `clojure.tools.namespace.move`
+
   * Fix [TNS-4], reflection warnings
+
 * Version 0.2.1 on 26-Oct-2012
-  * Restore deprecated 0.1.x APIs in `clojure.tools.namespace`
+
+  * Fix: Restore deprecated 0.1.x APIs in `clojure.tools.namespace`
+
   * Fix [TNS-3], actually use `refresh-dirs`
+
 * Version 0.2.0 on 05-Oct-2012
-  * **Breaking API changes** from previous versions
+
+  * **Not recommended for use**: this release introduced breaking API
+    changes (renaming core namespaces and functions) without
+    backwards-compatibility. Applications with dependencies on both
+    the 0.2.x and 0.1.x APIs cannot use this version.
+
   * New dependency tracking & reloading features
+
   * Eliminate dependency on [java.classpath]
+
 * Version 0.1.3 on 24-Apr-2012
-  * [TNS-1] Workaround for Clojure 1.2 reader bug
+
+  * Fix [TNS-1] Workaround for Clojure 1.2 reader bug
+
 * Version 0.1.2 on 10-Feb-2012
-  * Eliminate reflection warnings
+
+  * Fix: Eliminate reflection warnings
+
 * Version 0.1.1 on 18-May-2011
+
 * Version 0.1.0 on 24-Apr-2011
-  * Source-compatible with clojure.contrib.find-namespaces in old clojure-contrib 1.2.0
+
+  * Source-compatible with clojure.contrib.find-namespaces in old
+    clojure-contrib 1.2.0
 
 [TNS-1]: http://dev.clojure.org/jira/browse/TNS-1
 [TNS-3]: http://dev.clojure.org/jira/browse/TNS-3
