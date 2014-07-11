@@ -51,15 +51,15 @@
 
 (defn- transitive
   "Recursively expands the set of dependency relationships starting
-  at (get m x), for each x in node-set"
-  [m node-set]
-  (loop [unexpanded (mapcat #(get m %) node-set)
+  at (get neighbors x), for each x in node-set"
+  [neighbors node-set]
+  (loop [unexpanded (mapcat neighbors node-set)
          expanded #{}]
-    (if-let [unexpanded (seq unexpanded)]
-      (let [[n & ns] unexpanded]
-        (if (contains? expanded n)
-          (recur ns expanded)
-          (recur (concat ns (get m n)) (conj expanded n))))
+    (if-let [[node & more] (seq unexpanded)]
+      (if (contains? expanded node)
+        (recur more expanded)
+        (recur (concat more (neighbors node))
+               (conj expanded node)))
       expanded)))
 
 (declare depends?)
