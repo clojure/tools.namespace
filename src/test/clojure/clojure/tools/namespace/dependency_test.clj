@@ -177,15 +177,15 @@
             (depend :level26 :level25a)
             (depend :level26 :level25b)
             (depend :level26 :level25c)
-            (depend :level26 :level25d)
-            ))
+            (depend :level26 :level25d)))
 
 (deftest t-transitive-dependencies
   (is (= #{:a :c :b}
          (transitive-dependencies g1 :d)))
   (is (= '#{two four six one five three}
-         (transitive-dependencies g2 'seven)))
-  (println "dbx: " (System/currentTimeMillis) "before t-transitive-dependencies g3 :level24")
+         (transitive-dependencies g2 'seven))))
+
+(deftest t-transitive-dependencies-deep
   (is (= #{:level0
            :level1a :level1b :level1c :level1d
            :level2
@@ -209,10 +209,8 @@
            :level20
            :level21a :level21b :level21c :level21d
            :level22
-           :level23a :level23b :level23c :level23d
-           }
+           :level23a :level23b :level23c :level23d}
          (transitive-dependencies g3 :level24)))
-  (println "dbx: " (System/currentTimeMillis) "after t-transitive-dependencies g3 :level24 -- took ~30 sec on my machine")
   (is (= #{:level0
            :level1a :level1b :level1c :level1d
            :level2
@@ -238,11 +236,9 @@
            :level22
            :level23a :level23b :level23c :level23d
            :level24
-           :level25a :level25b :level25c :level25d
-           }
-         (transitive-dependencies g3 :level26)))
-  (println "dbx: " (System/currentTimeMillis) "after t-transitive-dependencies g3 :level26 -- took ~2 min on my machine (4 times longer than previous test)")
-  )
+           :level25a :level25b :level25c :level25d}
+         (transitive-dependencies g3 :level26))))
+
 
 (deftest t-transitive-dependents
   (is (= '#{four seven}
