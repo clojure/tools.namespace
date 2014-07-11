@@ -19,13 +19,13 @@
   (transitive-dependencies [graph node]
     "Returns the set of all things which node depends on, directly or
     transitively.")
-  (transitive-dependencies-of-node-set [graph node-set]
+  (transitive-dependencies-set [graph node-set]
     "Returns the set of all things which any node in node-set depends
     on, directly or transitively.")
   (transitive-dependents [graph node]
     "Returns the set of all things which depend upon node, directly or
     transitively.")
-  (transitive-dependents-of-node-set [graph node-set]
+  (transitive-dependents-set [graph node-set]
     "Returns the set of all things which depend upon any node in
     node-set, directly or transitively.")
   (nodes [graph]
@@ -74,11 +74,11 @@
     (get dependents node #{}))
   (transitive-dependencies [graph node]
     (transitive dependencies #{node}))
-  (transitive-dependencies-of-node-set [graph node-set]
+  (transitive-dependencies-set [graph node-set]
     (transitive dependencies node-set))
   (transitive-dependents [graph node]
     (transitive dependents #{node}))
-  (transitive-dependents-of-node-set [graph node-set]
+  (transitive-dependents-set [graph node-set]
     (transitive dependents node-set))
   (nodes [graph]
     (clojure.set/union (set (keys dependencies))

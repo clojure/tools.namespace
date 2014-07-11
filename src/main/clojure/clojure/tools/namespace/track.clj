@@ -34,7 +34,7 @@
 
 (defn- affected-namespaces [deps names]
   (set/union (set names)
-             (dep/transitive-dependents-of-node-set deps names)))
+             (dep/transitive-dependents-set deps names)))
 
 (defn add
   "Returns an updated dependency tracker with new/updated namespaces.
