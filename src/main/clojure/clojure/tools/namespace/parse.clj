@@ -25,17 +25,18 @@
 (defn read-ns-decl
   "Attempts to read a (ns ...) declaration from a
   java.io.PushbackReader, and returns the unevaluated form. Returns
-  nil if read fails or if a ns declaration cannot be found. The ns
-  declaration must be the first Clojure form in the file, except for
-  (comment ...) forms."
+  the first top-level ns form found. Returns nil if read fails or if a
+  ns declaration cannot be found. Note that read can execute code
+  (controlled by *read-eval*), and as such should be used only with
+  trusted sources."
   [rdr]
   (try
-   (loop [] (let [form (doto (read rdr) str)]  ; str forces errors, see TNS-1
-              (cond
-               (ns-decl? form) form
-               (comment? form) (recur)
-               :else nil)))
-       (catch Exception e nil)))
+   (loop []
+     (let [form (doto (read rdr) str)]  ; str forces errors, see TNS-1
+       (if (ns-decl? form)
+         form
+         (recur))))
+   (catch Exception e nil)))
 
 ;;; Parsing dependencies
 

@@ -1,6 +1,7 @@
 (ns clojure.tools.namespace.parse-test
   (:use [clojure.test :only (deftest is)]
-        [clojure.tools.namespace.parse :only (deps-from-ns-decl)]))
+        [clojure.tools.namespace.parse :only (deps-from-ns-decl
+                                              read-ns-decl)]))
 
 (def ns-decl-prefix-list
   '(ns com.example.one
@@ -52,3 +53,23 @@
 
 (deftest t-no-deps-returns-empty-set
   (is (= #{} (deps-from-ns-decl '(ns com.example.one)))))
+
+(def multiple-ns-decls
+  '((ns one)
+    (ns two (:require one))
+    (ns three (:require [one :as o] [two :as t]))))
+
+(def multiple-ns-decls-string
+" (println \"Code before first ns\")
+  (ns one)
+  (println \"Some code\")
+  (defn hello-world [] \"Hello, World!\")
+  (ns two (:require one))
+  (println \"Some more code\")
+  (ns three (:require [one :as o] [two :as t]))")
+
+(deftest t-read-multiple-ns-decls
+  (with-open [rdr (java.io.PushbackReader.
+                   (java.io.StringReader. multiple-ns-decls-string))]
+    (is (= multiple-ns-decls
+           (take-while identity (repeatedly #(read-ns-decl rdr)))))))
