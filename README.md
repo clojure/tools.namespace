@@ -457,7 +457,7 @@ refresh.
 Change Log
 ----------------------------------------
 
-* Version 0.2.5-SNAPSHOT (in development)
+### Version 0.2.5-SNAPSHOT (in development)
 
   * Enhancement [TNS-19]: `deps-from-ns-decl` should return an empty
     set instead of nil. This may be a breaking change for some but
@@ -476,7 +476,7 @@ Change Log
 
   * Fix [TNS-12]: Duplicate definition of `jar-file?`
 
-* Version 0.2.4 on 19-Jul-2013
+### Version 0.2.4 on 19-Jul-2013
 
   * Fix [TNS-10]: Forbid circular dependency when a namespace depends
     on itself
@@ -486,11 +486,11 @@ Change Log
   * Fix [TNS-8]: In `move-ns`, do not modify files whose contents does
     not change
 
-* Version 0.2.3 on 01-Apr-2013
+### Version 0.2.3 on 01-Apr-2013
 
   * New: Attempt recovery of aliases/refers in REPL after error
 
-* Version 0.2.2 on 14-Dec-2012
+### Version 0.2.2 on 14-Dec-2012
 
   * New: Add `:after` option to `refresh`
 
@@ -498,13 +498,13 @@ Change Log
 
   * Fix [TNS-4], reflection warnings
 
-* Version 0.2.1 on 26-Oct-2012
+### Version 0.2.1 on 26-Oct-2012
 
   * Fix: Restore deprecated 0.1.x APIs in `clojure.tools.namespace`
 
   * Fix [TNS-3], actually use `refresh-dirs`
 
-* Version 0.2.0 on 05-Oct-2012
+### Version 0.2.0 on 05-Oct-2012
 
   * **Not recommended for use**: this release introduced breaking API
     changes (renaming core namespaces and functions) without
@@ -515,17 +515,17 @@ Change Log
 
   * Eliminate dependency on [java.classpath]
 
-* Version 0.1.3 on 24-Apr-2012
+### Version 0.1.3 on 24-Apr-2012
 
   * Fix [TNS-1] Workaround for Clojure 1.2 reader bug
 
-* Version 0.1.2 on 10-Feb-2012
+### Version 0.1.2 on 10-Feb-2012
 
   * Fix: Eliminate reflection warnings
 
-* Version 0.1.1 on 18-May-2011
+### Version 0.1.1 on 18-May-2011
 
-* Version 0.1.0 on 24-Apr-2011
+### Version 0.1.0 on 24-Apr-2011
 
   * Source-compatible with clojure.contrib.find-namespaces in old
     clojure-contrib 1.2.0
