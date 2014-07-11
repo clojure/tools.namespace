@@ -460,6 +460,7 @@ Change Log
 * Version 0.2.5-SNAPSHOT (in development)
   * Fix [TNS-19]: `deps-from-ns-decl` should always return a set
   * Fix [TNS-18]: compute transitive dependencies in linear time
+  * FIX [TNS-17]: ns form doesn't need to be first in file
   * Fix [TNS-16]: Don't depend on specific topo sort order in tests
   * Fix [TNS-15]: Handle spaces in classpath directories (old clojure.tools.namespace)
   * Fix [TNS-12]: Duplicate definition of `jar-file?`
@@ -498,6 +499,7 @@ Change Log
 [TNS-12]: http://dev.clojure.org/jira/browse/TNS-12
 [TNS-15]: http://dev.clojure.org/jira/browse/TNS-15
 [TNS-16]: http://dev.clojure.org/jira/browse/TNS-16
+[TNS-17]: http://dev.clojure.org/jira/browse/TNS-17
 [TNS-18]: http://dev.clojure.org/jira/browse/TNS-18
 [TNS-19]: http://dev.clojure.org/jira/browse/TNS-19
 [java.classpath]: https://github.com/clojure/java.classpath
