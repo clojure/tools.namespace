@@ -459,6 +459,10 @@ Change Log
 
 ### Version 0.2.5-SNAPSHOT (in development)
 
+  * New `clojure.tools.namespace.repl/clear` empties the state of the
+    REPL dependency tracker. This can help repair the dependency
+    tracker after a failed load or a circular dependency error.
+
   * Enhancement [TNS-19]: `deps-from-ns-decl` should return an empty
     set instead of nil. This may be a breaking change for some but
     is consistent with the original docstring.
