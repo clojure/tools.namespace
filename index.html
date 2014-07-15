@@ -247,6 +247,9 @@ namespace.
   </div><div style="margin-left: 1em;" class="toc-section">
     <a href="#clojure.tools.namespace.repl" style="margin-top: 3px;">clojure.tools.namespace.repl</a>
     <div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.repl/clear">clear</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
       <a class="toc-entry-anchor" href="#clojure.tools.namespace.repl/disable-reload!">disable-reload!</a>
       
     </div><div style="margin-left: 1em;" class="toc-entry">
@@ -1179,6 +1182,21 @@ the error is ::error-ns.</pre>
   <div id="var-entry">
     <br />
     <hr />
+    <h2 id="clojure.tools.namespace.repl/clear">clear</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (clear)
+</pre>
+    <pre id="var-docstr">Clears all state from the namespace/file tracker. This may help
+repair the namespace tracker when it gets into an inconsistent
+state, without restarting the Clojure process. The next call to
+'refresh' will reload all source files, but may not completely
+remove stale code from deleted files.</pre>
+    
+    
+    <a href="https://github.com/clojure/tools.namespace/blob/bfb06a52250b5bc303de2b0cd41bee3a9ee1e3d0/src/main/clojure/clojure/tools/namespace/repl.clj#L167" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
     <h2 id="clojure.tools.namespace.repl/disable-reload!">disable-reload!</h2>
     <span id="var-type">function</span><br />
     <pre id="var-usage">Usage: (disable-reload!)
@@ -1190,7 +1208,7 @@ the error is ::error-ns.</pre>
 Warning: Aliases to reloaded namespaces will break.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/37dae6b34983d513d7b7489e58b94c18f1da2fbb/src/main/clojure/clojure/tools/namespace/repl.clj#L117" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/bfb06a52250b5bc303de2b0cd41bee3a9ee1e3d0/src/main/clojure/clojure/tools/namespace/repl.clj#L117" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1206,7 +1224,7 @@ just won't be removed first.
 Warning: Aliases to reloaded namespaces will break.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/37dae6b34983d513d7b7489e58b94c18f1da2fbb/src/main/clojure/clojure/tools/namespace/repl.clj#L108" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/bfb06a52250b5bc303de2b0cd41bee3a9ee1e3d0/src/main/clojure/clojure/tools/namespace/repl.clj#L108" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1230,7 +1248,7 @@ Options are key-value pairs. Valid options are:
              been reloaded.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/37dae6b34983d513d7b7489e58b94c18f1da2fbb/src/main/clojure/clojure/tools/namespace/repl.clj#L125" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/bfb06a52250b5bc303de2b0cd41bee3a9ee1e3d0/src/main/clojure/clojure/tools/namespace/repl.clj#L125" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1252,7 +1270,7 @@ Options are key-value pairs. Valid options are:
              been reloaded.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/37dae6b34983d513d7b7489e58b94c18f1da2fbb/src/main/clojure/clojure/tools/namespace/repl.clj#L144" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/bfb06a52250b5bc303de2b0cd41bee3a9ee1e3d0/src/main/clojure/clojure/tools/namespace/repl.clj#L144" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1264,7 +1282,7 @@ Options are key-value pairs. Valid options are:
 same types as clojure.java.io/file.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/37dae6b34983d513d7b7489e58b94c18f1da2fbb/src/main/clojure/clojure/tools/namespace/repl.clj#L161" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/bfb06a52250b5bc303de2b0cd41bee3a9ee1e3d0/src/main/clojure/clojure/tools/namespace/repl.clj#L161" id="var-source">Source</a>
   </div>
 </div>
 <br />
@@ -1320,7 +1338,7 @@ namespaces in the 'unload' list, then (re)load all namespaces in the
 functions to do this.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/fc38e88fd483e1a4bd9fa0fe2c42c5d929d69e68/src/main/clojure/clojure/tools/namespace/track.clj#L39" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/ddf31606983282b44ddba18ee707deaf0cce4af9/src/main/clojure/clojure/tools/namespace/track.clj#L39" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1333,7 +1351,7 @@ functions to do this.</pre>
 populated as with 'add'.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/fc38e88fd483e1a4bd9fa0fe2c42c5d929d69e68/src/main/clojure/clojure/tools/namespace/track.clj#L84" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/ddf31606983282b44ddba18ee707deaf0cce4af9/src/main/clojure/clojure/tools/namespace/track.clj#L84" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1344,7 +1362,7 @@ populated as with 'add'.</pre>
     <pre id="var-docstr">Returns a new, empty dependency tracker</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/fc38e88fd483e1a4bd9fa0fe2c42c5d929d69e68/src/main/clojure/clojure/tools/namespace/track.clj#L107" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/ddf31606983282b44ddba18ee707deaf0cce4af9/src/main/clojure/clojure/tools/namespace/track.clj#L107" id="var-source">Source</a>
   </div>
 </div>
 

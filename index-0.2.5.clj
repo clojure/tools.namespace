@@ -62,14 +62,14 @@
    :doc
    "Force reloading namespaces on demand or through a\ndependency tracker"}
   {:source-url
-   "https://github.com/clojure/tools.namespace/blob/37dae6b34983d513d7b7489e58b94c18f1da2fbb/src/main/clojure/clojure/tools/namespace/repl.clj",
+   "https://github.com/clojure/tools.namespace/blob/bfb06a52250b5bc303de2b0cd41bee3a9ee1e3d0/src/main/clojure/clojure/tools/namespace/repl.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace/clojure.tools.namespace.repl-api.html",
    :name "clojure.tools.namespace.repl",
    :author "Stuart Sierra",
    :doc "REPL utilities for working with namespaces"}
   {:source-url
-   "https://github.com/clojure/tools.namespace/blob/fc38e88fd483e1a4bd9fa0fe2c42c5d929d69e68/src/main/clojure/clojure/tools/namespace/track.clj",
+   "https://github.com/clojure/tools.namespace/blob/ddf31606983282b44ddba18ee707deaf0cce4af9/src/main/clojure/clojure/tools/namespace/track.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace/clojure.tools.namespace.track-api.html",
    :name "clojure.tools.namespace.track",
@@ -865,13 +865,27 @@
    :var-type "function",
    :line 21,
    :file "src/main/clojure/clojure/tools/namespace/reload.clj"}
+  {:arglists ([]),
+   :name "clear",
+   :namespace "clojure.tools.namespace.repl",
+   :source-url
+   "https://github.com/clojure/tools.namespace/blob/bfb06a52250b5bc303de2b0cd41bee3a9ee1e3d0/src/main/clojure/clojure/tools/namespace/repl.clj#L167",
+   :raw-source-url
+   "https://github.com/clojure/tools.namespace/raw/bfb06a52250b5bc303de2b0cd41bee3a9ee1e3d0/src/main/clojure/clojure/tools/namespace/repl.clj",
+   :wiki-url
+   "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.repl/clear",
+   :doc
+   "Clears all state from the namespace/file tracker. This may help\nrepair the namespace tracker when it gets into an inconsistent\nstate, without restarting the Clojure process. The next call to\n'refresh' will reload all source files, but may not completely\nremove stale code from deleted files.",
+   :var-type "function",
+   :line 167,
+   :file "src/main/clojure/clojure/tools/namespace/repl.clj"}
   {:arglists ([] [namespace]),
    :name "disable-reload!",
    :namespace "clojure.tools.namespace.repl",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/37dae6b34983d513d7b7489e58b94c18f1da2fbb/src/main/clojure/clojure/tools/namespace/repl.clj#L117",
+   "https://github.com/clojure/tools.namespace/blob/bfb06a52250b5bc303de2b0cd41bee3a9ee1e3d0/src/main/clojure/clojure/tools/namespace/repl.clj#L117",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/37dae6b34983d513d7b7489e58b94c18f1da2fbb/src/main/clojure/clojure/tools/namespace/repl.clj",
+   "https://github.com/clojure/tools.namespace/raw/bfb06a52250b5bc303de2b0cd41bee3a9ee1e3d0/src/main/clojure/clojure/tools/namespace/repl.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.repl/disable-reload!",
    :doc
@@ -883,9 +897,9 @@
    :name "disable-unload!",
    :namespace "clojure.tools.namespace.repl",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/37dae6b34983d513d7b7489e58b94c18f1da2fbb/src/main/clojure/clojure/tools/namespace/repl.clj#L108",
+   "https://github.com/clojure/tools.namespace/blob/bfb06a52250b5bc303de2b0cd41bee3a9ee1e3d0/src/main/clojure/clojure/tools/namespace/repl.clj#L108",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/37dae6b34983d513d7b7489e58b94c18f1da2fbb/src/main/clojure/clojure/tools/namespace/repl.clj",
+   "https://github.com/clojure/tools.namespace/raw/bfb06a52250b5bc303de2b0cd41bee3a9ee1e3d0/src/main/clojure/clojure/tools/namespace/repl.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.repl/disable-unload!",
    :doc
@@ -897,9 +911,9 @@
    :name "refresh",
    :namespace "clojure.tools.namespace.repl",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/37dae6b34983d513d7b7489e58b94c18f1da2fbb/src/main/clojure/clojure/tools/namespace/repl.clj#L125",
+   "https://github.com/clojure/tools.namespace/blob/bfb06a52250b5bc303de2b0cd41bee3a9ee1e3d0/src/main/clojure/clojure/tools/namespace/repl.clj#L125",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/37dae6b34983d513d7b7489e58b94c18f1da2fbb/src/main/clojure/clojure/tools/namespace/repl.clj",
+   "https://github.com/clojure/tools.namespace/raw/bfb06a52250b5bc303de2b0cd41bee3a9ee1e3d0/src/main/clojure/clojure/tools/namespace/repl.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.repl/refresh",
    :doc
@@ -911,9 +925,9 @@
    :name "refresh-all",
    :namespace "clojure.tools.namespace.repl",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/37dae6b34983d513d7b7489e58b94c18f1da2fbb/src/main/clojure/clojure/tools/namespace/repl.clj#L144",
+   "https://github.com/clojure/tools.namespace/blob/bfb06a52250b5bc303de2b0cd41bee3a9ee1e3d0/src/main/clojure/clojure/tools/namespace/repl.clj#L144",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/37dae6b34983d513d7b7489e58b94c18f1da2fbb/src/main/clojure/clojure/tools/namespace/repl.clj",
+   "https://github.com/clojure/tools.namespace/raw/bfb06a52250b5bc303de2b0cd41bee3a9ee1e3d0/src/main/clojure/clojure/tools/namespace/repl.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.repl/refresh-all",
    :doc
@@ -925,9 +939,9 @@
    :name "set-refresh-dirs",
    :namespace "clojure.tools.namespace.repl",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/37dae6b34983d513d7b7489e58b94c18f1da2fbb/src/main/clojure/clojure/tools/namespace/repl.clj#L161",
+   "https://github.com/clojure/tools.namespace/blob/bfb06a52250b5bc303de2b0cd41bee3a9ee1e3d0/src/main/clojure/clojure/tools/namespace/repl.clj#L161",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/37dae6b34983d513d7b7489e58b94c18f1da2fbb/src/main/clojure/clojure/tools/namespace/repl.clj",
+   "https://github.com/clojure/tools.namespace/raw/bfb06a52250b5bc303de2b0cd41bee3a9ee1e3d0/src/main/clojure/clojure/tools/namespace/repl.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.repl/set-refresh-dirs",
    :doc
@@ -939,9 +953,9 @@
    :name "add",
    :namespace "clojure.tools.namespace.track",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/fc38e88fd483e1a4bd9fa0fe2c42c5d929d69e68/src/main/clojure/clojure/tools/namespace/track.clj#L39",
+   "https://github.com/clojure/tools.namespace/blob/ddf31606983282b44ddba18ee707deaf0cce4af9/src/main/clojure/clojure/tools/namespace/track.clj#L39",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/fc38e88fd483e1a4bd9fa0fe2c42c5d929d69e68/src/main/clojure/clojure/tools/namespace/track.clj",
+   "https://github.com/clojure/tools.namespace/raw/ddf31606983282b44ddba18ee707deaf0cce4af9/src/main/clojure/clojure/tools/namespace/track.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.track/add",
    :doc
@@ -953,9 +967,9 @@
    :name "remove",
    :namespace "clojure.tools.namespace.track",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/fc38e88fd483e1a4bd9fa0fe2c42c5d929d69e68/src/main/clojure/clojure/tools/namespace/track.clj#L84",
+   "https://github.com/clojure/tools.namespace/blob/ddf31606983282b44ddba18ee707deaf0cce4af9/src/main/clojure/clojure/tools/namespace/track.clj#L84",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/fc38e88fd483e1a4bd9fa0fe2c42c5d929d69e68/src/main/clojure/clojure/tools/namespace/track.clj",
+   "https://github.com/clojure/tools.namespace/raw/ddf31606983282b44ddba18ee707deaf0cce4af9/src/main/clojure/clojure/tools/namespace/track.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.track/remove",
    :doc
@@ -967,9 +981,9 @@
    :name "tracker",
    :namespace "clojure.tools.namespace.track",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/fc38e88fd483e1a4bd9fa0fe2c42c5d929d69e68/src/main/clojure/clojure/tools/namespace/track.clj#L107",
+   "https://github.com/clojure/tools.namespace/blob/ddf31606983282b44ddba18ee707deaf0cce4af9/src/main/clojure/clojure/tools/namespace/track.clj#L107",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/fc38e88fd483e1a4bd9fa0fe2c42c5d929d69e68/src/main/clojure/clojure/tools/namespace/track.clj",
+   "https://github.com/clojure/tools.namespace/raw/ddf31606983282b44ddba18ee707deaf0cce4af9/src/main/clojure/clojure/tools/namespace/track.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.track/tracker",
    :doc "Returns a new, empty dependency tracker",
