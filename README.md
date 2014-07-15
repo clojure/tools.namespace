@@ -15,20 +15,20 @@ repositories.
 Releases and Dependency Information
 ----------------------------------------
 
-* [Latest stable release is 0.2.4](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.2.4)
+* [Latest stable release is 0.2.5](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.2.5)
 
 * [All Released Versions](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.clojure%22%20AND%20a%3A%22tools.namespace%22)
 
 [Leiningen](http://leiningen.org/) dependency information:
 
-    [org.clojure/tools.namespace "0.2.4"]
+    [org.clojure/tools.namespace "0.2.5"]
 
 [Maven](http://maven.apache.org/) dependency information:
 
     <dependency>
       <groupId>org.clojure</groupId>
       <artifactId>tools.namespace</artifactId>
-      <version>0.2.4</version>
+      <version>0.2.5</version>
     </dependency>
 
 
@@ -457,7 +457,11 @@ refresh.
 Change Log
 ----------------------------------------
 
-### Version 0.2.5-SNAPSHOT (in development)
+### Version 0.2.6-SNAPSHOT
+
+  * In development, current Git master branch
+
+### Version 0.2.5 on 15-Jul-2014
 
   * New `clojure.tools.namespace.repl/clear` empties the state of the
     REPL dependency tracker. This can help repair the dependency
