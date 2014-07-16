@@ -34,13 +34,13 @@ Releases and Dependency Information
 
 ### Development Snapshots ###
 
-* Git master branch is at **0.2.5-SNAPSHOT**
+* Git master branch is at **0.2.6-SNAPSHOT**
 
 * [All Snapshot Versions](https://oss.sonatype.org/content/groups/public/org/clojure/tools.namespace/)
 
 Leiningen dependency information for development snapshots:
 
-    :dependencies [[org.clojure/tools.namespace "0.2.5-SNAPSHOT"]]
+    :dependencies [[org.clojure/tools.namespace "0.2.6-SNAPSHOT"]]
     :repositories {"sonatype-oss-public"
                    "https://oss.sonatype.org/content/groups/public/"}
 
