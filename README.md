@@ -461,6 +461,9 @@ Change Log
 
   * In development, current Git master branch
 
+  * `clojure.tools.namespace.parse/read-ns-decl` asserts that its
+    argument is a PushbackReader, instead of silently returning nil
+
 ### Version 0.2.5 on 15-Jul-2014
 
   * New `clojure.tools.namespace.repl/clear` empties the state of the
