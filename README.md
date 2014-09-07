@@ -473,6 +473,9 @@ Change Log
   * `clojure.tools.namespace.parse/read-ns-decl` asserts that its
     argument is a PushbackReader, instead of silently returning nil
 
+  * Fix [TNS-22]: broken `clojure.string/replace` with Windows path
+    separator
+
 ### Version 0.2.5 on 15-Jul-2014
 
   * New `clojure.tools.namespace.repl/clear` empties the state of the
