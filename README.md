@@ -15,32 +15,32 @@ repositories.
 Releases and Dependency Information
 ----------------------------------------
 
-* [Latest stable release is 0.2.5](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.2.5)
+* [Latest stable release is 0.2.6](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.2.6)
 
 * [All Released Versions](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.clojure%22%20AND%20a%3A%22tools.namespace%22)
 
 [Leiningen](http://leiningen.org/) dependency information:
 
-    [org.clojure/tools.namespace "0.2.5"]
+    [org.clojure/tools.namespace "0.2.6"]
 
 [Maven](http://maven.apache.org/) dependency information:
 
     <dependency>
       <groupId>org.clojure</groupId>
       <artifactId>tools.namespace</artifactId>
-      <version>0.2.5</version>
+      <version>0.2.6</version>
     </dependency>
 
 
 ### Development Snapshots ###
 
-* Git master branch is at **0.2.6-SNAPSHOT**
+* Git master branch is at **0.2.7-SNAPSHOT**
 
 * [All Snapshot Versions](https://oss.sonatype.org/content/groups/public/org/clojure/tools.namespace/)
 
 Leiningen dependency information for development snapshots:
 
-    :dependencies [[org.clojure/tools.namespace "0.2.6-SNAPSHOT"]]
+    :dependencies [[org.clojure/tools.namespace "0.2.7-SNAPSHOT"]]
     :repositories {"sonatype-oss-public"
                    "https://oss.sonatype.org/content/groups/public/"}
 
@@ -466,9 +466,11 @@ tools.namespace cannot detect this situation automatically. See [TNS-23].
 Change Log
 ----------------------------------------
 
-### Version 0.2.6-SNAPSHOT
+### Version 0.2.7-SNAPSHOT
 
   * In development, current Git master branch
+
+### Version 0.2.6 on 7-Sept-2014
 
   * `clojure.tools.namespace.parse/read-ns-decl` asserts that its
     argument is a PushbackReader, instead of silently returning nil
