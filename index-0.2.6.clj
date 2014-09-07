@@ -38,7 +38,7 @@
    :doc
    "Search for namespace declarations in directories and JAR files."}
   {:source-url
-   "https://github.com/clojure/tools.namespace/blob/9b43f4a07e4d7264368d64a0dbbd3a2bc3b04097/src/main/clojure/clojure/tools/namespace/move.clj",
+   "https://github.com/clojure/tools.namespace/blob/a44f709e9e0a35a0eac6ec8eb6a2845c54efb97f/src/main/clojure/clojure/tools/namespace/move.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace/clojure.tools.namespace.move-api.html",
    :name "clojure.tools.namespace.move",
@@ -731,9 +731,9 @@
    :name "move-ns",
    :namespace "clojure.tools.namespace.move",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/9b43f4a07e4d7264368d64a0dbbd3a2bc3b04097/src/main/clojure/clojure/tools/namespace/move.clj#L86",
+   "https://github.com/clojure/tools.namespace/blob/a44f709e9e0a35a0eac6ec8eb6a2845c54efb97f/src/main/clojure/clojure/tools/namespace/move.clj#L86",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/9b43f4a07e4d7264368d64a0dbbd3a2bc3b04097/src/main/clojure/clojure/tools/namespace/move.clj",
+   "https://github.com/clojure/tools.namespace/raw/a44f709e9e0a35a0eac6ec8eb6a2845c54efb97f/src/main/clojure/clojure/tools/namespace/move.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.move/move-ns",
    :doc
@@ -745,9 +745,9 @@
    :name "move-ns-file",
    :namespace "clojure.tools.namespace.move",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/9b43f4a07e4d7264368d64a0dbbd3a2bc3b04097/src/main/clojure/clojure/tools/namespace/move.clj#L68",
+   "https://github.com/clojure/tools.namespace/blob/a44f709e9e0a35a0eac6ec8eb6a2845c54efb97f/src/main/clojure/clojure/tools/namespace/move.clj#L68",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/9b43f4a07e4d7264368d64a0dbbd3a2bc3b04097/src/main/clojure/clojure/tools/namespace/move.clj",
+   "https://github.com/clojure/tools.namespace/raw/a44f709e9e0a35a0eac6ec8eb6a2845c54efb97f/src/main/clojure/clojure/tools/namespace/move.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.move/move-ns-file",
    :doc
@@ -759,9 +759,9 @@
    :name "replace-ns-symbol",
    :namespace "clojure.tools.namespace.move",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/9b43f4a07e4d7264368d64a0dbbd3a2bc3b04097/src/main/clojure/clojure/tools/namespace/move.clj#L54",
+   "https://github.com/clojure/tools.namespace/blob/a44f709e9e0a35a0eac6ec8eb6a2845c54efb97f/src/main/clojure/clojure/tools/namespace/move.clj#L54",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/9b43f4a07e4d7264368d64a0dbbd3a2bc3b04097/src/main/clojure/clojure/tools/namespace/move.clj",
+   "https://github.com/clojure/tools.namespace/raw/a44f709e9e0a35a0eac6ec8eb6a2845c54efb97f/src/main/clojure/clojure/tools/namespace/move.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.move/replace-ns-symbol",
    :doc
