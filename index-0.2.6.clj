@@ -15,7 +15,7 @@
    :author "Stuart Sierra",
    :doc "Bidirectional graphs of dependencies and dependent objects."}
   {:source-url
-   "https://github.com/clojure/tools.namespace/blob/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace/dir.clj",
+   "https://github.com/clojure/tools.namespace/blob/57e5658c8d9154711979019d85b279ad5f6898c9/src/main/clojure/clojure/tools/namespace/dir.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace/clojure.tools.namespace.dir-api.html",
    :name "clojure.tools.namespace.dir",
@@ -23,7 +23,7 @@
    :doc
    "Track namespace dependencies and changes by monitoring\nfile-modification timestamps"}
   {:source-url
-   "https://github.com/clojure/tools.namespace/blob/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace/file.clj",
+   "https://github.com/clojure/tools.namespace/blob/57e5658c8d9154711979019d85b279ad5f6898c9/src/main/clojure/clojure/tools/namespace/file.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace/clojure.tools.namespace.file-api.html",
    :name "clojure.tools.namespace.file",
@@ -54,7 +54,7 @@
    :doc
    "Parse Clojure namespace (ns) declarations and extract\ndependencies."}
   {:source-url
-   "https://github.com/clojure/tools.namespace/blob/f192aadc659c0685522ae508a3038e704d7ae10d/src/main/clojure/clojure/tools/namespace/reload.clj",
+   "https://github.com/clojure/tools.namespace/blob/57e5658c8d9154711979019d85b279ad5f6898c9/src/main/clojure/clojure/tools/namespace/reload.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace/clojure.tools.namespace.reload-api.html",
    :name "clojure.tools.namespace.reload",
@@ -521,9 +521,9 @@
    :name "scan",
    :namespace "clojure.tools.namespace.dir",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace/dir.clj#L50",
+   "https://github.com/clojure/tools.namespace/blob/57e5658c8d9154711979019d85b279ad5f6898c9/src/main/clojure/clojure/tools/namespace/dir.clj#L50",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace/dir.clj",
+   "https://github.com/clojure/tools.namespace/raw/57e5658c8d9154711979019d85b279ad5f6898c9/src/main/clojure/clojure/tools/namespace/dir.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.dir/scan",
    :doc
@@ -535,9 +535,9 @@
    :name "scan-all",
    :namespace "clojure.tools.namespace.dir",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace/dir.clj#L65",
+   "https://github.com/clojure/tools.namespace/blob/57e5658c8d9154711979019d85b279ad5f6898c9/src/main/clojure/clojure/tools/namespace/dir.clj#L65",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace/dir.clj",
+   "https://github.com/clojure/tools.namespace/raw/57e5658c8d9154711979019d85b279ad5f6898c9/src/main/clojure/clojure/tools/namespace/dir.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.dir/scan-all",
    :doc
@@ -549,23 +549,23 @@
    :name "add-files",
    :namespace "clojure.tools.namespace.file",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace/file.clj#L45",
+   "https://github.com/clojure/tools.namespace/blob/57e5658c8d9154711979019d85b279ad5f6898c9/src/main/clojure/clojure/tools/namespace/file.clj#L47",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace/file.clj",
+   "https://github.com/clojure/tools.namespace/raw/57e5658c8d9154711979019d85b279ad5f6898c9/src/main/clojure/clojure/tools/namespace/file.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.file/add-files",
    :doc
    "Reads ns declarations from files; returns an updated dependency\ntracker with those files added.",
    :var-type "function",
-   :line 45,
+   :line 47,
    :file "src/main/clojure/clojure/tools/namespace/file.clj"}
   {:arglists ([file]),
    :name "clojure-file?",
    :namespace "clojure.tools.namespace.file",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace/file.clj#L25",
+   "https://github.com/clojure/tools.namespace/blob/57e5658c8d9154711979019d85b279ad5f6898c9/src/main/clojure/clojure/tools/namespace/file.clj#L25",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace/file.clj",
+   "https://github.com/clojure/tools.namespace/raw/57e5658c8d9154711979019d85b279ad5f6898c9/src/main/clojure/clojure/tools/namespace/file.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.file/clojure-file?",
    :doc
@@ -577,9 +577,9 @@
    :name "read-file-ns-decl",
    :namespace "clojure.tools.namespace.file",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace/file.clj#L17",
+   "https://github.com/clojure/tools.namespace/blob/57e5658c8d9154711979019d85b279ad5f6898c9/src/main/clojure/clojure/tools/namespace/file.clj#L17",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace/file.clj",
+   "https://github.com/clojure/tools.namespace/raw/57e5658c8d9154711979019d85b279ad5f6898c9/src/main/clojure/clojure/tools/namespace/file.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.file/read-file-ns-decl",
    :doc
@@ -591,15 +591,15 @@
    :name "remove-files",
    :namespace "clojure.tools.namespace.file",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace/file.clj#L54",
+   "https://github.com/clojure/tools.namespace/blob/57e5658c8d9154711979019d85b279ad5f6898c9/src/main/clojure/clojure/tools/namespace/file.clj#L56",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/ada4479c4a22daf0410ca51fac0c09a26ab8e9ae/src/main/clojure/clojure/tools/namespace/file.clj",
+   "https://github.com/clojure/tools.namespace/raw/57e5658c8d9154711979019d85b279ad5f6898c9/src/main/clojure/clojure/tools/namespace/file.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.file/remove-files",
    :doc
    "Returns an updated dependency tracker with files removed. The files\nmust have been previously added with add-files.",
    :var-type "function",
-   :line 54,
+   :line 56,
    :file "src/main/clojure/clojure/tools/namespace/file.clj"}
   {:arglists ([jar-file]),
    :name "clojure-sources-in-jar",
@@ -827,9 +827,9 @@
    :name "remove-lib",
    :namespace "clojure.tools.namespace.reload",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/f192aadc659c0685522ae508a3038e704d7ae10d/src/main/clojure/clojure/tools/namespace/reload.clj#L15",
+   "https://github.com/clojure/tools.namespace/blob/57e5658c8d9154711979019d85b279ad5f6898c9/src/main/clojure/clojure/tools/namespace/reload.clj#L15",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/f192aadc659c0685522ae508a3038e704d7ae10d/src/main/clojure/clojure/tools/namespace/reload.clj",
+   "https://github.com/clojure/tools.namespace/raw/57e5658c8d9154711979019d85b279ad5f6898c9/src/main/clojure/clojure/tools/namespace/reload.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.reload/remove-lib",
    :doc
@@ -841,23 +841,23 @@
    :name "track-reload",
    :namespace "clojure.tools.namespace.reload",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/f192aadc659c0685522ae508a3038e704d7ae10d/src/main/clojure/clojure/tools/namespace/reload.clj#L43",
+   "https://github.com/clojure/tools.namespace/blob/57e5658c8d9154711979019d85b279ad5f6898c9/src/main/clojure/clojure/tools/namespace/reload.clj#L47",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/f192aadc659c0685522ae508a3038e704d7ae10d/src/main/clojure/clojure/tools/namespace/reload.clj",
+   "https://github.com/clojure/tools.namespace/raw/57e5658c8d9154711979019d85b279ad5f6898c9/src/main/clojure/clojure/tools/namespace/reload.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.reload/track-reload",
    :doc
    "Executes all pending unload/reload operations on dependency tracker\nuntil either an error is encountered or there are no more pending\noperations.",
    :var-type "function",
-   :line 43,
+   :line 47,
    :file "src/main/clojure/clojure/tools/namespace/reload.clj"}
   {:arglists ([tracker]),
    :name "track-reload-one",
    :namespace "clojure.tools.namespace.reload",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/f192aadc659c0685522ae508a3038e704d7ae10d/src/main/clojure/clojure/tools/namespace/reload.clj#L21",
+   "https://github.com/clojure/tools.namespace/blob/57e5658c8d9154711979019d85b279ad5f6898c9/src/main/clojure/clojure/tools/namespace/reload.clj#L21",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/f192aadc659c0685522ae508a3038e704d7ae10d/src/main/clojure/clojure/tools/namespace/reload.clj",
+   "https://github.com/clojure/tools.namespace/raw/57e5658c8d9154711979019d85b279ad5f6898c9/src/main/clojure/clojure/tools/namespace/reload.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.reload/track-reload-one",
    :doc
