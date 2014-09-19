@@ -38,7 +38,7 @@
    :doc
    "Search for namespace declarations in directories and JAR files."}
   {:source-url
-   "https://github.com/clojure/tools.namespace/blob/a44f709e9e0a35a0eac6ec8eb6a2845c54efb97f/src/main/clojure/clojure/tools/namespace/move.clj",
+   "https://github.com/clojure/tools.namespace/blob/09e1e1fd81faed4e24399bf68bf78e87b32eb68b/src/main/clojure/clojure/tools/namespace/move.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace/clojure.tools.namespace.move-api.html",
    :name "clojure.tools.namespace.move",
@@ -69,7 +69,7 @@
    :author "Stuart Sierra",
    :doc "REPL utilities for working with namespaces"}
   {:source-url
-   "https://github.com/clojure/tools.namespace/blob/ddf31606983282b44ddba18ee707deaf0cce4af9/src/main/clojure/clojure/tools/namespace/track.clj",
+   "https://github.com/clojure/tools.namespace/blob/09e1e1fd81faed4e24399bf68bf78e87b32eb68b/src/main/clojure/clojure/tools/namespace/track.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace/clojure.tools.namespace.track-api.html",
    :name "clojure.tools.namespace.track",
@@ -731,13 +731,13 @@
    :name "move-ns",
    :namespace "clojure.tools.namespace.move",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/a44f709e9e0a35a0eac6ec8eb6a2845c54efb97f/src/main/clojure/clojure/tools/namespace/move.clj#L86",
+   "https://github.com/clojure/tools.namespace/blob/09e1e1fd81faed4e24399bf68bf78e87b32eb68b/src/main/clojure/clojure/tools/namespace/move.clj#L86",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/a44f709e9e0a35a0eac6ec8eb6a2845c54efb97f/src/main/clojure/clojure/tools/namespace/move.clj",
+   "https://github.com/clojure/tools.namespace/raw/09e1e1fd81faed4e24399bf68bf78e87b32eb68b/src/main/clojure/clojure/tools/namespace/move.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.move/move-ns",
    :doc
-   "ALPHA: subject to change. Moves the .clj source file (found relative\nto source-path) for the namespace named old-sym to new-sym and\nreplace all occurances of the old name with the new name in all\nClojure source files found in dirs.\n\nThis is a purely textual transformation. It does not work on\nnamespaces require'd or use'd from a prefix list.\n\nWARNING: This function modifies and deletes your source files! Make\nsure you have a backup or version control.",
+   "ALPHA: subject to change. Moves the .clj source file (found relative\nto source-path) for the namespace named old-sym to new-sym and\nreplace all occurrences of the old name with the new name in all\nClojure source files found in dirs.\n\nThis is a purely textual transformation. It does not work on\nnamespaces require'd or use'd from a prefix list.\n\nWARNING: This function modifies and deletes your source files! Make\nsure you have a backup or version control.",
    :var-type "function",
    :line 86,
    :file "src/main/clojure/clojure/tools/namespace/move.clj"}
@@ -745,9 +745,9 @@
    :name "move-ns-file",
    :namespace "clojure.tools.namespace.move",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/a44f709e9e0a35a0eac6ec8eb6a2845c54efb97f/src/main/clojure/clojure/tools/namespace/move.clj#L68",
+   "https://github.com/clojure/tools.namespace/blob/09e1e1fd81faed4e24399bf68bf78e87b32eb68b/src/main/clojure/clojure/tools/namespace/move.clj#L68",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/a44f709e9e0a35a0eac6ec8eb6a2845c54efb97f/src/main/clojure/clojure/tools/namespace/move.clj",
+   "https://github.com/clojure/tools.namespace/raw/09e1e1fd81faed4e24399bf68bf78e87b32eb68b/src/main/clojure/clojure/tools/namespace/move.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.move/move-ns-file",
    :doc
@@ -759,13 +759,13 @@
    :name "replace-ns-symbol",
    :namespace "clojure.tools.namespace.move",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/a44f709e9e0a35a0eac6ec8eb6a2845c54efb97f/src/main/clojure/clojure/tools/namespace/move.clj#L54",
+   "https://github.com/clojure/tools.namespace/blob/09e1e1fd81faed4e24399bf68bf78e87b32eb68b/src/main/clojure/clojure/tools/namespace/move.clj#L54",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/a44f709e9e0a35a0eac6ec8eb6a2845c54efb97f/src/main/clojure/clojure/tools/namespace/move.clj",
+   "https://github.com/clojure/tools.namespace/raw/09e1e1fd81faed4e24399bf68bf78e87b32eb68b/src/main/clojure/clojure/tools/namespace/move.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.move/replace-ns-symbol",
    :doc
-   "ALPHA: subject to change. Given Clojure source as a string, replaces\nall occurances of the namespace name old-sym with new-sym and\nreturns modified source as a string.",
+   "ALPHA: subject to change. Given Clojure source as a string, replaces\nall occurrences of the namespace name old-sym with new-sym and\nreturns modified source as a string.",
    :var-type "function",
    :line 54,
    :file "src/main/clojure/clojure/tools/namespace/move.clj"}
@@ -953,13 +953,13 @@
    :name "add",
    :namespace "clojure.tools.namespace.track",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/ddf31606983282b44ddba18ee707deaf0cce4af9/src/main/clojure/clojure/tools/namespace/track.clj#L39",
+   "https://github.com/clojure/tools.namespace/blob/09e1e1fd81faed4e24399bf68bf78e87b32eb68b/src/main/clojure/clojure/tools/namespace/track.clj#L39",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/ddf31606983282b44ddba18ee707deaf0cce4af9/src/main/clojure/clojure/tools/namespace/track.clj",
+   "https://github.com/clojure/tools.namespace/raw/09e1e1fd81faed4e24399bf68bf78e87b32eb68b/src/main/clojure/clojure/tools/namespace/track.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.track/add",
    :doc
-   "Returns an updated dependency tracker with new/updated namespaces.\n\nDepmap is a map describing the new or modified namespaces. Keys in\nthe map are namespace names (symbols). Values in the map are sets of\nsymbols naming the birect dependencies of each namespace. For\nexample, assuming these ns declarations:\n\n    (ns alpha (:require beta))\n    (ns beta (:require gamma delta))\n\nthe depmap would look like this:\n\n    {alpha #{beta}\n     beta  #{gamma delta}}\n\nAfter adding new/updated namespaces, the dependency tracker will\nhave two lists associated with the following keys:\n\n    :clojure.tools.namespace.track/unload\n        is the list of namespaces that need to be removed\n\n    :clojure.tools.namespace.track/load\n        is the list of namespaces that need to be reloaded\n\nTo reload namespaces in the correct order, first remove/unload all\nnamespaces in the 'unload' list, then (re)load all namespaces in the\n'load' list. The clojure.tools.namespace.reload namespace has\nfunctions to do this.",
+   "Returns an updated dependency tracker with new/updated namespaces.\n\nDepmap is a map describing the new or modified namespaces. Keys in\nthe map are namespace names (symbols). Values in the map are sets of\nsymbols naming the direct dependencies of each namespace. For\nexample, assuming these ns declarations:\n\n    (ns alpha (:require beta))\n    (ns beta (:require gamma delta))\n\nthe depmap would look like this:\n\n    {alpha #{beta}\n     beta  #{gamma delta}}\n\nAfter adding new/updated namespaces, the dependency tracker will\nhave two lists associated with the following keys:\n\n    :clojure.tools.namespace.track/unload\n        is the list of namespaces that need to be removed\n\n    :clojure.tools.namespace.track/load\n        is the list of namespaces that need to be reloaded\n\nTo reload namespaces in the correct order, first remove/unload all\nnamespaces in the 'unload' list, then (re)load all namespaces in the\n'load' list. The clojure.tools.namespace.reload namespace has\nfunctions to do this.",
    :var-type "function",
    :line 39,
    :file "src/main/clojure/clojure/tools/namespace/track.clj"}
@@ -967,9 +967,9 @@
    :name "remove",
    :namespace "clojure.tools.namespace.track",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/ddf31606983282b44ddba18ee707deaf0cce4af9/src/main/clojure/clojure/tools/namespace/track.clj#L84",
+   "https://github.com/clojure/tools.namespace/blob/09e1e1fd81faed4e24399bf68bf78e87b32eb68b/src/main/clojure/clojure/tools/namespace/track.clj#L84",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/ddf31606983282b44ddba18ee707deaf0cce4af9/src/main/clojure/clojure/tools/namespace/track.clj",
+   "https://github.com/clojure/tools.namespace/raw/09e1e1fd81faed4e24399bf68bf78e87b32eb68b/src/main/clojure/clojure/tools/namespace/track.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.track/remove",
    :doc
@@ -981,9 +981,9 @@
    :name "tracker",
    :namespace "clojure.tools.namespace.track",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/ddf31606983282b44ddba18ee707deaf0cce4af9/src/main/clojure/clojure/tools/namespace/track.clj#L107",
+   "https://github.com/clojure/tools.namespace/blob/09e1e1fd81faed4e24399bf68bf78e87b32eb68b/src/main/clojure/clojure/tools/namespace/track.clj#L107",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/ddf31606983282b44ddba18ee707deaf0cce4af9/src/main/clojure/clojure/tools/namespace/track.clj",
+   "https://github.com/clojure/tools.namespace/raw/09e1e1fd81faed4e24399bf68bf78e87b32eb68b/src/main/clojure/clojure/tools/namespace/track.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.track/tracker",
    :doc "Returns a new, empty dependency tracker",
