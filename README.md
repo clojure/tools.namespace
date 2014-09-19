@@ -453,15 +453,6 @@ To avoid this problem, always create new instances of records after a
 refresh.
 
 
-### Warnings for Multimethods
-
-Calling `prefer-method` is a global side-effect. If you modify a call
-to `prefer-method` and reload the namespace containing it, Clojure may
-throw "java.lang.IllegalStateException: Preference conflict in multimethod."
-The workaround is to call `remove-method` before reloading.
-tools.namespace cannot detect this situation automatically. See [TNS-23].
-
-
 
 Change Log
 ----------------------------------------
@@ -568,10 +559,6 @@ Change Log
 [TNS-17]: http://dev.clojure.org/jira/browse/TNS-17
 [TNS-18]: http://dev.clojure.org/jira/browse/TNS-18
 [TNS-19]: http://dev.clojure.org/jira/browse/TNS-19
-[TNS-20]: http://dev.clojure.org/jira/browse/TNS-20
-[TNS-21]: http://dev.clojure.org/jira/browse/TNS-21
-[TNS-22]: http://dev.clojure.org/jira/browse/TNS-22
-[TNS-23]: http://dev.clojure.org/jira/browse/TNS-23
 [java.classpath]: https://github.com/clojure/java.classpath
 
 

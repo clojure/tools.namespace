@@ -42,8 +42,6 @@
               m))
           {} files))
 
-(def ^:private merge-map (fnil merge {}))
-
 (defn add-files
   "Reads ns declarations from files; returns an updated dependency
   tracker with those files added."
@@ -51,7 +49,7 @@
   (let [{:keys [depmap filemap]} (files-and-deps files)]
     (-> tracker
         (track/add depmap)
-        (update-in [::filemap] merge-map filemap))))
+        (update-in [::filemap] (fnil merge {}) filemap))))
 
 (defn remove-files
   "Returns an updated dependency tracker with files removed. The files
