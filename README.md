@@ -322,7 +322,8 @@ Warnings
 **AOT-compilation:** Reloading code does not work in the presence of
 [AOT-compiled] namespaces. If you are using AOT-compilation in your
 project, make sure it is disabled and you have run `lein clean` before
-starting a REPL development session.
+starting a REPL development session. Note that the presence of `:main`
+in project.clj triggers AOT-compilation in some versions of Leiningen.
 
 **Conflicts:** Other libraries which also do code-reloading may
 conflict with tools.namespace. One known example is ring-devel (as of
