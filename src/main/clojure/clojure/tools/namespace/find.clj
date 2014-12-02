@@ -52,6 +52,14 @@
   (sort-by #(.getAbsolutePath ^File %)
            (filter file/clojure-file? (file-seq dir))))
 
+(defn find-clojurescript-sources-in-dir
+  "Searches recursively under dir for ClojureScript source files (.cljs).
+  Returns a sequence of File objects, in breadth-first sort order."
+  [^File dir]
+  ;; Use sort by absolute path to get breadth-first search.
+  (sort-by #(.getAbsolutePath ^File %)
+           (filter file/clojurescript-file? (file-seq dir))))
+
 (defn find-ns-decls-in-dir
   "Searches dir recursively for (ns ...) declarations in Clojure
   source files; returns the unevaluated ns declarations."
