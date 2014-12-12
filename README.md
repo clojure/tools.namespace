@@ -533,6 +533,9 @@ Change Log
 
   * In development, current Git master branch
 
+  * Improvement [TNS-31]: Specific error message when `:after` symbol
+    passed to `refresh` cannot be resolved.
+
   * Fix [TNS-26]: namespace alias recovery after failed reload did not
     work due to local binding shadowing global Var
 
