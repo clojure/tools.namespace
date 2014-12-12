@@ -6,7 +6,7 @@ source files, extract their dependencies, build a graph of namespace
 dependencies within a project, update that graph as files change, and
 reload files in the correct order.
 
-This is only about namespace dependencies *within* a single project.
+This is only about namespace dependencies **within** a single project.
 It has nothing to do with Leiningen, Maven, JAR files, or
 repositories.
 
@@ -201,13 +201,13 @@ You can choose what representation works best for your application:
 map, vector, record, or even just a single Ref by itself.
 
 Typically you'll still need one global `def` somewhere, perhaps in the
-REPL itself, to hold the current application instance. See "Managing
-Reloads" below.
+REPL itself, to hold the current application instance. See the next
+section.
 
 
 ### Managed Lifecycle
 
-The second rule for making your application reload-safe is having a
+The second rule for making your application reload-safe is to have a
 consistent way to **start and stop the entire system**.
 
 The "start" function should:
@@ -280,8 +280,8 @@ exception. You can print the rest of the stacktrace with
             ...
 
 Remember that any namespaces which depend on the namespace that caused
-the exception *do not exist* at this point: they have been removed but
-not yet reloaded. 
+the exception **do not exist** at this point: they have been removed
+but not yet reloaded.
 
 After you fix the problem, call `refresh` again and it will resume
 reloading where it left off. 
