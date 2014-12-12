@@ -471,6 +471,9 @@ Change Log
 
   * In development, current Git master branch
 
+  * Fix [TNS-26]: namespace alias recovery after failed reload did not
+    work due to local binding shadowing global Var
+
 ### Version 0.2.7 on 19-Sept-2014
 
   * [Revert bad commit](https://github.com/clojure/tools.namespace/commit/27194f2edfe3f5f9e1343f993beca4b43f0bafe8)
@@ -579,6 +582,14 @@ Change Log
 [TNS-21]: http://dev.clojure.org/jira/browse/TNS-21
 [TNS-22]: http://dev.clojure.org/jira/browse/TNS-22
 [TNS-23]: http://dev.clojure.org/jira/browse/TNS-23
+[TNS-24]: http://dev.clojure.org/jira/browse/TNS-24
+[TNS-25]: http://dev.clojure.org/jira/browse/TNS-25
+[TNS-26]: http://dev.clojure.org/jira/browse/TNS-26
+[TNS-27]: http://dev.clojure.org/jira/browse/TNS-27
+[TNS-28]: http://dev.clojure.org/jira/browse/TNS-28
+[TNS-29]: http://dev.clojure.org/jira/browse/TNS-29
+[TNS-30]: http://dev.clojure.org/jira/browse/TNS-30
+[TNS-31]: http://dev.clojure.org/jira/browse/TNS-31
 [java.classpath]: https://github.com/clojure/java.classpath
 
 
