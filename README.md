@@ -110,8 +110,8 @@ that does the same thing. This has several problems:
   all of the associated `defmethod` expressions.
 
 * If the reloaded namespace contains `defprotocol`, you must also
-  reload any records or types implementing that protocol and create
-  new instances.
+  reload any records or types implementing that protocol and replace
+  any existing instances of those records/types with new instances.
 
 * If the reloaded namespace contains macros, you must also reload any
   namespaces which use those macros.
@@ -136,7 +136,7 @@ Reloading Code: Usage
 
 There's only one important function, `refresh`:
 
-    user=> (use '[clojure.tools.namespace.repl :only (refresh)])
+    user=> (require '[clojure.tools.namespace.repl :refer [refresh]])
     nil
 
     user=> (refresh)
@@ -157,8 +157,8 @@ run it again:
 
 Based on file modification timestamps and the graph of dependencies,
 the `refresh` function will reload *only* the namespaces that have
-changed, in dependency order. But first, it will *unload* the
-namespaces that changed to clear out any old definitions. 
+changed, in dependency order. But first, it will *unload* (remove) the
+namespaces that changed to clear out any old definitions.
 
 This is quite unlike `(require ... :reload)`. Calling `refresh` will
 *blow away your old code*. Sometimes this is helpful: it can catch
@@ -208,29 +208,38 @@ Reloads" below.
 ### Managed Lifecycle
 
 The second rule for making your application reload-safe is having a
-consistent way to **start and stop the entire system**. I like to do
-this with a protocol implemented by each major component in the
-system, but smaller applications can probably get along fine with just
-a pair of functions.
+consistent way to **start and stop the entire system**.
 
-The point is that you need a convenient way to destroy all the
-built-up state of your application and then *recreate it from
-scratch*. The "stop" function should stop any running processes,
-release all external resources, and zero-out any internal state. The
-"start" function should create internal state, acquire resources, and
-start processes.
+The "start" function should:
 
-It might take a few tries to get it right, but once you have a working
-start/stop you can have a workflow like this:
+- Acquire stateful resources such as sockets, files, and database
+  connections
+
+- Start threads or background processes
+
+- Initialize application state such as caches or counters
+
+- Return an object encapsulating the state of the application
+
+The "stop" function should take the state returned by "start" as an
+argument and do the opposite:
+
+- Close or release stateful resourecs
+
+- Stop all background processes
+
+- Clear out application state
+
+It might take a few tries to get it right, but once you have working
+start and stop functions you can have a workflow like this:
 
 Step 1. Start up a REPL.
 
 Step 2. Load the app:
 
-    user=> (use 'clojure.tools.namespace.repl)
+    user=> (require '[clojure.tools.namespace.repl :refer [refresh]])
     user=> (refresh)
-    user=> (def my-app (create-application))
-    user=> (start my-app)
+    user=> (def my-app (start-my-app))
 
 Step 3. Test it out.
 
@@ -238,10 +247,9 @@ Step 4. Modify some source files.
 
 Step 5. Restart:
 
-    user=> (stop my-app)
+    user=> (stop-my-app my-app)
     user=> (refresh)
-    user=> (def my-app (create-application))
-    user=> (start my-app)
+    user=> (def my-app (start-my-app))
 
 (You could also combine all those steps in a single utility function,
 but see warnings below.)
@@ -279,51 +287,42 @@ After you fix the problem, call `refresh` again and it will resume
 reloading where it left off. 
 
 **NOTE:** If your current REPL namespace is one of those that has not
-yet been reloaded, then you will need to call `refresh` by its
-fully-qualified name `clojure.tools.namespace.repl/refresh`:
+yet been reloaded, then none of the functions you defined in that
+namespace will exist! Starting with version 0.2.8, tools.namespace
+will *attempt* to restore aliases to the namespaces which were
+successfully loaded.
 
-    user=> (clojure.tools.namespace.repl/refresh)
-    :reloading (com.example.app com.example.app-test)
-    :ok
+So, for example, if your current REPL namespace is named `dev` and
+contains this ns declaration:
 
-**New in 0.2.3:** In the event of an error, the `refresh` function
-will *attempt* to recover symbol mappings and aliases from your
-current REPL namespace. This isn't magic: Any namespaces which were
-due to be loaded *after* the namespace which caused the error will
-still not exist. Functions defined in your REPL namespace will also
-not be available. But libraries which are not part of your application
--- such as `clojure.tools.namespace.repl` or `clojure.repl` -- should
-still be available under their aliased/referred names.
+    (ns dev
+      (:require [com.example.foo :as foo]
+                [com.example.bar :as bar]
+                [clojure.tools.namespace.repl :as tns]))
 
+And you get an error on refresh like this:
 
-### Managing Reloads
+    dev=> (tns/refresh)
+    :reloading (com.example.bar dev)
+    :error-while-loading com.example.bar
+    #<CompilerException ... compiling:(com/example/bar.clj:1:21)>
 
-Some projects have a "project REPL" or a "scratch" namespace where you
-want keep state during development. You can use the functions
-`disable-unload!` and `disable-reload!` in
-`clojure.tools.namespace.repl` to prevent `refresh` from automatically
-un/reloading those namespaces.
-
-Use this feature sparingly: it exists as a development-time
-convenience, not a work-around for code that is not reload-safe. Also,
-see the warnings about aliases, below. Aliases to reloaded namespaces
-will break if the namespace *containing* the alias is not reloaded
-also.
-
-After an error, `refresh` will **not** attempt to recover symbol
-mappings and aliases for namespaces with `disable-unload!` or
-`disable-reload!` set.
+Then the functions in `com.example.foo` should still be available in
+the `dev` namespace via the alias `foo`.
 
 
 
-Warnings
---------------------
+Warnings and Potential Problems
+-------------------------------
 
 **AOT-compilation:** Reloading code does not work in the presence of
 [AOT-compiled] namespaces. If you are using AOT-compilation in your
-project, make sure it is disabled and you have run `lein clean` before
-starting a REPL development session. Note that the presence of `:main`
-in project.clj triggers AOT-compilation in some versions of Leiningen.
+project, make sure it is disabled and you have deleted any
+AOT-compiled `.class` files before starting a REPL development
+session. (In Leiningen, run `lein clean`.)
+
+Note that the presence of `:main` in project.clj triggers
+AOT-compilation in some versions of Leiningen.
 
 **Conflicts:** Other libraries which also do code-reloading may
 conflict with tools.namespace. One known example is ring-devel (as of
@@ -334,7 +333,7 @@ version of tools.namespace.
 you run your REPL. Because namespaces are removed when reloading, all
 your past definitions are lost. Either keep your REPL in a namespace
 which has no file associated with it, such as `user`, or put all your
-REPL definitions in a "scratch" namespace that can be reloaded.
+REPL definitions in a file so that they can be reloaded.
 
 **Fully-qualified names:** Be careful when using fully-qualified
 symbol names without namespace aliases (`require` with no `:as`). If
@@ -361,11 +360,12 @@ Be careful defining a helper function in a namespace which calls
 might try to combine the stop-refresh-start code from the "Managed
 Lifecycle" section into a single function:
 
+    (def my-app nil)
+
     (defn restart []
-      (stop my-app)
+      (stop-my-app my-app)
       (refresh)
-      (alter-var-root #'my-app (constantly (create-application)))
-      (start my-app))
+      (alter-var-root #'my-app (constantly (start-my-app))))
 
 This won't work if the namespace containing `restart` could get
 reloaded. After `refresh`, the namespace containing `restart` has been
@@ -376,15 +376,16 @@ If you want to run some code after `refresh`, you can pass an option
 naming a function you want to run *after* a successful reload. The
 value of this option must be a symbol, and it must be fully
 namespace-qualified. The previous example could be correctly written
-(assuming these functions are defined in the `user` namespace):
+(assuming these functions are defined in the `dev` namespace):
 
-    (defn start-my-app []
-      (alter-var-root #'my-app (constantly (create-application)))
-      (start my-app))
+    (def my-app nil)
+
+    (defn start []
+      (alter-var-root #'my-app (constantly (start-my-app))))
 
     (defn restart []
-      (stop my-app)
-      (refresh :after 'user/start-my-app))
+      (stop-my-app my-app)
+      (refresh :after 'dev/start))
 
 
 ### Warnings for Aliases
@@ -461,6 +462,52 @@ to `prefer-method` and reload the namespace containing it, Clojure may
 throw "java.lang.IllegalStateException: Preference conflict in multimethod."
 The workaround is to call `remove-method` before reloading.
 tools.namespace cannot detect this situation automatically. See [TNS-23].
+
+
+### Heap Usage and PermGen (JDK 1.7 and before)
+
+In rare cases, reloading a lot of code may lead to out-of-memory
+errors from the JVM like `java.lang.OutOfMemoryError: PermGen space`.
+
+You may be able to mitigate this by increasing the size of the
+"Permanent Generation" where the JVM stores compiled classes. To do
+this, add the following command-line argument to your JVM startup:
+
+    -XX:MaxPermSize=<N>
+
+where `<N>` is a number with a suffix like `m` for megabytes.
+
+To find the default MaxPermSize for your JDK, run
+`java -XX:+PrintFlagsFinal` and search the results for "MaxPermSize".
+Try doubling it.
+
+The Permanent Generation was removed in JDK 1.8 ([JEP 122]) so this
+section no longer applies.
+
+In some older JDKs (1.5) the default garbage collector did not collect
+the Permanent Generation at all unless it was explicitly enabled with
+`-XX:+CMSPermGenSweepingEnabled`.
+
+
+
+Disabling Refresh In a Namespace
+--------------------------------
+
+Some projects have a "project REPL" or a "scratch" namespace where you
+want keep state during development. You can use the functions
+`disable-unload!` and `disable-reload!` in
+`clojure.tools.namespace.repl` to prevent `refresh` from automatically
+un/reloading those namespaces.
+
+Use this feature sparingly: it exists as a development-time
+convenience, not a work-around for code that is not reload-safe. Also,
+see the warnings about aliases, below. Aliases to reloaded namespaces
+will break if the namespace *containing* the alias is not reloaded
+also.
+
+After an error, `refresh` will **not** attempt to recover symbol
+mappings and aliases for namespaces with `disable-unload!` or
+`disable-reload!` set.
 
 
 
@@ -591,6 +638,7 @@ Change Log
 [TNS-30]: http://dev.clojure.org/jira/browse/TNS-30
 [TNS-31]: http://dev.clojure.org/jira/browse/TNS-31
 [java.classpath]: https://github.com/clojure/java.classpath
+[JEP 122]: http://openjdk.java.net/jeps/122
 
 
 
