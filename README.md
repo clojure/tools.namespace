@@ -511,6 +511,21 @@ mappings and aliases for namespaces with `disable-unload!` or
 
 
 
+Developer Information
+----------------------------------------
+
+* [GitHub project](https://github.com/clojure/tools.namespace)
+
+* [How to contribute](http://dev.clojure.org/display/community/Contributing)
+
+* [Bug Tracker](http://dev.clojure.org/jira/browse/TNS)
+
+* [Continuous Integration](http://build.clojure.org/job/tools.namespace/)
+
+* [Compatibility Test Matrix](http://build.clojure.org/job/tools.namespace-test-matrix/)
+
+
+
 Change Log
 ----------------------------------------
 
