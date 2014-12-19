@@ -73,3 +73,35 @@
                    (java.io.StringReader. multiple-ns-decls-string))]
     (is (= multiple-ns-decls
            (take-while identity (repeatedly #(read-ns-decl rdr)))))))
+
+(def ns-docstring-example
+  "The example ns declaration used in the docstring of clojure.core/ns"
+  '(ns foo.bar
+     (:refer-clojure :exclude [ancestors printf])
+     (:require (clojure.contrib sql combinatorics))
+     (:use (my.lib this that))
+     (:import (java.util Date Timer Random)
+              (java.sql Connection Statement))))
+
+(def deps-from-ns-docstring-example
+  '#{clojure.contrib.sql
+     clojure.contrib.combinatorics
+     my.lib.this
+     my.lib.that})
+
+(deftest t-ns-docstring-example
+  (is (= deps-from-ns-docstring-example
+         (deps-from-ns-decl ns-docstring-example))))
+
+(def require-docstring-example
+  "The example ns declaration used in the docstring of
+  clojure.core/require"
+  '(ns (:require (clojure zip [set :as s]))))
+
+(def deps-from-require-docstring-example
+  '#{clojure.zip
+     clojure.set})
+
+(deftest t-require-docstring-example
+  (is (= deps-from-require-docstring-example
+         (deps-from-ns-decl require-docstring-example))))
