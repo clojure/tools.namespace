@@ -32,6 +32,23 @@
             (nine :only (c d))
             [ten]])))
 
+(def ns-decl-prefix-list-clauses-as-vectors
+  "Sometimes people even write the clauses inside ns as vectors, which
+  clojure.core/ns allows. See TNS-21."
+  '(ns com.example.one
+     [:require [com.example
+                two
+                [three :as three]
+                [four :refer (a b)]]
+      [com.example.sub
+       [five :as five]
+       six]]
+     [:use [com.example
+            seven
+            [eight :as eight]
+            (nine :only (c d))
+            [ten]]]))
+
 (def deps-from-prefix-list
   '#{com.example.two
      com.example.three
@@ -50,6 +67,10 @@
 (deftest t-prefix-list-as-vector
   (is (= deps-from-prefix-list
          (deps-from-ns-decl ns-decl-prefix-list-as-vector))))
+
+(deftest t-prefix-list-clauses-as-vectors
+  (is (= deps-from-prefix-list
+         (deps-from-ns-decl ns-decl-prefix-list-clauses-as-vectors))))
 
 (deftest t-no-deps-returns-empty-set
   (is (= #{} (deps-from-ns-decl '(ns com.example.one)))))

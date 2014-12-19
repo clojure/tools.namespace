@@ -78,7 +78,7 @@
                   (pr-str "Unparsable namespace form:" form)))))
 
 (defn- deps-from-ns-form [form]
-  (when (and (list? form)
+  (when (and (sequential? form)  ; should be list but sometimes is not
 	     (contains? #{:use :require} (first form)))
     (mapcat #(deps-from-libspec nil %) (rest form))))
 
