@@ -315,6 +315,11 @@ the `dev` namespace via the alias `foo`.
 Warnings and Potential Problems
 -------------------------------
 
+**`ns` syntax:** Clojure's `ns` macro is notoriously lax in what
+syntax it accepts. tools.namespace.parse is somewhat liberal, but it
+cannot handle every possible variation of syntax that `ns` does. Stick
+to the docstrings of [ns] and [require] and everything should be fine.
+
 **AOT-compilation:** Reloading code does not work in the presence of
 [AOT-compiled] namespaces. If you are using AOT-compilation in your
 project, make sure it is disabled and you have deleted any
@@ -351,6 +356,8 @@ reloaded.
 [AOT-compiled]: http://clojure.org/compilation
 [Ring]: https://github.com/ring-clojure/ring
 [ns-tracker]: https://github.com/weavejester/ns-tracker
+[ns]: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/ns
+[require]: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/require
 
 
 ### Warnings for Helper Functions
