@@ -12,7 +12,7 @@
                                 six))
      (:use (com.example seven
                         [eight :as eight]
-                        [nine :only (c d)]
+                        (nine :only (c d))
                         [ten]))))
 
 ;; Some people like to write prefix lists as vectors, not lists. The
@@ -29,7 +29,7 @@
      (:use [com.example
             seven
             [eight :as eight]
-            [nine :only (c d)]
+            (nine :only (c d))
             [ten]])))
 
 (def deps-from-prefix-list
