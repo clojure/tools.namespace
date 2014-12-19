@@ -15,32 +15,32 @@ repositories.
 Releases and Dependency Information
 ----------------------------------------
 
-* [Latest stable release is 0.2.7](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.2.7)
+* [Latest stable release is 0.2.8](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.2.8)
 
 * [All Released Versions](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.clojure%22%20AND%20a%3A%22tools.namespace%22)
 
 [Leiningen](http://leiningen.org/) dependency information:
 
-    [org.clojure/tools.namespace "0.2.7"]
+    [org.clojure/tools.namespace "0.2.8"]
 
 [Maven](http://maven.apache.org/) dependency information:
 
     <dependency>
       <groupId>org.clojure</groupId>
       <artifactId>tools.namespace</artifactId>
-      <version>0.2.7</version>
+      <version>0.2.8</version>
     </dependency>
 
 
 ### Development Snapshots ###
 
-* Git master branch is at **0.2.8-SNAPSHOT**
+* Git master branch is at **0.2.9-SNAPSHOT**
 
 * [All Snapshot Versions](https://oss.sonatype.org/content/groups/public/org/clojure/tools.namespace/)
 
 Leiningen dependency information for development snapshots:
 
-    :dependencies [[org.clojure/tools.namespace "0.2.8-SNAPSHOT"]]
+    :dependencies [[org.clojure/tools.namespace "0.2.9-SNAPSHOT"]]
     :repositories {"sonatype-oss-public"
                    "https://oss.sonatype.org/content/groups/public/"}
 
@@ -529,9 +529,11 @@ Developer Information
 Change Log
 ----------------------------------------
 
-### Version 0.2.8-SNAPSHOT
+### Version 0.2.9-SNAPSHOT
 
   * In development, current Git master branch
+
+### Version 0.2.8 on 19-Dec-2014
 
   * Improvement [TNS-31]: Specific error message when `:after` symbol
     passed to `refresh` cannot be resolved.
