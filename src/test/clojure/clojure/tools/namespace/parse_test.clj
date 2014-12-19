@@ -105,3 +105,24 @@
 (deftest t-require-docstring-example
   (is (= deps-from-require-docstring-example
          (deps-from-ns-decl require-docstring-example))))
+
+(def multiple-clauses
+  "Example showing more than one :require or :use clause in one ns
+  declaration, which clojure.core/ns allows."
+  '(ns foo.bar
+     (:require com.example.one)
+     (:import java.io.File)
+     (:require (com.example two three))
+     (:use (com.example [four :only [x]]))
+     (:use (com.example (five :only [x])))))
+
+(def deps-from-multiple-clauses
+  '#{com.example.one
+     com.example.two
+     com.example.three
+     com.example.four
+     com.example.five})
+
+(deftest t-deps-from-multiple-clauses
+  (is (= deps-from-multiple-clauses
+         (deps-from-ns-decl multiple-clauses))))
