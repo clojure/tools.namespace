@@ -147,3 +147,21 @@
 (deftest t-deps-from-multiple-clauses
   (is (= deps-from-multiple-clauses
          (deps-from-ns-decl multiple-clauses))))
+
+(def clauses-without-keywords
+  "Example of require/use clauses with symbols instead of keywords,
+  which clojure.core/ns allows."
+  '(ns foo.bar
+     (require com.example.one)
+     (import java.io.File)
+     (use (com.example (prefixes (two :only [x])
+                                 three)))))
+
+(def deps-from-clauses-without-keywords
+  '#{com.example.one
+     com.example.prefixes.two
+     com.example.prefixes.three})
+
+(deftest t-clauses-without-keywords
+  (is (= deps-from-clauses-without-keywords
+         (deps-from-ns-decl clauses-without-keywords))))
