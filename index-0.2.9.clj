@@ -69,7 +69,7 @@
    :author "Stuart Sierra",
    :doc "REPL utilities for working with namespaces"}
   {:source-url
-   "https://github.com/clojure/tools.namespace/blob/09e1e1fd81faed4e24399bf68bf78e87b32eb68b/src/main/clojure/clojure/tools/namespace/track.clj",
+   "https://github.com/clojure/tools.namespace/blob/4465f8ee13f1a95907725dae4f0000ab7f9fd24e/src/main/clojure/clojure/tools/namespace/track.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace/clojure.tools.namespace.track-api.html",
    :name "clojure.tools.namespace.track",
@@ -953,9 +953,9 @@
    :name "add",
    :namespace "clojure.tools.namespace.track",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/09e1e1fd81faed4e24399bf68bf78e87b32eb68b/src/main/clojure/clojure/tools/namespace/track.clj#L39",
+   "https://github.com/clojure/tools.namespace/blob/4465f8ee13f1a95907725dae4f0000ab7f9fd24e/src/main/clojure/clojure/tools/namespace/track.clj#L39",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/09e1e1fd81faed4e24399bf68bf78e87b32eb68b/src/main/clojure/clojure/tools/namespace/track.clj",
+   "https://github.com/clojure/tools.namespace/raw/4465f8ee13f1a95907725dae4f0000ab7f9fd24e/src/main/clojure/clojure/tools/namespace/track.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.track/add",
    :doc
@@ -967,26 +967,26 @@
    :name "remove",
    :namespace "clojure.tools.namespace.track",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/09e1e1fd81faed4e24399bf68bf78e87b32eb68b/src/main/clojure/clojure/tools/namespace/track.clj#L84",
+   "https://github.com/clojure/tools.namespace/blob/4465f8ee13f1a95907725dae4f0000ab7f9fd24e/src/main/clojure/clojure/tools/namespace/track.clj#L88",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/09e1e1fd81faed4e24399bf68bf78e87b32eb68b/src/main/clojure/clojure/tools/namespace/track.clj",
+   "https://github.com/clojure/tools.namespace/raw/4465f8ee13f1a95907725dae4f0000ab7f9fd24e/src/main/clojure/clojure/tools/namespace/track.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.track/remove",
    :doc
    "Returns an updated dependency tracker from which the namespaces\n(symbols) have been removed. The ::unload and ::load lists are\npopulated as with 'add'.",
    :var-type "function",
-   :line 84,
+   :line 88,
    :file "src/main/clojure/clojure/tools/namespace/track.clj"}
   {:arglists ([]),
    :name "tracker",
    :namespace "clojure.tools.namespace.track",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/09e1e1fd81faed4e24399bf68bf78e87b32eb68b/src/main/clojure/clojure/tools/namespace/track.clj#L107",
+   "https://github.com/clojure/tools.namespace/blob/4465f8ee13f1a95907725dae4f0000ab7f9fd24e/src/main/clojure/clojure/tools/namespace/track.clj#L111",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/09e1e1fd81faed4e24399bf68bf78e87b32eb68b/src/main/clojure/clojure/tools/namespace/track.clj",
+   "https://github.com/clojure/tools.namespace/raw/4465f8ee13f1a95907725dae4f0000ab7f9fd24e/src/main/clojure/clojure/tools/namespace/track.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.track/tracker",
    :doc "Returns a new, empty dependency tracker",
    :var-type "function",
-   :line 107,
+   :line 111,
    :file "src/main/clojure/clojure/tools/namespace/track.clj"})}
