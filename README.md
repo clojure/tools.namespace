@@ -540,8 +540,11 @@ Change Log
 
   * In development, current Git master branch
 
-  * Improvement [TNS-21]: Allow `ns` clauses in vectors instead of
-    lists.
+  * Improvement [TNS-21]: Support `ns` clauses which use vectors
+    instead of lists for clauses, contrary to docs.
+
+  * Improvement [TNS-32]: Support `ns` clauses which use symbols as
+    clause heads instead of keywords, contrary to docs.
 
 ### Version 0.2.8 on 19-Dec-2014
 
