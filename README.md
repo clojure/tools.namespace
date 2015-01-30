@@ -540,6 +540,9 @@ Change Log
 
   * In development, current Git master branch
 
+  * Fix [TNS-20]: Undefined 'unload' order after namespaces are first
+    added to an new, empty tracker.
+
   * Improvement [TNS-21]: Support `ns` clauses which use vectors
     instead of lists for clauses, contrary to docs.
 
