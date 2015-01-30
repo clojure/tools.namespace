@@ -673,6 +673,7 @@ Change Log
 [TNS-29]: http://dev.clojure.org/jira/browse/TNS-29
 [TNS-30]: http://dev.clojure.org/jira/browse/TNS-30
 [TNS-31]: http://dev.clojure.org/jira/browse/TNS-31
+[TNS-32]: http://dev.clojure.org/jira/browse/TNS-32
 [java.classpath]: https://github.com/clojure/java.classpath
 [JEP 122]: http://openjdk.java.net/jeps/122
 
