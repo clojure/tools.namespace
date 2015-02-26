@@ -15,32 +15,32 @@ repositories.
 Releases and Dependency Information
 ----------------------------------------
 
-* [Latest stable release is 0.2.9](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.2.9)
+* [Latest stable release is 0.2.10](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.2.10)
 
 * [All Released Versions](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.clojure%22%20AND%20a%3A%22tools.namespace%22)
 
 [Leiningen](http://leiningen.org/) dependency information:
 
-    [org.clojure/tools.namespace "0.2.9"]
+    [org.clojure/tools.namespace "0.2.10"]
 
 [Maven](http://maven.apache.org/) dependency information:
 
     <dependency>
       <groupId>org.clojure</groupId>
       <artifactId>tools.namespace</artifactId>
-      <version>0.2.9</version>
+      <version>0.2.10</version>
     </dependency>
 
 
 ### Development Snapshots ###
 
-* Git master branch is at **0.2.10-SNAPSHOT**
+* Git master branch is at **0.2.11-SNAPSHOT**
 
 * [All Snapshot Versions](https://oss.sonatype.org/content/groups/public/org/clojure/tools.namespace/)
 
 Leiningen dependency information for development snapshots:
 
-    :dependencies [[org.clojure/tools.namespace "0.2.10-SNAPSHOT"]]
+    :dependencies [[org.clojure/tools.namespace "0.2.11-SNAPSHOT"]]
     :repositories {"sonatype-oss-public"
                    "https://oss.sonatype.org/content/groups/public/"}
 
@@ -536,9 +536,13 @@ Developer Information
 Change Log
 ----------------------------------------
 
-### Version 0.2.10-SNAPSHOT
+### Version 0.2.11-SNAPSHOT
 
   * In development, current Git master branch
+
+### Version 0.2.10 on 26-Feb-2015
+
+  * Widen existing functions to handle both clj and cljc files in advance of reader conditional support in Clojure 1.7.
 
 ### Version 0.2.9 on 31-Jan-2015
 
