@@ -27,7 +27,9 @@
   file."
   [^java.io.File file]
   (and (.isFile file)
-       (.endsWith (.getName file) ".clj")))
+       (or
+         (.endsWith (.getName file) ".clj")
+         (.endsWith (.getName file) ".cljc"))))
 
 ;;; Dependency tracker
 

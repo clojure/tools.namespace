@@ -22,15 +22,17 @@
 (defn clojure-source-file?
   "DEPRECATED; trivial to implement locally
 
-  Returns true if file is a normal file with a .clj extension."
+  Returns true if file is a normal file with a .clj or .cljc extension."
   [^File file]
   (and (.isFile file)
-       (.endsWith (.getName file) ".clj")))
+       (or
+         (.endsWith (.getName file) ".clj")
+         (.endsWith (.getName file) ".cljc"))))
 
 (defn find-clojure-sources-in-dir
   "DEPRECATED; moved to clojure.tools.namespace.find
 
-  Searches recursively under dir for Clojure source files (.clj).
+  Searches recursively under dir for Clojure source files (.clj, .cljc).
   Returns a sequence of File objects, in breadth-first sort order."
   [^File dir]
   ;; Use sort by absolute path to get breadth-first search.
@@ -134,9 +136,10 @@
 (defn clojure-sources-in-jar
   "DEPRECATED; moved to clojure.tools.namespace.find
 
-  Returns a sequence of filenames ending in .clj found in the JAR file."
+  Returns a sequence of filenames ending in .clj or .cljc found in the JAR file."
   [^JarFile jar-file]
-  (filter #(.endsWith ^String % ".clj") (filenames-in-jar jar-file)))
+  (filter #(or (.endsWith ^String % ".clj") (.endsWith ^String % ".cljc"))
+          (filenames-in-jar jar-file)))
 
 (defn read-ns-decl-from-jarfile-entry
   "DEPRECATED; moved to clojure.tools.namespace.find
