@@ -308,10 +308,10 @@ other namespaces</pre>
 </pre>
     <pre id="var-docstr">DEPRECATED; trivial to implement locally
 
-Returns true if file is a normal file with a .clj extension.</pre>
+Returns true if file is a normal file with a .clj or .cljc extension.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/8f116ba8c6944acc347cba97db0244e247021016/src/main/clojure/clojure/tools/namespace.clj#L22" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj#L22" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -321,10 +321,10 @@ Returns true if file is a normal file with a .clj extension.</pre>
 </pre>
     <pre id="var-docstr">DEPRECATED; moved to clojure.tools.namespace.find
 
-Returns a sequence of filenames ending in .clj found in the JAR file.</pre>
+Returns a sequence of filenames ending in .clj or .cljc found in the JAR file.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/8f116ba8c6944acc347cba97db0244e247021016/src/main/clojure/clojure/tools/namespace.clj#L134" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj#L136" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -337,7 +337,7 @@ Returns a sequence of filenames ending in .clj found in the JAR file.</pre>
 Returns true if form is a (comment ...)</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/8f116ba8c6944acc347cba97db0244e247021016/src/main/clojure/clojure/tools/namespace.clj#L40" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj#L42" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -347,11 +347,11 @@ Returns true if form is a (comment ...)</pre>
 </pre>
     <pre id="var-docstr">DEPRECATED; moved to clojure.tools.namespace.find
 
-Searches recursively under dir for Clojure source files (.clj).
+Searches recursively under dir for Clojure source files (.clj, .cljc).
 Returns a sequence of File objects, in breadth-first sort order.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/8f116ba8c6944acc347cba97db0244e247021016/src/main/clojure/clojure/tools/namespace.clj#L30" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj#L32" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -365,7 +365,7 @@ Searches dir recursively for (ns ...) declarations in Clojure
 source files; returns the symbol names of the declared namespaces.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/8f116ba8c6944acc347cba97db0244e247021016/src/main/clojure/clojure/tools/namespace.clj#L88" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj#L90" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -380,7 +380,7 @@ declarations.  Returns a sequence of the symbol names of the
 declared namespaces.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/8f116ba8c6944acc347cba97db0244e247021016/src/main/clojure/clojure/tools/namespace.clj#L164" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj#L167" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -397,7 +397,7 @@ source files containing (ns ...) declarations.  Returns a sequence
 of the symbol names of the declared namespaces.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/8f116ba8c6944acc347cba97db0244e247021016/src/main/clojure/clojure/tools/namespace.clj#L187" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj#L190" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -411,7 +411,7 @@ Searches dir recursively for (ns ...) declarations in Clojure
 source files; returns the unevaluated ns declarations.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/8f116ba8c6944acc347cba97db0244e247021016/src/main/clojure/clojure/tools/namespace.clj#L80" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj#L82" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -425,7 +425,7 @@ Searches the JAR file for Clojure source files containing (ns ...)
 declarations; returns the unevaluated ns declarations.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/8f116ba8c6944acc347cba97db0244e247021016/src/main/clojure/clojure/tools/namespace.clj#L154" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj#L157" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -442,7 +442,7 @@ source files containing (ns ...) declarations. Returns a sequence of
 the unevaluated ns declaration forms.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/8f116ba8c6944acc347cba97db0244e247021016/src/main/clojure/clojure/tools/namespace.clj#L175" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj#L178" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -455,7 +455,7 @@ the unevaluated ns declaration forms.</pre>
 Returns true if form is a (ns ...) declaration.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/8f116ba8c6944acc347cba97db0244e247021016/src/main/clojure/clojure/tools/namespace.clj#L47" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj#L49" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -470,7 +470,7 @@ unevaluated form.  Returns nil if read fails, or if the first form
 is not a ns declaration.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/8f116ba8c6944acc347cba97db0244e247021016/src/main/clojure/clojure/tools/namespace.clj#L70" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj#L72" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -486,7 +486,7 @@ cannot be found.  The ns declaration must be the first Clojure form
 in the file, except for (comment ...)  forms.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/8f116ba8c6944acc347cba97db0244e247021016/src/main/clojure/clojure/tools/namespace.clj#L54" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj#L56" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -501,7 +501,7 @@ JAR file, and returns the unevaluated form.  Returns nil if the read
 fails, or if the first form is not a ns declaration.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/8f116ba8c6944acc347cba97db0244e247021016/src/main/clojure/clojure/tools/namespace.clj#L141" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj#L144" id="var-source">Source</a>
   </div>
 </div>
 <br />
@@ -816,7 +816,7 @@ all directories on the classpath.</pre>
 tracker with those files added.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/cb75db79cf143be16a89399ae66e396c0ae62391/src/main/clojure/clojure/tools/namespace/file.clj#L47" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace/file.clj#L49" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -828,7 +828,7 @@ tracker with those files added.</pre>
 file.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/cb75db79cf143be16a89399ae66e396c0ae62391/src/main/clojure/clojure/tools/namespace/file.clj#L25" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace/file.clj#L25" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -841,7 +841,7 @@ unevaluated form.  Returns nil if read fails, or if the first form
 is not a ns declaration.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/cb75db79cf143be16a89399ae66e396c0ae62391/src/main/clojure/clojure/tools/namespace/file.clj#L17" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace/file.clj#L17" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -853,7 +853,7 @@ is not a ns declaration.</pre>
 must have been previously added with add-files.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/cb75db79cf143be16a89399ae66e396c0ae62391/src/main/clojure/clojure/tools/namespace/file.clj#L56" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace/file.clj#L58" id="var-source">Source</a>
   </div>
 </div>
 <br />
@@ -874,10 +874,10 @@ must have been previously added with add-files.</pre>
     <span id="var-type">function</span><br />
     <pre id="var-usage">Usage: (clojure-sources-in-jar jar-file)
 </pre>
-    <pre id="var-docstr">Returns a sequence of filenames ending in .clj found in the JAR file.</pre>
+    <pre id="var-docstr">Returns a sequence of filenames ending in .clj or .cljc found in the JAR file.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/0e4fe44be8ded594d0374d4cc21d6f42a697c18e/src/main/clojure/clojure/tools/namespace/find.clj#L69" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace/find.clj#L69" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -885,11 +885,11 @@ must have been previously added with add-files.</pre>
     <span id="var-type">function</span><br />
     <pre id="var-usage">Usage: (find-clojure-sources-in-dir dir)
 </pre>
-    <pre id="var-docstr">Searches recursively under dir for Clojure source files (.clj).
+    <pre id="var-docstr">Searches recursively under dir for Clojure source files (.clj, .cljc).
 Returns a sequence of File objects, in breadth-first sort order.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/0e4fe44be8ded594d0374d4cc21d6f42a697c18e/src/main/clojure/clojure/tools/namespace/find.clj#L47" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace/find.clj#L47" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -898,13 +898,13 @@ Returns a sequence of File objects, in breadth-first sort order.</pre>
     <pre id="var-usage">Usage: (find-namespaces files)
 </pre>
     <pre id="var-docstr">Searches a sequence of java.io.File objects (both directories and
-JAR files) for .clj source files containing (ns...) declarations.
+JAR files) for .clj or .cljc source files containing (ns...) declarations.
 Returns a sequence of the symbol names of the declared
 namespaces. Use with clojure.java.classpath to search Clojure's
 classpath.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/0e4fe44be8ded594d0374d4cc21d6f42a697c18e/src/main/clojure/clojure/tools/namespace/find.clj#L112" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace/find.clj#L113" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -916,7 +916,7 @@ classpath.</pre>
 source files; returns the symbol names of the declared namespaces.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/0e4fe44be8ded594d0374d4cc21d6f42a697c18e/src/main/clojure/clojure/tools/namespace/find.clj#L61" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace/find.clj#L61" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -929,7 +929,7 @@ declarations.  Returns a sequence of the symbol names of the
 declared namespaces.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/0e4fe44be8ded594d0374d4cc21d6f42a697c18e/src/main/clojure/clojure/tools/namespace/find.clj#L92" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace/find.clj#L93" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -938,12 +938,12 @@ declared namespaces.</pre>
     <pre id="var-usage">Usage: (find-ns-decls files)
 </pre>
     <pre id="var-docstr">Searches a sequence of java.io.File objects (both directories and
-JAR files) for .clj source files containing (ns...) declarations.
+JAR files) for .clj or .cljc source files containing (ns...) declarations.
 Returns a sequence of the unevaluated ns declaration forms. Use with
 clojure.java.classpath to search Clojure's classpath.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/0e4fe44be8ded594d0374d4cc21d6f42a697c18e/src/main/clojure/clojure/tools/namespace/find.clj#L102" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace/find.clj#L103" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -955,7 +955,7 @@ clojure.java.classpath to search Clojure's classpath.</pre>
 source files; returns the unevaluated ns declarations.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/0e4fe44be8ded594d0374d4cc21d6f42a697c18e/src/main/clojure/clojure/tools/namespace/find.clj#L55" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace/find.clj#L55" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -967,7 +967,7 @@ source files; returns the unevaluated ns declarations.</pre>
 declarations; returns the unevaluated ns declarations.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/0e4fe44be8ded594d0374d4cc21d6f42a697c18e/src/main/clojure/clojure/tools/namespace/find.clj#L84" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace/find.clj#L85" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -980,7 +980,7 @@ JAR file, and returns the unevaluated form.  Returns nil if the read
 fails, or if the first form is not a ns declaration.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/0e4fe44be8ded594d0374d4cc21d6f42a697c18e/src/main/clojure/clojure/tools/namespace/find.clj#L74" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace/find.clj#L75" id="var-source">Source</a>
   </div>
 </div>
 <br />
