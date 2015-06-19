@@ -15,32 +15,32 @@ repositories.
 Releases and Dependency Information
 ----------------------------------------
 
-* [Latest stable release is 0.2.10](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.2.10)
+* [Latest stable release is 0.2.11](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.2.11)
 
 * [All Released Versions](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.clojure%22%20AND%20a%3A%22tools.namespace%22)
 
 [Leiningen](http://leiningen.org/) dependency information:
 
-    [org.clojure/tools.namespace "0.2.10"]
+    [org.clojure/tools.namespace "0.2.11"]
 
 [Maven](http://maven.apache.org/) dependency information:
 
     <dependency>
       <groupId>org.clojure</groupId>
       <artifactId>tools.namespace</artifactId>
-      <version>0.2.10</version>
+      <version>0.2.11</version>
     </dependency>
 
 
 ### Development Snapshots ###
 
-* Git master branch is at **0.2.11-SNAPSHOT**
+* Git master branch is at **0.2.12-SNAPSHOT**
 
 * [All Snapshot Versions](https://oss.sonatype.org/content/groups/public/org/clojure/tools.namespace/)
 
 Leiningen dependency information for development snapshots:
 
-    :dependencies [[org.clojure/tools.namespace "0.2.11-SNAPSHOT"]]
+    :dependencies [[org.clojure/tools.namespace "0.2.12-SNAPSHOT"]]
     :repositories {"sonatype-oss-public"
                    "https://oss.sonatype.org/content/groups/public/"}
 
@@ -536,15 +536,18 @@ Developer Information
 Change Log
 ----------------------------------------
 
-### Version 0.2.11-SNAPSHOT
+### Version 0.2.12-SNAPSHOT
 
   * In development, current Git master branch
+
+### Version 0.2.11 on 19-Jun-2015
 
   * [TNS-34] Allow reader conditionals in parsed source files
 
 ### Version 0.2.10 on 26-Feb-2015
 
-  * Widen existing functions to handle both clj and cljc files in advance of reader conditional support in Clojure 1.7.
+  * Widen existing functions to handle both clj and cljc files in
+    advance of reader conditional support in Clojure 1.7.
 
 ### Version 0.2.9 on 31-Jan-2015
 
