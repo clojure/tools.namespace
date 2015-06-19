@@ -540,6 +540,8 @@ Change Log
 
   * In development, current Git master branch
 
+  * [TNS-34] Allow reader conditionals in parsed source files
+
 ### Version 0.2.10 on 26-Feb-2015
 
   * Widen existing functions to handle both clj and cljc files in advance of reader conditional support in Clojure 1.7.
@@ -680,6 +682,8 @@ Change Log
 [TNS-30]: http://dev.clojure.org/jira/browse/TNS-30
 [TNS-31]: http://dev.clojure.org/jira/browse/TNS-31
 [TNS-32]: http://dev.clojure.org/jira/browse/TNS-32
+[TNS-33]: http://dev.clojure.org/jira/browse/TNS-33
+[TNS-34]: http://dev.clojure.org/jira/browse/TNS-34
 [java.classpath]: https://github.com/clojure/java.classpath
 [JEP 122]: http://openjdk.java.net/jeps/122
 
