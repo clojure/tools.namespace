@@ -12,6 +12,14 @@
   clojure.tools.namespace.parse
   (:require [clojure.set :as set]))
 
+(defn- read-clj
+  "Calls clojure.core/read. If reader conditionals are
+  supported (Clojure 1.7) then adds options {:read-cond :allow}."
+  [rdr]
+  (if (resolve 'clojure.core/reader-conditional?)
+    (read {:read-cond :allow} rdr)
+    (read rdr)))
+
 (defn comment?
   "Returns true if form is a (comment ...)"
   [form]
@@ -33,7 +41,7 @@
   {:pre [(instance? java.io.PushbackReader rdr)]}
   (try
    (loop []
-     (let [form (doto (read rdr) str)]  ; str forces errors, see TNS-1
+     (let [form (doto (read-clj rdr) str)] ; str forces errors, see TNS-1
        (if (ns-decl? form)
          form
          (recur))))

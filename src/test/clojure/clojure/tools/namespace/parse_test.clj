@@ -165,3 +165,17 @@
 (deftest t-clauses-without-keywords
   (is (= deps-from-clauses-without-keywords
          (deps-from-ns-decl clauses-without-keywords))))
+
+(def reader-conditionals-string
+   "(ns com.examples.one
+  (:require #?(:clj clojure.string
+               :cljs goog.string)))")
+
+(deftest t-reader-conditionals
+  (when (resolve 'clojure.core/reader-conditional?)
+    (let [actual (-> reader-conditionals-string
+                     java.io.StringReader.
+                     java.io.PushbackReader.
+                     read-ns-decl
+                     deps-from-ns-decl)]
+      (is (= #{'clojure.string} actual)))))
