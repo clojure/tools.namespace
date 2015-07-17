@@ -20,6 +20,15 @@
     (read {:read-cond :allow} rdr)
     (read rdr)))
 
+(defn- force-errors
+  "Forces reader errors to be thrown immediately. Some versions of
+  Clojure accept invalid forms in the reader and only throw an
+  exception when they are printed.
+  See http://dev.clojure.org/jira/browse/TNS-1"
+  [form]
+  (str form) ; str forces errors
+  form)
+
 (defn comment?
   "Returns true if form is a (comment ...)"
   [form]
@@ -41,7 +50,7 @@
   {:pre [(instance? java.io.PushbackReader rdr)]}
   (try
    (loop []
-     (let [form (doto (read-clj rdr) str)] ; str forces errors, see TNS-1
+     (let [form (force-errors (read-clj rdr))]
        (if (ns-decl? form)
          form
          (recur))))
