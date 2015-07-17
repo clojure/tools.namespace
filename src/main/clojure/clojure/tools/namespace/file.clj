@@ -16,19 +16,32 @@
 
 (defn read-file-ns-decl
   "Attempts to read a (ns ...) declaration from file, and returns the
-  unevaluated form.  Returns nil if read fails, or if the first form
-  is not a ns declaration."
-  [file]
-  (with-open [rdr (PushbackReader. (io/reader file))]
-    (parse/read-ns-decl rdr)))
+  unevaluated form. Returns nil if read fails due to invalid syntax or
+  if a ns declaration cannot be found. read-opts is passed through to
+  clojure.core/read if this version of Clojure supports it."
+  ([file]
+   (read-file-ns-decl file nil))
+  ([file read-opts]
+   (with-open [rdr (PushbackReader. (io/reader file))]
+     (parse/read-ns-decl rdr read-opts))))
 
 (defn clojure-file?
-  "Returns true if the java.io.File represents a normal Clojure source
-  file."
+  "Returns true if the java.io.File represents a file which will be
+  read by the Clojure (JVM) compiler."
   [^java.io.File file]
   (and (.isFile file)
        (or
          (.endsWith (.getName file) ".clj")
+         (.endsWith (.getName file) ".cljc"))))
+
+(defn clojurescript-file?
+  "Returns true if the java.io.File represents a file which will be
+  read by the ClojureScript compiler."
+  {:added "0.3.0"}
+  [^java.io.File file]
+  (and (.isFile file)
+       (or
+         (.endsWith (.getName file) ".cljs")
          (.endsWith (.getName file) ".cljc"))))
 
 ;;; Dependency tracker

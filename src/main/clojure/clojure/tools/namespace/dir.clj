@@ -12,6 +12,7 @@
   clojure.tools.namespace.dir
   (:require [clojure.tools.namespace.file :as file]
             [clojure.tools.namespace.track :as track]
+            [clojure.java.classpath :refer [classpath-directories]]
             [clojure.java.io :as io]
             [clojure.set :as set]
             [clojure.string :as string])
@@ -40,13 +41,6 @@
         (file/add-files modified)
         (assoc ::time now))))
 
-(defn- dirs-on-classpath []
-  (filter #(.isDirectory ^File %)
-          (map #(File. ^String %)
-               (string/split
-                (System/getProperty "java.class.path")
-                (Pattern/compile (Pattern/quote File/pathSeparator))))))
-
 (defn scan
   "Scans directories for files which have changed since the last time
   'scan' was run; update the dependency tracker with
@@ -54,7 +48,7 @@
 
   If no dirs given, defaults to all directories on the classpath."
   [tracker & dirs]
-  (let [ds (or (seq dirs) (dirs-on-classpath))
+  (let [ds (or (seq dirs) (classpath-directories))
         files (find-files ds)
         deleted (seq (deleted-files tracker files))
         modified (seq (modified-files tracker files))]
@@ -67,7 +61,7 @@
   dependency tracker to reload files. If no dirs given, defaults to
   all directories on the classpath."
   [tracker & dirs]
-  (let [ds (or (seq dirs) (dirs-on-classpath))
+  (let [ds (or (seq dirs) (classpath-directories))
         files (find-files ds)
         deleted (seq (deleted-files tracker files))]
     (update-files tracker deleted files)))

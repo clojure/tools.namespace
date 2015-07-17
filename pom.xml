@@ -10,6 +10,14 @@
     <version>0.1.2</version>
   </parent>
 
+  <dependencies>
+    <dependency>
+      <groupId>org.clojure</groupId>
+      <artifactId>java.classpath</artifactId>
+      <version>0.2.2</version>
+    </dependency>
+  </dependencies>
+
   <properties>
     <clojure.warnOnReflection>true</clojure.warnOnReflection>
   </properties>
