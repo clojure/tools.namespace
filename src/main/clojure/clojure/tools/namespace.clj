@@ -9,7 +9,9 @@
 (ns 
  ^{:author "Stuart Sierra",
    :doc "This namespace is DEPRECATED; most functions have been moved to
-  other namespaces"}
+  other namespaces"
+   :deprecated "0.2.1"
+   :added "0.1.0"}
  clojure.tools.namespace
  (:require [clojure.java.io :as io])
  (:import (java.io File FileReader BufferedReader PushbackReader
@@ -23,6 +25,8 @@
   "DEPRECATED; trivial to implement locally
 
   Returns true if file is a normal file with a .clj or .cljc extension."
+  {:deprecated "0.2.1"
+   :added "0.1.0"}
   [^File file]
   (and (.isFile file)
        (or
@@ -34,6 +38,8 @@
 
   Searches recursively under dir for Clojure source files (.clj, .cljc).
   Returns a sequence of File objects, in breadth-first sort order."
+  {:deprecated "0.2.1"
+   :added "0.1.0"}
   [^File dir]
   ;; Use sort by absolute path to get breadth-first search.
   (sort-by #(.getAbsolutePath ^File %)
@@ -43,6 +49,8 @@
   "DEPRECATED; moved to clojure.tools.namespace.parse
 
   Returns true if form is a (comment ...)"
+  {:deprecated "0.2.1"
+   :added "0.1.0"}
   [form]
   (and (list? form) (= 'comment (first form))))
 
@@ -50,6 +58,8 @@
   "DEPRECATED; moved to clojure.tools.namespace.parse
 
   Returns true if form is a (ns ...) declaration."
+  {:deprecated "0.2.1"
+   :added "0.1.0"}
   [form]
   (and (list? form) (= 'ns (first form))))
 
@@ -60,6 +70,8 @@
   unevaluated form.  Returns nil if read fails or if a ns declaration
   cannot be found.  The ns declaration must be the first Clojure form
   in the file, except for (comment ...)  forms."
+  {:deprecated "0.2.1"
+   :added "0.1.0"}
   [^PushbackReader rdr]
   (try
    (loop [] (let [form (doto (read rdr) str)]
@@ -75,6 +87,8 @@
   Attempts to read a (ns ...) declaration from file, and returns the
   unevaluated form.  Returns nil if read fails, or if the first form
   is not a ns declaration."
+  {:deprecated "0.2.1"
+   :added "0.1.0"}
   [^File file]
   (with-open [rdr (PushbackReader. (BufferedReader. (FileReader. file)))]
     (read-ns-decl rdr)))
@@ -84,6 +98,8 @@
 
   Searches dir recursively for (ns ...) declarations in Clojure
   source files; returns the unevaluated ns declarations."
+  {:deprecated "0.2.1"
+   :added "0.1.0"}
   [^File dir]
   (filter identity (map read-file-ns-decl (find-clojure-sources-in-dir dir))))
 
@@ -92,6 +108,8 @@
 
   Searches dir recursively for (ns ...) declarations in Clojure
   source files; returns the symbol names of the declared namespaces."
+  {:deprecated "0.2.1"
+   :added "0.1.0"}
   [^File dir]
   (map second (find-ns-decls-in-dir dir)))
 
@@ -137,6 +155,8 @@
   "DEPRECATED; moved to clojure.tools.namespace.find
 
   Returns a sequence of filenames ending in .clj or .cljc found in the JAR file."
+  {:deprecated "0.2.1"
+   :added "0.1.0"}
   [^JarFile jar-file]
   (filter #(or (.endsWith ^String % ".clj") (.endsWith ^String % ".cljc"))
           (filenames-in-jar jar-file)))
@@ -147,6 +167,8 @@
   Attempts to read a (ns ...) declaration from the named entry in the
   JAR file, and returns the unevaluated form.  Returns nil if the read
   fails, or if the first form is not a ns declaration."
+  {:deprecated "0.2.1"
+   :added "0.1.0"}
   [^JarFile jarfile ^String entry-name]
   (with-open [rdr (PushbackReader.
                    (BufferedReader.
@@ -159,6 +181,8 @@
 
   Searches the JAR file for Clojure source files containing (ns ...)
   declarations; returns the unevaluated ns declarations."
+  {:deprecated "0.2.1"
+   :added "0.1.0"}
   [^JarFile jarfile]
   (filter identity
           (map #(read-ns-decl-from-jarfile-entry jarfile %)
@@ -170,6 +194,8 @@
   Searches the JAR file for Clojure source files containing (ns ...)
   declarations.  Returns a sequence of the symbol names of the
   declared namespaces."
+  {:deprecated "0.2.1"
+   :added "0.1.0"}
   [^JarFile jarfile]
   (map second (find-ns-decls-in-jarfile jarfile)))
 
@@ -182,7 +208,10 @@
 
   Searches CLASSPATH (both directories and JAR files) for Clojure
   source files containing (ns ...) declarations. Returns a sequence of
-  the unevaluated ns declaration forms." []
+  the unevaluated ns declaration forms."
+  {:deprecated "0.2.1"
+   :added "0.1.0"}
+  []
   (concat
    (mapcat find-ns-decls-in-dir (classpath-directories))
    (mapcat find-ns-decls-in-jarfile (classpath-jarfiles))))
@@ -195,5 +224,7 @@
   Searches CLASSPATH (both directories and JAR files) for Clojure
   source files containing (ns ...) declarations.  Returns a sequence
   of the symbol names of the declared namespaces."
+  {:deprecated "0.2.1"
+   :added "0.1.0"}
   []
   (map second (find-ns-decls-on-classpath)))
