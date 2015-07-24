@@ -1,6 +1,6 @@
 {:namespaces
  ({:source-url
-   "https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj",
+   "https://github.com/clojure/tools.namespace/blob/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace/clojure.tools.namespace-api.html",
    :name "clojure.tools.namespace",
@@ -46,7 +46,7 @@
    :doc
    "Refactoring tool to move a Clojure namespace from one name/file to\nanother, and update all references to that namespace in your other\nClojure source files.\n\nWARNING: This code is ALPHA and subject to change. It also modifies\nand deletes your source files! Make sure you have a backup or\nversion control."}
   {:source-url
-   "https://github.com/clojure/tools.namespace/blob/c30822720e5ee71d12fcdd2de03c2ed052646268/src/main/clojure/clojure/tools/namespace/parse.clj",
+   "https://github.com/clojure/tools.namespace/blob/82514953276d243847cbb4a9276e38585a0ed5a6/src/main/clojure/clojure/tools/namespace/parse.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace/clojure.tools.namespace.parse-api.html",
    :name "clojure.tools.namespace.parse",
@@ -81,197 +81,225 @@
    :name "clojure-source-file?",
    :namespace "clojure.tools.namespace",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj#L22",
+   "https://github.com/clojure/tools.namespace/blob/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj#L24",
+   :deprecated "0.2.1",
+   :added "0.1.0",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj",
+   "https://github.com/clojure/tools.namespace/raw/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace/clojure-source-file?",
    :doc
    "DEPRECATED; trivial to implement locally\n\nReturns true if file is a normal file with a .clj or .cljc extension.",
    :var-type "function",
-   :line 22,
+   :line 24,
    :file "src/main/clojure/clojure/tools/namespace.clj"}
   {:arglists ([jar-file]),
    :name "clojure-sources-in-jar",
    :namespace "clojure.tools.namespace",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj#L136",
+   "https://github.com/clojure/tools.namespace/blob/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj#L154",
+   :deprecated "0.2.1",
+   :added "0.1.0",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj",
+   "https://github.com/clojure/tools.namespace/raw/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace/clojure-sources-in-jar",
    :doc
    "DEPRECATED; moved to clojure.tools.namespace.find\n\nReturns a sequence of filenames ending in .clj or .cljc found in the JAR file.",
    :var-type "function",
-   :line 136,
+   :line 154,
    :file "src/main/clojure/clojure/tools/namespace.clj"}
   {:arglists ([form]),
    :name "comment?",
    :namespace "clojure.tools.namespace",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj#L42",
+   "https://github.com/clojure/tools.namespace/blob/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj#L48",
+   :deprecated "0.2.1",
+   :added "0.1.0",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj",
+   "https://github.com/clojure/tools.namespace/raw/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace/comment?",
    :doc
    "DEPRECATED; moved to clojure.tools.namespace.parse\n\nReturns true if form is a (comment ...)",
    :var-type "function",
-   :line 42,
+   :line 48,
    :file "src/main/clojure/clojure/tools/namespace.clj"}
   {:arglists ([dir]),
    :name "find-clojure-sources-in-dir",
    :namespace "clojure.tools.namespace",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj#L32",
+   "https://github.com/clojure/tools.namespace/blob/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj#L36",
+   :deprecated "0.2.1",
+   :added "0.1.0",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj",
+   "https://github.com/clojure/tools.namespace/raw/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace/find-clojure-sources-in-dir",
    :doc
    "DEPRECATED; moved to clojure.tools.namespace.find\n\nSearches recursively under dir for Clojure source files (.clj, .cljc).\nReturns a sequence of File objects, in breadth-first sort order.",
    :var-type "function",
-   :line 32,
+   :line 36,
    :file "src/main/clojure/clojure/tools/namespace.clj"}
   {:arglists ([dir]),
    :name "find-namespaces-in-dir",
    :namespace "clojure.tools.namespace",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj#L90",
+   "https://github.com/clojure/tools.namespace/blob/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj#L106",
+   :deprecated "0.2.1",
+   :added "0.1.0",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj",
+   "https://github.com/clojure/tools.namespace/raw/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace/find-namespaces-in-dir",
    :doc
    "DEPRECATED; moved to clojure.tools.namespace.find\n\nSearches dir recursively for (ns ...) declarations in Clojure\nsource files; returns the symbol names of the declared namespaces.",
    :var-type "function",
-   :line 90,
+   :line 106,
    :file "src/main/clojure/clojure/tools/namespace.clj"}
   {:arglists ([jarfile]),
    :name "find-namespaces-in-jarfile",
    :namespace "clojure.tools.namespace",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj#L167",
+   "https://github.com/clojure/tools.namespace/blob/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj#L191",
+   :deprecated "0.2.1",
+   :added "0.1.0",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj",
+   "https://github.com/clojure/tools.namespace/raw/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace/find-namespaces-in-jarfile",
    :doc
    "DEPRECATED; moved to clojure.tools.namespace.find\n\nSearches the JAR file for Clojure source files containing (ns ...)\ndeclarations.  Returns a sequence of the symbol names of the\ndeclared namespaces.",
    :var-type "function",
-   :line 167,
+   :line 191,
    :file "src/main/clojure/clojure/tools/namespace.clj"}
   {:arglists ([]),
    :name "find-namespaces-on-classpath",
    :namespace "clojure.tools.namespace",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj#L190",
+   "https://github.com/clojure/tools.namespace/blob/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj#L219",
+   :deprecated "0.2.1",
+   :added "0.1.0",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj",
+   "https://github.com/clojure/tools.namespace/raw/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace/find-namespaces-on-classpath",
    :doc
    "DEPRECATED; use clojure.tools.namespace.find/find-namespaces\nand clojure.java.classpath/classpath from\nhttp://github.com/clojure/java.classpath\n\nSearches CLASSPATH (both directories and JAR files) for Clojure\nsource files containing (ns ...) declarations.  Returns a sequence\nof the symbol names of the declared namespaces.",
    :var-type "function",
-   :line 190,
+   :line 219,
    :file "src/main/clojure/clojure/tools/namespace.clj"}
   {:arglists ([dir]),
    :name "find-ns-decls-in-dir",
    :namespace "clojure.tools.namespace",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj#L82",
+   "https://github.com/clojure/tools.namespace/blob/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj#L96",
+   :deprecated "0.2.1",
+   :added "0.1.0",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj",
+   "https://github.com/clojure/tools.namespace/raw/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace/find-ns-decls-in-dir",
    :doc
    "DEPRECATED; moved to clojure.tools.namespace.find\n\nSearches dir recursively for (ns ...) declarations in Clojure\nsource files; returns the unevaluated ns declarations.",
    :var-type "function",
-   :line 82,
+   :line 96,
    :file "src/main/clojure/clojure/tools/namespace.clj"}
   {:arglists ([jarfile]),
    :name "find-ns-decls-in-jarfile",
    :namespace "clojure.tools.namespace",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj#L157",
+   "https://github.com/clojure/tools.namespace/blob/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj#L179",
+   :deprecated "0.2.1",
+   :added "0.1.0",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj",
+   "https://github.com/clojure/tools.namespace/raw/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace/find-ns-decls-in-jarfile",
    :doc
    "DEPRECATED; moved to clojure.tools.namespace.find\n\nSearches the JAR file for Clojure source files containing (ns ...)\ndeclarations; returns the unevaluated ns declarations.",
    :var-type "function",
-   :line 157,
+   :line 179,
    :file "src/main/clojure/clojure/tools/namespace.clj"}
   {:arglists ([]),
    :name "find-ns-decls-on-classpath",
    :namespace "clojure.tools.namespace",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj#L178",
+   "https://github.com/clojure/tools.namespace/blob/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj#L204",
+   :deprecated "0.2.1",
+   :added "0.1.0",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj",
+   "https://github.com/clojure/tools.namespace/raw/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace/find-ns-decls-on-classpath",
    :doc
    "DEPRECATED; use clojure.tools.namespace.find/find-ns-decls\nand clojure.java.classpath/classpath from\nhttp://github.com/clojure/java.classpath\n\nSearches CLASSPATH (both directories and JAR files) for Clojure\nsource files containing (ns ...) declarations. Returns a sequence of\nthe unevaluated ns declaration forms.",
    :var-type "function",
-   :line 178,
+   :line 204,
    :file "src/main/clojure/clojure/tools/namespace.clj"}
   {:arglists ([form]),
    :name "ns-decl?",
    :namespace "clojure.tools.namespace",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj#L49",
+   "https://github.com/clojure/tools.namespace/blob/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj#L57",
+   :deprecated "0.2.1",
+   :added "0.1.0",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj",
+   "https://github.com/clojure/tools.namespace/raw/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace/ns-decl?",
    :doc
    "DEPRECATED; moved to clojure.tools.namespace.parse\n\nReturns true if form is a (ns ...) declaration.",
    :var-type "function",
-   :line 49,
+   :line 57,
    :file "src/main/clojure/clojure/tools/namespace.clj"}
   {:arglists ([file]),
    :name "read-file-ns-decl",
    :namespace "clojure.tools.namespace",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj#L72",
+   "https://github.com/clojure/tools.namespace/blob/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj#L84",
+   :deprecated "0.2.1",
+   :added "0.1.0",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj",
+   "https://github.com/clojure/tools.namespace/raw/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace/read-file-ns-decl",
    :doc
    "DEPRECATED; moved to clojure.tools.namespace.file\n\nAttempts to read a (ns ...) declaration from file, and returns the\nunevaluated form.  Returns nil if read fails, or if the first form\nis not a ns declaration.",
    :var-type "function",
-   :line 72,
+   :line 84,
    :file "src/main/clojure/clojure/tools/namespace.clj"}
   {:arglists ([rdr]),
    :name "read-ns-decl",
    :namespace "clojure.tools.namespace",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj#L56",
+   "https://github.com/clojure/tools.namespace/blob/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj#L66",
+   :deprecated "0.2.1",
+   :added "0.1.0",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj",
+   "https://github.com/clojure/tools.namespace/raw/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace/read-ns-decl",
    :doc
    "DEPRECATED; moved to clojure.tools.namespace.parse\n\nAttempts to read a (ns ...) declaration from rdr, and returns the\nunevaluated form.  Returns nil if read fails or if a ns declaration\ncannot be found.  The ns declaration must be the first Clojure form\nin the file, except for (comment ...)  forms.",
    :var-type "function",
-   :line 56,
+   :line 66,
    :file "src/main/clojure/clojure/tools/namespace.clj"}
   {:arglists ([jarfile entry-name]),
    :name "read-ns-decl-from-jarfile-entry",
    :namespace "clojure.tools.namespace",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj#L144",
+   "https://github.com/clojure/tools.namespace/blob/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj#L164",
+   :deprecated "0.2.1",
+   :added "0.1.0",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/501976c5c61431f9914035836836ff6df2a9535e/src/main/clojure/clojure/tools/namespace.clj",
+   "https://github.com/clojure/tools.namespace/raw/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace/read-ns-decl-from-jarfile-entry",
    :doc
    "DEPRECATED; moved to clojure.tools.namespace.find\n\nAttempts to read a (ns ...) declaration from the named entry in the\nJAR file, and returns the unevaluated form.  Returns nil if the read\nfails, or if the first form is not a ns declaration.",
    :var-type "function",
-   :line 144,
+   :line 164,
    :file "src/main/clojure/clojure/tools/namespace.clj"}
   {:arglists ([dependencies dependents]),
    :name "->MapDependencyGraph",
@@ -773,55 +801,55 @@
    :name "comment?",
    :namespace "clojure.tools.namespace.parse",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/c30822720e5ee71d12fcdd2de03c2ed052646268/src/main/clojure/clojure/tools/namespace/parse.clj#L23",
+   "https://github.com/clojure/tools.namespace/blob/82514953276d243847cbb4a9276e38585a0ed5a6/src/main/clojure/clojure/tools/namespace/parse.clj#L32",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/c30822720e5ee71d12fcdd2de03c2ed052646268/src/main/clojure/clojure/tools/namespace/parse.clj",
+   "https://github.com/clojure/tools.namespace/raw/82514953276d243847cbb4a9276e38585a0ed5a6/src/main/clojure/clojure/tools/namespace/parse.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.parse/comment?",
    :doc "Returns true if form is a (comment ...)",
    :var-type "function",
-   :line 23,
+   :line 32,
    :file "src/main/clojure/clojure/tools/namespace/parse.clj"}
   {:arglists ([decl]),
    :name "deps-from-ns-decl",
    :namespace "clojure.tools.namespace.parse",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/c30822720e5ee71d12fcdd2de03c2ed052646268/src/main/clojure/clojure/tools/namespace/parse.clj#L93",
+   "https://github.com/clojure/tools.namespace/blob/82514953276d243847cbb4a9276e38585a0ed5a6/src/main/clojure/clojure/tools/namespace/parse.clj#L102",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/c30822720e5ee71d12fcdd2de03c2ed052646268/src/main/clojure/clojure/tools/namespace/parse.clj",
+   "https://github.com/clojure/tools.namespace/raw/82514953276d243847cbb4a9276e38585a0ed5a6/src/main/clojure/clojure/tools/namespace/parse.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.parse/deps-from-ns-decl",
    :doc
    "Given an (ns...) declaration form (unevaluated), returns a set of\nsymbols naming the dependencies of that namespace.  Handles :use and\n:require clauses but not :load.",
    :var-type "function",
-   :line 93,
+   :line 102,
    :file "src/main/clojure/clojure/tools/namespace/parse.clj"}
   {:arglists ([form]),
    :name "ns-decl?",
    :namespace "clojure.tools.namespace.parse",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/c30822720e5ee71d12fcdd2de03c2ed052646268/src/main/clojure/clojure/tools/namespace/parse.clj#L28",
+   "https://github.com/clojure/tools.namespace/blob/82514953276d243847cbb4a9276e38585a0ed5a6/src/main/clojure/clojure/tools/namespace/parse.clj#L37",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/c30822720e5ee71d12fcdd2de03c2ed052646268/src/main/clojure/clojure/tools/namespace/parse.clj",
+   "https://github.com/clojure/tools.namespace/raw/82514953276d243847cbb4a9276e38585a0ed5a6/src/main/clojure/clojure/tools/namespace/parse.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.parse/ns-decl?",
    :doc "Returns true if form is a (ns ...) declaration.",
    :var-type "function",
-   :line 28,
+   :line 37,
    :file "src/main/clojure/clojure/tools/namespace/parse.clj"}
   {:arglists ([rdr]),
    :name "read-ns-decl",
    :namespace "clojure.tools.namespace.parse",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/c30822720e5ee71d12fcdd2de03c2ed052646268/src/main/clojure/clojure/tools/namespace/parse.clj#L33",
+   "https://github.com/clojure/tools.namespace/blob/82514953276d243847cbb4a9276e38585a0ed5a6/src/main/clojure/clojure/tools/namespace/parse.clj#L42",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/c30822720e5ee71d12fcdd2de03c2ed052646268/src/main/clojure/clojure/tools/namespace/parse.clj",
+   "https://github.com/clojure/tools.namespace/raw/82514953276d243847cbb4a9276e38585a0ed5a6/src/main/clojure/clojure/tools/namespace/parse.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.parse/read-ns-decl",
    :doc
    "Attempts to read a (ns ...) declaration from a\njava.io.PushbackReader, and returns the unevaluated form. Returns\nthe first top-level ns form found. Returns nil if read fails or if a\nns declaration cannot be found. Note that read can execute code\n(controlled by *read-eval*), and as such should be used only with\ntrusted sources.",
    :var-type "function",
-   :line 33,
+   :line 42,
    :file "src/main/clojure/clojure/tools/namespace/parse.clj"}
   {:arglists ([lib]),
    :name "remove-lib",
