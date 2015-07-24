@@ -25,24 +25,37 @@
    (with-open [rdr (PushbackReader. (io/reader file))]
      (parse/read-ns-decl rdr read-opts))))
 
+(defn file-with-extension?
+  "Returns true if the java.io.File represents a file whose name ends
+  with one of the Strings in extensions."
+  {:added "0.3.0"}
+  [^java.io.File file extensions]
+  (and (.isFile file)
+       (let [name (.getName file)]
+         (some #(.endsWith name %) extensions))))
+
+(def ^{:added "0.3.0"}
+  clojure-extensions
+  "File extensions for Clojure (JVM) files."
+  (list ".clj" ".cljc"))
+
+(def ^{:added "0.3.0"}
+  clojurescript-extensions
+  "File extensions for ClojureScript files."
+  (list ".cljs" ".cljc"))
+
 (defn clojure-file?
   "Returns true if the java.io.File represents a file which will be
   read by the Clojure (JVM) compiler."
   [^java.io.File file]
-  (and (.isFile file)
-       (or
-         (.endsWith (.getName file) ".clj")
-         (.endsWith (.getName file) ".cljc"))))
+  (file-with-extension? file clojure-extensions))
 
 (defn clojurescript-file?
   "Returns true if the java.io.File represents a file which will be
   read by the ClojureScript compiler."
   {:added "0.3.0"}
   [^java.io.File file]
-  (and (.isFile file)
-       (or
-         (.endsWith (.getName file) ".cljs")
-         (.endsWith (.getName file) ".cljc"))))
+  (file-with-extension? file clojurescript-extensions))
 
 ;;; Dependency tracker
 
