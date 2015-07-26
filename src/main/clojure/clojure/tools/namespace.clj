@@ -22,7 +22,7 @@
 ;;; Finding namespaces in a directory tree
 
 (defn clojure-source-file?
-  "DEPRECATED; trivial to implement locally
+  "DEPRECATED; moved to clojure.tools.namespace.file
 
   Returns true if file is a normal file with a .clj or .cljc extension."
   {:deprecated "0.2.1"
