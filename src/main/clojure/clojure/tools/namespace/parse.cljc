@@ -24,6 +24,14 @@
   [form]
   (and (list? form) (= 'ns (first form))))
 
+(def clojure-read-opts
+  {:read-cond :allow
+   :features #{:clj}})
+
+(def clojurescript-read-opts
+  {:read-cond :allow
+   :features #{:cljs}})
+
 (defn read-ns-decl
   "Attempts to read a (ns ...) declaration from a reader, and returns
   the unevaluated form. Returns the first top-level ns form found.
@@ -35,8 +43,7 @@
   ([rdr]
    (read-ns-decl rdr nil))
   ([rdr read-opts]
-   (let [opts (assoc (or read-opts {:read-cond :allow
-                                    :features #{:clj}})
+   (let [opts (assoc (or read-opts clojure-read-opts)
                      :eof ::eof)]
      (loop []
        (let [form (reader/read opts rdr)]
