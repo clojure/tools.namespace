@@ -33,15 +33,17 @@
   through to tools.reader/read, defaults to allow conditional reader
   expressions with :features #{:clj}"
   ([rdr]
-   (read-ns-decl rdr {:read-cond :allow
-                      :features #{:clj}}))
+   (read-ns-decl rdr nil))
   ([rdr read-opts]
-   (loop []
-     (let [form (reader/read (assoc read-opts :eof ::eof) rdr)]
-       (cond
-         (ns-decl? form) form
-         (= ::eof form) nil
-         :else (recur))))))
+   (let [opts (assoc (or read-opts {:read-cond :allow
+                                    :features #{:clj}})
+                     :eof ::eof)]
+     (loop []
+       (let [form (reader/read opts rdr)]
+         (cond
+           (ns-decl? form) form
+           (= ::eof form) nil
+           :else (recur)))))))
 
 ;;; Parsing dependencies
 
