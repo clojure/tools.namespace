@@ -25,7 +25,7 @@
    (with-open [rdr (PushbackReader. (io/reader file))]
      (parse/read-ns-decl rdr read-opts))))
 
-(defn- file-with-extension?
+(defn file-with-extension?
   "Returns true if the java.io.File represents a file whose name ends
   with one of the Strings in extensions."
   {:added "0.3.0"}
