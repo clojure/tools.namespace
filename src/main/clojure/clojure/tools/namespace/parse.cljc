@@ -31,7 +31,7 @@
   execute code (controlled by tools.reader/*read-eval*), and as such
   should be used only with trusted sources. read-opts is passed
   through to tools.reader/read, defaults to allow conditional reader
-  expressions with :clj"
+  expressions with :features #{:clj}"
   ([rdr]
    (read-ns-decl rdr {:read-cond :allow
                       :features #{:clj}}))
