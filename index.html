@@ -306,12 +306,12 @@ other namespaces</pre>
     <span id="var-type">function</span><br />
     <pre id="var-usage">Usage: (clojure-source-file? file)
 </pre>
-    <pre id="var-docstr">DEPRECATED; trivial to implement locally
+    <pre id="var-docstr">DEPRECATED; moved to clojure.tools.namespace.file
 
 Returns true if file is a normal file with a .clj or .cljc extension.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.1.0</span><br /></span>
     <span class="var-deprecated"><span id="content">Deprecated since Extract namespace declarations version 0.2.1</span><br /></span>
-    <a href="https://github.com/clojure/tools.namespace/blob/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj#L24" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L24" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -324,7 +324,7 @@ Returns true if file is a normal file with a .clj or .cljc extension.</pre>
 Returns a sequence of filenames ending in .clj or .cljc found in the JAR file.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.1.0</span><br /></span>
     <span class="var-deprecated"><span id="content">Deprecated since Extract namespace declarations version 0.2.1</span><br /></span>
-    <a href="https://github.com/clojure/tools.namespace/blob/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj#L154" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L154" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -337,7 +337,7 @@ Returns a sequence of filenames ending in .clj or .cljc found in the JAR file.</
 Returns true if form is a (comment ...)</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.1.0</span><br /></span>
     <span class="var-deprecated"><span id="content">Deprecated since Extract namespace declarations version 0.2.1</span><br /></span>
-    <a href="https://github.com/clojure/tools.namespace/blob/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj#L48" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L48" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -351,7 +351,7 @@ Searches recursively under dir for Clojure source files (.clj, .cljc).
 Returns a sequence of File objects, in breadth-first sort order.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.1.0</span><br /></span>
     <span class="var-deprecated"><span id="content">Deprecated since Extract namespace declarations version 0.2.1</span><br /></span>
-    <a href="https://github.com/clojure/tools.namespace/blob/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj#L36" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L36" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -365,7 +365,7 @@ Searches dir recursively for (ns ...) declarations in Clojure
 source files; returns the symbol names of the declared namespaces.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.1.0</span><br /></span>
     <span class="var-deprecated"><span id="content">Deprecated since Extract namespace declarations version 0.2.1</span><br /></span>
-    <a href="https://github.com/clojure/tools.namespace/blob/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj#L106" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L106" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -380,7 +380,7 @@ declarations.  Returns a sequence of the symbol names of the
 declared namespaces.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.1.0</span><br /></span>
     <span class="var-deprecated"><span id="content">Deprecated since Extract namespace declarations version 0.2.1</span><br /></span>
-    <a href="https://github.com/clojure/tools.namespace/blob/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj#L191" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L191" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -397,7 +397,7 @@ source files containing (ns ...) declarations.  Returns a sequence
 of the symbol names of the declared namespaces.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.1.0</span><br /></span>
     <span class="var-deprecated"><span id="content">Deprecated since Extract namespace declarations version 0.2.1</span><br /></span>
-    <a href="https://github.com/clojure/tools.namespace/blob/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj#L219" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L219" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -411,7 +411,7 @@ Searches dir recursively for (ns ...) declarations in Clojure
 source files; returns the unevaluated ns declarations.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.1.0</span><br /></span>
     <span class="var-deprecated"><span id="content">Deprecated since Extract namespace declarations version 0.2.1</span><br /></span>
-    <a href="https://github.com/clojure/tools.namespace/blob/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj#L96" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L96" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -425,7 +425,7 @@ Searches the JAR file for Clojure source files containing (ns ...)
 declarations; returns the unevaluated ns declarations.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.1.0</span><br /></span>
     <span class="var-deprecated"><span id="content">Deprecated since Extract namespace declarations version 0.2.1</span><br /></span>
-    <a href="https://github.com/clojure/tools.namespace/blob/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj#L179" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L179" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -442,7 +442,7 @@ source files containing (ns ...) declarations. Returns a sequence of
 the unevaluated ns declaration forms.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.1.0</span><br /></span>
     <span class="var-deprecated"><span id="content">Deprecated since Extract namespace declarations version 0.2.1</span><br /></span>
-    <a href="https://github.com/clojure/tools.namespace/blob/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj#L204" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L204" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -455,7 +455,7 @@ the unevaluated ns declaration forms.</pre>
 Returns true if form is a (ns ...) declaration.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.1.0</span><br /></span>
     <span class="var-deprecated"><span id="content">Deprecated since Extract namespace declarations version 0.2.1</span><br /></span>
-    <a href="https://github.com/clojure/tools.namespace/blob/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj#L57" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L57" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -470,7 +470,7 @@ unevaluated form.  Returns nil if read fails, or if the first form
 is not a ns declaration.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.1.0</span><br /></span>
     <span class="var-deprecated"><span id="content">Deprecated since Extract namespace declarations version 0.2.1</span><br /></span>
-    <a href="https://github.com/clojure/tools.namespace/blob/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj#L84" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L84" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -486,7 +486,7 @@ cannot be found.  The ns declaration must be the first Clojure form
 in the file, except for (comment ...)  forms.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.1.0</span><br /></span>
     <span class="var-deprecated"><span id="content">Deprecated since Extract namespace declarations version 0.2.1</span><br /></span>
-    <a href="https://github.com/clojure/tools.namespace/blob/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj#L66" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L66" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -501,7 +501,7 @@ JAR file, and returns the unevaluated form.  Returns nil if the read
 fails, or if the first form is not a ns declaration.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.1.0</span><br /></span>
     <span class="var-deprecated"><span id="content">Deprecated since Extract namespace declarations version 0.2.1</span><br /></span>
-    <a href="https://github.com/clojure/tools.namespace/blob/4f31368ee96be5093fd3aaf9fcf5be21e2506dd2/src/main/clojure/clojure/tools/namespace.clj#L164" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L164" id="var-source">Source</a>
   </div>
 </div>
 <br />
