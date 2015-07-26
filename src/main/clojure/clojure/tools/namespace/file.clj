@@ -18,7 +18,7 @@
   "Attempts to read a (ns ...) declaration from file, and returns the
   unevaluated form. Returns nil if read fails due to invalid syntax or
   if a ns declaration cannot be found. read-opts is passed through to
-  clojure.core/read if this version of Clojure supports it."
+  tools.reader/read."
   ([file]
    (read-file-ns-decl file nil))
   ([file read-opts]
