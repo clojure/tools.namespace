@@ -19,80 +19,141 @@
                     InputStreamReader)
            (java.util.jar JarFile JarEntry)))
 
+(def clojure-platform
+  "Definition of file extensions and reader options for Clojure (.clj
+  and .cljc) source files."
+  {:read-opts parse/clojure-read-opts
+   :extensions file/clojure-extensions})
+
+(def clojurescript-platform
+  "Definition of file extensions and reader options for ClojureScript
+  (.cljs and .cljc) source files."
+  {:read-opts parse/clojurescript-read-opts
+   :extensions file/clojurescript-extensions})
+
 ;;; Finding namespaces in a directory tree
 
+(defn- sort-files-breadth-first
+  [files]
+  (sort-by #(.getAbsolutePath ^File %) files))
+
+(defn find-sources-in-dir
+  "Searches recursively under dir for source files. Returns a sequence
+  of File objects, in breadth-first sort order."
+  ([dir]
+   (find-sources-in-dir dir nil))
+  ([^File dir platform]
+   (let [{:keys [extensions]} (or platform clojure-platform)]
+     (->> (file-seq dir)
+          (filter #(file/file-with-extension? % extensions))
+          sort-files-breadth-first))))
+
 (defn find-clojure-sources-in-dir
-  "Searches recursively under dir for Clojure source files (.clj, .cljc).
+  "DEPRECATED: replaced by find-sources-in-dir
+
+  Searches recursively under dir for Clojure source files (.clj, .cljc).
   Returns a sequence of File objects, in breadth-first sort order."
   [^File dir]
-  ;; Use sort by absolute path to get breadth-first search.
-  (sort-by #(.getAbsolutePath ^File %)
-           (filter file/clojure-file? (file-seq dir))))
+  (find-sources-in-dir dir clojure-platform))
 
 (defn find-ns-decls-in-dir
   "Searches dir recursively for (ns ...) declarations in Clojure
   source files; returns the unevaluated ns declarations."
-  [^File dir]
-  (keep file/read-file-ns-decl (find-clojure-sources-in-dir dir)))
+  ([dir] (find-ns-decls-in-dir dir nil))
+  ([dir options]
+   (keep #(file/read-file-ns-decl % options)
+         (find-clojure-sources-in-dir dir))))
 
 (defn find-namespaces-in-dir
   "Searches dir recursively for (ns ...) declarations in Clojure
   source files; returns the symbol names of the declared namespaces."
-  [^File dir]
-  (map second (find-ns-decls-in-dir dir)))
+  ([dir] (find-namespaces-in-dir dir))
+  ([dir options]
+   (map second (find-ns-decls-in-dir dir options))))
 
 ;;; Finding namespaces in JAR files
 
+(defn- ends-with-extension
+  [^String filename extensions]
+  (some #(.endsWith filename %) extensions))
+
+(defn sources-in-jar
+  "Returns a sequence of source file names found in the JAR file.
+  Optional second argument is either clojure-platform or
+  clojurescript-platform, both defined in this namespace.. Controls
+  which file extensions are included."
+  ([jar-file]
+   (sources-in-jar jar-file nil))
+  ([^JarFile jar-file platform]
+   (let [{:keys [extensions]} (or platform clojure-platform)]
+     (filter #(ends-with-extension % extensions)
+             (classpath/filenames-in-jar jar-file)))))
+
 (defn clojure-sources-in-jar
-  "Returns a sequence of filenames ending in .clj or .cljc found in the JAR file."
-  [^JarFile jar-file]
-  (filter #(or (.endsWith ^String % ".clj") (.endsWith ^String % ".cljc"))
-          (classpath/filenames-in-jar jar-file)))
+  "DEPRECATED: replaced by sources-in-jar
+
+  Returns a sequence of filenames ending in .clj or .cljc found in the
+  JAR file."
+  [jar-file]
+  (sources-in-jar jar-file clojure-platform))
 
 (defn read-ns-decl-from-jarfile-entry
   "Attempts to read a (ns ...) declaration from the named entry in the
   JAR file, and returns the unevaluated form.  Returns nil if the read
   fails, or if the first form is not a ns declaration."
-  [^JarFile jarfile ^String entry-name]
-  (with-open [rdr (PushbackReader.
-                   (io/reader
-                    (.getInputStream jarfile (.getEntry jarfile entry-name))))]
-    (parse/read-ns-decl rdr)))
+  ([jarfile entry-name]
+   (read-ns-decl-from-jarfile-entry jarfile entry-name nil))
+  ([^JarFile jarfile ^String entry-name platform]
+   (let [{:keys [read-opts]} (or platform clojure-platform)]
+     (with-open [rdr (PushbackReader.
+                      (io/reader
+                       (.getInputStream jarfile (.getEntry jarfile entry-name))))]
+       (parse/read-ns-decl rdr read-opts)))))
 
 (defn find-ns-decls-in-jarfile
-  "Searches the JAR file for Clojure source files containing (ns ...)
+  "Searches the JAR file for platform source files containing (ns ...)
   declarations; returns the unevaluated ns declarations."
-  [^JarFile jarfile]
-  (filter identity
-          (map #(read-ns-decl-from-jarfile-entry jarfile %)
-               (clojure-sources-in-jar jarfile))))
+  ([jarfile]
+   (find-ns-decls-in-jarfile jarfile nil))
+  ([^JarFile jarfile platform]
+   (keep #(read-ns-decl-from-jarfile-entry jarfile % platform)
+         (sources-in-jar jarfile platform))))
 
 (defn find-namespaces-in-jarfile
-  "Searches the JAR file for Clojure source files containing (ns ...)
+  "Searches the JAR file for platform source files containing (ns ...)
   declarations.  Returns a sequence of the symbol names of the
   declared namespaces."
-  [^JarFile jarfile]
-  (map second (find-ns-decls-in-jarfile jarfile)))
+  ([jarfile]
+   (find-namespaces-in-jarfile jarfile nil))
+  ([^JarFile jarfile platform]
+   (map second (find-ns-decls-in-jarfile jarfile platform))))
 
 
 ;;; Finding namespaces
 
 (defn find-ns-decls
   "Searches a sequence of java.io.File objects (both directories and
-  JAR files) for .clj or .cljc source files containing (ns...) declarations.
-  Returns a sequence of the unevaluated ns declaration forms. Use with
-  clojure.java.classpath to search Clojure's classpath."
-  [files]
-  (concat
-   (mapcat find-ns-decls-in-dir (filter #(.isDirectory ^File %) files))
-   (mapcat find-ns-decls-in-jarfile (filter classpath/jar-file? files))))
+  JAR files) for platform source files containing (ns...)
+  declarations. Returns a sequence of the unevaluated ns declaration
+  forms. Use with clojure.java.classpath to search Clojure's
+  classpath."
+  ([files]
+   (find-ns-decls files nil))
+  ([files platform]
+   (concat
+    (mapcat #(find-ns-decls-in-dir % platform)
+            (filter #(.isDirectory ^File %) files))
+    (mapcat #(find-ns-decls-in-jarfile % platform)
+            (filter classpath/jar-file? files)))))
 
 (defn find-namespaces
   "Searches a sequence of java.io.File objects (both directories and
-  JAR files) for .clj or .cljc source files containing (ns...) declarations.
-  Returns a sequence of the symbol names of the declared
+  JAR files) for platform source files containing (ns...)
+  declarations. Returns a sequence of the symbol names of the declared
   namespaces. Use with clojure.java.classpath to search Clojure's
   classpath."
-  [files]
-  (map second (find-ns-decls files)))
+  ([files]
+   (find-namespaces files nil))
+  ([files platform]
+   (map second (find-ns-decls files platform))))
 
