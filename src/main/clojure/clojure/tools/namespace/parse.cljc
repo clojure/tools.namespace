@@ -24,11 +24,11 @@
   [form]
   (and (list? form) (= 'ns (first form))))
 
-(def clojure-read-opts
+(def clj-read-opts
   {:read-cond :allow
    :features #{:clj}})
 
-(def clojurescript-read-opts
+(def cljs-read-opts
   {:read-cond :allow
    :features #{:cljs}})
 
@@ -43,7 +43,7 @@
   ([rdr]
    (read-ns-decl rdr nil))
   ([rdr read-opts]
-   (let [opts (assoc (or read-opts clojure-read-opts)
+   (let [opts (assoc (or read-opts clj-read-opts)
                      :eof ::eof)]
      (loop []
        (let [form (reader/read opts rdr)]

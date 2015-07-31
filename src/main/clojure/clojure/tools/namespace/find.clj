@@ -23,14 +23,14 @@
   clj
   "Platform definition of file extensions and reader options for
   Clojure (.clj and .cljc) source files."
-  {:read-opts parse/clojure-read-opts
+  {:read-opts parse/clj-read-opts
    :extensions file/clojure-extensions})
 
 (def ^{:added "0.3.0"}
   cljs
   "Platform definition of file extensions and reader options for
   ClojureScript (.cljs and .cljc) source files."
-  {:read-opts parse/clojurescript-read-opts
+  {:read-opts parse/cljs-read-opts
    :extensions file/clojurescript-extensions})
 
 ;;; Finding namespaces in a directory tree
@@ -189,4 +189,3 @@
    (find-namespaces files nil))
   ([files platform]
    (map second (find-ns-decls files platform))))
-
