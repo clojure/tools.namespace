@@ -14,9 +14,9 @@
             [clojure.tools.namespace.find :as find]
             [clojure.tools.namespace.reload :as reload]))
 
-(defonce ^:private refresh-tracker (track/tracker))
+(defonce refresh-tracker (track/tracker))
 
-(defonce ^:private refresh-dirs [])
+(defonce refresh-dirs [])
 
 (defn- print-and-return [tracker]
   (if-let [e (::reload/error tracker)]
