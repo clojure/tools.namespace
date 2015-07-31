@@ -13,8 +13,19 @@
   <dependencies>
     <dependency>
       <groupId>org.clojure</groupId>
+      <artifactId>clojure</artifactId>
+      <version>1.7.0</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.clojure</groupId>
       <artifactId>java.classpath</artifactId>
       <version>0.2.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.clojure</groupId>
+      <artifactId>tools.reader</artifactId>
+      <version>0.9.2</version>
     </dependency>
   </dependencies>
 
@@ -34,4 +45,5 @@
     <url>git@github.com:clojure/tools.namespace.git</url>
     <tag>HEAD</tag>
   </scm>
+
 </project>

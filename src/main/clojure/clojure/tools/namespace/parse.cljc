@@ -10,24 +10,9 @@
       :doc "Parse Clojure namespace (ns) declarations and extract
   dependencies."}
   clojure.tools.namespace.parse
-  (:require [clojure.set :as set]))
-
-(defn- read-clj
-  "Calls clojure.core/read. If reader conditionals are
-  supported (Clojure 1.7) then adds options {:read-cond :allow}."
-  [rdr]
-  (if (resolve 'clojure.core/reader-conditional?)
-    (read {:read-cond :allow} rdr)
-    (read rdr)))
-
-(defn- force-errors
-  "Forces reader errors to be thrown immediately. Some versions of
-  Clojure accept invalid forms in the reader and only throw an
-  exception when they are printed.
-  See http://dev.clojure.org/jira/browse/TNS-1"
-  [form]
-  (str form) ; str forces errors
-  form)
+  (:require #?(:clj [clojure.tools.reader :as reader]
+               :cljs [cljs.tools.reader :as reader])
+            [clojure.set :as set]))
 
 (defn comment?
   "Returns true if form is a (comment ...)"
@@ -39,22 +24,33 @@
   [form]
   (and (list? form) (= 'ns (first form))))
 
+(def clj-read-opts
+  {:read-cond :allow
+   :features #{:clj}})
+
+(def cljs-read-opts
+  {:read-cond :allow
+   :features #{:cljs}})
+
 (defn read-ns-decl
-  "Attempts to read a (ns ...) declaration from a
-  java.io.PushbackReader, and returns the unevaluated form. Returns
-  the first top-level ns form found. Returns nil if read fails or if a
-  ns declaration cannot be found. Note that read can execute code
-  (controlled by *read-eval*), and as such should be used only with
-  trusted sources."
-  [rdr]
-  {:pre [(instance? java.io.PushbackReader rdr)]}
-  (try
-   (loop []
-     (let [form (force-errors (read-clj rdr))]
-       (if (ns-decl? form)
-         form
-         (recur))))
-   (catch Exception e nil)))
+  "Attempts to read a (ns ...) declaration from a reader, and returns
+  the unevaluated form. Returns the first top-level ns form found.
+  Returns nil if a ns declaration cannot be found. Note that read can
+  execute code (controlled by tools.reader/*read-eval*), and as such
+  should be used only with trusted sources. read-opts is passed
+  through to tools.reader/read, defaults to allow conditional reader
+  expressions with :features #{:clj}"
+  ([rdr]
+   (read-ns-decl rdr nil))
+  ([rdr read-opts]
+   (let [opts (assoc (or read-opts clj-read-opts)
+                     :eof ::eof)]
+     (loop []
+       (let [form (reader/read opts rdr)]
+         (cond
+           (ns-decl? form) form
+           (= ::eof form) nil
+           :else (recur)))))))
 
 ;;; Parsing dependencies
 
@@ -91,12 +87,25 @@
 	(keyword? form)  ; Some people write (:require ... :reload-all)
           nil
 	:else
-          (throw (IllegalArgumentException.
-                  (pr-str "Unparsable namespace form:" form)))))
+          (throw (ex-info "Unparsable namespace form"
+                          {:reason ::unparsable-ns-form
+                           :form form}))))
+
+(def ^:private ns-clause-head-names
+  "Set of symbol/keyword names which can appear as the head of a
+  clause in the ns form."
+  #{"use" "require" "use-macros" "require-macros"})
+
+(def ^:private ns-clause-heads
+  "Set of all symbols and keywords which can appear at the head of a
+  dependency clause in the ns form."
+  (set (mapcat (fn [name] (list (keyword name)
+                                (symbol name)))
+               ns-clause-head-names)))
 
 (defn- deps-from-ns-form [form]
   (when (and (sequential? form)  ; should be list but sometimes is not
-	     (contains? #{:use :require 'use 'require} (first form)))
+	     (contains? ns-clause-heads (first form)))
     (mapcat #(deps-from-libspec nil %) (rest form))))
 
 (defn deps-from-ns-decl
