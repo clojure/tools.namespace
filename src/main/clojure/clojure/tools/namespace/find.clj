@@ -174,7 +174,7 @@
     (mapcat #(find-ns-decls-in-dir % platform)
             (filter #(.isDirectory ^File %) files))
     (mapcat #(find-ns-decls-in-jarfile % platform)
-            (filter classpath/jar-file? files)))))
+            (map #(JarFile. %) (filter classpath/jar-file? files))))))
 
 (defn find-namespaces
   "Searches a sequence of java.io.File objects (both directories and
