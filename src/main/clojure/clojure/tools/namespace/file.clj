@@ -59,9 +59,9 @@
 
 ;;; Dependency tracker
 
-(defn- files-and-deps [files]
+(defn- files-and-deps [files read-opts]
   (reduce (fn [m file]
-            (if-let [decl (read-file-ns-decl file)]
+            (if-let [decl (read-file-ns-decl file read-opts)]
               (let [deps (parse/deps-from-ns-decl decl)
                     name (second decl)]
                 (-> m
@@ -74,12 +74,15 @@
 
 (defn add-files
   "Reads ns declarations from files; returns an updated dependency
-  tracker with those files added."
-  [tracker files]
-  (let [{:keys [depmap filemap]} (files-and-deps files)]
-    (-> tracker
-        (track/add depmap)
-        (update-in [::filemap] merge-map filemap))))
+  tracker with those files added. read-opts is passed through to
+  tools.reader."
+  ([tracker files]
+   (add-files tracker files nil))
+  ([tracker files read-opts]
+   (let [{:keys [depmap filemap]} (files-and-deps files read-opts)]
+     (-> tracker
+         (track/add depmap)
+         (update-in [::filemap] merge-map filemap)))))
 
 (defn remove-files
   "Returns an updated dependency tracker with files removed. The files
