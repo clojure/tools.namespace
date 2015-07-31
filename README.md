@@ -15,34 +15,36 @@ repositories.
 Releases and Dependency Information
 ----------------------------------------
 
-* [Latest stable release is 0.2.11](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.2.11)
+* Latest stable release is [0.3.0](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.3.0)
+
+* [Change Log](CHANGES.md)
 
 * [All Released Versions](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.clojure%22%20AND%20a%3A%22tools.namespace%22)
 
 [Leiningen](http://leiningen.org/) dependency information:
 
-    [org.clojure/tools.namespace "0.2.11"]
+    [org.clojure/tools.namespace "0.3.0"]
 
 [Maven](http://maven.apache.org/) dependency information:
 
     <dependency>
       <groupId>org.clojure</groupId>
       <artifactId>tools.namespace</artifactId>
-      <version>0.2.11</version>
+      <version>0.3.0</version>
     </dependency>
 
 
 ### Development Snapshots ###
 
-* Git master branch is at **0.2.12-SNAPSHOT**
+* Git master branch is at **0.3.1-SNAPSHOT**
 
 * [All Snapshot Versions](https://oss.sonatype.org/content/groups/public/org/clojure/tools.namespace/)
 
 Leiningen dependency information for development snapshots:
 
-    :dependencies [[org.clojure/tools.namespace "0.2.12-SNAPSHOT"]]
-    :repositories {"sonatype-oss-public"
-                   "https://oss.sonatype.org/content/groups/public/"}
+    :dependencies [[org.clojure/tools.namespace "0.3.1-SNAPSHOT"]]
+    :repositories [["sonatype-oss-public"
+                    "https://oss.sonatype.org/content/groups/public/"]]
 
 See also [Maven Settings and Repositories](http://dev.clojure.org/display/doc/Maven+Settings+and+Repositories) on dev.clojure.org.
 
@@ -85,6 +87,37 @@ primary public entry-point to their functionality.
 **clojure.tools.namespace.move:** Utilities to aid in moving and
 renaming Clojure namespaces. This code is still ALPHA, and it modifies
 your source files, so be careful.
+
+
+
+ClojureScript support
+-----------------------
+
+**New in version 0.3.0**
+
+These namespaces are `.cljc` files usable from both Clojure(JVM) and
+ClojureScript:
+
+* c.t.n.dependency
+* c.t.n.track
+* c.t.n.parse
+
+These namespaces are usable on Clojure(JVM) only but can analyze both
+Clojure(JVM) and ClojureScript source files:
+
+* c.t.n.file
+* c.t.n.dir
+* c.t.n.find
+
+Most functions now take an optional "platform" argument, which is one
+of the constant values defined in c.t.n.find: `clj` or `cljs`. The
+default is `clj`.
+
+These namespaces are still Clojure(JVM) only: 
+
+* c.t.n.reload
+* c.t.n.repl
+* c.t.n.move.
 
 
 
