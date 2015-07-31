@@ -159,6 +159,12 @@ namespace.
     </div><div style="margin-left: 1em;" class="toc-entry">
       <a class="toc-entry-anchor" href="#clojure.tools.namespace.dir/scan-all">scan-all</a>
       
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dir/scan-dirs">scan-dirs</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dir/scan-files">scan-files</a>
+      
     </div>
   </div><div style="margin-left: 1em;" class="toc-section">
     <a href="#clojure.tools.namespace.file" style="margin-top: 3px;">clojure.tools.namespace.file</a>
@@ -190,13 +196,13 @@ namespace.
   </div><div style="margin-left: 1em;" class="toc-section">
     <a href="#clojure.tools.namespace.find" style="margin-top: 3px;">clojure.tools.namespace.find</a>
     <div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.find/clojure-platform">clojure-platform</a>
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.find/clj">clj</a>
+      
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a class="toc-entry-anchor" href="#clojure.tools.namespace.find/cljs">cljs</a>
       
     </div><div style="margin-left: 1em;" class="toc-entry">
       <a class="toc-entry-anchor" href="#clojure.tools.namespace.find/clojure-sources-in-jar">clojure-sources-in-jar</a>
-      
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.find/clojurescript-platform">clojurescript-platform</a>
       
     </div><div style="margin-left: 1em;" class="toc-entry">
       <a class="toc-entry-anchor" href="#clojure.tools.namespace.find/find-clojure-sources-in-dir">find-clojure-sources-in-dir</a>
@@ -795,14 +801,16 @@ file-modification timestamps</pre>
     <span id="var-type">function</span><br />
     <pre id="var-usage">Usage: (scan tracker &amp; dirs)
 </pre>
-    <pre id="var-docstr">Scans directories for files which have changed since the last time
-'scan' was run; update the dependency tracker with
-new/changed/deleted files.
+    <pre id="var-docstr">DEPRECATED: replaced by scan-dirs.
+
+Scans directories for Clojure (.clj, .cljc) source files which have
+changed since the last time 'scan' was run; update the dependency
+tracker with new/changed/deleted files.
 
 If no dirs given, defaults to all directories on the classpath.</pre>
-    
-    
-    <a href="https://github.com/clojure/tools.namespace/blob/30c15ef248f78acce7fc133f77e4220014a9c9d5/src/main/clojure/clojure/tools/namespace/dir.clj#L44" id="var-source">Source</a>
+    <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.2.0</span><br /></span>
+    <span class="var-deprecated"><span id="content">Deprecated since Extract namespace declarations version 0.3.0</span><br /></span>
+    <a href="https://github.com/clojure/tools.namespace/blob/504e796f6b0ad40d8ad52399a1a6574dd75769ec/src/main/clojure/clojure/tools/namespace/dir.clj#L92" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -810,12 +818,66 @@ If no dirs given, defaults to all directories on the classpath.</pre>
     <span id="var-type">function</span><br />
     <pre id="var-usage">Usage: (scan-all tracker &amp; dirs)
 </pre>
-    <pre id="var-docstr">Scans directories for all Clojure source files and updates the
+    <pre id="var-docstr">DEPRECATED: replaced by scan-dirs.
+
+Scans directories for all Clojure source files and updates the
 dependency tracker to reload files. If no dirs given, defaults to
 all directories on the classpath.</pre>
+    <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.2.0</span><br /></span>
+    <span class="var-deprecated"><span id="content">Deprecated since Extract namespace declarations version 0.3.0</span><br /></span>
+    <a href="https://github.com/clojure/tools.namespace/blob/504e796f6b0ad40d8ad52399a1a6574dd75769ec/src/main/clojure/clojure/tools/namespace/dir.clj#L105" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.dir/scan-dirs">scan-dirs</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (scan-dirs tracker)
+       (scan-dirs tracker dirs)
+       (scan-dirs tracker dirs {:keys [platform add-all?], :as options})
+</pre>
+    <pre id="var-docstr">Scans directories for files which have changed since the last time
+'scan-dirs' or 'scan-files' was run; updates the dependency tracker
+with new/changed/deleted files.
+
+dirs is the collection of directories to scan, defaults to all
+directories on Clojure's classpath.
+
+Optional third argument is map of options:
+
+  :platform  Either clj (default) or cljs, both defined in 
+             clojure.tools.namespace.find, controls file extensions 
+             and reader options.
+
+  :add-all?  If true, assumes all extant files are modified regardless
+             of filesystem timestamps.</pre>
+    <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.3.0</span><br /></span>
     
+    <a href="https://github.com/clojure/tools.namespace/blob/504e796f6b0ad40d8ad52399a1a6574dd75769ec/src/main/clojure/clojure/tools/namespace/dir.clj#L69" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.dir/scan-files">scan-files</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (scan-files tracker files)
+       (scan-files tracker files {:keys [platform add-all?]})
+</pre>
+    <pre id="var-docstr">Scans files to find those which have changed since the last time
+'scan-files' was run; updates the dependency tracker with
+new/changed/deleted files.
+
+files is the collection of files to scan.
+
+Optional third argument is map of options:
+
+  :platform  Either clj (default) or cljs, both defined in
+             clojure.tools.namespace.find, controls reader options for 
+             parsing files.
+
+  :add-all?  If true, assumes all extant files are modified regardless
+             of filesystem timestamps.</pre>
+    <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.3.0</span><br /></span>
     
-    <a href="https://github.com/clojure/tools.namespace/blob/30c15ef248f78acce7fc133f77e4220014a9c9d5/src/main/clojure/clojure/tools/namespace/dir.clj#L59" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/504e796f6b0ad40d8ad52399a1a6574dd75769ec/src/main/clojure/clojure/tools/namespace/dir.clj#L43" id="var-source">Source</a>
   </div>
 </div>
 <br />
@@ -835,12 +897,14 @@ all directories on the classpath.</pre>
     <h2 id="clojure.tools.namespace.file/add-files">add-files</h2>
     <span id="var-type">function</span><br />
     <pre id="var-usage">Usage: (add-files tracker files)
+       (add-files tracker files read-opts)
 </pre>
     <pre id="var-docstr">Reads ns declarations from files; returns an updated dependency
-tracker with those files added.</pre>
+tracker with those files added. read-opts is passed through to
+tools.reader.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/b188bc7e6f91f46564086a092c6f6ed1b21c4495/src/main/clojure/clojure/tools/namespace/file.clj#L75" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/2d1bf0254161b5da340c5524f91f945db3c10e8a/src/main/clojure/clojure/tools/namespace/file.clj#L75" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -850,7 +914,7 @@ tracker with those files added.</pre>
     <pre id="var-docstr">File extensions for Clojure (JVM) files.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.3.0</span><br /></span>
     
-    <a href="https://github.com/clojure/tools.namespace/blob/b188bc7e6f91f46564086a092c6f6ed1b21c4495/src/main/clojure/clojure/tools/namespace/file.clj#L37" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/2d1bf0254161b5da340c5524f91f945db3c10e8a/src/main/clojure/clojure/tools/namespace/file.clj#L37" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -862,7 +926,7 @@ tracker with those files added.</pre>
 read by the Clojure (JVM) compiler.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/b188bc7e6f91f46564086a092c6f6ed1b21c4495/src/main/clojure/clojure/tools/namespace/file.clj#L47" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/2d1bf0254161b5da340c5524f91f945db3c10e8a/src/main/clojure/clojure/tools/namespace/file.clj#L47" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -872,7 +936,7 @@ read by the Clojure (JVM) compiler.</pre>
     <pre id="var-docstr">File extensions for ClojureScript files.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.3.0</span><br /></span>
     
-    <a href="https://github.com/clojure/tools.namespace/blob/b188bc7e6f91f46564086a092c6f6ed1b21c4495/src/main/clojure/clojure/tools/namespace/file.clj#L42" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/2d1bf0254161b5da340c5524f91f945db3c10e8a/src/main/clojure/clojure/tools/namespace/file.clj#L42" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -884,7 +948,7 @@ read by the Clojure (JVM) compiler.</pre>
 read by the ClojureScript compiler.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.3.0</span><br /></span>
     
-    <a href="https://github.com/clojure/tools.namespace/blob/b188bc7e6f91f46564086a092c6f6ed1b21c4495/src/main/clojure/clojure/tools/namespace/file.clj#L53" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/2d1bf0254161b5da340c5524f91f945db3c10e8a/src/main/clojure/clojure/tools/namespace/file.clj#L53" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -896,7 +960,7 @@ read by the ClojureScript compiler.</pre>
 with one of the Strings in extensions.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.3.0</span><br /></span>
     
-    <a href="https://github.com/clojure/tools.namespace/blob/b188bc7e6f91f46564086a092c6f6ed1b21c4495/src/main/clojure/clojure/tools/namespace/file.clj#L28" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/2d1bf0254161b5da340c5524f91f945db3c10e8a/src/main/clojure/clojure/tools/namespace/file.clj#L28" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -911,7 +975,7 @@ if a ns declaration cannot be found. read-opts is passed through to
 tools.reader/read.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/b188bc7e6f91f46564086a092c6f6ed1b21c4495/src/main/clojure/clojure/tools/namespace/file.clj#L17" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/2d1bf0254161b5da340c5524f91f945db3c10e8a/src/main/clojure/clojure/tools/namespace/file.clj#L17" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -923,7 +987,7 @@ tools.reader/read.</pre>
 must have been previously added with add-files.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/b188bc7e6f91f46564086a092c6f6ed1b21c4495/src/main/clojure/clojure/tools/namespace/file.clj#L84" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/2d1bf0254161b5da340c5524f91f945db3c10e8a/src/main/clojure/clojure/tools/namespace/file.clj#L87" id="var-source">Source</a>
   </div>
 </div>
 <br />
@@ -940,14 +1004,25 @@ must have been previously added with add-files.</pre>
   <div id="var-entry">
     <br />
     <hr />
-    <h2 id="clojure.tools.namespace.find/clojure-platform">clojure-platform</h2>
+    <h2 id="clojure.tools.namespace.find/clj">clj</h2>
     <span id="var-type">var</span><br />
     <pre id="var-usage"></pre>
-    <pre id="var-docstr">Definition of file extensions and reader options for Clojure (.clj
-and .cljc) source files.</pre>
+    <pre id="var-docstr">Platform definition of file extensions and reader options for
+Clojure (.clj and .cljc) source files.</pre>
+    <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.3.0</span><br /></span>
     
+    <a href="https://github.com/clojure/tools.namespace/blob/dca2e36705d67186d00cd117fd373e1a4a40a793/src/main/clojure/clojure/tools/namespace/find.clj#L22" id="var-source">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.find/cljs">cljs</h2>
+    <span id="var-type">var</span><br />
+    <pre id="var-usage"></pre>
+    <pre id="var-docstr">Platform definition of file extensions and reader options for
+ClojureScript (.cljs and .cljc) source files.</pre>
+    <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.3.0</span><br /></span>
     
-    <a href="https://github.com/clojure/tools.namespace/blob/e928d78a9ca18a2191cf27539fafa4ceb81b182f/src/main/clojure/clojure/tools/namespace/find.clj#L22" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/dca2e36705d67186d00cd117fd373e1a4a40a793/src/main/clojure/clojure/tools/namespace/find.clj#L29" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -959,20 +1034,9 @@ and .cljc) source files.</pre>
 
 Returns a sequence of filenames ending in .clj or .cljc found in the
 JAR file.</pre>
-    
-    
-    <a href="https://github.com/clojure/tools.namespace/blob/e928d78a9ca18a2191cf27539fafa4ceb81b182f/src/main/clojure/clojure/tools/namespace/find.clj#L92" id="var-source">Source</a>
-  </div><div id="var-entry">
-    <br />
-    <hr />
-    <h2 id="clojure.tools.namespace.find/clojurescript-platform">clojurescript-platform</h2>
-    <span id="var-type">var</span><br />
-    <pre id="var-usage"></pre>
-    <pre id="var-docstr">Definition of file extensions and reader options for ClojureScript
-(.cljs and .cljc) source files.</pre>
-    
-    
-    <a href="https://github.com/clojure/tools.namespace/blob/e928d78a9ca18a2191cf27539fafa4ceb81b182f/src/main/clojure/clojure/tools/namespace/find.clj#L28" id="var-source">Source</a>
+    <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.2.0</span><br /></span>
+    <span class="var-deprecated"><span id="content">Deprecated since Extract namespace declarations version 0.3.0</span><br /></span>
+    <a href="https://github.com/clojure/tools.namespace/blob/dca2e36705d67186d00cd117fd373e1a4a40a793/src/main/clojure/clojure/tools/namespace/find.clj#L109" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -984,9 +1048,9 @@ JAR file.</pre>
 
 Searches recursively under dir for Clojure source files (.clj, .cljc).
 Returns a sequence of File objects, in breadth-first sort order.</pre>
-    
-    
-    <a href="https://github.com/clojure/tools.namespace/blob/e928d78a9ca18a2191cf27539fafa4ceb81b182f/src/main/clojure/clojure/tools/namespace/find.clj#L51" id="var-source">Source</a>
+    <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.2.0</span><br /></span>
+    <span class="var-deprecated"><span id="content">Deprecated since Extract namespace declarations version 0.3.0</span><br /></span>
+    <a href="https://github.com/clojure/tools.namespace/blob/dca2e36705d67186d00cd117fd373e1a4a40a793/src/main/clojure/clojure/tools/namespace/find.clj#L57" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -999,23 +1063,29 @@ Returns a sequence of File objects, in breadth-first sort order.</pre>
 JAR files) for platform source files containing (ns...)
 declarations. Returns a sequence of the symbol names of the declared
 namespaces. Use with clojure.java.classpath to search Clojure's
-classpath.</pre>
+classpath.
+
+Optional second argument platform is either clj (default) or cljs,
+both defined in clojure.tools.namespace.find.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/e928d78a9ca18a2191cf27539fafa4ceb81b182f/src/main/clojure/clojure/tools/namespace/find.clj#L149" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/dca2e36705d67186d00cd117fd373e1a4a40a793/src/main/clojure/clojure/tools/namespace/find.clj#L179" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
     <h2 id="clojure.tools.namespace.find/find-namespaces-in-dir">find-namespaces-in-dir</h2>
     <span id="var-type">function</span><br />
     <pre id="var-usage">Usage: (find-namespaces-in-dir dir)
-       (find-namespaces-in-dir dir options)
+       (find-namespaces-in-dir dir platform)
 </pre>
     <pre id="var-docstr">Searches dir recursively for (ns ...) declarations in Clojure
-source files; returns the symbol names of the declared namespaces.</pre>
+source files; returns the symbol names of the declared namespaces.
+
+Optional second argument platform is either clj (default) or cljs,
+both defined in clojure.tools.namespace.find.</pre>
+    <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.3.0</span><br /></span>
     
-    
-    <a href="https://github.com/clojure/tools.namespace/blob/e928d78a9ca18a2191cf27539fafa4ceb81b182f/src/main/clojure/clojure/tools/namespace/find.clj#L67" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/dca2e36705d67186d00cd117fd373e1a4a40a793/src/main/clojure/clojure/tools/namespace/find.clj#L79" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1026,10 +1096,13 @@ source files; returns the symbol names of the declared namespaces.</pre>
 </pre>
     <pre id="var-docstr">Searches the JAR file for platform source files containing (ns ...)
 declarations.  Returns a sequence of the symbol names of the
-declared namespaces.</pre>
+declared namespaces.
+
+Optional second argument platform is either clj (default) or cljs,
+both defined in clojure.tools.namespace.find.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/e928d78a9ca18a2191cf27539fafa4ceb81b182f/src/main/clojure/clojure/tools/namespace/find.clj#L122" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/dca2e36705d67186d00cd117fd373e1a4a40a793/src/main/clojure/clojure/tools/namespace/find.clj#L146" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1042,23 +1115,29 @@ declared namespaces.</pre>
 JAR files) for platform source files containing (ns...)
 declarations. Returns a sequence of the unevaluated ns declaration
 forms. Use with clojure.java.classpath to search Clojure's
-classpath.</pre>
+classpath.
+
+Optional second argument platform is either clj (default) or cljs,
+both defined in clojure.tools.namespace.find.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/e928d78a9ca18a2191cf27539fafa4ceb81b182f/src/main/clojure/clojure/tools/namespace/find.clj#L134" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/dca2e36705d67186d00cd117fd373e1a4a40a793/src/main/clojure/clojure/tools/namespace/find.clj#L161" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
     <h2 id="clojure.tools.namespace.find/find-ns-decls-in-dir">find-ns-decls-in-dir</h2>
     <span id="var-type">function</span><br />
     <pre id="var-usage">Usage: (find-ns-decls-in-dir dir)
-       (find-ns-decls-in-dir dir options)
+       (find-ns-decls-in-dir dir platform)
 </pre>
     <pre id="var-docstr">Searches dir recursively for (ns ...) declarations in Clojure
-source files; returns the unevaluated ns declarations.</pre>
+source files; returns the unevaluated ns declarations.
+
+Optional second argument platform is either clj (default) or cljs,
+both defined in clojure.tools.namespace.find.</pre>
+    <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.2.0</span><br /></span>
     
-    
-    <a href="https://github.com/clojure/tools.namespace/blob/e928d78a9ca18a2191cf27539fafa4ceb81b182f/src/main/clojure/clojure/tools/namespace/find.clj#L59" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/dca2e36705d67186d00cd117fd373e1a4a40a793/src/main/clojure/clojure/tools/namespace/find.clj#L67" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1067,11 +1146,14 @@ source files; returns the unevaluated ns declarations.</pre>
     <pre id="var-usage">Usage: (find-ns-decls-in-jarfile jarfile)
        (find-ns-decls-in-jarfile jarfile platform)
 </pre>
-    <pre id="var-docstr">Searches the JAR file for platform source files containing (ns ...)
-declarations; returns the unevaluated ns declarations.</pre>
+    <pre id="var-docstr">Searches the JAR file for source files containing (ns ...)
+declarations; returns the unevaluated ns declarations.
+
+Optional second argument platform is either clj (default) or cljs,
+both defined in clojure.tools.namespace.find.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/e928d78a9ca18a2191cf27539fafa4ceb81b182f/src/main/clojure/clojure/tools/namespace/find.clj#L113" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/dca2e36705d67186d00cd117fd373e1a4a40a793/src/main/clojure/clojure/tools/namespace/find.clj#L134" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1081,10 +1163,13 @@ declarations; returns the unevaluated ns declarations.</pre>
        (find-sources-in-dir dir platform)
 </pre>
     <pre id="var-docstr">Searches recursively under dir for source files. Returns a sequence
-of File objects, in breadth-first sort order.</pre>
+of File objects, in breadth-first sort order.
+
+Optional second argument is either clj (default) or cljs, both
+defined in clojure.tools.namespace.find.</pre>
+    <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.3.0</span><br /></span>
     
-    
-    <a href="https://github.com/clojure/tools.namespace/blob/e928d78a9ca18a2191cf27539fafa4ceb81b182f/src/main/clojure/clojure/tools/namespace/find.clj#L40" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/dca2e36705d67186d00cd117fd373e1a4a40a793/src/main/clojure/clojure/tools/namespace/find.clj#L42" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1094,11 +1179,13 @@ of File objects, in breadth-first sort order.</pre>
        (read-ns-decl-from-jarfile-entry jarfile entry-name platform)
 </pre>
     <pre id="var-docstr">Attempts to read a (ns ...) declaration from the named entry in the
-JAR file, and returns the unevaluated form.  Returns nil if the read
-fails, or if the first form is not a ns declaration.</pre>
+JAR file, and returns the unevaluated form.
+
+Optional third argument platform is either clj (default) or cljs,
+both defined in clojure.tools.namespace.find.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/e928d78a9ca18a2191cf27539fafa4ceb81b182f/src/main/clojure/clojure/tools/namespace/find.clj#L100" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/dca2e36705d67186d00cd117fd373e1a4a40a793/src/main/clojure/clojure/tools/namespace/find.clj#L119" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1108,12 +1195,12 @@ fails, or if the first form is not a ns declaration.</pre>
        (sources-in-jar jar-file platform)
 </pre>
     <pre id="var-docstr">Returns a sequence of source file names found in the JAR file.
-Optional second argument is either clojure-platform or
-clojurescript-platform, both defined in this namespace.. Controls
-which file extensions are included.</pre>
+
+Optional second argument platform is either clj (default) or cljs,
+both defined in clojure.tools.namespace.find.</pre>
+    <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.3.0</span><br /></span>
     
-    
-    <a href="https://github.com/clojure/tools.namespace/blob/e928d78a9ca18a2191cf27539fafa4ceb81b182f/src/main/clojure/clojure/tools/namespace/find.clj#L80" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/dca2e36705d67186d00cd117fd373e1a4a40a793/src/main/clojure/clojure/tools/namespace/find.clj#L96" id="var-source">Source</a>
   </div>
 </div>
 <br />
@@ -1328,7 +1415,7 @@ state, without restarting the Clojure process. The next call to
 remove stale code from deleted files.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/b1971f8b5e030fc8f888ff67279ef474ea265d3a/src/main/clojure/clojure/tools/namespace/repl.clj#L170" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/5b4700cff7db3e862c1a6e78d73edd9c01495afd/src/main/clojure/clojure/tools/namespace/repl.clj#L170" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1343,7 +1430,7 @@ remove stale code from deleted files.</pre>
 Warning: Aliases to reloaded namespaces will break.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/b1971f8b5e030fc8f888ff67279ef474ea265d3a/src/main/clojure/clojure/tools/namespace/repl.clj#L120" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/5b4700cff7db3e862c1a6e78d73edd9c01495afd/src/main/clojure/clojure/tools/namespace/repl.clj#L120" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1359,7 +1446,7 @@ just won't be removed first.
 Warning: Aliases to reloaded namespaces will break.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/b1971f8b5e030fc8f888ff67279ef474ea265d3a/src/main/clojure/clojure/tools/namespace/repl.clj#L111" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/5b4700cff7db3e862c1a6e78d73edd9c01495afd/src/main/clojure/clojure/tools/namespace/repl.clj#L111" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1383,7 +1470,7 @@ Options are key-value pairs. Valid options are:
              been reloaded.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/b1971f8b5e030fc8f888ff67279ef474ea265d3a/src/main/clojure/clojure/tools/namespace/repl.clj#L128" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/5b4700cff7db3e862c1a6e78d73edd9c01495afd/src/main/clojure/clojure/tools/namespace/repl.clj#L128" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1405,7 +1492,7 @@ Options are key-value pairs. Valid options are:
              been reloaded.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/b1971f8b5e030fc8f888ff67279ef474ea265d3a/src/main/clojure/clojure/tools/namespace/repl.clj#L147" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/5b4700cff7db3e862c1a6e78d73edd9c01495afd/src/main/clojure/clojure/tools/namespace/repl.clj#L147" id="var-source">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1417,7 +1504,7 @@ Options are key-value pairs. Valid options are:
 same types as clojure.java.io/file.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/b1971f8b5e030fc8f888ff67279ef474ea265d3a/src/main/clojure/clojure/tools/namespace/repl.clj#L164" id="var-source">Source</a>
+    <a href="https://github.com/clojure/tools.namespace/blob/5b4700cff7db3e862c1a6e78d73edd9c01495afd/src/main/clojure/clojure/tools/namespace/repl.clj#L164" id="var-source">Source</a>
   </div>
 </div>
 <br />
