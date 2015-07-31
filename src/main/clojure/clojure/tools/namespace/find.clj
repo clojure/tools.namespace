@@ -19,15 +19,17 @@
                     InputStreamReader)
            (java.util.jar JarFile JarEntry)))
 
-(def clojure-platform
-  "Definition of file extensions and reader options for Clojure (.clj
-  and .cljc) source files."
+(def ^{:added "0.3.0"}
+  clj
+  "Platform definition of file extensions and reader options for
+  Clojure (.clj and .cljc) source files."
   {:read-opts parse/clojure-read-opts
    :extensions file/clojure-extensions})
 
-(def clojurescript-platform
-  "Definition of file extensions and reader options for ClojureScript
-  (.cljs and .cljc) source files."
+(def ^{:added "0.3.0"}
+  cljs
+  "Platform definition of file extensions and reader options for
+  ClojureScript (.cljs and .cljc) source files."
   {:read-opts parse/clojurescript-read-opts
    :extensions file/clojurescript-extensions})
 
@@ -39,11 +41,15 @@
 
 (defn find-sources-in-dir
   "Searches recursively under dir for source files. Returns a sequence
-  of File objects, in breadth-first sort order."
+  of File objects, in breadth-first sort order.
+
+  Optional second argument is either clj (default) or cljs, both
+  defined in clojure.tools.namespace.find."
+  {:added "0.3.0"}
   ([dir]
    (find-sources-in-dir dir nil))
   ([^File dir platform]
-   (let [{:keys [extensions]} (or platform clojure-platform)]
+   (let [{:keys [extensions]} (or platform clj)]
      (->> (file-seq dir)
           (filter #(file/file-with-extension? % extensions))
           sort-files-breadth-first))))
@@ -53,23 +59,33 @@
 
   Searches recursively under dir for Clojure source files (.clj, .cljc).
   Returns a sequence of File objects, in breadth-first sort order."
+  {:added "0.2.0"
+   :deprecated "0.3.0"}
   [^File dir]
-  (find-sources-in-dir dir clojure-platform))
+  (find-sources-in-dir dir clj))
 
 (defn find-ns-decls-in-dir
   "Searches dir recursively for (ns ...) declarations in Clojure
-  source files; returns the unevaluated ns declarations."
+  source files; returns the unevaluated ns declarations.
+
+  Optional second argument platform is either clj (default) or cljs,
+  both defined in clojure.tools.namespace.find."
+  {:added "0.2.0"}
   ([dir] (find-ns-decls-in-dir dir nil))
-  ([dir options]
-   (keep #(file/read-file-ns-decl % options)
-         (find-clojure-sources-in-dir dir))))
+  ([dir platform]
+   (keep #(file/read-file-ns-decl % (:read-opts platform))
+         (find-sources-in-dir dir platform))))
 
 (defn find-namespaces-in-dir
   "Searches dir recursively for (ns ...) declarations in Clojure
-  source files; returns the symbol names of the declared namespaces."
-  ([dir] (find-namespaces-in-dir dir))
-  ([dir options]
-   (map second (find-ns-decls-in-dir dir options))))
+  source files; returns the symbol names of the declared namespaces.
+
+  Optional second argument platform is either clj (default) or cljs,
+  both defined in clojure.tools.namespace.find."
+  {:added "0.3.0"}
+  ([dir] (find-namespaces-in-dir dir nil))
+  ([dir platform]
+   (map second (find-ns-decls-in-dir dir platform))))
 
 ;;; Finding namespaces in JAR files
 
@@ -79,13 +95,14 @@
 
 (defn sources-in-jar
   "Returns a sequence of source file names found in the JAR file.
-  Optional second argument is either clojure-platform or
-  clojurescript-platform, both defined in this namespace.. Controls
-  which file extensions are included."
+
+  Optional second argument platform is either clj (default) or cljs,
+  both defined in clojure.tools.namespace.find."
+  {:added "0.3.0"}
   ([jar-file]
    (sources-in-jar jar-file nil))
   ([^JarFile jar-file platform]
-   (let [{:keys [extensions]} (or platform clojure-platform)]
+   (let [{:keys [extensions]} (or platform clj)]
      (filter #(ends-with-extension % extensions)
              (classpath/filenames-in-jar jar-file)))))
 
@@ -94,25 +111,32 @@
 
   Returns a sequence of filenames ending in .clj or .cljc found in the
   JAR file."
+  {:added "0.2.0"
+   :deprecated "0.3.0"}
   [jar-file]
-  (sources-in-jar jar-file clojure-platform))
+  (sources-in-jar jar-file clj))
 
 (defn read-ns-decl-from-jarfile-entry
   "Attempts to read a (ns ...) declaration from the named entry in the
-  JAR file, and returns the unevaluated form.  Returns nil if the read
-  fails, or if the first form is not a ns declaration."
+  JAR file, and returns the unevaluated form.
+
+  Optional third argument platform is either clj (default) or cljs,
+  both defined in clojure.tools.namespace.find."
   ([jarfile entry-name]
    (read-ns-decl-from-jarfile-entry jarfile entry-name nil))
   ([^JarFile jarfile ^String entry-name platform]
-   (let [{:keys [read-opts]} (or platform clojure-platform)]
+   (let [{:keys [read-opts]} (or platform clj)]
      (with-open [rdr (PushbackReader.
                       (io/reader
                        (.getInputStream jarfile (.getEntry jarfile entry-name))))]
        (parse/read-ns-decl rdr read-opts)))))
 
 (defn find-ns-decls-in-jarfile
-  "Searches the JAR file for platform source files containing (ns ...)
-  declarations; returns the unevaluated ns declarations."
+  "Searches the JAR file for source files containing (ns ...)
+  declarations; returns the unevaluated ns declarations.
+
+  Optional second argument platform is either clj (default) or cljs,
+  both defined in clojure.tools.namespace.find."
   ([jarfile]
    (find-ns-decls-in-jarfile jarfile nil))
   ([^JarFile jarfile platform]
@@ -122,7 +146,10 @@
 (defn find-namespaces-in-jarfile
   "Searches the JAR file for platform source files containing (ns ...)
   declarations.  Returns a sequence of the symbol names of the
-  declared namespaces."
+  declared namespaces.
+
+  Optional second argument platform is either clj (default) or cljs,
+  both defined in clojure.tools.namespace.find."
   ([jarfile]
    (find-namespaces-in-jarfile jarfile nil))
   ([^JarFile jarfile platform]
@@ -136,7 +163,10 @@
   JAR files) for platform source files containing (ns...)
   declarations. Returns a sequence of the unevaluated ns declaration
   forms. Use with clojure.java.classpath to search Clojure's
-  classpath."
+  classpath.
+
+  Optional second argument platform is either clj (default) or cljs,
+  both defined in clojure.tools.namespace.find."
   ([files]
    (find-ns-decls files nil))
   ([files platform]
@@ -151,7 +181,10 @@
   JAR files) for platform source files containing (ns...)
   declarations. Returns a sequence of the symbol names of the declared
   namespaces. Use with clojure.java.classpath to search Clojure's
-  classpath."
+  classpath.
+
+  Optional second argument platform is either clj (default) or cljs,
+  both defined in clojure.tools.namespace.find."
   ([files]
    (find-namespaces files nil))
   ([files platform]
