@@ -86,8 +86,11 @@
   DependencyGraphUpdate
   (depend [graph node dep]
     (when (or (= node dep) (depends? graph dep node))
-      (throw (Exception. (str "Circular dependency between "
-                              (pr-str node) " and " (pr-str dep)))))
+      (throw (ex-info (str "Circular dependency between "
+                           (pr-str node) " and " (pr-str dep))
+                      {:reason ::circular-dependency
+                       :node node
+                       :dependency dep})))
     (MapDependencyGraph.
      (update-in dependencies [node] set-conj dep)
      (update-in dependents [dep] set-conj node)))
