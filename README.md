@@ -15,7 +15,7 @@ repositories.
 Releases and Dependency Information
 ----------------------------------------
 
-* Latest stable release is [0.3.0](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.3.0)
+* Latest stable release is [0.2.11](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.2.11)
 
 * [Change Log](CHANGES.md)
 
@@ -23,26 +23,26 @@ Releases and Dependency Information
 
 [Leiningen](http://leiningen.org/) dependency information:
 
-    [org.clojure/tools.namespace "0.3.0"]
+    [org.clojure/tools.namespace "0.2.11"]
 
 [Maven](http://maven.apache.org/) dependency information:
 
     <dependency>
       <groupId>org.clojure</groupId>
       <artifactId>tools.namespace</artifactId>
-      <version>0.3.0</version>
+      <version>0.2.11</version>
     </dependency>
 
 
 ### Development Snapshots ###
 
-* Git master branch is at **0.3.1-SNAPSHOT**
+* Git master branch is at **0.3.0-SNAPSHOT**
 
 * [All Snapshot Versions](https://oss.sonatype.org/content/groups/public/org/clojure/tools.namespace/)
 
 Leiningen dependency information for development snapshots:
 
-    :dependencies [[org.clojure/tools.namespace "0.3.1-SNAPSHOT"]]
+    :dependencies [[org.clojure/tools.namespace "0.3.0-SNAPSHOT"]]
     :repositories [["sonatype-oss-public"
                     "https://oss.sonatype.org/content/groups/public/"]]
 
@@ -93,7 +93,7 @@ your source files, so be careful.
 ClojureScript support
 -----------------------
 
-**New in version 0.3.0**
+**New in version 0.3.0-SNAPSHOT** (currently in development)
 
 These namespaces are `.cljc` files usable from both Clojure(JVM) and
 ClojureScript:
@@ -553,6 +553,8 @@ mappings and aliases for namespaces with `disable-unload!` or
 
 Developer Information
 ----------------------------------------
+
+* [Change Log](CHANGES.md)
 
 * [GitHub project](https://github.com/clojure/tools.namespace)
 
