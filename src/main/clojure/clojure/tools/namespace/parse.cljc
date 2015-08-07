@@ -39,11 +39,13 @@
 (defn read-ns-decl
   "Attempts to read a (ns ...) declaration from a reader, and returns
   the unevaluated form. Returns the first top-level ns form found.
-  Returns nil if a ns declaration cannot be found. Note that read can
-  execute code (controlled by tools.reader/*read-eval*), and as such
-  should be used only with trusted sources. read-opts is passed
-  through to tools.reader/read, defaults to allow conditional reader
-  expressions with :features #{:clj}"
+  Returns nil if ns declaration cannot be found. Throws exception on
+  invalid syntax.
+
+  Note that read can execute code (controlled by
+  tools.reader/*read-eval*), and as such should be used only with
+  trusted sources. read-opts is passed through to tools.reader/read,
+  defaults to clj-read-opts"
   ([rdr]
    (read-ns-decl rdr nil))
   ([rdr read-opts]

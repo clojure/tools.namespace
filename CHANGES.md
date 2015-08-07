@@ -3,9 +3,9 @@
 
 ## 0.3.x series
 
-### Version 0.3.0
+### Version 0.3.0-SNAPSHOT (in development)
 
-  * **ClojureScript Analysis Support** [TNS-35]
+  * **Partial ClojureScript Support** [TNS-35]
 
       * Platform-neutral namespaces were converted to conditional-read
         (`.cljc`) files: c.t.n.dependency, c.t.n.track, and
@@ -24,13 +24,20 @@
       * Uses [tools.reader] for platform-independent parsing and
         conditional-reader support.
 
+  * Minimum Clojure version is 1.7.0
+
+  * Breaking change: `c.t.n.parse/read-ns-decl` no longer returns
+    `nil` on syntax errors. Instead, exceptions are allowed to
+    propagate up from tools.reader. This change only affects code
+    which calls `read-ns-decl` directly. c.t.n.file and c.t.n.find
+    will catch and ignore reader exeptions when trying to read
+    namespace declarations.
+
   * Enhancement [TNS-36]: Use java.classpath for better JVM classpath
     resolution
 
   * Possible breaking change: parse/read-ns-decl does not capture
     reader errors
-
-  * Minimum Clojure version is 1.7.0
 
   * Some definitions deprecated; see source code or Var metadata for
     details.

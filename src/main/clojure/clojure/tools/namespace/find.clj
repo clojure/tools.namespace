@@ -118,7 +118,8 @@
 
 (defn read-ns-decl-from-jarfile-entry
   "Attempts to read a (ns ...) declaration from the named entry in the
-  JAR file, and returns the unevaluated form.
+  JAR file, and returns the unevaluated form. Returns nil if read
+  fails due to invalid syntax or if a ns declaration cannot be found.
 
   Optional third argument platform is either clj (default) or cljs,
   both defined in clojure.tools.namespace.find."
@@ -129,7 +130,8 @@
      (with-open [rdr (PushbackReader.
                       (io/reader
                        (.getInputStream jarfile (.getEntry jarfile entry-name))))]
-       (parse/read-ns-decl rdr read-opts)))))
+       (try (parse/read-ns-decl rdr read-opts)
+            (catch Exception _ nil))))))
 
 (defn find-ns-decls-in-jarfile
   "Searches the JAR file for source files containing (ns ...)

@@ -23,7 +23,8 @@
    (read-file-ns-decl file nil))
   ([file read-opts]
    (with-open [rdr (PushbackReader. (io/reader file))]
-     (parse/read-ns-decl rdr read-opts))))
+     (try (parse/read-ns-decl rdr read-opts)
+          (catch Exception _ nil)))))
 
 (defn file-with-extension?
   "Returns true if the java.io.File represents a file whose name ends
