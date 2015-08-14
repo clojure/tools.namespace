@@ -17,7 +17,7 @@ Releases and Dependency Information
 
 * Latest stable release is [0.2.11](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.2.11)
 
-* Latest development release is [0.3.0-alpha1](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.3.0-alpha1
+* Latest development release is [0.3.0-alpha1](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.3.0-alpha1)
 
 * [Change Log](CHANGES.md)
 
