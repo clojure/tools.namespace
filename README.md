@@ -17,15 +17,17 @@ Releases and Dependency Information
 
 * Latest stable release is [0.2.11](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.2.11)
 
+* Latest development release is [0.3.0-alpha1](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.3.0-alpha1
+
 * [Change Log](CHANGES.md)
 
 * [All Released Versions](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.clojure%22%20AND%20a%3A%22tools.namespace%22)
 
-[Leiningen](http://leiningen.org/) dependency information:
+[Leiningen](http://leiningen.org/) stable dependency information:
 
     [org.clojure/tools.namespace "0.2.11"]
 
-[Maven](http://maven.apache.org/) dependency information:
+[Maven](http://maven.apache.org/) stable dependency information:
 
     <dependency>
       <groupId>org.clojure</groupId>
@@ -93,7 +95,7 @@ your source files, so be careful.
 ClojureScript support
 -----------------------
 
-**New in version 0.3.0-SNAPSHOT** (currently in development)
+**New in version 0.3.0-alpha1**
 
 These namespaces are `.cljc` files usable from both Clojure(JVM) and
 ClojureScript:

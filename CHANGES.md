@@ -3,7 +3,7 @@
 
 ## 0.3.x series
 
-### Version 0.3.0-SNAPSHOT (in development)
+### Version 0.3.0-alpha1 on 14-Aug-2015
 
   * **Partial ClojureScript Support** [TNS-35]
 
