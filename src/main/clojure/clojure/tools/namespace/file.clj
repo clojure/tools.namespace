@@ -64,7 +64,7 @@
   (reduce (fn [m file]
             (if-let [decl (read-file-ns-decl file read-opts)]
               (let [deps (parse/deps-from-ns-decl decl)
-                    name (second decl)]
+                    name (parse/name-from-ns-decl decl)]
                 (-> m
                     (assoc-in [:depmap name] deps)
                     (assoc-in [:filemap file] name)))

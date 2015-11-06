@@ -114,6 +114,12 @@
 	     (contains? ns-clause-heads (first form)))
     (mapcat #(deps-from-libspec nil %) (rest form))))
 
+(defn name-from-ns-decl
+  "Given an (ns...) declaration form (unevaluated), returns the name
+  of the namespace as a symbol."
+  [decl]
+  (second decl))
+
 (defn deps-from-ns-decl
   "Given an (ns...) declaration form (unevaluated), returns a set of
   symbols naming the dependencies of that namespace.  Handles :use and
