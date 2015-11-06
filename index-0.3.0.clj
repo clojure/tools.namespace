@@ -22,14 +22,14 @@
    :doc
    "Track namespace dependencies and changes by monitoring\nfile-modification timestamps"}
   {:source-url
-   "https://github.com/clojure/tools.namespace/blob/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/file.clj",
+   "https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/file.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace/clojure.tools.namespace.file-api.html",
    :name "clojure.tools.namespace.file",
    :author "Stuart Sierra",
    :doc "Read and track namespace information from files"}
   {:source-url
-   "https://github.com/clojure/tools.namespace/blob/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/find.clj",
+   "https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace/clojure.tools.namespace.find-api.html",
    :name "clojure.tools.namespace.find",
@@ -612,9 +612,9 @@
    :name "add-files",
    :namespace "clojure.tools.namespace.file",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/file.clj#L76",
+   "https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/file.clj#L76",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/file.clj",
+   "https://github.com/clojure/tools.namespace/raw/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/file.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.file/add-files",
    :doc
@@ -625,10 +625,10 @@
   {:name "clojure-extensions",
    :namespace "clojure.tools.namespace.file",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/file.clj#L38",
+   "https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/file.clj#L38",
    :added "0.3.0",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/file.clj",
+   "https://github.com/clojure/tools.namespace/raw/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/file.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.file/clojure-extensions",
    :doc "File extensions for Clojure (JVM) files.",
@@ -639,9 +639,9 @@
    :name "clojure-file?",
    :namespace "clojure.tools.namespace.file",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/file.clj#L48",
+   "https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/file.clj#L48",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/file.clj",
+   "https://github.com/clojure/tools.namespace/raw/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/file.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.file/clojure-file?",
    :doc
@@ -652,10 +652,10 @@
   {:name "clojurescript-extensions",
    :namespace "clojure.tools.namespace.file",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/file.clj#L43",
+   "https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/file.clj#L43",
    :added "0.3.0",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/file.clj",
+   "https://github.com/clojure/tools.namespace/raw/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/file.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.file/clojurescript-extensions",
    :doc "File extensions for ClojureScript files.",
@@ -666,10 +666,10 @@
    :name "clojurescript-file?",
    :namespace "clojure.tools.namespace.file",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/file.clj#L54",
+   "https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/file.clj#L54",
    :added "0.3.0",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/file.clj",
+   "https://github.com/clojure/tools.namespace/raw/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/file.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.file/clojurescript-file?",
    :doc
@@ -681,10 +681,10 @@
    :name "file-with-extension?",
    :namespace "clojure.tools.namespace.file",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/file.clj#L29",
+   "https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/file.clj#L29",
    :added "0.3.0",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/file.clj",
+   "https://github.com/clojure/tools.namespace/raw/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/file.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.file/file-with-extension?",
    :doc
@@ -696,9 +696,9 @@
    :name "read-file-ns-decl",
    :namespace "clojure.tools.namespace.file",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/file.clj#L17",
+   "https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/file.clj#L17",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/file.clj",
+   "https://github.com/clojure/tools.namespace/raw/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/file.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.file/read-file-ns-decl",
    :doc
@@ -710,9 +710,9 @@
    :name "remove-files",
    :namespace "clojure.tools.namespace.file",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/file.clj#L88",
+   "https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/file.clj#L88",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/file.clj",
+   "https://github.com/clojure/tools.namespace/raw/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/file.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.file/remove-files",
    :doc
@@ -723,10 +723,10 @@
   {:name "clj",
    :namespace "clojure.tools.namespace.find",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/find.clj#L22",
+   "https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L22",
    :added "0.3.0",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/find.clj",
+   "https://github.com/clojure/tools.namespace/raw/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.find/clj",
    :doc
@@ -737,10 +737,10 @@
   {:name "cljs",
    :namespace "clojure.tools.namespace.find",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/find.clj#L29",
+   "https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L29",
    :added "0.3.0",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/find.clj",
+   "https://github.com/clojure/tools.namespace/raw/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.find/cljs",
    :doc
@@ -752,11 +752,11 @@
    :name "clojure-sources-in-jar",
    :namespace "clojure.tools.namespace.find",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/find.clj#L109",
+   "https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L109",
    :deprecated "0.3.0",
    :added "0.2.0",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/find.clj",
+   "https://github.com/clojure/tools.namespace/raw/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.find/clojure-sources-in-jar",
    :doc
@@ -768,11 +768,11 @@
    :name "find-clojure-sources-in-dir",
    :namespace "clojure.tools.namespace.find",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/find.clj#L57",
+   "https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L57",
    :deprecated "0.3.0",
    :added "0.2.0",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/find.clj",
+   "https://github.com/clojure/tools.namespace/raw/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.find/find-clojure-sources-in-dir",
    :doc
@@ -784,9 +784,9 @@
    :name "find-namespaces",
    :namespace "clojure.tools.namespace.find",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/find.clj#L182",
+   "https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L182",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/find.clj",
+   "https://github.com/clojure/tools.namespace/raw/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.find/find-namespaces",
    :doc
@@ -798,10 +798,10 @@
    :name "find-namespaces-in-dir",
    :namespace "clojure.tools.namespace.find",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/find.clj#L79",
+   "https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L79",
    :added "0.3.0",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/find.clj",
+   "https://github.com/clojure/tools.namespace/raw/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.find/find-namespaces-in-dir",
    :doc
@@ -813,9 +813,9 @@
    :name "find-namespaces-in-jarfile",
    :namespace "clojure.tools.namespace.find",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/find.clj#L148",
+   "https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L148",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/find.clj",
+   "https://github.com/clojure/tools.namespace/raw/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.find/find-namespaces-in-jarfile",
    :doc
@@ -827,9 +827,9 @@
    :name "find-ns-decls",
    :namespace "clojure.tools.namespace.find",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/find.clj#L163",
+   "https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L163",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/find.clj",
+   "https://github.com/clojure/tools.namespace/raw/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.find/find-ns-decls",
    :doc
@@ -841,10 +841,10 @@
    :name "find-ns-decls-in-dir",
    :namespace "clojure.tools.namespace.find",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/find.clj#L67",
+   "https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L67",
    :added "0.2.0",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/find.clj",
+   "https://github.com/clojure/tools.namespace/raw/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.find/find-ns-decls-in-dir",
    :doc
@@ -856,9 +856,9 @@
    :name "find-ns-decls-in-jarfile",
    :namespace "clojure.tools.namespace.find",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/find.clj#L136",
+   "https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L136",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/find.clj",
+   "https://github.com/clojure/tools.namespace/raw/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.find/find-ns-decls-in-jarfile",
    :doc
@@ -870,10 +870,10 @@
    :name "find-sources-in-dir",
    :namespace "clojure.tools.namespace.find",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/find.clj#L42",
+   "https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L42",
    :added "0.3.0",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/find.clj",
+   "https://github.com/clojure/tools.namespace/raw/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.find/find-sources-in-dir",
    :doc
@@ -885,9 +885,9 @@
    :name "read-ns-decl-from-jarfile-entry",
    :namespace "clojure.tools.namespace.find",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/find.clj#L119",
+   "https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L119",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/find.clj",
+   "https://github.com/clojure/tools.namespace/raw/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.find/read-ns-decl-from-jarfile-entry",
    :doc
@@ -899,10 +899,10 @@
    :name "sources-in-jar",
    :namespace "clojure.tools.namespace.find",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/find.clj#L96",
+   "https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L96",
    :added "0.3.0",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/find.clj",
+   "https://github.com/clojure/tools.namespace/raw/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.find/sources-in-jar",
    :doc
@@ -954,9 +954,9 @@
    :file "src/main/clojure/clojure/tools/namespace/move.clj"}
   {:file "src/main/clojure/clojure/tools/namespace/parse.cljc",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/parse.cljc",
+   "https://github.com/clojure/tools.namespace/raw/6b19f942802f3b35059bb4acfa4791ef1717b8a9/src/main/clojure/clojure/tools/namespace/parse.cljc",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/parse.cljc#L27",
+   "https://github.com/clojure/tools.namespace/blob/6b19f942802f3b35059bb4acfa4791ef1717b8a9/src/main/clojure/clojure/tools/namespace/parse.cljc#L27",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.parse/clj-read-opts",
    :namespace "clojure.tools.namespace.parse",
@@ -967,9 +967,9 @@
    :name "clj-read-opts"}
   {:file "src/main/clojure/clojure/tools/namespace/parse.cljc",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/parse.cljc",
+   "https://github.com/clojure/tools.namespace/raw/6b19f942802f3b35059bb4acfa4791ef1717b8a9/src/main/clojure/clojure/tools/namespace/parse.cljc",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/parse.cljc#L33",
+   "https://github.com/clojure/tools.namespace/blob/6b19f942802f3b35059bb4acfa4791ef1717b8a9/src/main/clojure/clojure/tools/namespace/parse.cljc#L33",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.parse/cljs-read-opts",
    :namespace "clojure.tools.namespace.parse",
@@ -982,9 +982,9 @@
    :name "comment?",
    :namespace "clojure.tools.namespace.parse",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/parse.cljc#L17",
+   "https://github.com/clojure/tools.namespace/blob/6b19f942802f3b35059bb4acfa4791ef1717b8a9/src/main/clojure/clojure/tools/namespace/parse.cljc#L17",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/parse.cljc",
+   "https://github.com/clojure/tools.namespace/raw/6b19f942802f3b35059bb4acfa4791ef1717b8a9/src/main/clojure/clojure/tools/namespace/parse.cljc",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.parse/comment?",
    :doc "Returns true if form is a (comment ...)",
@@ -995,13 +995,27 @@
    :name "deps-from-ns-decl",
    :namespace "clojure.tools.namespace.parse",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/parse.cljc#L117",
+   "https://github.com/clojure/tools.namespace/blob/6b19f942802f3b35059bb4acfa4791ef1717b8a9/src/main/clojure/clojure/tools/namespace/parse.cljc#L123",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/parse.cljc",
+   "https://github.com/clojure/tools.namespace/raw/6b19f942802f3b35059bb4acfa4791ef1717b8a9/src/main/clojure/clojure/tools/namespace/parse.cljc",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.parse/deps-from-ns-decl",
    :doc
-   "Given an (ns...) declaration form (unevaluated), returns a set of\nsymbols naming the dependencies of that namespace.  Handles :use and\n:require clauses but not :load.",
+   "Given an (ns...) declaration form (unevaluated), returns a set of\nsymbols naming the dependencies of that namespace.  Handles :use and\n:require clauses but not :load. Ignores a namespace depending on\nitself, for example a .cljs file with :require-macros on the .clj\nfile of the same namespace.",
+   :var-type "function",
+   :line 123,
+   :file "src/main/clojure/clojure/tools/namespace/parse.cljc"}
+  {:arglists ([decl]),
+   :name "name-from-ns-decl",
+   :namespace "clojure.tools.namespace.parse",
+   :source-url
+   "https://github.com/clojure/tools.namespace/blob/6b19f942802f3b35059bb4acfa4791ef1717b8a9/src/main/clojure/clojure/tools/namespace/parse.cljc#L117",
+   :raw-source-url
+   "https://github.com/clojure/tools.namespace/raw/6b19f942802f3b35059bb4acfa4791ef1717b8a9/src/main/clojure/clojure/tools/namespace/parse.cljc",
+   :wiki-url
+   "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.parse/name-from-ns-decl",
+   :doc
+   "Given an (ns...) declaration form (unevaluated), returns the name\nof the namespace as a symbol.",
    :var-type "function",
    :line 117,
    :file "src/main/clojure/clojure/tools/namespace/parse.cljc"}
@@ -1009,9 +1023,9 @@
    :name "ns-decl?",
    :namespace "clojure.tools.namespace.parse",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/parse.cljc#L22",
+   "https://github.com/clojure/tools.namespace/blob/6b19f942802f3b35059bb4acfa4791ef1717b8a9/src/main/clojure/clojure/tools/namespace/parse.cljc#L22",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/parse.cljc",
+   "https://github.com/clojure/tools.namespace/raw/6b19f942802f3b35059bb4acfa4791ef1717b8a9/src/main/clojure/clojure/tools/namespace/parse.cljc",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.parse/ns-decl?",
    :doc "Returns true if form is a (ns ...) declaration.",
@@ -1022,9 +1036,9 @@
    :name "read-ns-decl",
    :namespace "clojure.tools.namespace.parse",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/parse.cljc#L39",
+   "https://github.com/clojure/tools.namespace/blob/6b19f942802f3b35059bb4acfa4791ef1717b8a9/src/main/clojure/clojure/tools/namespace/parse.cljc#L39",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/b3ab6df0dcec347c1e53de36a99c274b35479267/src/main/clojure/clojure/tools/namespace/parse.cljc",
+   "https://github.com/clojure/tools.namespace/raw/6b19f942802f3b35059bb4acfa4791ef1717b8a9/src/main/clojure/clojure/tools/namespace/parse.cljc",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.parse/read-ns-decl",
    :doc
