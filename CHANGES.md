@@ -3,6 +3,17 @@
 
 ## 0.3.x series
 
+### Version 0.3.0-alpha2 on 13-Nov-2015
+
+  * Fix [TNS-38]: ignore circular dependency from `.cljs` file to
+    `.clj` file in `:require-macros`
+
+  * [tools.reader] version 0.10.0
+
+  * [java.classpath] version 0.2.3
+
+  * Add `clojure.tools.namespace.parse/name-from-ns-decl`
+
 ### Version 0.3.0-alpha1 on 14-Aug-2015
 
   * **Partial ClojureScript Support** [TNS-35]
@@ -41,6 +52,8 @@
 
   * Some definitions deprecated; see source code or Var metadata for
     details.
+
+  * Adds dependency on [java.classpath]
 
 
 
@@ -169,6 +182,7 @@
   * Source-compatible with clojure.contrib.find-namespaces in old
     clojure-contrib 1.2.0
 
+
 [TNS-1]: http://dev.clojure.org/jira/browse/TNS-1
 [TNS-3]: http://dev.clojure.org/jira/browse/TNS-3
 [TNS-4]: http://dev.clojure.org/jira/browse/TNS-4
@@ -199,6 +213,8 @@
 [TNS-34]: http://dev.clojure.org/jira/browse/TNS-34
 [TNS-35]: http://dev.clojure.org/jira/browse/TNS-35
 [TNS-36]: http://dev.clojure.org/jira/browse/TNS-36
+[TNS-37]: http://dev.clojure.org/jira/browse/TNS-37
+[TNS-38]: http://dev.clojure.org/jira/browse/TNS-38
 [java.classpath]: https://github.com/clojure/java.classpath
 [tools.reader]: https://github.com/clojure/tools.reader
 [JEP 122]: http://openjdk.java.net/jeps/122

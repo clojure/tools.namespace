@@ -15,13 +15,13 @@ repositories.
 Releases and Dependency Information
 ----------------------------------------
 
-* Latest stable release is [0.2.11](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.2.11)
+[Change Log](CHANGES.md)
 
-* Latest development release is [0.3.0-alpha1](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.3.0-alpha1)
+[All Released Versions](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.clojure%22%20AND%20a%3A%22tools.namespace%22)
 
-* [Change Log](CHANGES.md)
+### Stable Release ###
 
-* [All Released Versions](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.clojure%22%20AND%20a%3A%22tools.namespace%22)
+Latest stable release is [0.2.11](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.2.11)
 
 [Leiningen](http://leiningen.org/) stable dependency information:
 
@@ -35,12 +35,19 @@ Releases and Dependency Information
       <version>0.2.11</version>
     </dependency>
 
+### Development Release ###
+
+Latest development release is [0.3.0-alpha2](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.3.0-alpha2)
+
+[Leiningen](http://leiningen.org/) latest dependency information:
+
+    [org.clojure/tools.namespace "0.3.0-alpha2"]
 
 ### Development Snapshots ###
 
-* Git master branch is at **0.3.0-SNAPSHOT**
+Git master branch is at **0.3.0-SNAPSHOT**
 
-* [All Snapshot Versions](https://oss.sonatype.org/content/groups/public/org/clojure/tools.namespace/)
+[All Snapshot Versions](https://oss.sonatype.org/content/groups/public/org/clojure/tools.namespace/)
 
 Leiningen dependency information for development snapshots:
 
