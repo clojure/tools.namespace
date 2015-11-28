@@ -123,9 +123,6 @@
 (defn deps-from-ns-decl
   "Given an (ns...) declaration form (unevaluated), returns a set of
   symbols naming the dependencies of that namespace.  Handles :use and
-  :require clauses but not :load. Ignores a namespace depending on
-  itself, for example a .cljs file with :require-macros on the .clj
-  file of the same namespace."
+  :require clauses but not :load."
   [decl]
-  (disj (set (mapcat deps-from-ns-form decl))
-        (name-from-ns-decl decl)))
+  (set (mapcat deps-from-ns-form decl)))
