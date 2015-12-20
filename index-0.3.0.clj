@@ -954,9 +954,9 @@
    :file "src/main/clojure/clojure/tools/namespace/move.clj"}
   {:file "src/main/clojure/clojure/tools/namespace/parse.cljc",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/6b19f942802f3b35059bb4acfa4791ef1717b8a9/src/main/clojure/clojure/tools/namespace/parse.cljc",
+   "https://github.com/clojure/tools.namespace/raw/5d6957ddb11d74fb54c92d2edccce65e8621a3f7/src/main/clojure/clojure/tools/namespace/parse.cljc",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/6b19f942802f3b35059bb4acfa4791ef1717b8a9/src/main/clojure/clojure/tools/namespace/parse.cljc#L27",
+   "https://github.com/clojure/tools.namespace/blob/5d6957ddb11d74fb54c92d2edccce65e8621a3f7/src/main/clojure/clojure/tools/namespace/parse.cljc#L27",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.parse/clj-read-opts",
    :namespace "clojure.tools.namespace.parse",
@@ -967,9 +967,9 @@
    :name "clj-read-opts"}
   {:file "src/main/clojure/clojure/tools/namespace/parse.cljc",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/6b19f942802f3b35059bb4acfa4791ef1717b8a9/src/main/clojure/clojure/tools/namespace/parse.cljc",
+   "https://github.com/clojure/tools.namespace/raw/5d6957ddb11d74fb54c92d2edccce65e8621a3f7/src/main/clojure/clojure/tools/namespace/parse.cljc",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/6b19f942802f3b35059bb4acfa4791ef1717b8a9/src/main/clojure/clojure/tools/namespace/parse.cljc#L33",
+   "https://github.com/clojure/tools.namespace/blob/5d6957ddb11d74fb54c92d2edccce65e8621a3f7/src/main/clojure/clojure/tools/namespace/parse.cljc#L33",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.parse/cljs-read-opts",
    :namespace "clojure.tools.namespace.parse",
@@ -982,9 +982,9 @@
    :name "comment?",
    :namespace "clojure.tools.namespace.parse",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/6b19f942802f3b35059bb4acfa4791ef1717b8a9/src/main/clojure/clojure/tools/namespace/parse.cljc#L17",
+   "https://github.com/clojure/tools.namespace/blob/5d6957ddb11d74fb54c92d2edccce65e8621a3f7/src/main/clojure/clojure/tools/namespace/parse.cljc#L17",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/6b19f942802f3b35059bb4acfa4791ef1717b8a9/src/main/clojure/clojure/tools/namespace/parse.cljc",
+   "https://github.com/clojure/tools.namespace/raw/5d6957ddb11d74fb54c92d2edccce65e8621a3f7/src/main/clojure/clojure/tools/namespace/parse.cljc",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.parse/comment?",
    :doc "Returns true if form is a (comment ...)",
@@ -995,13 +995,13 @@
    :name "deps-from-ns-decl",
    :namespace "clojure.tools.namespace.parse",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/6b19f942802f3b35059bb4acfa4791ef1717b8a9/src/main/clojure/clojure/tools/namespace/parse.cljc#L123",
+   "https://github.com/clojure/tools.namespace/blob/5d6957ddb11d74fb54c92d2edccce65e8621a3f7/src/main/clojure/clojure/tools/namespace/parse.cljc#L123",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/6b19f942802f3b35059bb4acfa4791ef1717b8a9/src/main/clojure/clojure/tools/namespace/parse.cljc",
+   "https://github.com/clojure/tools.namespace/raw/5d6957ddb11d74fb54c92d2edccce65e8621a3f7/src/main/clojure/clojure/tools/namespace/parse.cljc",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.parse/deps-from-ns-decl",
    :doc
-   "Given an (ns...) declaration form (unevaluated), returns a set of\nsymbols naming the dependencies of that namespace.  Handles :use and\n:require clauses but not :load. Ignores a namespace depending on\nitself, for example a .cljs file with :require-macros on the .clj\nfile of the same namespace.",
+   "Given an (ns...) declaration form (unevaluated), returns a set of\nsymbols naming the dependencies of that namespace.  Handles :use and\n:require clauses but not :load.",
    :var-type "function",
    :line 123,
    :file "src/main/clojure/clojure/tools/namespace/parse.cljc"}
@@ -1009,9 +1009,9 @@
    :name "name-from-ns-decl",
    :namespace "clojure.tools.namespace.parse",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/6b19f942802f3b35059bb4acfa4791ef1717b8a9/src/main/clojure/clojure/tools/namespace/parse.cljc#L117",
+   "https://github.com/clojure/tools.namespace/blob/5d6957ddb11d74fb54c92d2edccce65e8621a3f7/src/main/clojure/clojure/tools/namespace/parse.cljc#L117",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/6b19f942802f3b35059bb4acfa4791ef1717b8a9/src/main/clojure/clojure/tools/namespace/parse.cljc",
+   "https://github.com/clojure/tools.namespace/raw/5d6957ddb11d74fb54c92d2edccce65e8621a3f7/src/main/clojure/clojure/tools/namespace/parse.cljc",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.parse/name-from-ns-decl",
    :doc
@@ -1023,9 +1023,9 @@
    :name "ns-decl?",
    :namespace "clojure.tools.namespace.parse",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/6b19f942802f3b35059bb4acfa4791ef1717b8a9/src/main/clojure/clojure/tools/namespace/parse.cljc#L22",
+   "https://github.com/clojure/tools.namespace/blob/5d6957ddb11d74fb54c92d2edccce65e8621a3f7/src/main/clojure/clojure/tools/namespace/parse.cljc#L22",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/6b19f942802f3b35059bb4acfa4791ef1717b8a9/src/main/clojure/clojure/tools/namespace/parse.cljc",
+   "https://github.com/clojure/tools.namespace/raw/5d6957ddb11d74fb54c92d2edccce65e8621a3f7/src/main/clojure/clojure/tools/namespace/parse.cljc",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.parse/ns-decl?",
    :doc "Returns true if form is a (ns ...) declaration.",
@@ -1036,9 +1036,9 @@
    :name "read-ns-decl",
    :namespace "clojure.tools.namespace.parse",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/6b19f942802f3b35059bb4acfa4791ef1717b8a9/src/main/clojure/clojure/tools/namespace/parse.cljc#L39",
+   "https://github.com/clojure/tools.namespace/blob/5d6957ddb11d74fb54c92d2edccce65e8621a3f7/src/main/clojure/clojure/tools/namespace/parse.cljc#L39",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/6b19f942802f3b35059bb4acfa4791ef1717b8a9/src/main/clojure/clojure/tools/namespace/parse.cljc",
+   "https://github.com/clojure/tools.namespace/raw/5d6957ddb11d74fb54c92d2edccce65e8621a3f7/src/main/clojure/clojure/tools/namespace/parse.cljc",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.parse/read-ns-decl",
    :doc
@@ -1176,9 +1176,9 @@
    :name "add",
    :namespace "clojure.tools.namespace.track",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/f0c9442ebe692511c35b33b7620087cb9c1b3db5/src/main/clojure/clojure/tools/namespace/track.cljc#L39",
+   "https://github.com/clojure/tools.namespace/blob/e2c8dc5e8fbfdbe9ca24e9ec357dd1885d522c01/src/main/clojure/clojure/tools/namespace/track.cljc#L39",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/f0c9442ebe692511c35b33b7620087cb9c1b3db5/src/main/clojure/clojure/tools/namespace/track.cljc",
+   "https://github.com/clojure/tools.namespace/raw/e2c8dc5e8fbfdbe9ca24e9ec357dd1885d522c01/src/main/clojure/clojure/tools/namespace/track.cljc",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.track/add",
    :doc
@@ -1190,9 +1190,9 @@
    :name "remove",
    :namespace "clojure.tools.namespace.track",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/f0c9442ebe692511c35b33b7620087cb9c1b3db5/src/main/clojure/clojure/tools/namespace/track.cljc#L88",
+   "https://github.com/clojure/tools.namespace/blob/e2c8dc5e8fbfdbe9ca24e9ec357dd1885d522c01/src/main/clojure/clojure/tools/namespace/track.cljc#L88",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/f0c9442ebe692511c35b33b7620087cb9c1b3db5/src/main/clojure/clojure/tools/namespace/track.cljc",
+   "https://github.com/clojure/tools.namespace/raw/e2c8dc5e8fbfdbe9ca24e9ec357dd1885d522c01/src/main/clojure/clojure/tools/namespace/track.cljc",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.track/remove",
    :doc
@@ -1204,9 +1204,9 @@
    :name "tracker",
    :namespace "clojure.tools.namespace.track",
    :source-url
-   "https://github.com/clojure/tools.namespace/blob/f0c9442ebe692511c35b33b7620087cb9c1b3db5/src/main/clojure/clojure/tools/namespace/track.cljc#L111",
+   "https://github.com/clojure/tools.namespace/blob/e2c8dc5e8fbfdbe9ca24e9ec357dd1885d522c01/src/main/clojure/clojure/tools/namespace/track.cljc#L111",
    :raw-source-url
-   "https://github.com/clojure/tools.namespace/raw/f0c9442ebe692511c35b33b7620087cb9c1b3db5/src/main/clojure/clojure/tools/namespace/track.cljc",
+   "https://github.com/clojure/tools.namespace/raw/e2c8dc5e8fbfdbe9ca24e9ec357dd1885d522c01/src/main/clojure/clojure/tools/namespace/track.cljc",
    :wiki-url
    "http://clojure.github.com/tools.namespace//clojure.tools.namespace-api.html#clojure.tools.namespace.track/tracker",
    :doc "Returns a new, empty dependency tracker",
