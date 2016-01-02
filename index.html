@@ -1,12 +1,12 @@
 <html>
   <head>
-    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>clojure.tools.namespace - Extract namespace declarations 0.3.0 API documentation</title>
-    <link href="static/favicon.png" rel="icon" />
-    <link href="static/favicon.png" rel="shortcut icon" />
-    <link media="all" type="text/css" href="static/clojure.css" rel="stylesheet" />
-    <link media="all" type="text/css" href="static/wiki.css" rel="stylesheet" />
-    <link media="all" type="text/css" href="static/internal.css" rel="stylesheet" />
+    <link rel="icon" href="static/favicon.png" />
+    <link rel="shortcut icon" href="static/favicon.png" />
+    <link rel="stylesheet" href="static/clojure.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="static/wiki.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="static/internal.css" type="text/css" media="all" />
     <style>.menuWrapper{height: 36px;}</style>
   </head>
 <!--
@@ -19,301 +19,301 @@ namespace.
   <body>
     <div id="AllContentContainer">
       <div id="Header">
-	<a id="Logo" href="index.html"><img alt="Clojure" height="100" width="100" src="static/clojure-icon.gif" /></a>
-	<h1><a title="page header title" id="page-header" href="index.html">tools.namespace API Reference</a></h1>
+	<a href="index.html" id="Logo"><img src="static/clojure-icon.gif" width="100" height="100" alt="Clojure" /></a>
+	<h1><a href="index.html" id="page-header" title="page header title">tools.namespace API Reference</a></h1>
       </div>
       <div id="leftcolumn"><div style="text-align: center;"></div>
 <div class="menu">
   <div class="WikiCustomNav WikiElement wiki">
     <span class="toc-header"><span id="project-name">Extract namespace declarations</span> <span id="version">0.3.0</span> API</span><br />
     <ul>
-      <li><a class="wiki_link" href="index.html">Overview</a></li>
-      <li><a class="wiki_link" href="api-index.html">API Index</a></li>
+      <li><a href="index.html" class="wiki_link">Overview</a></li>
+      <li><a href="api-index.html" class="wiki_link">API Index</a></li>
     </ul>
     
     
-    <a href="http://clojure.org" class="wiki_link">Clojure Home</a>
+    <a class="wiki_link" href="http://clojure.org">Clojure Home</a>
   </div>
 </div>
 </div>
       <div id="rightcolumn">
 	<div id="Content">
 	  <div class="contentBox"><div class="innerContentBox">
-              <div id="content_view" class="wiki wikiPage">
+              <div class="wiki wikiPage" id="content_view">
                 <div id="right-sidebar"><div id="toc">
   <h1 class="nopad">Table of Contents</h1>
-  <div style="margin-left: 1em;" class="toc-section">
-    <a href="#toc0" style="margin-top: 3px;">Overview</a>
+  <div class="toc-section" style="margin-left: 1em;">
+    <a style="margin-top: 3px;" href="#toc0">Overview</a>
     
-  </div><div style="margin-left: 1em;" class="toc-section">
-    <a href="#" style="margin-top: 3px;"></a>
+  </div><div class="toc-section" style="margin-left: 1em;">
+    <a style="margin-top: 3px;" href="#"></a>
     
-  </div><div style="margin-left: 1em;" class="toc-section">
-    <a href="#" style="margin-top: 3px;"></a>
+  </div><div class="toc-section" style="margin-left: 1em;">
+    <a style="margin-top: 3px;" href="#"></a>
     
-  </div><div style="margin-left: 1em;" class="toc-section">
-    <a href="#var-section" style="margin-top: 3px;">Vars and Functions</a>
-    <div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace/clojure-source-file?">clojure-source-file?</a>
+  </div><div class="toc-section" style="margin-left: 1em;">
+    <a style="margin-top: 3px;" href="#var-section">Vars and Functions</a>
+    <div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace/clojure-source-file?" class="toc-entry-anchor">clojure-source-file?</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace/clojure-sources-in-jar">clojure-sources-in-jar</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace/clojure-sources-in-jar" class="toc-entry-anchor">clojure-sources-in-jar</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace/comment?">comment?</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace/comment?" class="toc-entry-anchor">comment?</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace/find-clojure-sources-in-dir">find-clojure-sources-in-dir</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace/find-clojure-sources-in-dir" class="toc-entry-anchor">find-clojure-sources-in-dir</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace/find-namespaces-in-dir">find-namespaces-in-dir</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace/find-namespaces-in-dir" class="toc-entry-anchor">find-namespaces-in-dir</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace/find-namespaces-in-jarfile">find-namespaces-in-jarfile</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace/find-namespaces-in-jarfile" class="toc-entry-anchor">find-namespaces-in-jarfile</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace/find-namespaces-on-classpath">find-namespaces-on-classpath</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace/find-namespaces-on-classpath" class="toc-entry-anchor">find-namespaces-on-classpath</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace/find-ns-decls-in-dir">find-ns-decls-in-dir</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace/find-ns-decls-in-dir" class="toc-entry-anchor">find-ns-decls-in-dir</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace/find-ns-decls-in-jarfile">find-ns-decls-in-jarfile</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace/find-ns-decls-in-jarfile" class="toc-entry-anchor">find-ns-decls-in-jarfile</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace/find-ns-decls-on-classpath">find-ns-decls-on-classpath</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace/find-ns-decls-on-classpath" class="toc-entry-anchor">find-ns-decls-on-classpath</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace/ns-decl?">ns-decl?</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace/ns-decl?" class="toc-entry-anchor">ns-decl?</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace/read-file-ns-decl">read-file-ns-decl</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace/read-file-ns-decl" class="toc-entry-anchor">read-file-ns-decl</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace/read-ns-decl">read-ns-decl</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace/read-ns-decl" class="toc-entry-anchor">read-ns-decl</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace/read-ns-decl-from-jarfile-entry">read-ns-decl-from-jarfile-entry</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace/read-ns-decl-from-jarfile-entry" class="toc-entry-anchor">read-ns-decl-from-jarfile-entry</a>
       
     </div>
-  </div><div style="margin-left: 1em;" class="toc-section">
-    <a href="#clojure.tools.namespace.dependency" style="margin-top: 3px;">clojure.tools.namespace.dependency</a>
-    <div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dependency/DependencyGraph">DependencyGraph</a>
-      <div style="margin-left: 1em;" class="toc-subentry">
-        <a class="toc-subentry-anchor" href="#clojure.tools.namespace.dependency/immediate-dependencies">immediate-dependencies</a>
-      </div><div style="margin-left: 1em;" class="toc-subentry">
-        <a class="toc-subentry-anchor" href="#clojure.tools.namespace.dependency/immediate-dependents">immediate-dependents</a>
-      </div><div style="margin-left: 1em;" class="toc-subentry">
-        <a class="toc-subentry-anchor" href="#clojure.tools.namespace.dependency/nodes">nodes</a>
-      </div><div style="margin-left: 1em;" class="toc-subentry">
-        <a class="toc-subentry-anchor" href="#clojure.tools.namespace.dependency/transitive-dependencies">transitive-dependencies</a>
-      </div><div style="margin-left: 1em;" class="toc-subentry">
-        <a class="toc-subentry-anchor" href="#clojure.tools.namespace.dependency/transitive-dependencies-set">transitive-dependencies-set</a>
-      </div><div style="margin-left: 1em;" class="toc-subentry">
-        <a class="toc-subentry-anchor" href="#clojure.tools.namespace.dependency/transitive-dependents">transitive-dependents</a>
-      </div><div style="margin-left: 1em;" class="toc-subentry">
-        <a class="toc-subentry-anchor" href="#clojure.tools.namespace.dependency/transitive-dependents-set">transitive-dependents-set</a>
+  </div><div class="toc-section" style="margin-left: 1em;">
+    <a style="margin-top: 3px;" href="#clojure.tools.namespace.dependency">clojure.tools.namespace.dependency</a>
+    <div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.dependency/DependencyGraph" class="toc-entry-anchor">DependencyGraph</a>
+      <div class="toc-subentry" style="margin-left: 1em;">
+        <a href="#clojure.tools.namespace.dependency/immediate-dependencies" class="toc-subentry-anchor">immediate-dependencies</a>
+      </div><div class="toc-subentry" style="margin-left: 1em;">
+        <a href="#clojure.tools.namespace.dependency/immediate-dependents" class="toc-subentry-anchor">immediate-dependents</a>
+      </div><div class="toc-subentry" style="margin-left: 1em;">
+        <a href="#clojure.tools.namespace.dependency/nodes" class="toc-subentry-anchor">nodes</a>
+      </div><div class="toc-subentry" style="margin-left: 1em;">
+        <a href="#clojure.tools.namespace.dependency/transitive-dependencies" class="toc-subentry-anchor">transitive-dependencies</a>
+      </div><div class="toc-subentry" style="margin-left: 1em;">
+        <a href="#clojure.tools.namespace.dependency/transitive-dependencies-set" class="toc-subentry-anchor">transitive-dependencies-set</a>
+      </div><div class="toc-subentry" style="margin-left: 1em;">
+        <a href="#clojure.tools.namespace.dependency/transitive-dependents" class="toc-subentry-anchor">transitive-dependents</a>
+      </div><div class="toc-subentry" style="margin-left: 1em;">
+        <a href="#clojure.tools.namespace.dependency/transitive-dependents-set" class="toc-subentry-anchor">transitive-dependents-set</a>
       </div>
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dependency/DependencyGraphUpdate">DependencyGraphUpdate</a>
-      <div style="margin-left: 1em;" class="toc-subentry">
-        <a class="toc-subentry-anchor" href="#clojure.tools.namespace.dependency/depend">depend</a>
-      </div><div style="margin-left: 1em;" class="toc-subentry">
-        <a class="toc-subentry-anchor" href="#clojure.tools.namespace.dependency/remove-all">remove-all</a>
-      </div><div style="margin-left: 1em;" class="toc-subentry">
-        <a class="toc-subentry-anchor" href="#clojure.tools.namespace.dependency/remove-edge">remove-edge</a>
-      </div><div style="margin-left: 1em;" class="toc-subentry">
-        <a class="toc-subentry-anchor" href="#clojure.tools.namespace.dependency/remove-node">remove-node</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.dependency/DependencyGraphUpdate" class="toc-entry-anchor">DependencyGraphUpdate</a>
+      <div class="toc-subentry" style="margin-left: 1em;">
+        <a href="#clojure.tools.namespace.dependency/depend" class="toc-subentry-anchor">depend</a>
+      </div><div class="toc-subentry" style="margin-left: 1em;">
+        <a href="#clojure.tools.namespace.dependency/remove-all" class="toc-subentry-anchor">remove-all</a>
+      </div><div class="toc-subentry" style="margin-left: 1em;">
+        <a href="#clojure.tools.namespace.dependency/remove-edge" class="toc-subentry-anchor">remove-edge</a>
+      </div><div class="toc-subentry" style="margin-left: 1em;">
+        <a href="#clojure.tools.namespace.dependency/remove-node" class="toc-subentry-anchor">remove-node</a>
       </div>
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dependency/MapDependencyGraph">MapDependencyGraph</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.dependency/MapDependencyGraph" class="toc-entry-anchor">MapDependencyGraph</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dependency/-&gt;MapDependencyGraph">-&gt;MapDependencyGraph</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.dependency/-&gt;MapDependencyGraph" class="toc-entry-anchor">-&gt;MapDependencyGraph</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dependency/dependent?">dependent?</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.dependency/dependent?" class="toc-entry-anchor">dependent?</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dependency/depends?">depends?</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.dependency/depends?" class="toc-entry-anchor">depends?</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dependency/graph">graph</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.dependency/graph" class="toc-entry-anchor">graph</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dependency/map-&gt;MapDependencyGraph">map-&gt;MapDependencyGraph</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.dependency/map-&gt;MapDependencyGraph" class="toc-entry-anchor">map-&gt;MapDependencyGraph</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dependency/topo-comparator">topo-comparator</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.dependency/topo-comparator" class="toc-entry-anchor">topo-comparator</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dependency/topo-sort">topo-sort</a>
-      
-    </div>
-  </div><div style="margin-left: 1em;" class="toc-section">
-    <a href="#clojure.tools.namespace.dir" style="margin-top: 3px;">clojure.tools.namespace.dir</a>
-    <div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dir/scan">scan</a>
-      
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dir/scan-all">scan-all</a>
-      
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dir/scan-dirs">scan-dirs</a>
-      
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.dir/scan-files">scan-files</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.dependency/topo-sort" class="toc-entry-anchor">topo-sort</a>
       
     </div>
-  </div><div style="margin-left: 1em;" class="toc-section">
-    <a href="#clojure.tools.namespace.file" style="margin-top: 3px;">clojure.tools.namespace.file</a>
-    <div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.file/add-files">add-files</a>
+  </div><div class="toc-section" style="margin-left: 1em;">
+    <a style="margin-top: 3px;" href="#clojure.tools.namespace.dir">clojure.tools.namespace.dir</a>
+    <div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.dir/scan" class="toc-entry-anchor">scan</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.file/clojure-extensions">clojure-extensions</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.dir/scan-all" class="toc-entry-anchor">scan-all</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.file/clojure-file?">clojure-file?</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.dir/scan-dirs" class="toc-entry-anchor">scan-dirs</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.file/clojurescript-extensions">clojurescript-extensions</a>
-      
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.file/clojurescript-file?">clojurescript-file?</a>
-      
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.file/file-with-extension?">file-with-extension?</a>
-      
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.file/read-file-ns-decl">read-file-ns-decl</a>
-      
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.file/remove-files">remove-files</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.dir/scan-files" class="toc-entry-anchor">scan-files</a>
       
     </div>
-  </div><div style="margin-left: 1em;" class="toc-section">
-    <a href="#clojure.tools.namespace.find" style="margin-top: 3px;">clojure.tools.namespace.find</a>
-    <div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.find/clj">clj</a>
+  </div><div class="toc-section" style="margin-left: 1em;">
+    <a style="margin-top: 3px;" href="#clojure.tools.namespace.file">clojure.tools.namespace.file</a>
+    <div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.file/add-files" class="toc-entry-anchor">add-files</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.find/cljs">cljs</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.file/clojure-extensions" class="toc-entry-anchor">clojure-extensions</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.find/clojure-sources-in-jar">clojure-sources-in-jar</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.file/clojure-file?" class="toc-entry-anchor">clojure-file?</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.find/find-clojure-sources-in-dir">find-clojure-sources-in-dir</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.file/clojurescript-extensions" class="toc-entry-anchor">clojurescript-extensions</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.find/find-namespaces">find-namespaces</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.file/clojurescript-file?" class="toc-entry-anchor">clojurescript-file?</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.find/find-namespaces-in-dir">find-namespaces-in-dir</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.file/file-with-extension?" class="toc-entry-anchor">file-with-extension?</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.find/find-namespaces-in-jarfile">find-namespaces-in-jarfile</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.file/read-file-ns-decl" class="toc-entry-anchor">read-file-ns-decl</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.find/find-ns-decls">find-ns-decls</a>
-      
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.find/find-ns-decls-in-dir">find-ns-decls-in-dir</a>
-      
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.find/find-ns-decls-in-jarfile">find-ns-decls-in-jarfile</a>
-      
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.find/find-sources-in-dir">find-sources-in-dir</a>
-      
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.find/read-ns-decl-from-jarfile-entry">read-ns-decl-from-jarfile-entry</a>
-      
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.find/sources-in-jar">sources-in-jar</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.file/remove-files" class="toc-entry-anchor">remove-files</a>
       
     </div>
-  </div><div style="margin-left: 1em;" class="toc-section">
-    <a href="#clojure.tools.namespace.move" style="margin-top: 3px;">clojure.tools.namespace.move</a>
-    <div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.move/move-ns">move-ns</a>
+  </div><div class="toc-section" style="margin-left: 1em;">
+    <a style="margin-top: 3px;" href="#clojure.tools.namespace.find">clojure.tools.namespace.find</a>
+    <div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.find/clj" class="toc-entry-anchor">clj</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.move/move-ns-file">move-ns-file</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.find/cljs" class="toc-entry-anchor">cljs</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.move/replace-ns-symbol">replace-ns-symbol</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.find/clojure-sources-in-jar" class="toc-entry-anchor">clojure-sources-in-jar</a>
       
-    </div>
-  </div><div style="margin-left: 1em;" class="toc-section">
-    <a href="#clojure.tools.namespace.parse" style="margin-top: 3px;">clojure.tools.namespace.parse</a>
-    <div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.parse/clj-read-opts">clj-read-opts</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.find/find-clojure-sources-in-dir" class="toc-entry-anchor">find-clojure-sources-in-dir</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.parse/cljs-read-opts">cljs-read-opts</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.find/find-namespaces" class="toc-entry-anchor">find-namespaces</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.parse/comment?">comment?</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.find/find-namespaces-in-dir" class="toc-entry-anchor">find-namespaces-in-dir</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.parse/deps-from-ns-decl">deps-from-ns-decl</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.find/find-namespaces-in-jarfile" class="toc-entry-anchor">find-namespaces-in-jarfile</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.parse/name-from-ns-decl">name-from-ns-decl</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.find/find-ns-decls" class="toc-entry-anchor">find-ns-decls</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.parse/ns-decl?">ns-decl?</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.find/find-ns-decls-in-dir" class="toc-entry-anchor">find-ns-decls-in-dir</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.parse/read-ns-decl">read-ns-decl</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.find/find-ns-decls-in-jarfile" class="toc-entry-anchor">find-ns-decls-in-jarfile</a>
       
-    </div>
-  </div><div style="margin-left: 1em;" class="toc-section">
-    <a href="#clojure.tools.namespace.reload" style="margin-top: 3px;">clojure.tools.namespace.reload</a>
-    <div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.reload/remove-lib">remove-lib</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.find/find-sources-in-dir" class="toc-entry-anchor">find-sources-in-dir</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.reload/track-reload">track-reload</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.find/read-ns-decl-from-jarfile-entry" class="toc-entry-anchor">read-ns-decl-from-jarfile-entry</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.reload/track-reload-one">track-reload-one</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.find/sources-in-jar" class="toc-entry-anchor">sources-in-jar</a>
       
     </div>
-  </div><div style="margin-left: 1em;" class="toc-section">
-    <a href="#clojure.tools.namespace.repl" style="margin-top: 3px;">clojure.tools.namespace.repl</a>
-    <div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.repl/clear">clear</a>
+  </div><div class="toc-section" style="margin-left: 1em;">
+    <a style="margin-top: 3px;" href="#clojure.tools.namespace.move">clojure.tools.namespace.move</a>
+    <div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.move/move-ns" class="toc-entry-anchor">move-ns</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.repl/disable-reload!">disable-reload!</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.move/move-ns-file" class="toc-entry-anchor">move-ns-file</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.repl/disable-unload!">disable-unload!</a>
-      
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.repl/refresh">refresh</a>
-      
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.repl/refresh-all">refresh-all</a>
-      
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.repl/set-refresh-dirs">set-refresh-dirs</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.move/replace-ns-symbol" class="toc-entry-anchor">replace-ns-symbol</a>
       
     </div>
-  </div><div style="margin-left: 1em;" class="toc-section">
-    <a href="#clojure.tools.namespace.track" style="margin-top: 3px;">clojure.tools.namespace.track</a>
-    <div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.track/add">add</a>
+  </div><div class="toc-section" style="margin-left: 1em;">
+    <a style="margin-top: 3px;" href="#clojure.tools.namespace.parse">clojure.tools.namespace.parse</a>
+    <div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.parse/clj-read-opts" class="toc-entry-anchor">clj-read-opts</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.track/remove">remove</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.parse/cljs-read-opts" class="toc-entry-anchor">cljs-read-opts</a>
       
-    </div><div style="margin-left: 1em;" class="toc-entry">
-      <a class="toc-entry-anchor" href="#clojure.tools.namespace.track/tracker">tracker</a>
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.parse/comment?" class="toc-entry-anchor">comment?</a>
+      
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.parse/deps-from-ns-decl" class="toc-entry-anchor">deps-from-ns-decl</a>
+      
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.parse/name-from-ns-decl" class="toc-entry-anchor">name-from-ns-decl</a>
+      
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.parse/ns-decl?" class="toc-entry-anchor">ns-decl?</a>
+      
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.parse/read-ns-decl" class="toc-entry-anchor">read-ns-decl</a>
+      
+    </div>
+  </div><div class="toc-section" style="margin-left: 1em;">
+    <a style="margin-top: 3px;" href="#clojure.tools.namespace.reload">clojure.tools.namespace.reload</a>
+    <div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.reload/remove-lib" class="toc-entry-anchor">remove-lib</a>
+      
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.reload/track-reload" class="toc-entry-anchor">track-reload</a>
+      
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.reload/track-reload-one" class="toc-entry-anchor">track-reload-one</a>
+      
+    </div>
+  </div><div class="toc-section" style="margin-left: 1em;">
+    <a style="margin-top: 3px;" href="#clojure.tools.namespace.repl">clojure.tools.namespace.repl</a>
+    <div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.repl/clear" class="toc-entry-anchor">clear</a>
+      
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.repl/disable-reload!" class="toc-entry-anchor">disable-reload!</a>
+      
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.repl/disable-unload!" class="toc-entry-anchor">disable-unload!</a>
+      
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.repl/refresh" class="toc-entry-anchor">refresh</a>
+      
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.repl/refresh-all" class="toc-entry-anchor">refresh-all</a>
+      
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.repl/set-refresh-dirs" class="toc-entry-anchor">set-refresh-dirs</a>
+      
+    </div>
+  </div><div class="toc-section" style="margin-left: 1em;">
+    <a style="margin-top: 3px;" href="#clojure.tools.namespace.track">clojure.tools.namespace.track</a>
+    <div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.track/add" class="toc-entry-anchor">add</a>
+      
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.track/remove" class="toc-entry-anchor">remove</a>
+      
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.track/tracker" class="toc-entry-anchor">tracker</a>
       
     </div>
   </div>
@@ -350,7 +350,7 @@ other namespaces</pre>
 Returns true if file is a normal file with a .clj or .cljc extension.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.1.0</span><br /></span>
     <span class="var-deprecated"><span id="content">Deprecated since Extract namespace declarations version 0.2.1</span><br /></span>
-    <a href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L24" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L24">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -363,7 +363,7 @@ Returns true if file is a normal file with a .clj or .cljc extension.</pre>
 Returns a sequence of filenames ending in .clj or .cljc found in the JAR file.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.1.0</span><br /></span>
     <span class="var-deprecated"><span id="content">Deprecated since Extract namespace declarations version 0.2.1</span><br /></span>
-    <a href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L154" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L154">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -376,7 +376,7 @@ Returns a sequence of filenames ending in .clj or .cljc found in the JAR file.</
 Returns true if form is a (comment ...)</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.1.0</span><br /></span>
     <span class="var-deprecated"><span id="content">Deprecated since Extract namespace declarations version 0.2.1</span><br /></span>
-    <a href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L48" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L48">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -390,7 +390,7 @@ Searches recursively under dir for Clojure source files (.clj, .cljc).
 Returns a sequence of File objects, in breadth-first sort order.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.1.0</span><br /></span>
     <span class="var-deprecated"><span id="content">Deprecated since Extract namespace declarations version 0.2.1</span><br /></span>
-    <a href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L36" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L36">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -404,7 +404,7 @@ Searches dir recursively for (ns ...) declarations in Clojure
 source files; returns the symbol names of the declared namespaces.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.1.0</span><br /></span>
     <span class="var-deprecated"><span id="content">Deprecated since Extract namespace declarations version 0.2.1</span><br /></span>
-    <a href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L106" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L106">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -419,7 +419,7 @@ declarations.  Returns a sequence of the symbol names of the
 declared namespaces.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.1.0</span><br /></span>
     <span class="var-deprecated"><span id="content">Deprecated since Extract namespace declarations version 0.2.1</span><br /></span>
-    <a href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L191" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L191">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -436,7 +436,7 @@ source files containing (ns ...) declarations.  Returns a sequence
 of the symbol names of the declared namespaces.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.1.0</span><br /></span>
     <span class="var-deprecated"><span id="content">Deprecated since Extract namespace declarations version 0.2.1</span><br /></span>
-    <a href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L219" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L219">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -450,7 +450,7 @@ Searches dir recursively for (ns ...) declarations in Clojure
 source files; returns the unevaluated ns declarations.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.1.0</span><br /></span>
     <span class="var-deprecated"><span id="content">Deprecated since Extract namespace declarations version 0.2.1</span><br /></span>
-    <a href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L96" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L96">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -464,7 +464,7 @@ Searches the JAR file for Clojure source files containing (ns ...)
 declarations; returns the unevaluated ns declarations.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.1.0</span><br /></span>
     <span class="var-deprecated"><span id="content">Deprecated since Extract namespace declarations version 0.2.1</span><br /></span>
-    <a href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L179" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L179">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -481,7 +481,7 @@ source files containing (ns ...) declarations. Returns a sequence of
 the unevaluated ns declaration forms.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.1.0</span><br /></span>
     <span class="var-deprecated"><span id="content">Deprecated since Extract namespace declarations version 0.2.1</span><br /></span>
-    <a href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L204" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L204">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -494,7 +494,7 @@ the unevaluated ns declaration forms.</pre>
 Returns true if form is a (ns ...) declaration.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.1.0</span><br /></span>
     <span class="var-deprecated"><span id="content">Deprecated since Extract namespace declarations version 0.2.1</span><br /></span>
-    <a href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L57" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L57">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -509,7 +509,7 @@ unevaluated form.  Returns nil if read fails, or if the first form
 is not a ns declaration.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.1.0</span><br /></span>
     <span class="var-deprecated"><span id="content">Deprecated since Extract namespace declarations version 0.2.1</span><br /></span>
-    <a href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L84" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L84">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -525,7 +525,7 @@ cannot be found.  The ns declaration must be the first Clojure form
 in the file, except for (comment ...)  forms.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.1.0</span><br /></span>
     <span class="var-deprecated"><span id="content">Deprecated since Extract namespace declarations version 0.2.1</span><br /></span>
-    <a href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L66" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L66">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -540,7 +540,7 @@ JAR file, and returns the unevaluated form.  Returns nil if the read
 fails, or if the first form is not a ns declaration.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.1.0</span><br /></span>
     <span class="var-deprecated"><span id="content">Deprecated since Extract namespace declarations version 0.2.1</span><br /></span>
-    <a href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L164" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/163bee73ce1d78995bf355e5bebb0abb9964f6d5/src/main/clojure/clojure/tools/namespace.clj#L164">Source</a>
   </div>
 </div>
 <br />
@@ -636,7 +636,7 @@ node-set, directly or transitively.</pre>
     </div>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/1b3228552547b5227130c5c585558d2b76c35a71/src/main/clojure/clojure/tools/namespace/dependency.cljc#L14" id="proto-source">Source</a>
+    <a id="proto-source" href="https://github.com/clojure/tools.namespace/blob/1b3228552547b5227130c5c585558d2b76c35a71/src/main/clojure/clojure/tools/namespace/dependency.cljc#L14">Source</a>
   </div><div id="proto-entry">
     <br />
     <hr />
@@ -690,7 +690,7 @@ node.</pre>
     </div>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/1b3228552547b5227130c5c585558d2b76c35a71/src/main/clojure/clojure/tools/namespace/dependency.cljc#L34" id="proto-source">Source</a>
+    <a id="proto-source" href="https://github.com/clojure/tools.namespace/blob/1b3228552547b5227130c5c585558d2b76c35a71/src/main/clojure/clojure/tools/namespace/dependency.cljc#L34">Source</a>
   </div>
 </div>
 <div id="type-section">
@@ -720,7 +720,7 @@ node.</pre>
     <pre id="var-docstr">Positional factory function for class clojure.tools.namespace.dependency.MapDependencyGraph.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/1b3228552547b5227130c5c585558d2b76c35a71/src/main/clojure/clojure/tools/namespace/dependency.cljc#L69" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/1b3228552547b5227130c5c585558d2b76c35a71/src/main/clojure/clojure/tools/namespace/dependency.cljc#L69">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -731,7 +731,7 @@ node.</pre>
     <pre id="var-docstr">True if y is a dependent of x.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/1b3228552547b5227130c5c585558d2b76c35a71/src/main/clojure/clojure/tools/namespace/dependency.cljc#L118" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/1b3228552547b5227130c5c585558d2b76c35a71/src/main/clojure/clojure/tools/namespace/dependency.cljc#L118">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -742,7 +742,7 @@ node.</pre>
     <pre id="var-docstr">True if x is directly or transitively dependent on y.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/1b3228552547b5227130c5c585558d2b76c35a71/src/main/clojure/clojure/tools/namespace/dependency.cljc#L113" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/1b3228552547b5227130c5c585558d2b76c35a71/src/main/clojure/clojure/tools/namespace/dependency.cljc#L113">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -753,7 +753,7 @@ node.</pre>
     <pre id="var-docstr">Returns a new, empty, dependency graph.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/1b3228552547b5227130c5c585558d2b76c35a71/src/main/clojure/clojure/tools/namespace/dependency.cljc#L110" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/1b3228552547b5227130c5c585558d2b76c35a71/src/main/clojure/clojure/tools/namespace/dependency.cljc#L110">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -764,7 +764,7 @@ node.</pre>
     <pre id="var-docstr">Factory function for class clojure.tools.namespace.dependency.MapDependencyGraph, taking a map of keywords to field values.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/1b3228552547b5227130c5c585558d2b76c35a71/src/main/clojure/clojure/tools/namespace/dependency.cljc#L69" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/1b3228552547b5227130c5c585558d2b76c35a71/src/main/clojure/clojure/tools/namespace/dependency.cljc#L69">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -777,7 +777,7 @@ the dependencies in graph. Nodes not present in the graph will sort
 after nodes in the graph.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/1b3228552547b5227130c5c585558d2b76c35a71/src/main/clojure/clojure/tools/namespace/dependency.cljc#L152" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/1b3228552547b5227130c5c585558d2b76c35a71/src/main/clojure/clojure/tools/namespace/dependency.cljc#L152">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -788,7 +788,7 @@ after nodes in the graph.</pre>
     <pre id="var-docstr">Returns a topologically-sorted list of nodes in graph.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/1b3228552547b5227130c5c585558d2b76c35a71/src/main/clojure/clojure/tools/namespace/dependency.cljc#L123" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/1b3228552547b5227130c5c585558d2b76c35a71/src/main/clojure/clojure/tools/namespace/dependency.cljc#L123">Source</a>
   </div>
 </div>
 <br />
@@ -819,7 +819,7 @@ tracker with new/changed/deleted files.
 If no dirs given, defaults to all directories on the classpath.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.2.0</span><br /></span>
     <span class="var-deprecated"><span id="content">Deprecated since Extract namespace declarations version 0.3.0</span><br /></span>
-    <a href="https://github.com/clojure/tools.namespace/blob/64e807c1888b494d04bb4dc96432d4d76aa0db54/src/main/clojure/clojure/tools/namespace/dir.clj#L92" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/64e807c1888b494d04bb4dc96432d4d76aa0db54/src/main/clojure/clojure/tools/namespace/dir.clj#L92">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -834,7 +834,7 @@ dependency tracker to reload files. If no dirs given, defaults to
 all directories on the classpath.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.2.0</span><br /></span>
     <span class="var-deprecated"><span id="content">Deprecated since Extract namespace declarations version 0.3.0</span><br /></span>
-    <a href="https://github.com/clojure/tools.namespace/blob/64e807c1888b494d04bb4dc96432d4d76aa0db54/src/main/clojure/clojure/tools/namespace/dir.clj#L105" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/64e807c1888b494d04bb4dc96432d4d76aa0db54/src/main/clojure/clojure/tools/namespace/dir.clj#L105">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -861,7 +861,7 @@ Optional third argument is map of options:
              of filesystem timestamps.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.3.0</span><br /></span>
     
-    <a href="https://github.com/clojure/tools.namespace/blob/64e807c1888b494d04bb4dc96432d4d76aa0db54/src/main/clojure/clojure/tools/namespace/dir.clj#L69" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/64e807c1888b494d04bb4dc96432d4d76aa0db54/src/main/clojure/clojure/tools/namespace/dir.clj#L69">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -886,7 +886,7 @@ Optional third argument is map of options:
              of filesystem timestamps.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.3.0</span><br /></span>
     
-    <a href="https://github.com/clojure/tools.namespace/blob/64e807c1888b494d04bb4dc96432d4d76aa0db54/src/main/clojure/clojure/tools/namespace/dir.clj#L43" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/64e807c1888b494d04bb4dc96432d4d76aa0db54/src/main/clojure/clojure/tools/namespace/dir.clj#L43">Source</a>
   </div>
 </div>
 <br />
@@ -913,7 +913,7 @@ tracker with those files added. read-opts is passed through to
 tools.reader.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/file.clj#L76" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/file.clj#L76">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -923,7 +923,7 @@ tools.reader.</pre>
     <pre id="var-docstr">File extensions for Clojure (JVM) files.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.3.0</span><br /></span>
     
-    <a href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/file.clj#L38" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/file.clj#L38">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -935,7 +935,7 @@ tools.reader.</pre>
 read by the Clojure (JVM) compiler.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/file.clj#L48" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/file.clj#L48">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -945,7 +945,7 @@ read by the Clojure (JVM) compiler.</pre>
     <pre id="var-docstr">File extensions for ClojureScript files.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.3.0</span><br /></span>
     
-    <a href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/file.clj#L43" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/file.clj#L43">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -957,7 +957,7 @@ read by the Clojure (JVM) compiler.</pre>
 read by the ClojureScript compiler.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.3.0</span><br /></span>
     
-    <a href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/file.clj#L54" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/file.clj#L54">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -969,7 +969,7 @@ read by the ClojureScript compiler.</pre>
 with one of the Strings in extensions.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.3.0</span><br /></span>
     
-    <a href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/file.clj#L29" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/file.clj#L29">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -984,7 +984,7 @@ if a ns declaration cannot be found. read-opts is passed through to
 tools.reader/read.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/file.clj#L17" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/file.clj#L17">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -996,7 +996,7 @@ tools.reader/read.</pre>
 must have been previously added with add-files.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/file.clj#L88" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/file.clj#L88">Source</a>
   </div>
 </div>
 <br />
@@ -1020,7 +1020,7 @@ must have been previously added with add-files.</pre>
 Clojure (.clj and .cljc) source files.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.3.0</span><br /></span>
     
-    <a href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L22" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L22">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1031,7 +1031,7 @@ Clojure (.clj and .cljc) source files.</pre>
 ClojureScript (.cljs and .cljc) source files.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.3.0</span><br /></span>
     
-    <a href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L29" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L29">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1045,7 +1045,7 @@ Returns a sequence of filenames ending in .clj or .cljc found in the
 JAR file.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.2.0</span><br /></span>
     <span class="var-deprecated"><span id="content">Deprecated since Extract namespace declarations version 0.3.0</span><br /></span>
-    <a href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L109" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L109">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1059,7 +1059,7 @@ Searches recursively under dir for Clojure source files (.clj, .cljc).
 Returns a sequence of File objects, in breadth-first sort order.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.2.0</span><br /></span>
     <span class="var-deprecated"><span id="content">Deprecated since Extract namespace declarations version 0.3.0</span><br /></span>
-    <a href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L57" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L57">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1078,7 +1078,7 @@ Optional second argument platform is either clj (default) or cljs,
 both defined in clojure.tools.namespace.find.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L182" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L182">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1094,7 +1094,7 @@ Optional second argument platform is either clj (default) or cljs,
 both defined in clojure.tools.namespace.find.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.3.0</span><br /></span>
     
-    <a href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L79" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L79">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1111,7 +1111,7 @@ Optional second argument platform is either clj (default) or cljs,
 both defined in clojure.tools.namespace.find.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L148" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L148">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1130,7 +1130,7 @@ Optional second argument platform is either clj (default) or cljs,
 both defined in clojure.tools.namespace.find.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L163" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L163">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1146,7 +1146,7 @@ Optional second argument platform is either clj (default) or cljs,
 both defined in clojure.tools.namespace.find.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.2.0</span><br /></span>
     
-    <a href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L67" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L67">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1162,7 +1162,7 @@ Optional second argument platform is either clj (default) or cljs,
 both defined in clojure.tools.namespace.find.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L136" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L136">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1178,7 +1178,7 @@ Optional second argument is either clj (default) or cljs, both
 defined in clojure.tools.namespace.find.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.3.0</span><br /></span>
     
-    <a href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L42" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L42">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1195,7 +1195,7 @@ Optional third argument platform is either clj (default) or cljs,
 both defined in clojure.tools.namespace.find.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L119" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L119">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1210,7 +1210,7 @@ Optional second argument platform is either clj (default) or cljs,
 both defined in clojure.tools.namespace.find.</pre>
     <span class="var-added"><span id="content">Added in Extract namespace declarations version 0.3.0</span><br /></span>
     
-    <a href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L96" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/68510af299aca151cf98705a73d1530f1ff6a736/src/main/clojure/clojure/tools/namespace/find.clj#L96">Source</a>
   </div>
 </div>
 <br />
@@ -1249,7 +1249,7 @@ WARNING: This function modifies and deletes your source files! Make
 sure you have a backup or version control.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/09e1e1fd81faed4e24399bf68bf78e87b32eb68b/src/main/clojure/clojure/tools/namespace/move.clj#L86" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/09e1e1fd81faed4e24399bf68bf78e87b32eb68b/src/main/clojure/clojure/tools/namespace/move.clj#L86">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1265,7 +1265,7 @@ WARNING: This function moves and deletes your source files! Make
 sure you have a backup or version control.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/09e1e1fd81faed4e24399bf68bf78e87b32eb68b/src/main/clojure/clojure/tools/namespace/move.clj#L68" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/09e1e1fd81faed4e24399bf68bf78e87b32eb68b/src/main/clojure/clojure/tools/namespace/move.clj#L68">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1278,7 +1278,7 @@ all occurrences of the namespace name old-sym with new-sym and
 returns modified source as a string.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/09e1e1fd81faed4e24399bf68bf78e87b32eb68b/src/main/clojure/clojure/tools/namespace/move.clj#L54" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/09e1e1fd81faed4e24399bf68bf78e87b32eb68b/src/main/clojure/clojure/tools/namespace/move.clj#L54">Source</a>
   </div>
 </div>
 <br />
@@ -1303,7 +1303,7 @@ dependencies.</pre>
 with the :clj feature enabled.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/5d6957ddb11d74fb54c92d2edccce65e8621a3f7/src/main/clojure/clojure/tools/namespace/parse.cljc#L27" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/5d6957ddb11d74fb54c92d2edccce65e8621a3f7/src/main/clojure/clojure/tools/namespace/parse.cljc#L27">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1314,7 +1314,7 @@ with the :clj feature enabled.</pre>
 with the :cljs feature enabled.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/5d6957ddb11d74fb54c92d2edccce65e8621a3f7/src/main/clojure/clojure/tools/namespace/parse.cljc#L33" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/5d6957ddb11d74fb54c92d2edccce65e8621a3f7/src/main/clojure/clojure/tools/namespace/parse.cljc#L33">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1325,7 +1325,7 @@ with the :cljs feature enabled.</pre>
     <pre id="var-docstr">Returns true if form is a (comment ...)</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/5d6957ddb11d74fb54c92d2edccce65e8621a3f7/src/main/clojure/clojure/tools/namespace/parse.cljc#L17" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/5d6957ddb11d74fb54c92d2edccce65e8621a3f7/src/main/clojure/clojure/tools/namespace/parse.cljc#L17">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1338,7 +1338,7 @@ symbols naming the dependencies of that namespace.  Handles :use and
 :require clauses but not :load.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/5d6957ddb11d74fb54c92d2edccce65e8621a3f7/src/main/clojure/clojure/tools/namespace/parse.cljc#L123" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/5d6957ddb11d74fb54c92d2edccce65e8621a3f7/src/main/clojure/clojure/tools/namespace/parse.cljc#L123">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1350,7 +1350,7 @@ symbols naming the dependencies of that namespace.  Handles :use and
 of the namespace as a symbol.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/5d6957ddb11d74fb54c92d2edccce65e8621a3f7/src/main/clojure/clojure/tools/namespace/parse.cljc#L117" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/5d6957ddb11d74fb54c92d2edccce65e8621a3f7/src/main/clojure/clojure/tools/namespace/parse.cljc#L117">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1361,7 +1361,7 @@ of the namespace as a symbol.</pre>
     <pre id="var-docstr">Returns true if form is a (ns ...) declaration.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/5d6957ddb11d74fb54c92d2edccce65e8621a3f7/src/main/clojure/clojure/tools/namespace/parse.cljc#L22" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/5d6957ddb11d74fb54c92d2edccce65e8621a3f7/src/main/clojure/clojure/tools/namespace/parse.cljc#L22">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1381,7 +1381,7 @@ trusted sources. read-opts is passed through to tools.reader/read,
 defaults to clj-read-opts</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/5d6957ddb11d74fb54c92d2edccce65e8621a3f7/src/main/clojure/clojure/tools/namespace/parse.cljc#L39" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/5d6957ddb11d74fb54c92d2edccce65e8621a3f7/src/main/clojure/clojure/tools/namespace/parse.cljc#L39">Source</a>
   </div>
 </div>
 <br />
@@ -1406,7 +1406,7 @@ dependency tracker</pre>
     <pre id="var-docstr">Remove lib's namespace and remove lib from the set of loaded libs.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/27194f2edfe3f5f9e1343f993beca4b43f0bafe8/src/main/clojure/clojure/tools/namespace/reload.clj#L15" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/27194f2edfe3f5f9e1343f993beca4b43f0bafe8/src/main/clojure/clojure/tools/namespace/reload.clj#L15">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1419,7 +1419,7 @@ until either an error is encountered or there are no more pending
 operations.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/27194f2edfe3f5f9e1343f993beca4b43f0bafe8/src/main/clojure/clojure/tools/namespace/reload.clj#L43" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/27194f2edfe3f5f9e1343f993beca4b43f0bafe8/src/main/clojure/clojure/tools/namespace/reload.clj#L43">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1433,7 +1433,7 @@ an error, it is captured as ::error and the namespace which caused
 the error is ::error-ns.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/27194f2edfe3f5f9e1343f993beca4b43f0bafe8/src/main/clojure/clojure/tools/namespace/reload.clj#L21" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/27194f2edfe3f5f9e1343f993beca4b43f0bafe8/src/main/clojure/clojure/tools/namespace/reload.clj#L21">Source</a>
   </div>
 </div>
 <br />
@@ -1461,7 +1461,7 @@ state, without restarting the Clojure process. The next call to
 remove stale code from deleted files.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/0ce6646bb59a319a864faad5d01f1bc31c79e932/src/main/clojure/clojure/tools/namespace/repl.clj#L170" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/0ce6646bb59a319a864faad5d01f1bc31c79e932/src/main/clojure/clojure/tools/namespace/repl.clj#L170">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1476,7 +1476,7 @@ remove stale code from deleted files.</pre>
 Warning: Aliases to reloaded namespaces will break.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/0ce6646bb59a319a864faad5d01f1bc31c79e932/src/main/clojure/clojure/tools/namespace/repl.clj#L120" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/0ce6646bb59a319a864faad5d01f1bc31c79e932/src/main/clojure/clojure/tools/namespace/repl.clj#L120">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1492,7 +1492,7 @@ just won't be removed first.
 Warning: Aliases to reloaded namespaces will break.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/0ce6646bb59a319a864faad5d01f1bc31c79e932/src/main/clojure/clojure/tools/namespace/repl.clj#L111" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/0ce6646bb59a319a864faad5d01f1bc31c79e932/src/main/clojure/clojure/tools/namespace/repl.clj#L111">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1516,7 +1516,7 @@ Options are key-value pairs. Valid options are:
              been reloaded.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/0ce6646bb59a319a864faad5d01f1bc31c79e932/src/main/clojure/clojure/tools/namespace/repl.clj#L128" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/0ce6646bb59a319a864faad5d01f1bc31c79e932/src/main/clojure/clojure/tools/namespace/repl.clj#L128">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1538,7 +1538,7 @@ Options are key-value pairs. Valid options are:
              been reloaded.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/0ce6646bb59a319a864faad5d01f1bc31c79e932/src/main/clojure/clojure/tools/namespace/repl.clj#L147" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/0ce6646bb59a319a864faad5d01f1bc31c79e932/src/main/clojure/clojure/tools/namespace/repl.clj#L147">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1550,7 +1550,7 @@ Options are key-value pairs. Valid options are:
 same types as clojure.java.io/file.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/0ce6646bb59a319a864faad5d01f1bc31c79e932/src/main/clojure/clojure/tools/namespace/repl.clj#L164" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/0ce6646bb59a319a864faad5d01f1bc31c79e932/src/main/clojure/clojure/tools/namespace/repl.clj#L164">Source</a>
   </div>
 </div>
 <br />
@@ -1606,7 +1606,7 @@ namespaces in the 'unload' list, then (re)load all namespaces in the
 functions to do this.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/e2c8dc5e8fbfdbe9ca24e9ec357dd1885d522c01/src/main/clojure/clojure/tools/namespace/track.cljc#L39" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/e2c8dc5e8fbfdbe9ca24e9ec357dd1885d522c01/src/main/clojure/clojure/tools/namespace/track.cljc#L39">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1619,7 +1619,7 @@ functions to do this.</pre>
 populated as with 'add'.</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/e2c8dc5e8fbfdbe9ca24e9ec357dd1885d522c01/src/main/clojure/clojure/tools/namespace/track.cljc#L88" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/e2c8dc5e8fbfdbe9ca24e9ec357dd1885d522c01/src/main/clojure/clojure/tools/namespace/track.cljc#L88">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1630,7 +1630,7 @@ populated as with 'add'.</pre>
     <pre id="var-docstr">Returns a new, empty dependency tracker</pre>
     
     
-    <a href="https://github.com/clojure/tools.namespace/blob/e2c8dc5e8fbfdbe9ca24e9ec357dd1885d522c01/src/main/clojure/clojure/tools/namespace/track.cljc#L111" id="var-source">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/e2c8dc5e8fbfdbe9ca24e9ec357dd1885d522c01/src/main/clojure/clojure/tools/namespace/track.cljc#L111">Source</a>
   </div>
 </div>
 
@@ -1641,10 +1641,10 @@ populated as with 'add'.</pre>
           </div>
 	</div>
 	<div id="foot">
-	  <div style="text-align: center;" id="copyright">Copyright 2007-2014 by Rich Hickey and the various contributors</div>
+	  <div id="copyright" style="text-align: center;">Copyright 2007-2015 by Rich Hickey and the various contributors</div>
 	</div>
       </div>
-      <div id="DesignedBy">Logo &amp; site design by <a title="Visit Tom Hickey's website." href="http://www.tomhickey.com">Tom Hickey</a>.<br />
+      <div id="DesignedBy">Logo &amp; site design by <a href="http://www.tomhickey.com" title="Visit Tom Hickey's website.">Tom Hickey</a>.<br />
       Clojure auto-documentation system by Tom Faulhaber.</div>
     </div>
     <!-- /AllContentContainer -->
