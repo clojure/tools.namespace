@@ -33,6 +33,16 @@
   {:read-opts parse/cljs-read-opts
    :extensions file/clojurescript-extensions})
 
+(defmacro ^:private ignore-reader-exception
+  "If body throws an exception caused by a syntax error (from
+  tools.reader), returns nil. Rethrows other exceptions."
+  [& body]
+  `(try ~@body
+        (catch Exception e#
+          (if (= :reader-exception (:type (ex-data e#)))
+            nil
+            (throw e#)))))
+
 ;;; Finding namespaces in a directory tree
 
 (defn- sort-files-breadth-first
@@ -73,7 +83,8 @@
   {:added "0.2.0"}
   ([dir] (find-ns-decls-in-dir dir nil))
   ([dir platform]
-   (keep #(file/read-file-ns-decl % (:read-opts platform))
+   (keep #(ignore-reader-exception
+           (file/read-file-ns-decl % (:read-opts platform)))
          (find-sources-in-dir dir platform))))
 
 (defn find-namespaces-in-dir
@@ -130,8 +141,8 @@
      (with-open [rdr (PushbackReader.
                       (io/reader
                        (.getInputStream jarfile (.getEntry jarfile entry-name))))]
-       (try (parse/read-ns-decl rdr read-opts)
-            (catch Exception _ nil))))))
+       (ignore-reader-exception
+        (parse/read-ns-decl rdr read-opts))))))
 
 (defn find-ns-decls-in-jarfile
   "Searches the JAR file for source files containing (ns ...)
