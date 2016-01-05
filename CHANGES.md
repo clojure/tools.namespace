@@ -3,6 +3,26 @@
 
 ## 0.3.x series
 
+### Version 0.3.0-alpha3 on 5-Jan-2016
+
+  * Ignore `:require-macros` and `:use-macros` when parsing namespace
+    dependencies. This is a change in behavior from previous 0.3
+    alphas and is a more robust fix for [TNS-38]. tools.namespace
+    currently only models one dependency graph at a time, so it treats
+    Clojure and ClojureScript as separate worlds and will not attempt
+    to analyze dependency relationships which cross that boundary.
+
+  * Fix [TNS-40]: do not catch exceptions in `c.t.n.file`. Instead,
+    catch and ignore only syntax exceptions (identified by `ex-data`
+    from [tools.reader]). This is a change in behavior from
+    0.3.0-alpha2 and 0.2. It should have minimal impact on users but
+    make some errors (such as an incompatible version of tools.reader)
+    more obvious.
+
+  * Known bugs not yet fixed: [TNS-42] When the same namespace is
+    defined in both `.clj` and `.cljc` files, dependencies may be read
+    from either, when it should prefer the `.clj` file.
+
 ### Version 0.3.0-alpha2 on 13-Nov-2015
 
   * Fix [TNS-38]: ignore circular dependency from `.cljs` file to
@@ -215,6 +235,10 @@
 [TNS-36]: http://dev.clojure.org/jira/browse/TNS-36
 [TNS-37]: http://dev.clojure.org/jira/browse/TNS-37
 [TNS-38]: http://dev.clojure.org/jira/browse/TNS-38
+[TNS-39]: http://dev.clojure.org/jira/browse/TNS-39
+[TNS-40]: http://dev.clojure.org/jira/browse/TNS-40
+[TNS-41]: http://dev.clojure.org/jira/browse/TNS-41
+[TNS-42]: http://dev.clojure.org/jira/browse/TNS-42
 [java.classpath]: https://github.com/clojure/java.classpath
 [tools.reader]: https://github.com/clojure/tools.reader
 [JEP 122]: http://openjdk.java.net/jeps/122
