@@ -22,8 +22,10 @@
 (defn- find-files [dirs platform]
   (->> dirs
        (map io/file)
+       (map #(.getCanonicalFile ^File %))
        (filter #(.exists ^File %))
-       (mapcat #(find/find-sources-in-dir % platform))))
+       (mapcat #(find/find-sources-in-dir % platform))
+       (map #(.getCanonicalFile ^File %))))
 
 (defn- modified-files [tracker files]
   (filter #(< (::time tracker 0) (.lastModified ^File %)) files))
