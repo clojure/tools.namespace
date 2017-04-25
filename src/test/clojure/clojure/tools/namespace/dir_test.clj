@@ -25,7 +25,8 @@
     (.invoke to-file link (object-array 0))))
 
 ;; Only run this test on Java 1.7+, where java.nio.file.Files is available.
-(when (Class/forName "java.nio.file.Files")
+(when (try (Class/forName "java.nio.file.Files")
+           (catch ClassNotFoundException _ false))
   (deftest t-scan-by-canonical-path
     (let [dir (help/create-temp-dir "t-scan-by-canonical-path")
           main-clj (help/create-source dir 'example.main :clj '[example.one])
