@@ -37,11 +37,11 @@ Latest stable release is [0.2.11](https://github.com/clojure/tools.namespace/tre
 
 ### Development Release ###
 
-Latest development release is [0.3.0-alpha3](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.3.0-alpha3)
+Latest development release is [0.3.0-alpha4](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.3.0-alpha4)
 
 [Leiningen](http://leiningen.org/) latest dependency information:
 
-    [org.clojure/tools.namespace "0.3.0-alpha3"]
+    [org.clojure/tools.namespace "0.3.0-alpha4"]
 
 ### Development Snapshots ###
 

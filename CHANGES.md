@@ -3,6 +3,11 @@
 
 ## 0.3.x series
 
+### Version 0.3.0-alpha4 on 25-Apr-2017
+
+  * Fix [TNS-47]: Always use canonical directory paths when searching
+    for files.
+
 ### Version 0.3.0-alpha3 on 5-Jan-2016
 
   * Ignore `:require-macros` and `:use-macros` when parsing namespace
@@ -239,6 +244,12 @@
 [TNS-40]: http://dev.clojure.org/jira/browse/TNS-40
 [TNS-41]: http://dev.clojure.org/jira/browse/TNS-41
 [TNS-42]: http://dev.clojure.org/jira/browse/TNS-42
+[TNS-43]: http://dev.clojure.org/jira/browse/TNS-43
+[TNS-44]: http://dev.clojure.org/jira/browse/TNS-44
+[TNS-45]: http://dev.clojure.org/jira/browse/TNS-45
+[TNS-46]: http://dev.clojure.org/jira/browse/TNS-46
+[TNS-47]: http://dev.clojure.org/jira/browse/TNS-47
+
 [java.classpath]: https://github.com/clojure/java.classpath
 [tools.reader]: https://github.com/clojure/tools.reader
 [JEP 122]: http://openjdk.java.net/jeps/122
