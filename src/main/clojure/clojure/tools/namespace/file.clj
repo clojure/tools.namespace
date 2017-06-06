@@ -56,6 +56,13 @@
   [^java.io.File file]
   (file-with-extension? file clojurescript-extensions))
 
+(defn clojurescript-file?
+  "Returns true if the java.io.File represents a normal ClojureScript source
+  file."
+  [^java.io.File file]
+  (and (.isFile file)
+       (.endsWith (.getName file) ".clj")))
+
 ;;; Dependency tracker
 
 (defn- files-and-deps [files read-opts]
