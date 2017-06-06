@@ -361,6 +361,8 @@ Warnings and Potential Problems
 syntax it accepts. tools.namespace.parse is somewhat liberal, but it
 cannot handle every possible variation of syntax that `ns` does. Stick
 to the docstrings of [ns] and [require] and everything should be fine.
+It is recommendeed to use source validation tools to ensure namespace 
+declarations are correct. See, for example, [jonase/eastwood](https://github.com/jonase/eastwood).
 
 **AOT-compilation:** Reloading code does not work in the presence of
 [AOT-compiled] namespaces. If you are using AOT-compilation in your
