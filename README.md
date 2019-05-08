@@ -266,7 +266,7 @@ The "start" function should:
 The "stop" function should take the state returned by "start" as an
 argument and do the opposite:
 
-- Close or release stateful resourecs
+- Close or release stateful resources
 
 - Stop all background processes
 
