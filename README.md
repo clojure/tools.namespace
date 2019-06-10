@@ -37,21 +37,21 @@ Latest stable release is [0.2.11](https://github.com/clojure/tools.namespace/tre
 
 ### Development Release ###
 
-Latest development release is [0.3.0-alpha4](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.3.0-alpha4)
+Latest development release is [0.3.0](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.3.0)
 
 [Leiningen](http://leiningen.org/) latest dependency information:
 
-    [org.clojure/tools.namespace "0.3.0-alpha4"]
+    [org.clojure/tools.namespace "0.3.0"]
 
 ### Development Snapshots ###
 
-Git master branch is at **0.3.0-SNAPSHOT**
+Git master branch is at **0.3.1-SNAPSHOT**
 
 [All Snapshot Versions](https://oss.sonatype.org/content/groups/public/org/clojure/tools.namespace/)
 
 Leiningen dependency information for development snapshots:
 
-    :dependencies [[org.clojure/tools.namespace "0.3.0-SNAPSHOT"]]
+    :dependencies [[org.clojure/tools.namespace "0.3.1-SNAPSHOT"]]
     :repositories [["sonatype-oss-public"
                     "https://oss.sonatype.org/content/groups/public/"]]
 
