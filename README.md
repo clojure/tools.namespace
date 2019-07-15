@@ -21,18 +21,18 @@ Releases and Dependency Information
 
 ### Stable Release ###
 
-Latest stable release is [0.2.11](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.2.11)
+Latest stable release is [0.3.0](https://github.com/clojure/tools.namespace/tree/tools.namespace-0.3.0)
 
 [Leiningen](http://leiningen.org/) stable dependency information:
 
-    [org.clojure/tools.namespace "0.2.11"]
+    [org.clojure/tools.namespace "0.3.0"]
 
 [Maven](http://maven.apache.org/) stable dependency information:
 
     <dependency>
       <groupId>org.clojure</groupId>
       <artifactId>tools.namespace</artifactId>
-      <version>0.2.11</version>
+      <version>0.3.0</version>
     </dependency>
 
 ### Development Release ###
