@@ -3,6 +3,15 @@
 
 ## 0.3.x series
 
+### Version 0.3.1
+
+  * Fix [TNS-54](https://clojure.atlassian.net/browse/TNS-54): update
+    java.classpath dependency to fix issues on Java 9+
+
+  * [java.classpath] version 0.3.0
+
+  * [tools.reader] version 1.3.2
+
 ### Version 0.3.0
 
   * Released as non-alpha, still some known issues to fix in future.
