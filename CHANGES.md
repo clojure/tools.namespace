@@ -1,5 +1,10 @@
 # Change Log for tools.namespace
 
+## 1.0.x series
+
+### Version 1.0.0
+
+  * No changes from previous
 
 ## 0.3.x series
 
