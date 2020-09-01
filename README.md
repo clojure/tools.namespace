@@ -25,6 +25,11 @@ This project follows the version scheme MAJOR.MINOR.PATCH where each component p
 
 Latest stable release is [1.0.0](https://github.com/clojure/tools.namespace/tree/tools.namespace-1.0.0)
 
+[CLI/`deps.edn`](https://clojure.org/reference/deps_and_cli) dependency information:
+```clojure
+org.clojure/tools.namespace {:mvn/version "1.0.0"}
+```
+
 [Leiningen](http://leiningen.org/) stable dependency information:
 
     [org.clojure/tools.namespace "1.0.0"]
