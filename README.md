@@ -23,28 +23,28 @@ This project follows the version scheme MAJOR.MINOR.PATCH where each component p
 
 ### Stable Release ###
 
-Latest stable release is [1.0.0](https://github.com/clojure/tools.namespace/tree/tools.namespace-1.0.0)
+Latest stable release is [1.1.0](https://github.com/clojure/tools.namespace/tree/tools.namespace-1.1.0)
 
 [CLI/`deps.edn`](https://clojure.org/reference/deps_and_cli) dependency information:
 ```clojure
-org.clojure/tools.namespace {:mvn/version "1.0.0"}
+org.clojure/tools.namespace {:mvn/version "1.1.0"}
 ```
 
 [Leiningen](http://leiningen.org/) stable dependency information:
 
-    [org.clojure/tools.namespace "1.0.0"]
+    [org.clojure/tools.namespace "1.1.0"]
 
 [Maven](http://maven.apache.org/) stable dependency information:
 
     <dependency>
       <groupId>org.clojure</groupId>
       <artifactId>tools.namespace</artifactId>
-      <version>1.0.0</version>
+      <version>1.1.0</version>
     </dependency>
 
 ### Development Snapshots ###
 
-Git master branch is at **1.1.0-SNAPSHOT**
+Git master branch is at **1.2.0-SNAPSHOT**
 
 [All Snapshot Versions](https://oss.sonatype.org/content/groups/public/org/clojure/tools.namespace/)
 

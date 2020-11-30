@@ -1,6 +1,10 @@
 # Change Log for tools.namespace
 
-## 1.0.x series
+## 1.x series
+
+### Version 1.1.0
+
+  * [tools.reader] version 1.3.4
 
 ### Version 1.0.0
 
