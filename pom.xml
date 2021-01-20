@@ -7,14 +7,14 @@
   <parent>
     <groupId>org.clojure</groupId>
     <artifactId>pom.contrib</artifactId>
-    <version>0.2.2</version>
+    <version>1.0.0</version>
   </parent>
 
   <dependencies>
     <dependency>
       <groupId>org.clojure</groupId>
       <artifactId>clojure</artifactId>
-      <version>1.7.0</version>
+      <version>${clojure.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -31,6 +31,7 @@
 
   <properties>
     <clojure.warnOnReflection>true</clojure.warnOnReflection>
+    <clojure.version>1.7.0</clojure.version>
   </properties>
 
   <developers>
