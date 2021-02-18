@@ -19,7 +19,7 @@ This project follows the version scheme MAJOR.MINOR.PATCH where each component p
 
 [Change Log](CHANGES.md)
 
-[All Released Versions](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.clojure%22%20AND%20a%3A%22tools.namespace%22)
+[All Released Versions](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.clojure%22%20AND%20a%3A%22tools.namespace%22)
 
 ### Stable Release ###
 
@@ -30,11 +30,11 @@ Latest stable release is [1.1.0](https://github.com/clojure/tools.namespace/tree
 org.clojure/tools.namespace {:mvn/version "1.1.0"}
 ```
 
-[Leiningen](http://leiningen.org/) stable dependency information:
+[Leiningen](https://leiningen.org/) stable dependency information:
 
     [org.clojure/tools.namespace "1.1.0"]
 
-[Maven](http://maven.apache.org/) stable dependency information:
+[Maven](https://maven.apache.org/) stable dependency information:
 
     <dependency>
       <groupId>org.clojure</groupId>
@@ -54,14 +54,14 @@ Leiningen dependency information for development snapshots:
     :repositories [["sonatype-oss-public"
                     "https://oss.sonatype.org/content/groups/public/"]]
 
-See also [Maven Settings and Repositories](http://dev.clojure.org/display/doc/Maven+Settings+and+Repositories) on dev.clojure.org.
+See also [Maven Settings and Repositories](https://clojure.org/releases/downloads#_using_clojure_snapshot_releases) on dev.clojure.org.
 
 
 
 Overview
 ----------------------------------------
 
-[API Documentation](http://clojure.github.com/tools.namespace/)
+[API Documentation](https://clojure.github.io/tools.namespace/)
 
 tools.namespace consists of several parts:
 
@@ -74,7 +74,7 @@ evaluate any code.
 
 **clojure.tools.namespace.find:** Utilities to search for Clojure
 namespaces on the filesystem, in directories or JAR files. Combined
-with [java.classpath](http://clojure.github.com/java.classpath/), it
+with [java.classpath](https://clojure.github.com/java.classpath/), it
 can search for namespaces on the Java classpath. This namespace
 contains most of the functions in clojure.tools.namespace version
 0.1.x.
@@ -394,11 +394,11 @@ definitions, especially references to things you created in the REPL.
 dependency tracker, do not store it in a namespace which gets
 reloaded.
 
-[AOT-compiled]: http://clojure.org/compilation
+[AOT-compiled]: https://clojure.org/reference/compilation
 [Ring]: https://github.com/ring-clojure/ring
 [ns-tracker]: https://github.com/weavejester/ns-tracker
-[ns]: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/ns
-[require]: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/require
+[ns]: https://clojure.github.io/clojure/clojure.core-api.html#clojure.core/ns
+[require]: https://clojure.github.io/clojure/clojure.core-api.html#clojure.core/require
 
 
 ### Warnings for Helper Functions
@@ -563,16 +563,11 @@ Developer Information
 ----------------------------------------
 
 * [Change Log](CHANGES.md)
-
 * [GitHub project](https://github.com/clojure/tools.namespace)
-
-* [How to contribute](http://dev.clojure.org/display/community/Contributing)
-
-* [Bug Tracker](http://dev.clojure.org/jira/browse/TNS)
-
-* [Continuous Integration](http://build.clojure.org/job/tools.namespace/)
-
-* [Compatibility Test Matrix](http://build.clojure.org/job/tools.namespace-test-matrix/)
+* [How to contribute](https://clojure.org/community/contributing)
+* [Bug Tracker](https://clojure.atlassian.net/browse/TNS)
+* [Continuous Integration](https://build.clojure.org/job/tools.namespace/)
+* [Compatibility Test Matrix](https://build.clojure.org/job/tools.namespace-test-matrix/)
 
 
 
@@ -587,4 +582,4 @@ in any fashion, you are agreeing to be bound by the terms of this
 license. You must not remove this notice, or any other, from this
 software.
 
-[Eclipse Public License 1.0]: http://opensource.org/licenses/eclipse-1.0.php
+[Eclipse Public License 1.0]: https://opensource.org/licenses/eclipse-1.0.php

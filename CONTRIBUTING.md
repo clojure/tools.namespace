@@ -8,5 +8,5 @@ more information on how to contribute.
 
 [Clojure contrib]: https://clojure.org/community/contrib_libs
 [Contributing]: https://clojure.org/community/contributing
-[JIRA]: http://dev.clojure.org/jira/browse/TNS
+[JIRA]: https://clojure.atlassian.net/browse/TNS
 [guidelines]: https://clojure.org/community/contrib_howto
