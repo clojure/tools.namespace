@@ -74,7 +74,7 @@ evaluate any code.
 
 **clojure.tools.namespace.find:** Utilities to search for Clojure
 namespaces on the filesystem, in directories or JAR files. Combined
-with [java.classpath](https://clojure.github.com/java.classpath/), it
+with [java.classpath](https://clojure.github.io/java.classpath/), it
 can search for namespaces on the Java classpath. This namespace
 contains most of the functions in clojure.tools.namespace version
 0.1.x.
