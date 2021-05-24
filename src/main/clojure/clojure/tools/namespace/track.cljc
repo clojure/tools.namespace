@@ -96,7 +96,7 @@
          :or {load (), unload (), deps (dep/graph)}} tracker
         known (set (dep/nodes deps))
         removed-names (filter known names)
-        new-deps (remove-deps deps removed-names)
+        new-deps (reduce dep/remove-all deps removed-names)
         changed (affected-namespaces deps removed-names)]
     (assoc tracker
       ::deps new-deps
