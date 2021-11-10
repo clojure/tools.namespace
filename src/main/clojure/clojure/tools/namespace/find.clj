@@ -10,7 +10,7 @@
   ^{:author "Stuart Sierra",
      :doc "Search for namespace declarations in directories and JAR files."} 
   clojure.tools.namespace.find
-  (:require [clojure.java.classpath :as classpath]
+  (:require #_[clojure.java.classpath :as classpath]
             [clojure.java.io :as io]
             [clojure.set :as set]
             [clojure.tools.namespace.file :as file]
@@ -115,7 +115,7 @@
   ([^JarFile jar-file platform]
    (let [{:keys [extensions]} (or platform clj)]
      (filter #(ends-with-extension % extensions)
-             (classpath/filenames-in-jar jar-file)))))
+             []#_(classpath/filenames-in-jar jar-file)))))
 
 (defn clojure-sources-in-jar
   "DEPRECATED: replaced by sources-in-jar
@@ -138,7 +138,7 @@
    (read-ns-decl-from-jarfile-entry jarfile entry-name nil))
   ([^JarFile jarfile ^String entry-name platform]
    (let [{:keys [read-opts]} (or platform clj)]
-     (with-open [rdr (PushbackReader.
+     #_(with-open [rdr (PushbackReader.
                       (io/reader
                        (.getInputStream jarfile (.getEntry jarfile entry-name))))]
        (ignore-reader-exception
@@ -188,7 +188,7 @@
             (filter #(.isDirectory ^File %) files))
     (mapcat #(find-ns-decls-in-jarfile % platform)
             (map #(JarFile. (io/file %))
-                 (filter classpath/jar-file? files))))))
+                 (filter identity #_classpath/jar-file? files))))))
 
 (defn find-namespaces
   "Searches a sequence of java.io.File objects (both directories and
