@@ -1,6 +1,17 @@
 clojure.tools.namespace
 ========================================
 
+## Babashka maintained fork
+
+This fork of `tools.namespace` works in babashka. To make it compatible, the
+following differences with the original tools.namespace were introduced:
+
+- No dependencies
+- Reading namespaces from `URLClassLoader` is not supported
+- Reading is done using `clojure.core/read` rather than `tools.reader`.
+
+Here follows the original README.
+
 Tools for managing namespaces in Clojure. Parse `ns` declarations from
 source files, extract their dependencies, build a graph of namespace
 dependencies within a project, update that graph as files change, and
