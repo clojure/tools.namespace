@@ -8,7 +8,9 @@ following differences with the original tools.namespace were introduced:
 
 - No dependencies on `tools.reader` and `java.classpath`.
 - Reading namespaces from `URLClassLoader` is not supported
-- Reading is done using `clojure.core/read` rather than `tools.reader`.
+- Reading is done using `clojure.core/read` rather than `tools.reader`. By doing
+  so, the reader should be wrapped in a `clojure.lang.LineNumberingReader`
+  instance.
 
 You can use this fork to use the cognitect test runner:
 
