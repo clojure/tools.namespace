@@ -21,7 +21,7 @@ This is only about namespace dependencies **within** a single project.
 It has nothing to do with Leiningen, Maven, JAR files, or
 repositories.
 
-
+======================
 
 Releases and Dependency Information
 ----------------------------------------
