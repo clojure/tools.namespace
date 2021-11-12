@@ -53,7 +53,7 @@
    (let [opts (assoc (or read-opts clj-read-opts)
                      :eof ::eof)]
      (loop []
-       (let [form #?(:bb (read opts (clojure.lang.LineNumberingPushbackReader. rdr))
+       (let [form #?(:bb (read rdr false ::eof false)
                      :default (reader/read opts rdr))]
          (cond
            (ns-decl? form) form

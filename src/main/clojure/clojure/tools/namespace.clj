@@ -117,7 +117,8 @@
 ;;; without an explicit dependency
 
 (defn- loader-classpath [loader]
-  (when (instance? java.net.URLClassLoader loader)
+  ;; commented out for bb
+  #_(when (instance? java.net.URLClassLoader loader)
     (map
      #(java.io.File. (.toURI ^java.net.URL %))
      (.getURLs ^java.net.URLClassLoader loader))))

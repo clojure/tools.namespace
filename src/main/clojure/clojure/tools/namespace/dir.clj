@@ -13,7 +13,7 @@
   (:require [clojure.tools.namespace.file :as file]
             [clojure.tools.namespace.find :as find]
             [clojure.tools.namespace.track :as track]
-            [clojure.java.classpath :refer [classpath-directories]]
+            #_[clojure.java.classpath :refer [classpath-directories]]
             [clojure.java.io :as io]
             [clojure.set :as set]
             [clojure.string :as string])
@@ -88,7 +88,7 @@
   ([tracker] (scan-dirs tracker nil nil))
   ([tracker dirs] (scan-dirs tracker dirs nil))
   ([tracker dirs {:keys [platform add-all?] :as options}]
-   (let [ds (or (seq dirs) (classpath-directories))]
+   (let [ds (or (seq dirs) #_(classpath-directories))]
      (scan-files tracker (find-files ds platform) options))))
 
 (defn scan
