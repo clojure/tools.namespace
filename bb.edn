@@ -1,0 +1,8 @@
+{:paths ["src/main/clojure"]
+ :tasks
+ {test {:extra-paths ["src/test/clojure"]
+        :extra-deps {io.github.cognitect-labs/test-runner
+                     {:git/tag "v0.5.0" :git/sha "b3fd0d2"}
+                     org.clojure/tools.namespace {:local/root "."}}
+        :requires ([cognitect.test-runner :as tr])
+        :task (apply tr/-main "-d" "src/test/clojure" *command-line-args*)}}}
