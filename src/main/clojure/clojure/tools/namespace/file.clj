@@ -21,7 +21,8 @@
   ([file]
    (read-file-ns-decl file nil))
   ([file read-opts]
-   (with-open [rdr (PushbackReader. (io/reader file))]
+   (with-open [rdr (clojure.lang.LineNumberingPushbackReader.
+                    (PushbackReader. (io/reader file)))]
      (parse/read-ns-decl rdr read-opts))))
 
 (defn file-with-extension?

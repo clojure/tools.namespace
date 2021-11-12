@@ -90,8 +90,9 @@
   (ns three (:require [one :as o] [two :as t]))")
 
 (deftest t-read-multiple-ns-decls
-  (with-open [rdr (java.io.PushbackReader.
-                   (java.io.StringReader. multiple-ns-decls-string))]
+  (with-open [rdr (clojure.lang.LineNumberingPushbackReader.
+                   (java.io.PushbackReader.
+                    (java.io.StringReader. multiple-ns-decls-string)))]
     (is (= multiple-ns-decls
            (take-while identity (repeatedly #(read-ns-decl rdr)))))))
 
@@ -176,6 +177,7 @@
     (let [actual (-> reader-conditionals-string
                      java.io.StringReader.
                      java.io.PushbackReader.
+                     clojure.lang.LineNumberingPushbackReader.
                      read-ns-decl
                      deps-from-ns-decl)]
       (is (= #{'clojure.string} actual)))))
