@@ -10,6 +10,22 @@ following differences with the original tools.namespace were introduced:
 - Reading namespaces from `URLClassLoader` is not supported
 - Reading is done using `clojure.core/read` rather than `tools.reader`.
 
+You can use this fork to use the cognitect test runner:
+
+``` clojure
+{:tasks
+ {test {:extra-paths ["test"]
+        :extra-deps {io.github.cognitect-labs/test-runner
+                     {:git/tag "v0.5.0" :git/sha "b3fd0d2"}
+                     org.clojure/tools.namespace {:git/url "https://github.com/babashka/tools.namespace"
+                                                  :git/sha "3625153ee66dfcec2ba600851b5b2cbdab8fae6c"}}
+        :requires ([cognitect.test-runner :as tr])
+        :task (apply tr/-main "-d" "test" *command-line-args*)}}}
+```
+
+See `bb.edn` for of how tests of this repository are run. Run `bb test` to
+execute them.
+
 Here follows the original README.
 
 <hr>
