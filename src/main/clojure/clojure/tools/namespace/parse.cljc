@@ -10,9 +10,9 @@
       :doc "Parse Clojure namespace (ns) declarations and extract
   dependencies."}
   clojure.tools.namespace.parse
-  (:require ;; #?(:clj [clojure.tools.reader :as reader]
-            ;;    :cljs [cljs.tools.reader :as reader])
-            
+  (:require #?@(:bb []
+                :clj [[clojure.tools.reader :as reader]]
+                :cljs [[cljs.tools.reader :as reader]])
             [clojure.set :as set]))
 
 (defn comment?
@@ -53,7 +53,8 @@
    (let [opts (assoc (or read-opts clj-read-opts)
                      :eof ::eof)]
      (loop []
-       (let [form (read opts rdr)]
+       (let [form #?(:bb (read opts (clojure.lang.LineNumberingPushbackReader. rdr))
+                     :default (reader/read opts rdr))]
          (cond
            (ns-decl? form) form
            (= ::eof form) nil
