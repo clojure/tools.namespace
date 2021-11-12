@@ -4,7 +4,7 @@ clojure.tools.namespace
 ## Babashka maintained fork
 
 This fork of `tools.namespace` works in babashka. To make it compatible, the
-following differences with the original tools.namespace were introduced:
+following changes with the original tools.namespace were introduced:
 
 - No dependencies on `tools.reader` and `java.classpath`.
 - Reading namespaces from `URLClassLoader` is not supported
