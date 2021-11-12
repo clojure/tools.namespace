@@ -12,6 +12,8 @@ following differences with the original tools.namespace were introduced:
 
 Here follows the original README.
 
+<hr>
+
 Tools for managing namespaces in Clojure. Parse `ns` declarations from
 source files, extract their dependencies, build a graph of namespace
 dependencies within a project, update that graph as files change, and
@@ -20,8 +22,6 @@ reload files in the correct order.
 This is only about namespace dependencies **within** a single project.
 It has nothing to do with Leiningen, Maven, JAR files, or
 repositories.
-
-======================
 
 Releases and Dependency Information
 ----------------------------------------
