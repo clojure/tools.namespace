@@ -1,1 +1,4 @@
 target
+.lsp/.cache
+.clj-kondo/.cache
+.clj-kondo/rewrite-clj
