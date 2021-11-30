@@ -195,3 +195,16 @@
                    read-ns-decl
                    deps-from-ns-decl)]
     (is (= #{'baz} actual))))
+
+(def ns-with-require-macros
+  "(ns com.examples.one
+    (:require-macros [foo :refer [bar]]))")
+
+(deftest require-macros
+  (let [actual (-> ns-with-require-macros
+                   java.io.StringReader.
+                   java.io.PushbackReader.
+                   clojure.lang.LineNumberingPushbackReader.
+                   read-ns-decl
+                   deps-from-ns-decl)]
+    (is (= #{'foo} actual))))
