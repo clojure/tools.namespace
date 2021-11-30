@@ -173,7 +173,8 @@
                :cljs goog.string)))")
 
 (deftest t-reader-conditionals
-  (when (resolve 'clojure.core/reader-conditional?)
+  ;; TODO: the predicate wasn't added to bb yet, will come in version after 0.6.7
+  (when true #_(resolve 'clojure.core/reader-conditional?)
     (let [actual (-> reader-conditionals-string
                      java.io.StringReader.
                      java.io.PushbackReader.
@@ -181,3 +182,16 @@
                      read-ns-decl
                      deps-from-ns-decl)]
       (is (= #{'clojure.string} actual)))))
+
+(def ns-with-npm-dependency
+  "(ns com.examples.one
+    (:require [\"foobar\"] [baz]))")
+
+(deftest npm-dependency
+  (let [actual (-> ns-with-npm-dependency
+                   java.io.StringReader.
+                   java.io.PushbackReader.
+                   clojure.lang.LineNumberingPushbackReader.
+                   read-ns-decl
+                   deps-from-ns-decl)]
+    (is (= #{'baz} actual))))

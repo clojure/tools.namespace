@@ -94,7 +94,9 @@
 	(symbol? form)
           (list (symbol (str (when prefix (str prefix ".")) form)))
 	(keyword? form)  ; Some people write (:require ... :reload-all)
-          nil
+        nil
+        (string? form) ; NPM dep, ignore
+        nil
 	:else
           (throw (ex-info "Unparsable namespace form"
                           {:reason ::unparsable-ns-form
