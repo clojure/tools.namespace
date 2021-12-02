@@ -75,7 +75,8 @@
   [namespace :refer (x y)] or just [namespace]"
   [form]
   (and (sequential? form)  ; should be a vector, but often is not
-       (symbol? (first form))
+       (or (symbol? (first form))
+           (string? (first form)))
        (or (keyword? (second form))  ; vector like [foo :as f]
            (= 1 (count form)))))  ; bare vector like [foo]
 
@@ -92,7 +93,9 @@
           (list (symbol (str (when prefix (str prefix ".")) form)))
 	(keyword? form)  ; Some people write (:require ... :reload-all)
           nil
-	:else
+        (string? form) ; NPM dep, ignore
+          nil
+        :else
           (throw (ex-info "Unparsable namespace form"
                           {:reason ::unparsable-ns-form
                            :form form}))))

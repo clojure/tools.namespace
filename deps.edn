@@ -1,0 +1,9 @@
+{:deps {org.clojure/tools.namespace {:local/root "." :deps/manifest :pom}}
+ :aliases
+ {:test
+  {:extra-paths ["src/test/clojure"]
+   :extra-deps {io.github.cognitect-labs/test-runner
+                {:git/tag "v0.5.0" :git/sha "b3fd0d2"}}
+   ;; :main-opts ["-m" "cognitect.test-runner" "-d" "src/test/clojure"]
+   :exec-fn cognitect.test-runner.api/test
+   :exec-args {:dirs ["src/test/clojure"]}}}}

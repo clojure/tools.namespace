@@ -171,11 +171,25 @@
   (:require #?(:clj clojure.string
                :cljs goog.string)))")
 
+(defn str->ns-decl [^String s]
+  (-> s
+      java.io.StringReader.
+      java.io.PushbackReader.
+      read-ns-decl))
+
 (deftest t-reader-conditionals
   (when (resolve 'clojure.core/reader-conditional?)
     (let [actual (-> reader-conditionals-string
-                     java.io.StringReader.
-                     java.io.PushbackReader.
-                     read-ns-decl
+                     str->ns-decl
                      deps-from-ns-decl)]
       (is (= #{'clojure.string} actual)))))
+
+(def ns-with-npm-dependency
+  "(ns com.examples.one
+    (:require [\"foobar\"] [baz]))")
+
+(deftest cljs-string-dependency
+  (let [actual (-> ns-with-npm-dependency
+                   str->ns-decl
+                   deps-from-ns-decl)]
+    (is (= #{'baz} actual))))
