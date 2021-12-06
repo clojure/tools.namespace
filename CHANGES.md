@@ -2,6 +2,10 @@
 
 ## 1.x series
 
+## Next version
+ 
+  * [tools.reader] version 1.3.6
+
 ### Version 1.1.0
 
   * [tools.reader] version 1.3.4
