@@ -184,12 +184,22 @@
                      deps-from-ns-decl)]
       (is (= #{'clojure.string} actual)))))
 
-(def ns-with-npm-dependency
+(def cljs-ns-with-npm-dependency
   "(ns com.examples.one
     (:require [\"foobar\"] [baz]))")
 
 (deftest cljs-string-dependency
-  (let [actual (-> ns-with-npm-dependency
+  (let [actual (-> cljs-ns-with-npm-dependency
                    str->ns-decl
                    deps-from-ns-decl)]
     (is (= #{'baz} actual))))
+
+(def cljs-ns-with-require-macros
+  "(ns com.examples.one
+    (:require-macros [org.macros :refer [my-macro]]))")
+
+(deftest cljs-require-macros
+  (let [actual (-> cljs-ns-with-require-macros
+                   str->ns-decl
+                   deps-from-ns-decl)]
+    (is (= #{'org.macros} actual))))

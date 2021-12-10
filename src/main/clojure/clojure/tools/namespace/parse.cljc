@@ -103,7 +103,7 @@
 (def ^:private ns-clause-head-names
   "Set of symbol/keyword names which can appear as the head of a
   clause in the ns form."
-  #{"use" "require"})
+  #{"use" "require" "require-macros"})
 
 (def ^:private ns-clause-heads
   "Set of all symbols and keywords which can appear at the head of a
