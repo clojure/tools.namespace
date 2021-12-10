@@ -2,7 +2,7 @@
 
 ## 1.x series
 
-## next
+## Version 1.2.0
 
   * Fix [TNS-51](https://clojure.atlassian.net/browse/TNS-51): Support namespaces as strings in require statements for CLJS
   * Fix [TNS-57](https://clojure.atlassian.net/browse/TNS-57): Support :require-macros for CLJS namespaces
