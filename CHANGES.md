@@ -2,6 +2,10 @@
 
 ## 1.x series
 
+## next
+
+  * Fix [TNS-51](https://clojure.atlassian.net/browse/TNS-51): Support namespaces as strings in require statements for CLJS
+
 ## Version 1.1.1
  
   * [tools.reader] version 1.3.6
