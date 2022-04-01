@@ -549,7 +549,7 @@ un/reloading those namespaces.
 
 Use this feature sparingly: it exists as a development-time
 convenience, not a work-around for code that is not reload-safe. Also,
-see the warnings about aliases, below. Aliases to reloaded namespaces
+see the [warnings about aliases]((#warnings-for-aliases), below. Aliases to reloaded namespaces
 will break if the namespace *containing* the alias is not reloaded
 also.
 
