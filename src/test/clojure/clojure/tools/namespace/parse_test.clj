@@ -25,7 +25,8 @@
                 [four :refer (a b)]]
                [com.example.sub
                 [five :as five]
-                six])
+                six
+                [eleven :as-alias eleven]])
      (:use [com.example
             seven
             [eight :as eight]

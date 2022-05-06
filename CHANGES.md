@@ -2,6 +2,10 @@
 
 ## 1.x series
 
+## Version 1.3.0
+
+  * Fix [TNS-56](https://clojure.atlassian.net/browse/TNS-56): Don't consider :as-alias as a load dependency for namespaces
+
 ## Version 1.2.0
 
   * Fix [TNS-51](https://clojure.atlassian.net/browse/TNS-51): Support namespaces as strings in require statements for CLJS
