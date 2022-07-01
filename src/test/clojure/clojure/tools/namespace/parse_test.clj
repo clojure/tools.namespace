@@ -91,8 +91,9 @@
   (ns three (:require [one :as o] [two :as t]))")
 
 (deftest t-read-multiple-ns-decls
-  (with-open [rdr (java.io.PushbackReader.
-                   (java.io.StringReader. multiple-ns-decls-string))]
+  (with-open [rdr (clojure.lang.LineNumberingPushbackReader.
+                   (java.io.PushbackReader.
+                    (java.io.StringReader. multiple-ns-decls-string)))]
     (is (= multiple-ns-decls
            (take-while identity (repeatedly #(read-ns-decl rdr)))))))
 
@@ -176,6 +177,8 @@
   (-> s
       java.io.StringReader.
       java.io.PushbackReader.
+      ;; see https://github.com/borkdude/edamame/issues/93
+      clojure.lang.LineNumberingPushbackReader.
       read-ns-decl))
 
 (deftest t-reader-conditionals

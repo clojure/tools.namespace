@@ -10,7 +10,7 @@
       :doc "Parse Clojure namespace (ns) declarations and extract
   dependencies."}
   clojure.tools.namespace.parse
-  (:require #?@(:bb []
+  (:require #?@(:bb [[edamame.core :as e]]
                 :clj [[clojure.tools.reader :as reader]]
                 :cljs [[cljs.tools.reader :as reader]])
             [clojure.set :as set]))
@@ -53,7 +53,7 @@
    (let [opts (assoc (or read-opts clj-read-opts)
                      :eof ::eof)]
      (loop []
-       (let [form #?(:bb (read rdr false ::eof false)
+       (let [form #?(:bb (e/parse-next rdr (assoc opts :location? seq?))
                      :default (reader/read opts rdr))]
          (cond
            (ns-decl? form) form
