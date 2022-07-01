@@ -25,7 +25,8 @@
                 [four :refer (a b)]]
                [com.example.sub
                 [five :as five]
-                six])
+                six
+                [eleven :as-alias eleven]])
      (:use [com.example
             seven
             [eight :as eight]
@@ -90,9 +91,8 @@
   (ns three (:require [one :as o] [two :as t]))")
 
 (deftest t-read-multiple-ns-decls
-  (with-open [rdr (clojure.lang.LineNumberingPushbackReader.
-                   (java.io.PushbackReader.
-                    (java.io.StringReader. multiple-ns-decls-string)))]
+  (with-open [rdr (java.io.PushbackReader.
+                   (java.io.StringReader. multiple-ns-decls-string))]
     (is (= multiple-ns-decls
            (take-while identity (repeatedly #(read-ns-decl rdr)))))))
 
@@ -172,39 +172,35 @@
   (:require #?(:clj clojure.string
                :cljs goog.string)))")
 
+(defn str->ns-decl [^String s]
+  (-> s
+      java.io.StringReader.
+      java.io.PushbackReader.
+      read-ns-decl))
+
 (deftest t-reader-conditionals
-  ;; TODO: the predicate wasn't added to bb yet, will come in version after 0.6.7
-  (when true #_(resolve 'clojure.core/reader-conditional?)
+  (when (resolve 'clojure.core/reader-conditional?)
     (let [actual (-> reader-conditionals-string
-                     java.io.StringReader.
-                     java.io.PushbackReader.
-                     clojure.lang.LineNumberingPushbackReader.
-                     read-ns-decl
+                     str->ns-decl
                      deps-from-ns-decl)]
       (is (= #{'clojure.string} actual)))))
 
-(def ns-with-npm-dependency
+(def cljs-ns-with-npm-dependency
   "(ns com.examples.one
     (:require [\"foobar\"] [baz]))")
 
-(deftest npm-dependency
-  (let [actual (-> ns-with-npm-dependency
-                   java.io.StringReader.
-                   java.io.PushbackReader.
-                   clojure.lang.LineNumberingPushbackReader.
-                   read-ns-decl
+(deftest cljs-string-dependency
+  (let [actual (-> cljs-ns-with-npm-dependency
+                   str->ns-decl
                    deps-from-ns-decl)]
     (is (= #{'baz} actual))))
 
-(def ns-with-require-macros
+(def cljs-ns-with-require-macros
   "(ns com.examples.one
-    (:require-macros [foo :refer [bar]]))")
+    (:require-macros [org.macros :refer [my-macro]]))")
 
-(deftest require-macros
-  (let [actual (-> ns-with-require-macros
-                   java.io.StringReader.
-                   java.io.PushbackReader.
-                   clojure.lang.LineNumberingPushbackReader.
-                   read-ns-decl
+(deftest cljs-require-macros
+  (let [actual (-> cljs-ns-with-require-macros
+                   str->ns-decl
                    deps-from-ns-decl)]
-    (is (= #{'foo} actual))))
+    (is (= #{'org.macros} actual))))

@@ -90,14 +90,15 @@
                            f))
                   (rest form))
 	(option-spec? form)
-          (deps-from-libspec prefix (first form))
+          (when-not (= :as-alias (second form))
+            (deps-from-libspec prefix (first form)))
 	(symbol? form)
           (list (symbol (str (when prefix (str prefix ".")) form)))
 	(keyword? form)  ; Some people write (:require ... :reload-all)
-        nil
+          nil
         (string? form) ; NPM dep, ignore
-        nil
-	:else
+          nil
+        :else
           (throw (ex-info "Unparsable namespace form"
                           {:reason ::unparsable-ns-form
                            :form form}))))
