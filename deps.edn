@@ -1,4 +1,5 @@
-{:deps {org.clojure/tools.namespace {:local/root "." :deps/manifest :pom}}
+{:paths ["src/main/clojure"]
+ :deps {org.clojure/tools.namespace {:local/root "." :deps/manifest :pom}}
  :aliases
  {:test
   {:extra-paths ["src/test/clojure"]
