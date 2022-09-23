@@ -2,3 +2,5 @@ target
 .cpcache
 .idea/
 *.iml
+/.lsp
+/.clj-kondo

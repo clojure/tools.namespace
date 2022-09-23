@@ -80,6 +80,19 @@
     (when (find-ns ns-name)
       (alias alias-sym ns-name))))
 
+(defn scan-refresh-dirs
+  "Scans refresh-dirs for files which have changed, removing disabled namespace
+  from the result. See `clojure.tools.namespace.dirs/scan` for specific
+  documentation on scan-opts."
+  ([]
+   (scan-refresh-dirs nil))
+  ([scan-opts]
+   (scan-refresh-dirs refresh-tracker scan-opts))
+  ([tracker scan-opts]
+   (-> tracker
+       (dir/scan-dirs refresh-dirs scan-opts)
+       (remove-disabled))))
+
 (defn- do-refresh [scan-opts after-sym]
   (when after-sym
     (assert (symbol? after-sym) ":after value must be a symbol")
@@ -88,8 +101,7 @@
   (let [current-ns-name (ns-name *ns*)
         current-ns-refers (referred *ns*)
         current-ns-aliases (aliased *ns*)]
-    (alter-var-root #'refresh-tracker dir/scan-dirs refresh-dirs scan-opts)
-    (alter-var-root #'refresh-tracker remove-disabled)
+    (alter-var-root #'refresh-tracker scan-refresh-dirs)
     (print-pending-reloads refresh-tracker)
     (alter-var-root #'refresh-tracker reload/track-reload)
     (in-ns current-ns-name)
