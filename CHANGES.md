@@ -2,6 +2,11 @@
 
 ## 1.x series
 
+## Version 1.4.0
+
+  * Fix [TNS-6](https://clojure.atlassian.net/browse/TNS-6): Attempt to reload deleted file
+  * Fix [TNS-24](https://clojure.atlassian.net/browse/TNS-24): Broken tracker after mis-named namespace
+
 ## Version 1.3.0
 
   * Fix [TNS-56](https://clojure.atlassian.net/browse/TNS-56): Don't consider :as-alias as a load dependency for namespaces
