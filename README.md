@@ -23,34 +23,34 @@ This project follows the version scheme MAJOR.MINOR.PATCH where each component p
 
 ### Stable Release ###
 
-Latest stable release is [1.4.0](https://github.com/clojure/tools.namespace/tree/v1.4.0)
+Latest stable release is [1.4.1](https://github.com/clojure/tools.namespace/tree/v1.4.1)
 
 [CLI/`deps.edn`](https://clojure.org/reference/deps_and_cli) dependency information:
 ```clojure
-org.clojure/tools.namespace {:mvn/version "1.4.0"}
+org.clojure/tools.namespace {:mvn/version "1.4.1"}
 ```
 
 [Leiningen](https://leiningen.org/) stable dependency information:
 
-    [org.clojure/tools.namespace "1.4.0"]
+    [org.clojure/tools.namespace "1.4.1"]
 
 [Maven](https://maven.apache.org/) stable dependency information:
 
     <dependency>
       <groupId>org.clojure</groupId>
       <artifactId>tools.namespace</artifactId>
-      <version>1.4.0</version>
+      <version>1.4.1</version>
     </dependency>
 
 ### Development Snapshots ###
 
-Git master branch is at **1.4.1-SNAPSHOT**
+Git master branch is at **1.4.2-SNAPSHOT**
 
 [All Snapshot Versions](https://oss.sonatype.org/content/groups/public/org/clojure/tools.namespace/)
 
 Leiningen dependency information for development snapshots:
 
-    :dependencies [[org.clojure/tools.namespace "1.4.1-SNAPSHOT"]]
+    :dependencies [[org.clojure/tools.namespace "1.4.2-SNAPSHOT"]]
     :repositories [["sonatype-oss-public"
                     "https://oss.sonatype.org/content/groups/public/"]]
 
