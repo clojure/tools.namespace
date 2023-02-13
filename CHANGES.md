@@ -2,6 +2,10 @@
 
 ## 1.x series
 
+## Version 1.4.1
+
+  * Fix [TNS-55](https://clojure.atlassian.net/browse/TNS-55): Provide source file info in find functions
+
 ## Version 1.4.0
 
   * Fix [TNS-6](https://clojure.atlassian.net/browse/TNS-6): Attempt to reload deleted file
