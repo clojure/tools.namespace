@@ -27,3 +27,13 @@
     (is (help/same-files?
          [main-cljs one-cljc two-cljs]
          (find/find-sources-in-dir dir find/cljs)))))
+
+(deftest t-find-ns-decl-meta
+  (let [dir (help/create-temp-dir "t-find-clj-and-cljc-files")
+        main-clj (help/create-source dir 'example.main :clj '[example.one])
+        one-cljc (help/create-source dir 'example.one :cljc '[example.two])
+        two-clj (help/create-source dir 'example.two :clj)
+        two-cljs (help/create-source dir 'example.two :cljs)]
+    (is (every? #{(.getName ^java.io.File dir)}
+         (map #(-> % second meta :dir)
+              (find/find-ns-decls [dir]))))))
