@@ -2,6 +2,10 @@
 
 ## 1.x series
 
+## Version 1.4.2
+
+* Fix [TNS-59](https://clojure.atlassian.net/browse/TNS-59): Files without ns declaration throw on find operation
+
 ## Version 1.4.1
 
   * Fix [TNS-55](https://clojure.atlassian.net/browse/TNS-55): Provide source file info in find functions
