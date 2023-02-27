@@ -73,6 +73,22 @@
                    (list 'ns sym))]
      (create-file full-path (into [ns-decl] contents)))))
 
+(defn create-headless-source
+  "Creates a file at the correct path under base-dir for a file that
+  declares in-ns for namespace named sym, with file extension (keyword)
+  and will also require the dependencies (symbols). Optional contents
+  written after the ns declaration as by write-contents."
+  ([base-dir sym extension]
+   (create-headless-source base-dir sym extension nil nil))
+  ([base-dir sym extension dependencies]
+   (create-headless-source base-dir sym extension dependencies nil))
+  ([base-dir sym extension dependencies contents]
+   (let [full-path (into [base-dir] (source-path sym extension))
+         ins-decl (list 'in-ns (list 'quote sym))
+         deps-decl (when (seq dependencies)
+                     (map #(list 'require `(quote ~%)) dependencies))]
+     (create-file full-path (filter identity (concat [ins-decl] deps-decl contents))))))
+
 (defn same-files?
   "True if files-a and files-b contain the same canonical File's,
   regardless of order."

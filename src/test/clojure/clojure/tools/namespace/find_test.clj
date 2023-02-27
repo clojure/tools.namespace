@@ -33,7 +33,8 @@
         main-clj (help/create-source dir 'example.main :clj '[example.one])
         one-cljc (help/create-source dir 'example.one :cljc '[example.two])
         two-clj (help/create-source dir 'example.two :clj)
-        two-cljs (help/create-source dir 'example.two :cljs)]
+        two-cljs (help/create-source dir 'example.two :cljs)
+        headless-clj (help/create-headless-source dir 'example.headless :clj)]
     (is (every? #{(.getName ^java.io.File dir)}
          (map #(-> % second meta :dir)
               (find/find-ns-decls [dir]))))))
