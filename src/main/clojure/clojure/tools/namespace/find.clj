@@ -90,7 +90,7 @@
            (let [[_ nom & more :as decl] (file/read-file-ns-decl % (:read-opts platform))]
              (when (and decl nom (symbol? nom))
                (list* 'ns (with-meta nom
-                                     {:dir (.getName ^File dir) :file (.getName ^File %)})
+                            {:dir (.getName ^File dir) :file (.getName ^File %)})
                       more))))
          (find-sources-in-dir dir platform))))
 
