@@ -92,7 +92,7 @@
            (let [[_ nom & more :as decl] (file/read-file-ns-decl % (:read-opts platform))]
              (when (and decl nom (symbol? nom))
                (list* 'ns (with-meta nom
-                            {:dir (.getName ^java.io.File dir) :file (.getName ^java.io.File %)})
+                            {:dir (.getName ^File dir) :file (.getName ^File %)})
                       more))))
          (find-sources-in-dir dir platform))))
 
@@ -156,7 +156,7 @@
        (ignore-reader-exception
         (let [[_ nom & more] (parse/read-ns-decl rdr read-opts)]
           (list* 'ns (with-meta nom
-                       {:jar (.getName ^java.io.File jarfile) :file entry-name})
+                       {:jar (.getName ^JarFile jarfile) :file entry-name})
                  more)))))))
 
 (defn find-ns-decls-in-jarfile
