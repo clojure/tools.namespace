@@ -2,6 +2,10 @@
 
 ## 1.x series
 
+## Version 1.4.3
+
+* Fix [TNS-60](https://clojure.atlassian.net/browse/TNS-60): CCE on JarFile find
+
 ## Version 1.4.2
 
 * Fix [TNS-59](https://clojure.atlassian.net/browse/TNS-59): Files without ns declaration throw on find operation
