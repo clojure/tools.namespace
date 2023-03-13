@@ -154,10 +154,11 @@
                       (io/reader
                        (.getInputStream jarfile (.getEntry jarfile entry-name))))]
        (ignore-reader-exception
-        (let [[_ nom & more] (parse/read-ns-decl rdr read-opts)]
-          (list* 'ns (with-meta nom
-                       {:jar (.getName ^JarFile jarfile) :file entry-name})
-                 more)))))))
+        (let [[_ nom & more :as decl] (parse/read-ns-decl rdr read-opts)]
+          (when (and decl nom (symbol? nom))
+              (list* 'ns (with-meta nom
+                           {:jar (.getName ^JarFile jarfile) :file entry-name})
+                     more))))))))
 
 (defn find-ns-decls-in-jarfile
   "Searches the JAR file for source files containing (ns ...)
