@@ -566,15 +566,14 @@ Developer Information
 * [GitHub project](https://github.com/clojure/tools.namespace)
 * [How to contribute](https://clojure.org/community/contributing)
 * [Bug Tracker](https://clojure.atlassian.net/browse/TNS)
-* [Continuous Integration](https://build.clojure.org/job/tools.namespace/)
-* [Compatibility Test Matrix](https://build.clojure.org/job/tools.namespace-test-matrix/)
+* [Continuous Integration](https://github.com/clojure/tools.namespace/actions/workflows/test.yml)
 
 
 
 Copyright and License
 ----------------------------------------
 
-Copyright © 2012-2021 Rich Hickey, Stuart Sierra, and contributors
+Copyright © 2012-2023 Rich Hickey, Stuart Sierra, and contributors
 
 All rights reserved. The use and
 distribution terms for this software are covered by the
