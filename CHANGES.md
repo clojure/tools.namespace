@@ -2,6 +2,10 @@
 
 ## 1.x series
 
+## Version 1.4.4
+
+* Fix [TNS-59](https://clojure.atlassian.net/browse/TNS-59): Fix source files without namespace declaration in a jar file
+
 ## Version 1.4.3
 
 * Fix [TNS-60](https://clojure.atlassian.net/browse/TNS-60): CCE on JarFile find
