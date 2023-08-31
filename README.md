@@ -583,4 +583,4 @@ in any fashion, you are agreeing to be bound by the terms of this
 license. You must not remove this notice, or any other, from this
 software.
 
-[Eclipse Public License 1.0]: https://opensource.org/licenses/eclipse-1.0.php
+[Eclipse Public License 1.0]: https://opensource.org/license/epl-1-0/
