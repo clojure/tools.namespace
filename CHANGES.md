@@ -2,7 +2,7 @@
 
 ## 1.x series
 
-## next
+## Version 1.4.5
 
 * Fix [TNS-58](https://clojure.atlassian.net/browse/TNS-58): Split refresh logic into scan and refresh-scanned so scan can be called separately
 
