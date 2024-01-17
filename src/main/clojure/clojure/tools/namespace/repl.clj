@@ -80,33 +80,74 @@
     (when (find-ns ns-name)
       (alias alias-sym ns-name))))
 
-(defn- do-refresh [scan-opts after-sym]
-  (when after-sym
-    (assert (symbol? after-sym) ":after value must be a symbol")
-    (assert (namespace after-sym)
-            ":after value must be a namespace-qualified symbol"))
-  (let [current-ns-name (ns-name *ns*)
-        current-ns-refers (referred *ns*)
-        current-ns-aliases (aliased *ns*)]
-    (alter-var-root #'refresh-tracker dir/scan-dirs refresh-dirs scan-opts)
-    (alter-var-root #'refresh-tracker remove-disabled)
-    (print-pending-reloads refresh-tracker)
-    (alter-var-root #'refresh-tracker reload/track-reload)
-    (in-ns current-ns-name)
-    (let [result (print-and-return refresh-tracker)]
-      (if (= :ok result)
-        (if after-sym
-          (if-let [after (ns-resolve *ns* after-sym)]
-            (after)
-            (throw (Exception.
-                    (str "Cannot resolve :after symbol " after-sym))))
-          result)
-        ;; There was an error, recover as much as we can:
-        (do (when-not (or (false? (::unload (meta *ns*)))
+(defn scan
+  "Scans directories for files which have changed since the last time
+  'scan' or 'refresh' was run; updates the dependency tracker
+  with new/changed/deleted files.
+
+  Optional argument is map of options:
+
+      :platform  Either clj (default) or cljs, both defined in
+                 clojure.tools.namespace.find, controls file extensions
+                 and reader options.
+
+      :add-all?  If true, assumes all extant files are modified regardless
+                 of filesystem timestamps.
+
+  Returns map with keys:
+
+      ::track/unload   list of namespace symbols that will be unloaded
+      ::track/load     list of namespace symbols that will be loaded"
+  ([]
+   (scan nil))
+  ([options]
+   (alter-var-root #'refresh-tracker
+     #(-> %
+        (dir/scan-dirs refresh-dirs options)
+        (remove-disabled)))))
+
+(defn refresh-scanned
+  "Reloads namespaces in dependency order. Does not scan directories again,
+  expected to be used after 'scan'.
+
+  Returns :ok or an error; sets the latest exception to
+  clojure.core/*e (if *e is thread-bound).
+
+  The directories to be scanned are controlled by 'set-refresh-dirs';
+  defaults to all directories on the Java classpath.
+
+  Options are key-value pairs. Valid options are:
+
+      :after   Namespace-qualified symbol naming a zero-argument
+               function to be invoked after a successful refresh. This
+               symbol will be resolved *after* all namespaces have
+               been reloaded."
+  [& options]
+  (let [{:keys [after]} options]
+    (when after
+      (assert (symbol? after) ":after value must be a symbol")
+      (assert (namespace after)
+        ":after value must be a namespace-qualified symbol"))
+    (let [current-ns-name (ns-name *ns*)
+          current-ns-refers (referred *ns*)
+          current-ns-aliases (aliased *ns*)]
+      (print-pending-reloads refresh-tracker)
+      (alter-var-root #'refresh-tracker reload/track-reload)
+      (in-ns current-ns-name)
+      (let [result (print-and-return refresh-tracker)]
+        (if (= :ok result)
+          (if after
+            (if-let [after (ns-resolve *ns* after)]
+              (after)
+              (throw (Exception.
+                       (str "Cannot resolve :after symbol " after))))
+            result)
+          ;; There was an error, recover as much as we can:
+          (do (when-not (or (false? (::unload (meta *ns*)))
                           (false? (::load (meta *ns*))))
-              (recover-ns current-ns-refers current-ns-aliases))
+                (recover-ns current-ns-refers current-ns-aliases))
             ;; Return the Exception to the REPL:
-            result)))))
+            result))))))
 
 (defn disable-unload!
   "Adds metadata to namespace (or *ns* if unspecified) telling
@@ -142,7 +183,8 @@
                been reloaded."
   [& options]
   (let [{:keys [after]} options]
-    (do-refresh {:platform find/clj} after)))
+    (scan {:platform find/clj})
+    (apply refresh-scanned options)))
 
 (defn refresh-all
   "Scans source code directories for all Clojure source files and
@@ -159,7 +201,9 @@
                been reloaded."
   [& options]
   (let [{:keys [after]} options]
-    (do-refresh {:platform find/clj :add-all? true} after)))
+    (scan {:platform find/clj
+           :add-all? true})
+    (apply refresh-scanned options)))
 
 (defn set-refresh-dirs
   "Sets the directories which are scanned by 'refresh'. Supports the
