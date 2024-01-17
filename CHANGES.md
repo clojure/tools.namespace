@@ -2,6 +2,10 @@
 
 ## 1.x series
 
+## next
+
+* Fix [TNS-58](https://clojure.atlassian.net/browse/TNS-58): Split refresh logic into scan and refresh-scanned so scan can be called separately
+
 ## Version 1.4.4
 
 * Fix [TNS-59](https://clojure.atlassian.net/browse/TNS-59): Fix source files without namespace declaration in a jar file
