@@ -1,7 +1,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>clojure.tools.namespace - tools.namespace 1.4.5-SNAPSHOT API documentation</title>
+    <title>clojure.tools.namespace - tools.namespace 1.4.6-SNAPSHOT API documentation</title>
     <link rel="icon" href="static/favicon.png" />
     <link rel="shortcut icon" href="static/favicon.png" />
     <link rel="stylesheet" href="static/clojure.css" type="text/css" media="all" />
@@ -25,7 +25,7 @@ namespace.
       <div id="leftcolumn"><div style="text-align: center;"></div>
 <div class="menu">
   <div class="WikiCustomNav WikiElement wiki">
-    <span class="toc-header"><span id="project-name">tools.namespace</span> <span id="version">1.4.5-SNAPSHOT</span> API</span><br />
+    <span class="toc-header"><span id="project-name">tools.namespace</span> <span id="version">1.4.6-SNAPSHOT</span> API</span><br />
     <ul>
       <li><a href="index.html" class="wiki_link">Overview</a></li>
       <li><a href="api-index.html" class="wiki_link">API Index</a></li>
@@ -304,6 +304,12 @@ namespace.
       <a href="#clojure.tools.namespace.repl/refresh-all" class="toc-entry-anchor">refresh-all</a>
       
     </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.repl/refresh-scanned" class="toc-entry-anchor">refresh-scanned</a>
+      
+    </div><div class="toc-entry" style="margin-left: 1em;">
+      <a href="#clojure.tools.namespace.repl/scan" class="toc-entry-anchor">scan</a>
+      
+    </div><div class="toc-entry" style="margin-left: 1em;">
       <a href="#clojure.tools.namespace.repl/set-refresh-dirs" class="toc-entry-anchor">set-refresh-dirs</a>
       
     </div>
@@ -323,7 +329,7 @@ namespace.
 </div>
 </div>
                 <div id="content-tag"><h1 id="overview">API for <span id="clojure.tools.namespace">clojure.tools.namespace</span>
-  - <span id="header-project">tools.namespace</span> <span id="header-version">1.4.5-SNAPSHOT</span><span id="header-status-block"> (<span id="header-status">in development</span>)</span>
+  - <span id="header-project">tools.namespace</span> <span id="header-version">1.4.6-SNAPSHOT</span><span id="header-status-block"> (<span id="header-status">in development</span>)</span>
   </h1>
 <span id="author-line">by <span id="author-name">Stuart Sierra</span><br /></span>
 <br />Full namespace name: <span id="long-name">clojure.tools.namespace</span>
@@ -1548,7 +1554,7 @@ remove stale code from deleted files.</pre>
     <pre id="var-specs"></pre>
     
     
-    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/0ce6646bb59a319a864faad5d01f1bc31c79e932/src/main/clojure/clojure/tools/namespace/repl.clj#L170">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/6ef4b7f4d874fedbe3823aa52a91c45270230130/src/main/clojure/clojure/tools/namespace/repl.clj#L214">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1564,7 +1570,7 @@ Warning: Aliases to reloaded namespaces will break.</pre>
     <pre id="var-specs"></pre>
     
     
-    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/0ce6646bb59a319a864faad5d01f1bc31c79e932/src/main/clojure/clojure/tools/namespace/repl.clj#L120">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/6ef4b7f4d874fedbe3823aa52a91c45270230130/src/main/clojure/clojure/tools/namespace/repl.clj#L161">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1581,7 +1587,7 @@ Warning: Aliases to reloaded namespaces will break.</pre>
     <pre id="var-specs"></pre>
     
     
-    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/0ce6646bb59a319a864faad5d01f1bc31c79e932/src/main/clojure/clojure/tools/namespace/repl.clj#L111">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/6ef4b7f4d874fedbe3823aa52a91c45270230130/src/main/clojure/clojure/tools/namespace/repl.clj#L152">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1606,7 +1612,7 @@ Options are key-value pairs. Valid options are:
     <pre id="var-specs"></pre>
     
     
-    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/0ce6646bb59a319a864faad5d01f1bc31c79e932/src/main/clojure/clojure/tools/namespace/repl.clj#L128">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/6ef4b7f4d874fedbe3823aa52a91c45270230130/src/main/clojure/clojure/tools/namespace/repl.clj#L169">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1629,7 +1635,62 @@ Options are key-value pairs. Valid options are:
     <pre id="var-specs"></pre>
     
     
-    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/0ce6646bb59a319a864faad5d01f1bc31c79e932/src/main/clojure/clojure/tools/namespace/repl.clj#L147">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/6ef4b7f4d874fedbe3823aa52a91c45270230130/src/main/clojure/clojure/tools/namespace/repl.clj#L189">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.repl/refresh-scanned">refresh-scanned</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (refresh-scanned &amp; options)
+</pre>
+    <pre id="var-docstr">Reloads namespaces in dependency order. Does not scan directories again,
+expected to be used after 'scan'.
+
+Returns :ok or an error; sets the latest exception to
+clojure.core/*e (if *e is thread-bound).
+
+The directories to be scanned are controlled by 'set-refresh-dirs';
+defaults to all directories on the Java classpath.
+
+Options are key-value pairs. Valid options are:
+
+    :after   Namespace-qualified symbol naming a zero-argument
+             function to be invoked after a successful refresh. This
+             symbol will be resolved *after* all namespaces have
+             been reloaded.</pre>
+    <pre id="var-specs"></pre>
+    
+    
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/6ef4b7f4d874fedbe3823aa52a91c45270230130/src/main/clojure/clojure/tools/namespace/repl.clj#L109">Source</a>
+  </div><div id="var-entry">
+    <br />
+    <hr />
+    <h2 id="clojure.tools.namespace.repl/scan">scan</h2>
+    <span id="var-type">function</span><br />
+    <pre id="var-usage">Usage: (scan)
+       (scan options)
+</pre>
+    <pre id="var-docstr">Scans directories for files which have changed since the last time
+'scan' or 'refresh' was run; updates the dependency tracker
+with new/changed/deleted files.
+
+Optional argument is map of options:
+
+    :platform  Either clj (default) or cljs, both defined in
+               clojure.tools.namespace.find, controls file extensions
+               and reader options.
+
+    :add-all?  If true, assumes all extant files are modified regardless
+               of filesystem timestamps.
+
+Returns map with keys:
+
+    ::track/unload   list of namespace symbols that will be unloaded
+    ::track/load     list of namespace symbols that will be loaded</pre>
+    <pre id="var-specs"></pre>
+    
+    
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/6ef4b7f4d874fedbe3823aa52a91c45270230130/src/main/clojure/clojure/tools/namespace/repl.clj#L83">Source</a>
   </div><div id="var-entry">
     <br />
     <hr />
@@ -1642,7 +1703,7 @@ same types as clojure.java.io/file.</pre>
     <pre id="var-specs"></pre>
     
     
-    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/0ce6646bb59a319a864faad5d01f1bc31c79e932/src/main/clojure/clojure/tools/namespace/repl.clj#L164">Source</a>
+    <a id="var-source" href="https://github.com/clojure/tools.namespace/blob/6ef4b7f4d874fedbe3823aa52a91c45270230130/src/main/clojure/clojure/tools/namespace/repl.clj#L208">Source</a>
   </div>
 </div>
 
