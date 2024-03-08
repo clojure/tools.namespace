@@ -31,7 +31,7 @@
 
   <properties>
     <clojure.warnOnReflection>true</clojure.warnOnReflection>
-    <clojure.version>1.9.0</clojure.version>
+    <clojure.version>1.11.2</clojure.version>
   </properties>
 
   <scm>
