@@ -3,6 +3,7 @@
   <artifactId>tools.namespace</artifactId>
   <version>1.5.1-SNAPSHOT</version>
   <name>tools.namespace</name>
+  <description>Tools for managing namespaces in Clojure.</description>
 
   <parent>
     <groupId>org.clojure</groupId>
