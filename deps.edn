@@ -1,13 +1,13 @@
 {:paths ["src/main/clojure"]
  :deps
- {org.clojure/java.classpath {:mvn/version "1.1.0"}
-  org.clojure/tools.reader {:mvn/version "1.4.0"}}
+ {org.clojure/java.classpath {:mvn/version "1.1.1"}
+  org.clojure/tools.reader {:mvn/version "1.6.0"}}
 
  :aliases
  {:test
   {:extra-paths ["src/test/clojure"]
    :extra-deps {io.github.cognitect-labs/test-runner
-                {:git/tag "v0.5.0" :git/sha "b3fd0d2"}}
+                {:git/tag "v0.5.1" :git/sha "dfb30dd"}}
    ;; :main-opts ["-m" "cognitect.test-runner" "-d" "src/test/clojure"]
    :exec-fn cognitect.test-runner.api/test
    :exec-args {:dirs ["src/test/clojure"]}}}}

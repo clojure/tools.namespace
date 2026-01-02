@@ -2,6 +2,10 @@
 
 ## 1.x series
 
+## Version 1.5.1
+
+* Update parent pom and dependency versions
+
 ## Version 1.5.0
 
 * Update parent pom and dependency versions
